@@ -1,0 +1,1 @@
+# plugins-hashbar-wp-notification-bar
