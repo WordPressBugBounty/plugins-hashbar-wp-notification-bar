@@ -3,7 +3,7 @@ Contributors: devitemsllc, htplugins, hasthemes, tarekht, zenaulislam, aslamhasi
 Tags: wordpress notification bar,notification,notification bar,offer bar,promotion bar
 Requires at least: 5.0
 Tested up to: 6.6
-Stable tag: 1.5.3
+Stable tag: 1.5.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -138,6 +138,9 @@ Needs assistance to use this plugin?
 Feel free to [Contact us](https://hasthemes.com/contact-us/)
 
 == Changelog ==
+= Version: 1.5.4 - Date: 01 Oct 2024 =
+* Fixed: Issue with "Where to show" set to "Homepage Only" not working.
+
 = Version: 1.5.3 - Date: 26 Aug 2024 =
 * Updated: 3rd party libraries for latest PHP version compatibility.
 

@@ -3,7 +3,7 @@
  * Plugin Name: HashBar - WordPress Notification Bar
  * Plugin URI:  https://theplugindemo.com/hashbar/
  * Description: Notification Bar plugin for WordPress
- * Version:     1.5.3
+ * Version:     1.5.4
  * Author:      HasThemes
  * Author URI:  https://hasthemes.com
  * Text Domain: hashbar
@@ -15,7 +15,7 @@
 define( 'HASHBAR_WPNB_ROOT', __FILE__ );
 define( 'HASHBAR_WPNB_URI', plugins_url('',HASHBAR_WPNB_ROOT) );
 define( 'HASHBAR_WPNB_DIR', dirname(HASHBAR_WPNB_ROOT ) );
-define( 'HASHBAR_WPNB_VERSION', '1.5.3');
+define( 'HASHBAR_WPNB_VERSION', '1.5.4');
 
 $wordpress_version = (int)get_bloginfo( 'version' );
 $hashbar_gutenberg_enable = $wordpress_version < 5 ? false : true;
@@ -373,6 +373,8 @@ function hashbar_wpnb_load_notification_to_footer(){
 			if($page_url_param == $url_param){
 				hashbar_wpnb_output($post_id);
 			}
+        }elseif( $where_to_show == 'homepage' && (is_front_page() || is_home()) ){
+            hashbar_wpnb_output($post_id);
         }
     }
     wp_reset_query(); wp_reset_postdata();
