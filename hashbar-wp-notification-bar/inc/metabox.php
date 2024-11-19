@@ -76,19 +76,19 @@ if( !function_exists('hashbar_spacing_field_callback') ){
 		<div class="csf--inputs">
 			<div class="csf--input">
 				<span class="csf--label csf--icon"><?php echo esc_html__('Top', 'hashbar') ?></span>
-				<input type="text" name="_wphash_[<?php echo esc_attr($field_id) ?>][<?php echo esc_attr($args['for']) ?>_top]" value="<?php echo esc_attr($top_val); ?>" placeholder="" class="csf-input-number">
+				<input type="text" name="_wphash_[<?php echo esc_attr($field_id) ?>][<?php echo esc_attr($args['for']) ?>_top]" value="<?php echo esc_attr($top_val); ?>" placeholder="5px" class="csf-input-number">
 			</div>
 			<div class="csf--input">
 				<span class="csf--label csf--icon"><?php echo esc_html__('Right', 'hashbar') ?></span>
-				<input type="text" name="_wphash_[<?php echo esc_attr($field_id) ?>][<?php echo esc_attr($args['for']) ?>_right]" value="<?php echo esc_attr($right_val); ?>" placeholder="" class="csf-input-number">
+				<input type="text" name="_wphash_[<?php echo esc_attr($field_id) ?>][<?php echo esc_attr($args['for']) ?>_right]" value="<?php echo esc_attr($right_val); ?>" placeholder="5px" class="csf-input-number">
 			</div>
 			<div class="csf--input">
 				<span class="csf--label csf--icon"><?php echo esc_html__('Bottom', 'hashbar') ?></span>
-				<input type="text" name="_wphash_[<?php echo esc_attr($field_id) ?>][<?php echo esc_attr($args['for']) ?>_bottom]" value="<?php echo esc_attr($bottom_val); ?>" placeholder="" class="csf-input-number">
+				<input type="text" name="_wphash_[<?php echo esc_attr($field_id) ?>][<?php echo esc_attr($args['for']) ?>_bottom]" value="<?php echo esc_attr($bottom_val); ?>" placeholder="5px" class="csf-input-number">
 			</div>
 			<div class="csf--input">
 				<span class="csf--label csf--icon"><?php echo esc_html__('Left', 'hashbar') ?></span>
-				<input type="text" name="_wphash_[<?php echo esc_attr($field_id) ?>][<?php echo esc_attr($args['for']) ?>_left]" value="<?php echo esc_attr($left_val); ?>" placeholder="" class="csf-input-number">
+				<input type="text" name="_wphash_[<?php echo esc_attr($field_id) ?>][<?php echo esc_attr($args['for']) ?>_left]" value="<?php echo esc_attr($left_val); ?>" placeholder="5px" class="csf-input-number">
 			</div>
 		</div>
 		<div class="clear"></div>
@@ -386,7 +386,8 @@ if( class_exists( 'CSF' ) ) {
 		'id'         => $prefix. 'notification_width',
 		'type'       => 'text',
 		'title'      => esc_html__( 'Notification area width', 'hashbar' ),
-		'desc'       => esc_html__( 'Leave it empty for default. Example: 350px. It can be used for the Left/Right notification & promo banner.', 'hashbar' ),
+		'desc'       => esc_html__( 'Set the width for the notification area, useful for left/right notifications and promo banners. Leave empty to use the default width. Example: 350px', 'hashbar' ),
+		'placeholder' => '350px'
 	);
 
 	$section_1_fields[] = array(
@@ -540,14 +541,15 @@ if( class_exists( 'CSF' ) ) {
 	    'id'    => $prefix. 'notification_how_many_times_to_show',
 	    'type'  => 'text',
 	    'title' => esc_html__( 'How many times to show this notification', 'hashbar' ),
-	    'desc'  => esc_html__( 'Input the number, how many times will appear this notification. Number consider by each page load where the notification appears', 'hashbar' ),
+	    'desc'  => esc_html__( 'Specify how many times this notification will appear for the user. Each page load counts as one view. Example: 10', 'hashbar' ),
+		'placeholder' => '10',
 	);
 
 	$visibility_fields[] = array(
 		'id'      => $prefix. 'notification_schedule',
 		'type'    => 'select',
 		'title'   => esc_html__( 'Schedule notification expiry date/time', 'hashbar' ),
-		'desc'    => __( 'Enable this, when you want to get disabled this notification at a specific date/time. <br>After reaching the assigned date/time this notification will be disabled automatically.', 'hashbar'),
+		'desc'    => __( 'Enable this option to disable the notification on a specific date and time. After the assigned time, the notification will no longer appear.', 'hashbar'),
 		'options' => array(
 			'on'  => esc_html__( 'Enable', 'hashbar' ),
 			'off' => esc_html__( 'Disable', 'hashbar' ),
@@ -591,7 +593,7 @@ if( class_exists( 'CSF' ) ) {
 		'id'    => $prefix. 'notification_content_heading',
 		'type'  => 'subheading',
 		'style' => 'success',
-		'title' => esc_html__( 'Content Area', 'hashbar' ),
+		'title' => esc_html__( 'Notification Bar Area', 'hashbar' ),
 	);
 	$design_fields[] = array(
 	    'id'    => $prefix. 'notification_content_bg_color',
@@ -631,7 +633,8 @@ if( class_exists( 'CSF' ) ) {
 		'class'    => 'csf-field-spacing',
 	    'args' => array(
 	        'for' => 'margin',
-	        'id'  => $prefix. 'notification_content_margin'
+	        'id'  => $prefix. 'notification_content_margin',
+			'desc' => __('Enter margin values for top, right, bottom, and left. Use units like px or %. Example: 70px 5% 5px 5px.','hashbar'),
 	    )
 	);
 
@@ -643,7 +646,8 @@ if( class_exists( 'CSF' ) ) {
 		'class'    => 'csf-field-spacing',
 	    'args' 	   => array(
 	        'for' => 'padding',
-	        'id'  => $prefix. 'notification_content_padding'
+	        'id'  => $prefix. 'notification_content_padding',
+			'desc' => __('Enter padding values for top, right, bottom, and left. Use units like px or %. Example: 70px 5% 5px 5px.','hashbar'),
 	    )
 	);
 	
@@ -652,29 +656,29 @@ if( class_exists( 'CSF' ) ) {
 		'type'  => 'subheading',
 		'title' => esc_html__( 'Close Button', 'hashbar' ),
 	);
-	
-	$design_fields[] = array(
-		'id'    => $prefix. 'notification_close_button_bg_color',
-		'type'  => 'color',
-		'title' => esc_html__( 'BG color', 'hashbar' ),
-	);
 
 	$design_fields[] = array(
 		'id'    => $prefix. 'notification_close_button_color',
 		'type'  => 'color',
-		'title' => esc_html__( 'Color', 'hashbar' ),
+		'title' => esc_html__( 'Text color', 'hashbar' ),
 	);
 
 	$design_fields[] = array(
 		'id'    => $prefix. 'notification_close_button_hover_color',
 		'type'  => 'color',
-		'title' => esc_html__( 'Hover color', 'hashbar' ),
+		'title' => esc_html__( 'Text hover color', 'hashbar' ),
+	);
+	
+	$design_fields[] = array(
+		'id'    => $prefix. 'notification_close_button_bg_color',
+		'type'  => 'color',
+		'title' => esc_html__( 'Background color', 'hashbar' ),
 	);
 
 	$design_fields[] = array(
 		'id'    => $prefix. 'notification_close_button_hover_bg_color',
 		'type'  => 'color',
-		'title' => esc_html__( 'Hover BG color', 'hashbar' ),
+		'title' => esc_html__( 'Background hover color', 'hashbar' ),
 	);
 
 	$design_fields[] = array(
@@ -682,30 +686,30 @@ if( class_exists( 'CSF' ) ) {
 		'type'  => 'subheading',
 		'title' => esc_html__( 'Open button', 'hashbar' ),
 	);
-	
-
-	$design_fields[] = array(
-		'id'    => $prefix. 'notification_arrow_bg_color',
-		'type'  => 'color',
-		'title' => esc_html__( 'BG color', 'hashbar' ),
-	);
 
 	$design_fields[] = array(
 		'id'    => $prefix. 'notification_arrow_color',
 		'type'  => 'color',
-		'title' => esc_html__( 'Color', 'hashbar' ),
+		'title' => esc_html__( 'Text color', 'hashbar' ),
 	);
 
 	$design_fields[] = array(
 		'id'    => $prefix. 'notification_arrow_hover_color',
 		'type'  => 'color',
-		'title' => esc_html__( 'Hover color', 'hashbar' ),
+		'title' => esc_html__( 'Text hover color', 'hashbar' ),
+	);
+	
+
+	$design_fields[] = array(
+		'id'    => $prefix. 'notification_arrow_bg_color',
+		'type'  => 'color',
+		'title' => esc_html__( 'Background color', 'hashbar' ),
 	);
 
 	$design_fields[] = array(
 		'id'    => $prefix. 'notification_arrow_hover_bg_color',
 		'type'  => 'color',
-		'title' => esc_html__( 'Hover BG color', 'hashbar' ),
+		'title' => esc_html__( 'Background hover color', 'hashbar' ),
 	);
 
 	$design_fields[] = array(
@@ -793,7 +797,7 @@ if( class_exists( 'CSF' ) ) {
 	$countdown_fields[] = array(
 		'id'      => $prefix. 'recurring_countdown',
 		'type'    => 'checkbox',
-		'title'   => __( 'Recurring Countdown', 'hashbar'),
+		'title'   => __( 'Recurring countdown', 'hashbar'),
 		'label'   => 'Yes',
 		'default' => false,
 		'desc' 	  => __( 'When this option is enabled, the countdown timer will automatically restart </br> for the same duration as originally set once the countdown period ends.', 'hashbar'),
@@ -965,8 +969,8 @@ if( class_exists( 'CSF' ) ) {
 			      'id'          => 'countdown_box_padding',
 			      'type'        => 'dimensions',
 			      'title'       => 'Padding',
-			      'width_icon'  => 'top-bottom',
-			      'height_icon' => 'left-right',
+			      'width_icon'  => 'Top-Bottom',
+			      'height_icon' => 'Left-Right',
 			      'units'       => array( 'px' ),
 			      'default'     => array(
 			        'width'     => '',
@@ -1029,8 +1033,8 @@ if( class_exists( 'CSF' ) ) {
 			      'id'          => 'countdown_timer_box_padding',
 			      'type'        => 'dimensions',
 			      'title'       => 'Padding',
-			      'width_icon'  => 'top-bottom',
-			      'height_icon' => 'left-right',
+			      'width_icon'  => 'Top-Bottom',
+			      'height_icon' => 'Left-Right',
 			      'units'       => array( 'px' ),
 			      'default'     => array(
 			        'width'     => '',
@@ -1087,8 +1091,8 @@ if( class_exists( 'CSF' ) ) {
 			      'id'          => 'countdown_timer_label_padding',
 			      'type'        => 'dimensions',
 			      'title'       => 'Padding',
-			      'width_icon'  => 'top-bottom',
-			      'height_icon' => 'left-right',
+			      'width_icon'  => 'Top-Bottom',
+			      'height_icon' => 'Left-Right',
 			      'units'       => array( 'px' ),
 			      'default'     => array(
 			        'width'     => '',

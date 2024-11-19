@@ -1,1 +1,671 @@
-(()=>{"use strict";const e=window.React,o=JSON.parse('{"UU":"hashbar/hashbar-promo-banner","DD":"Hashbar Promo Banner","Kk":"align-full-width","L1":"hashbar-blocks","RE":["hashbar","promo","banner"],"uK":{"promoTitle":{"type":"string","default":"Add Promo Title"},"promoSummery":{"type":"string","default":"Add Promo Content"},"promobtnTxt":{"type":"string","default":"Button"},"openNewTab":{"type":"string","default":"no"},"promobtnLink":{"type":"string","default":"#"},"promobtnTxtColor":{"type":"string","default":"#1D1E22"},"promobtnBgColor":{"type":"string","default":"#fff"},"promoBgColor":{"type":"string","default":"#FB3555"},"promoTitleColor":{"type":"string","default":"#fff"},"promoContentColor":{"type":"string","default":"#fff"},"promoTitleFontSize":{"type":"string","default":"22px"},"promoContentFontSize":{"type":"string","default":"17px"},"bannerBorderRadius":{"type":"number","default":6},"promoBannerWidth":{"type":"number","default":250},"bannerBgImage":{"type":"object","default":{}},"imgOpacityValue":{"type":"number","default":0}}}'),t=window.wp.i18n,a=window.wp.blocks,n=window.wp.element,r=window.wp.components,l=window.wp.blockEditor;(0,a.registerBlockType)(o.UU,{title:(0,t.__)(o.DD,"hashbar"),icon:o.Kk,category:o.L1,keywords:o.RE,example:{attributes:{value:(0,t.__)("Hashbar Promo Banner","hashbar")}},attributes:o.uK,edit:({attributes:o,setAttributes:a,className:m,isSelected:i})=>{let s="";o.promobtnLink.search("javascript:")>=0?(s="#",a({promobtnLink:"#"})):s=o.promobtnLink;const c={width:30,height:12,display:"inline-block",marginLeft:10,verticalAlign:"middle"},p=(0,l.useBlockProps)();return p.className=p.className+" ht-promo-banner",(0,e.createElement)(n.Fragment,null,(0,e.createElement)(l.InspectorControls,null,(0,e.createElement)(r.PanelBody,{title:"Button Settings"},(0,e.createElement)("div",{className:"panel-item"},(0,e.createElement)(r.TextControl,{label:(0,t.__)("Button Text","hashbar"),placeholder:(0,t.__)("Insert Button Name","hashbar"),value:o.promobtnTxt,onChange:e=>a({promobtnTxt:e}),style:{marginBottom:20}})),(0,e.createElement)("div",{className:"panel-item"},(0,e.createElement)(r.TextControl,{label:(0,t.__)("Button Link","hashbar"),placeholder:(0,t.__)("Insert Button Link","hashbar"),value:o.promobtnLink,onChange:e=>{e.search("javascript:")>=0?a({promobtnLink:"#"}):a({promobtnLink:e})},style:{marginBottom:20}})),(0,e.createElement)("div",{className:"panel-item btn-appear-wrap",style:{marginBottom:20}},(0,e.createElement)("label",{htmlFor:"open-new-tab"},"Open Link In New Tab"),(0,e.createElement)(r.FormToggle,{id:"open-new-tab",checked:"yes"===o.openNewTab,onChange:()=>{let e=o.openNewTab;a({openNewTab:"yes"===e?"no":"yes"})}})))),(0,e.createElement)(l.InspectorControls,null,(0,e.createElement)(r.PanelBody,{title:"Banner Style",initialOpen:!1},(0,e.createElement)("div",{className:"panel-item",style:{marginBottom:"20px",marginTop:"10px"}},(0,e.createElement)("p",null,(0,e.createElement)("strong",null,(0,t.__)("Promo Title Font Size","hashbar"))),(0,e.createElement)(r.FontSizePicker,{value:o.promoTitleFontSize,fontSizes:[{name:(0,t.__)("Small","awhitepixel"),slug:"small",size:"22px"},{name:(0,t.__)("Medium","awhitepixel"),slug:"medium",size:"27px"},{name:(0,t.__)("Large","awhitepixel"),slug:"large",size:"32px"}],fallbackFontSize:o.promoTitleFontSize,onChange:e=>a({promoTitleFontSize:e})})),(0,e.createElement)("div",{className:"panel-item",style:{marginBottom:"20px"}},(0,e.createElement)("p",null,(0,e.createElement)("strong",null,(0,t.__)("Promo Content Font Size","hashbar"))),(0,e.createElement)(r.FontSizePicker,{value:o.promoContentFontSize,fontSizes:[{name:(0,t.__)("Small","awhitepixel"),slug:"small",size:"15px"},{name:(0,t.__)("Medium","awhitepixel"),slug:"medium",size:"17px"},{name:(0,t.__)("Large","awhitepixel"),slug:"large",size:"20px"}],onChange:e=>a({promoContentFontSize:e})})),(0,e.createElement)("div",{className:"panel-item",style:{marginBottom:"20px"}},(0,e.createElement)("p",{className:"option-title"},(0,e.createElement)("strong",null,(0,t.__)("Promo Background Imgage","hashbar"))),o.bannerBgImage.img_ID?(0,e.createElement)("div",{className:"image-ctr",style:{marginBottom:20}},(0,e.createElement)("img",{src:o.bannerBgImage.img_url,alt:o.bannerBgImage.img_alt,style:{height:"auto",width:250}}),i?(0,e.createElement)(r.Button,{className:"btn-remove",onClick:()=>(()=>{const e={...o.bannerBgImage};e.img_ID=null,e.img_url=null,e.img_alt=null,a({bannerBgImage:e})})()},(0,e.createElement)(r.Dashicon,{icon:"no",size:"20"})):null):(0,e.createElement)(l.MediaUploadCheck,null,(0,e.createElement)(l.MediaUpload,{allowedType:["image"],value:null!=o.bannerBgImage.img_ID?o.bannerBgImage.img_ID:"",onSelect:e=>{const t={...o.bannerBgImage};t.img_ID=e.id,t.img_url=e.url,t.img_alt=e.alt,a({bannerBgImage:t})},render:({open:o})=>(0,e.createElement)(r.Button,{className:"button button-large",onClick:o,style:{marginBottom:20}},(0,t.__)("Add Image","hashbar"))})),o.bannerBgImage.img_ID?(0,e.createElement)("div",{className:"panel-item"},(0,e.createElement)(r.RangeControl,{label:(0,t.__)("Background Image Opacity","hashbar"),value:o.imgOpacityValue,onChange:e=>a({imgOpacityValue:e}),min:0,max:1,step:.1})):null),(0,e.createElement)("div",{className:"panel-item banner-border-radius",style:{marginBottom:"10px"}},(0,e.createElement)("p",{className:"option-title"},(0,e.createElement)("strong",null,(0,t.__)("Banner Border Radius","hashbar"))),(0,e.createElement)(r.TextControl,{label:"Border Radius",type:(0,t.__)("number","hashbar"),value:o.bannerBorderRadius,onChange:e=>a({bannerBorderRadius:parseInt(e)}),className:"promo-banner-border-radius",style:{width:"50px"}}),(0,e.createElement)("span",{className:"promo-pixel-unit"},"px")),(0,e.createElement)("div",{className:"panel-item ",style:{marginBottom:"10px"}},(0,e.createElement)("p",{className:"option-title"},(0,e.createElement)("strong",null,(0,t.__)("Banner Width","hashbar"))),(0,e.createElement)(r.TextControl,{label:"Width",type:(0,t.__)("number","hashbar"),value:o.promoBannerWidth,onChange:e=>a({promoBannerWidth:parseInt(e)}),className:"promo-banner-witdth",style:{width:"60px"}}),(0,e.createElement)("span",{className:"promo-pixel-unit"},"px")))),(0,e.createElement)(l.InspectorControls,null,(0,e.createElement)(r.PanelBody,{title:"Banner Color Settings",initialOpen:!1},(0,e.createElement)("div",{className:"panel-item",style:{marginBottom:"30px",marginTop:"10px"}},(0,e.createElement)("p",null,(0,e.createElement)("strong",null,(0,t.__)("Promo Title Color","hashbar"),(0,e.createElement)("span",{style:{...c,backgroundColor:o.promoTitleColor}}))),(0,e.createElement)(l.ColorPalette,{colors:[{name:"Black",color:"#000000"},{name:"Orange",color:"#FF6900"},{name:"Vivid Red",color:"#CF2E2E"},{name:"Pink",color:"#F78DA7"},{name:"White",color:"#FFFFFF"},{name:"Blue",color:"#8ED1FC"}],value:o.promoTitleColor,onChange:e=>a({promoTitleColor:e})})),(0,e.createElement)("div",{className:"panel-item",style:{marginBottom:"30px"}},(0,e.createElement)("p",null,(0,e.createElement)("strong",null,(0,t.__)("Promo Content Color","hashbar"),(0,e.createElement)("span",{style:{...c,backgroundColor:o.promoContentColor}}))),(0,e.createElement)(l.ColorPalette,{colors:[{name:"Black",color:"#000000"},{name:"Orange",color:"#FF6900"},{name:"Vivid Red",color:"#CF2E2E"},{name:"Pink",color:"#F78DA7"},{name:"White",color:"#FFFFFF"},{name:"Blue",color:"#8ED1FC"}],value:o.promoContentColor,onChange:e=>a({promoContentColor:e})})),(0,e.createElement)("div",{className:"panel-item",style:{marginBottom:"30px"}},(0,e.createElement)("p",null,(0,e.createElement)("strong",null,(0,t.__)("Button Text Color","hashbar"),(0,e.createElement)("span",{style:{...c,backgroundColor:o.promobtnTxtColor}}))),(0,e.createElement)(l.ColorPalette,{colors:[{name:"Black",color:"#000000"},{name:"Orange",color:"#FF6900"},{name:"Vivid Red",color:"#CF2E2E"},{name:"Pink",color:"#F78DA7"},{name:"White",color:"#FFFFFF"},{name:"Blue",color:"#8ED1FC"}],value:o.promobtnTxtColor,onChange:e=>a({promobtnTxtColor:e})})),(0,e.createElement)("div",{className:"panel-item",style:{marginBottom:"30px"}},(0,e.createElement)("p",null,(0,e.createElement)("strong",null,(0,t.__)("Promo Background Color","hashbar"),(0,e.createElement)("span",{style:{...c,backgroundColor:o.promoBgColor}}))),(0,e.createElement)(l.ColorPalette,{colors:[{name:"Black",color:"#000000"},{name:"Orange",color:"#FF6900"},{name:"Vivid Red",color:"#CF2E2E"},{name:"Pink",color:"#F78DA7"},{name:"White",color:"#FFFFFF"},{name:"Blue",color:"#8ED1FC"}],value:o.promoBgColor,onChange:e=>a({promoBgColor:e})})),(0,e.createElement)("div",{className:"panel-item",style:{marginBottom:"30px"}},(0,e.createElement)("p",null,(0,e.createElement)("strong",null,(0,t.__)("Button Background Color","hashbar"),(0,e.createElement)("span",{style:{...c,backgroundColor:o.promobtnBgColor}}))),(0,e.createElement)(l.ColorPalette,{colors:[{name:"Black",color:"#000000"},{name:"Orange",color:"#FF6900"},{name:"Vivid Red",color:"#CF2E2E"},{name:"Pink",color:"#F78DA7"},{name:"White",color:"#FFFFFF"},{name:"Blue",color:"#8ED1FC"}],value:o.promobtnBgColor,onChange:e=>a({promobtnBgColor:e})})))),(0,e.createElement)("div",{...p,style:{width:o.promoBannerWidth+"px",backgroundColor:o.promoBgColor,backgroundImage:`url(${o.bannerBgImage.img_url})`,backgroundPosition:"center",backgroundRepeat:"no-repeat",backgroundSize:"cover",borderRadius:o.bannerBorderRadius+"px"}},(0,e.createElement)("div",{className:"ht-content"},(0,e.createElement)(l.RichText,{className:"promo-title",value:o.promoTitle,placeholder:(0,t.__)("Add Promo Title","hashbar"),onChange:e=>a({promoTitle:e}),style:{fontSize:`${o.promoTitleFontSize}`,color:`${o.promoTitleColor}`}}),(0,e.createElement)(l.RichText,{className:"promo-summery",value:o.promoSummery,placeholder:(0,t.__)("Add Promo Content","hashbar"),onChange:e=>a({promoSummery:e}),style:{fontSize:`${o.promoContentFontSize}`,color:`${o.promoContentColor}`}})),(0,e.createElement)("div",{className:"ht-promo-button"},(0,e.createElement)("a",{href:s,style:{backgroundColor:o.promobtnBgColor,color:o.promobtnTxtColor}},o.promobtnTxt)),o.bannerBgImage.img_ID?(0,e.createElement)("div",{className:"ht-promo-overlay",style:{opacity:o.imgOpacityValue,borderRadius:o.bannerBorderRadius+"px"}}):null))},save:({attributes:o})=>{const t=l.useBlockProps.save({className:"ht-promo-banner"});return(0,e.createElement)("div",{...t,style:{width:o.promoBannerWidth+"px",backgroundColor:o.promoBgColor,backgroundImage:`url(${o.bannerBgImage.img_url})`,backgroundPosition:"center",backgroundRepeat:"no-repeat",backgroundSize:"cover",borderRadius:o.bannerBorderRadius+"px"}},(0,e.createElement)("div",{className:"ht-content"},(0,e.createElement)(l.RichText.Content,{className:"promo-title",tagName:"h4",value:o.promoTitle,style:{fontSize:`${o.promoTitleFontSize}`,color:`${o.promoTitleColor}`}}),(0,e.createElement)(l.RichText.Content,{className:"promo-summery",tagName:"p",value:o.promoSummery,style:{fontSize:`${o.promoContentFontSize}`,color:`${o.promoContentColor}`}})),(0,e.createElement)("div",{className:"ht-promo-button"},"yes"===o.openNewTab?(0,e.createElement)("a",{href:o.promobtnLink,target:"_blank",rel:"noopener noreferrer",style:{backgroundColor:o.promobtnBgColor,color:o.promobtnTxtColor}},o.promobtnTxt):(0,e.createElement)("a",{href:o.promobtnLink,style:{backgroundColor:o.promobtnBgColor,color:o.promobtnTxtColor}},o.promobtnTxt)),o.bannerBgImage.img_ID?(0,e.createElement)("div",{className:"ht-promo-overlay",style:{opacity:o.imgOpacityValue,borderRadius:o.bannerBorderRadius+"px"}}):null)}})})();
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "react":
+/*!************************!*\
+  !*** external "React" ***!
+  \************************/
+/***/ ((module) => {
+
+module.exports = window["React"];
+
+/***/ }),
+
+/***/ "@wordpress/block-editor":
+/*!*************************************!*\
+  !*** external ["wp","blockEditor"] ***!
+  \*************************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["blockEditor"];
+
+/***/ }),
+
+/***/ "@wordpress/blocks":
+/*!********************************!*\
+  !*** external ["wp","blocks"] ***!
+  \********************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["blocks"];
+
+/***/ }),
+
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["components"];
+
+/***/ }),
+
+/***/ "@wordpress/element":
+/*!*********************************!*\
+  !*** external ["wp","element"] ***!
+  \*********************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["element"];
+
+/***/ }),
+
+/***/ "@wordpress/i18n":
+/*!******************************!*\
+  !*** external ["wp","i18n"] ***!
+  \******************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["i18n"];
+
+/***/ }),
+
+/***/ "./src/blocks/hashbar-promobanner/block.json":
+/*!***************************************************!*\
+  !*** ./src/blocks/hashbar-promobanner/block.json ***!
+  \***************************************************/
+/***/ ((module) => {
+
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"hashbar/hashbar-promo-banner","title":"Hashbar Promo Banner","icon":"align-full-width","category":"hashbar-blocks","keywords":["hashbar","promo","banner"],"textdomain":"hashbar","editorScript":"file:./index.js","attributes":{"promoTitle":{"type":"string","default":"Add Promo Title"},"promoSummery":{"type":"string","default":"Add Promo Content"},"promobtnTxt":{"type":"string","default":"Button"},"openNewTab":{"type":"string","default":"no"},"promobtnLink":{"type":"string","default":"#"},"promobtnTxtColor":{"type":"string","default":"#1D1E22"},"promobtnBgColor":{"type":"string","default":"#fff"},"promoBgColor":{"type":"string","default":"#FB3555"},"promoTitleColor":{"type":"string","default":"#fff"},"promoContentColor":{"type":"string","default":"#fff"},"promoTitleFontSize":{"type":"string","default":"22px"},"promoContentFontSize":{"type":"string","default":"17px"},"bannerBorderRadius":{"type":"number","default":6},"promoBannerWidth":{"type":"number","default":250},"bannerBgImage":{"type":"object","default":{}},"imgOpacityValue":{"type":"number","default":0}}}');
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
+/*!*************************************************!*\
+  !*** ./src/blocks/hashbar-promobanner/index.js ***!
+  \*************************************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./block.json */ "./src/blocks/hashbar-promobanner/block.json");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_6__);
+
+
+
+
+
+
+
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_1__.name, {
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)(_block_json__WEBPACK_IMPORTED_MODULE_1__.title, "hashbar"),
+  icon: _block_json__WEBPACK_IMPORTED_MODULE_1__.icon,
+  category: _block_json__WEBPACK_IMPORTED_MODULE_1__.category,
+  keywords: _block_json__WEBPACK_IMPORTED_MODULE_1__.keywords,
+  example: {
+    attributes: {
+      value: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Hashbar Promo Banner', 'hashbar')
+    }
+  },
+  attributes: _block_json__WEBPACK_IMPORTED_MODULE_1__.attributes,
+  edit: ({
+    attributes,
+    setAttributes,
+    className,
+    isSelected
+  }) => {
+    const handleLinkChange = link => {
+      if (link.search('javascript:') >= 0) {
+        setAttributes({
+          promobtnLink: '#'
+        });
+      } else {
+        setAttributes({
+          promobtnLink: link
+        });
+      }
+    };
+    let promoButtonLinkFiltered = '';
+    if (attributes.promobtnLink.search('javascript:') >= 0) {
+      promoButtonLinkFiltered = '#';
+      setAttributes({
+        promobtnLink: '#'
+      });
+    } else {
+      promoButtonLinkFiltered = attributes.promobtnLink;
+    }
+    const setNewTab = () => {
+      let newTabState = attributes.openNewTab;
+      let setValue = newTabState === 'yes' ? 'no' : 'yes';
+      setAttributes({
+        openNewTab: setValue
+      });
+    };
+    const selectImage = img => {
+      const bannerBgImage = {
+        ...attributes.bannerBgImage
+      };
+      bannerBgImage.img_ID = img.id;
+      bannerBgImage.img_url = img.url;
+      bannerBgImage.img_alt = img.alt;
+      setAttributes({
+        bannerBgImage
+      });
+    };
+    const removeImg = () => {
+      const bannerBgImage = {
+        ...attributes.bannerBgImage
+      };
+      bannerBgImage.img_ID = null;
+      bannerBgImage.img_url = null;
+      bannerBgImage.img_alt = null;
+      setAttributes({
+        bannerBgImage
+      });
+    };
+    const styles = {
+      selectedColorDisplay: {
+        width: 30,
+        height: 12,
+        display: "inline-block",
+        marginLeft: 10,
+        verticalAlign: "middle"
+      }
+    };
+    const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_6__.useBlockProps)();
+    blockProps.className = blockProps.className + ' ht-promo-banner';
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_6__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.PanelBody, {
+      title: "Button Settings",
+      className: "hashbar-block-panel"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "panel-item"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.TextControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Button Text", "hashbar"),
+      placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Insert Button Name", "hashbar"),
+      value: attributes.promobtnTxt,
+      onChange: btntxt => setAttributes({
+        promobtnTxt: btntxt
+      }),
+      style: {
+        marginBottom: 20
+      }
+    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "panel-item"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.TextControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Button Link", "hashbar"),
+      placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Insert Button Link", "hashbar"),
+      value: attributes.promobtnLink,
+      onChange: handleLinkChange,
+      style: {
+        marginBottom: 20
+      }
+    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "panel-item btn-appear-wrap",
+      style: {
+        marginBottom: 20
+      }
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+      htmlFor: "open-new-tab"
+    }, "Open Link In New Tab"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.FormToggle, {
+      id: "open-new-tab",
+      checked: attributes.openNewTab === 'yes',
+      onChange: setNewTab
+    })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_6__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.PanelBody, {
+      title: "Banner Style",
+      initialOpen: false,
+      className: "hashbar-block-panel"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "panel-item",
+      style: {
+        marginBottom: "20px",
+        marginTop: "10px"
+      }
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Title Font Size", "hashbar"))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.FontSizePicker, {
+      value: attributes.promoTitleFontSize,
+      fontSizes: [{
+        name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Small', 'awhitepixel'),
+        slug: 'small',
+        size: '22px'
+      }, {
+        name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Medium', 'awhitepixel'),
+        slug: 'medium',
+        size: '27px'
+      }, {
+        name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Large', 'awhitepixel'),
+        slug: 'large',
+        size: '32px'
+      }],
+      fallbackFontSize: attributes.promoTitleFontSize,
+      onChange: val => setAttributes({
+        promoTitleFontSize: val
+      })
+    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "panel-item",
+      style: {
+        marginBottom: "20px"
+      }
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Content Font Size", "hashbar"))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.FontSizePicker, {
+      value: attributes.promoContentFontSize,
+      fontSizes: [{
+        name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Small', 'awhitepixel'),
+        slug: 'small',
+        size: '15px'
+      }, {
+        name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Medium', 'awhitepixel'),
+        slug: 'medium',
+        size: '17px'
+      }, {
+        name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Large', 'awhitepixel'),
+        slug: 'large',
+        size: '20px'
+      }],
+      onChange: val => setAttributes({
+        promoContentFontSize: val
+      })
+    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "panel-item",
+      style: {
+        marginBottom: "20px"
+      }
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+      className: "option-title"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Background Image", "hashbar"))), attributes.bannerBgImage.img_ID ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "image-ctr",
+      style: {
+        marginBottom: 20
+      }
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      src: attributes.bannerBgImage.img_url,
+      alt: attributes.bannerBgImage.img_alt,
+      style: {
+        height: 'auto',
+        width: 250
+      }
+    }), isSelected ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Button, {
+      className: "btn-remove",
+      onClick: () => removeImg()
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Dashicon, {
+      icon: "no",
+      size: "20"
+    })) : null) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_6__.MediaUploadCheck, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_6__.MediaUpload, {
+      allowedType: ['image'],
+      value: undefined != attributes.bannerBgImage.img_ID ? attributes.bannerBgImage.img_ID : "",
+      onSelect: selectImage,
+      render: ({
+        open
+      }) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Button, {
+        className: "button button-large",
+        onClick: open
+      }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Add Image', 'hashbar'))
+    })), attributes.bannerBgImage.img_ID ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "panel-item"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.RangeControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Background Image Opacity', 'hashbar'),
+      value: attributes.imgOpacityValue,
+      onChange: val => setAttributes({
+        imgOpacityValue: val
+      }),
+      min: 0,
+      max: 1,
+      step: 0.1
+    })) : null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "panel-item banner-border-radius",
+      style: {
+        marginBottom: "10px"
+      }
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+      className: "option-title"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Border Radius (px)", "hashbar"))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.RangeControl, {
+      value: attributes.bannerBorderRadius,
+      onChange: val => setAttributes({
+        bannerBorderRadius: parseInt(val)
+      })
+    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "panel-item ",
+      style: {
+        marginBottom: "10px"
+      }
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+      className: "option-title"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Width (px)", "hashbar"))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.RangeControl, {
+      value: attributes.promoBannerWidth,
+      onChange: val => setAttributes({
+        promoBannerWidth: parseInt(val)
+      }),
+      max: 500
+    })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_6__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.PanelBody, {
+      title: "Banner Color Settings",
+      initialOpen: false,
+      className: "hashbar-block-panel"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "panel-item panel-color-control",
+      style: {
+        marginBottom: "30px",
+        marginTop: "10px"
+      }
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Title Color", "hashbar"))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_6__.ColorPalette, {
+      colors: [{
+        name: 'Black',
+        color: '#000000'
+      }, {
+        name: 'Orange',
+        color: '#FF6900'
+      }, {
+        name: 'Vivid Red',
+        color: '#CF2E2E'
+      }, {
+        name: 'Pink',
+        color: '#F78DA7'
+      }, {
+        name: 'White',
+        color: '#FFFFFF'
+      }, {
+        name: 'Blue',
+        color: '#8ED1FC'
+      }],
+      value: attributes.promoTitleColor,
+      onChange: textcolor => setAttributes({
+        promoTitleColor: textcolor
+      })
+    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "panel-item panel-color-control",
+      style: {
+        marginBottom: "30px"
+      }
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Content Color", "hashbar"))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_6__.ColorPalette, {
+      colors: [{
+        name: 'Black',
+        color: '#000000'
+      }, {
+        name: 'Orange',
+        color: '#FF6900'
+      }, {
+        name: 'Vivid Red',
+        color: '#CF2E2E'
+      }, {
+        name: 'Pink',
+        color: '#F78DA7'
+      }, {
+        name: 'White',
+        color: '#FFFFFF'
+      }, {
+        name: 'Blue',
+        color: '#8ED1FC'
+      }],
+      value: attributes.promoContentColor,
+      onChange: textcolor => setAttributes({
+        promoContentColor: textcolor
+      })
+    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "panel-item panel-color-control",
+      style: {
+        marginBottom: "30px"
+      }
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Background Color", "hashbar"))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_6__.ColorPalette, {
+      colors: [{
+        name: 'Black',
+        color: '#000000'
+      }, {
+        name: 'Orange',
+        color: '#FF6900'
+      }, {
+        name: 'Vivid Red',
+        color: '#CF2E2E'
+      }, {
+        name: 'Pink',
+        color: '#F78DA7'
+      }, {
+        name: 'White',
+        color: '#FFFFFF'
+      }, {
+        name: 'Blue',
+        color: '#8ED1FC'
+      }],
+      value: attributes.promoBgColor,
+      onChange: bgcolor => setAttributes({
+        promoBgColor: bgcolor
+      })
+    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "panel-item panel-color-control",
+      style: {
+        marginBottom: "30px"
+      }
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Button Text Color", "hashbar"))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_6__.ColorPalette, {
+      colors: [{
+        name: 'Black',
+        color: '#000000'
+      }, {
+        name: 'Orange',
+        color: '#FF6900'
+      }, {
+        name: 'Vivid Red',
+        color: '#CF2E2E'
+      }, {
+        name: 'Pink',
+        color: '#F78DA7'
+      }, {
+        name: 'White',
+        color: '#FFFFFF'
+      }, {
+        name: 'Blue',
+        color: '#8ED1FC'
+      }],
+      value: attributes.promobtnTxtColor,
+      onChange: textcolor => setAttributes({
+        promobtnTxtColor: textcolor
+      })
+    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "panel-item panel-color-control",
+      style: {
+        marginBottom: "30px"
+      }
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Button Background Color", "hashbar"))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_6__.ColorPalette, {
+      colors: [{
+        name: 'Black',
+        color: '#000000'
+      }, {
+        name: 'Orange',
+        color: '#FF6900'
+      }, {
+        name: 'Vivid Red',
+        color: '#CF2E2E'
+      }, {
+        name: 'Pink',
+        color: '#F78DA7'
+      }, {
+        name: 'White',
+        color: '#FFFFFF'
+      }, {
+        name: 'Blue',
+        color: '#8ED1FC'
+      }],
+      value: attributes.promobtnBgColor,
+      onChange: textcolor => setAttributes({
+        promobtnBgColor: textcolor
+      })
+    })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      ...blockProps,
+      style: {
+        width: attributes.promoBannerWidth + "px",
+        backgroundColor: attributes.promoBgColor,
+        backgroundImage: `url(${attributes.bannerBgImage.img_url})`,
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        borderRadius: attributes.bannerBorderRadius + "px"
+      }
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "ht-content"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_6__.RichText, {
+      className: "promo-title",
+      value: attributes.promoTitle,
+      placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Add Promo Title', "hashbar"),
+      onChange: promotitle => setAttributes({
+        promoTitle: promotitle
+      }),
+      style: {
+        fontSize: `${attributes.promoTitleFontSize}`,
+        color: `${attributes.promoTitleColor}`
+      }
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_6__.RichText, {
+      className: "promo-summery",
+      value: attributes.promoSummery,
+      placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Add Promo Content', "hashbar"),
+      onChange: promosummery => setAttributes({
+        promoSummery: promosummery
+      }),
+      style: {
+        fontSize: `${attributes.promoContentFontSize}`,
+        color: `${attributes.promoContentColor}`
+      }
+    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "ht-promo-button"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: promoButtonLinkFiltered,
+      style: {
+        backgroundColor: attributes.promobtnBgColor,
+        color: attributes.promobtnTxtColor
+      }
+    }, attributes.promobtnTxt)), attributes.bannerBgImage.img_ID ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "ht-promo-overlay",
+      style: {
+        opacity: attributes.imgOpacityValue,
+        borderRadius: attributes.bannerBorderRadius + "px"
+      }
+    }) : null));
+  },
+  save: ({
+    attributes
+  }) => {
+    const blockPropsSave = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_6__.useBlockProps.save({
+      className: 'ht-promo-banner'
+    });
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      ...blockPropsSave,
+      style: {
+        width: attributes.promoBannerWidth + "px",
+        backgroundColor: attributes.promoBgColor,
+        backgroundImage: `url(${attributes.bannerBgImage.img_url})`,
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        borderRadius: attributes.bannerBorderRadius + "px"
+      }
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "ht-content"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_6__.RichText.Content, {
+      className: "promo-title",
+      tagName: "h4",
+      value: attributes.promoTitle,
+      style: {
+        fontSize: `${attributes.promoTitleFontSize}`,
+        color: `${attributes.promoTitleColor}`
+      }
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_6__.RichText.Content, {
+      className: "promo-summery",
+      tagName: "p",
+      value: attributes.promoSummery,
+      style: {
+        fontSize: `${attributes.promoContentFontSize}`,
+        color: `${attributes.promoContentColor}`
+      }
+    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "ht-promo-button"
+    }, attributes.openNewTab === 'yes' ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: attributes.promobtnLink,
+      target: "_blank",
+      rel: "noopener noreferrer",
+      style: {
+        backgroundColor: attributes.promobtnBgColor,
+        color: attributes.promobtnTxtColor
+      }
+    }, attributes.promobtnTxt) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: attributes.promobtnLink,
+      style: {
+        backgroundColor: attributes.promobtnBgColor,
+        color: attributes.promobtnTxtColor
+      }
+    }, attributes.promobtnTxt)), attributes.bannerBgImage.img_ID ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "ht-promo-overlay",
+      style: {
+        opacity: attributes.imgOpacityValue,
+        borderRadius: attributes.bannerBorderRadius + "px"
+      }
+    }) : null);
+  }
+});
+})();
+
+/******/ })()
+;
+//# sourceMappingURL=index.js.map

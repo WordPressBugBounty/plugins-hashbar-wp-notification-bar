@@ -39,6 +39,10 @@
       "type": "string",
       "default": "no"
     },
+    "hashbarBtnNewTab": {
+      "type": "string",
+      "default": "no"
+    },
     "hashbarContent": {
       "type": "string"
     },

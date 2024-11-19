@@ -192,16 +192,19 @@ function hashbar_cookies_expire_time_render(  ) {
 function hashbar_wpnb_options_page(  ) { 
 
 	?>
-	<form id="hashbar" action='options.php' method='post'>
+	<div class="wrap">
+		<?php do_action('hashbar_admin_notices') ?>
+		<form id="hashbar" action='options.php' method='post'>
 
-		<h2><?php echo esc_html__( 'HashBar Global Options', 'hashbar' ) ?></h2>
+			<h2><?php echo esc_html__( 'HashBar Global Options', 'hashbar' ) ?></h2>
 
-		<?php
-		settings_fields( 'options_group_1' );
-		do_settings_sections( 'options_group_1' );
-		submit_button();
-		?>
-	</form>
+			<?php
+			settings_fields( 'options_group_1' );
+			do_settings_sections( 'options_group_1' );
+			submit_button();
+			?>
+		</form>
+	</div>
 	<?php
 
 }

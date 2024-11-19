@@ -3,7 +3,7 @@
  * Plugin Name: HashBar - WordPress Notification Bar
  * Plugin URI:  https://theplugindemo.com/hashbar/
  * Description: Notification Bar plugin for WordPress
- * Version:     1.5.4
+ * Version:     1.5.5
  * Author:      HasThemes
  * Author URI:  https://hasthemes.com
  * Text Domain: hashbar
@@ -15,7 +15,7 @@
 define( 'HASHBAR_WPNB_ROOT', __FILE__ );
 define( 'HASHBAR_WPNB_URI', plugins_url('',HASHBAR_WPNB_ROOT) );
 define( 'HASHBAR_WPNB_DIR', dirname(HASHBAR_WPNB_ROOT ) );
-define( 'HASHBAR_WPNB_VERSION', '1.5.4');
+define( 'HASHBAR_WPNB_VERSION', '1.5.5');
 
 $wordpress_version = (int)get_bloginfo( 'version' );
 $hashbar_gutenberg_enable = $wordpress_version < 5 ? false : true;
@@ -34,12 +34,93 @@ if(is_admin()){
 
 add_action('init', function() {
     if(is_admin()){
-        include_once( HASHBAR_WPNB_DIR. '/admin/class-rating-notice.php');
         include_once( HASHBAR_WPNB_DIR. '/admin/Hashbar_Trial.php');
+        include_once( HASHBAR_WPNB_DIR. '/admin/class-notice-manager.php');
+        include_once( HASHBAR_WPNB_DIR. '/admin/class-notices.php');
     }
 });
 
+function hashbar_remove_admin_notice(){
+    $current_screen = get_current_screen();
+    $hide_screen = ['edit-wphash_ntf_bar', 'wphash_ntf_bar', 'wphash_ntf_bar_page_hashbar_options_page', 'wphash_ntf_bar_page_recommendations', 'update'];
+    if( in_array( $current_screen->id, $hide_screen) ){
+        remove_all_actions('admin_notices');
+        remove_all_actions('all_admin_notices');
+    }
+}
+add_action('in_admin_header', 'hashbar_remove_admin_notice', 1000);
 
+function hashbar_show_rating_notice() {
+        $message = '<div class="hashbar-review-notice-wrap">
+        <div class="hashbar-rating-notice-logo">
+            <img src="' . esc_url(HASHBAR_WPNB_URI . "/assets/images/logo.png") . '" alt="HashBar" style="max-width:110px"/>
+        </div>
+        <div class="hashbar-review-notice-content">
+            <h3>'.esc_html__('Thank you for choosing HashBar to show notifications to your audience!','hashbar').'</h3>
+            <p>'.esc_html__('Would you mind doing us a huge favor by providing your feedback on WordPress? Your support helps us spread the word and greatly boosts our motivation.','hashbar').'</p>
+            <div class="hashbar-review-notice-action">
+                <a href="https://wordpress.org/support/plugin/hashbar-wp-notification-bar/reviews/?filter=5#new-post" class="hashbar-review-notice button-primary" target="_blank">'.esc_html__('Ok, you deserve it!','hashbar').'</a>
+                <a href="#" class="hashbar-notice-close hashbar-review-notice"><span class="dashicons dashicons-calendar"></span>'.esc_html__('Maybe Later','hashbar').'</a>
+                <a href="#" data-already-did="yes" class="hashbar-notice-close hashbar-review-notice"><span class="dashicons dashicons-smiley"></span>'.esc_html__('I already did','hashbar').'</a>
+            </div>
+        </div>
+    </div>';
+    if (! empty( $message ) ) {
+        Hashbar_Notice::set_notice(
+            [
+                'id'          => 'ratting',
+                'type'        => 'info',
+                'dismissible' => true,
+                'message_type' => 'html',
+                'message'     => $message,
+                'display_after'  => ( 14 * DAY_IN_SECONDS ),
+                'expire_time' => ( 7 * DAY_IN_SECONDS ),
+                'close_by'    => 'transient'
+            ]
+        );
+    }
+}
+add_action('admin_init', 'hashbar_show_rating_notice');
+
+function hashbar_show_diagnostic_notice() {
+    $notice_instance = Hashbar_Diagnostic_Data::get_instance();
+    ob_start();
+    $notice_instance->show_notices();
+    $message = ob_get_clean();
+    if (! empty( $message ) ) {
+        Hashbar_Notice::set_notice(
+            [
+                'id'          => 'diagnostic',
+                'type'        => 'info',
+                'dismissible' => true,
+                'message_type' => 'html',
+                'message'     => $message,
+                'display_after'  => ( 7 * DAY_IN_SECONDS ),
+                'expire_time' => ( 0 * DAY_IN_SECONDS ),
+                'close_by'    => 'transient'
+            ]
+        );
+    }
+}
+add_action('admin_init', 'hashbar_show_diagnostic_notice');
+
+function hashbar_show_promo_notice() {
+    $noticeManager = Hashbar_Notice_Manager::instance();
+    $notices = $noticeManager->get_notices_info();
+    if(!empty($notices)) {
+        $notices = array_map(function($notice) {
+            $notice["display_after"] = false;
+            $notice["expire_time"] = WEEK_IN_SECONDS;
+            return $notice;
+        }, $notices);
+        foreach ($notices as $notice) {
+            if(empty($notice['disable'])) {
+                Hashbar_Notice::set_notice($notice);
+            }
+        }
+    }
+}
+add_action('admin_init', 'hashbar_show_promo_notice');
 
 include_once( HASHBAR_WPNB_DIR. '/inc/functions.php');
 include_once( HASHBAR_WPNB_DIR. '/inc/database-installer.php');
@@ -70,8 +151,9 @@ if(!is_plugin_active( 'hashbar-pro/init.php' )){
 }
 
 // deactivate the pro version 
-register_activation_hook( HASHBAR_WPNB_ROOT, 'hashbar_deactivate_pro_version' );
-function hashbar_deactivate_pro_version(){
+// added a sample hashbar notification as draft
+register_activation_hook( HASHBAR_WPNB_ROOT, 'hashbar_register_activation_hook' );
+function hashbar_register_activation_hook(){
     if ( ! get_option( 'hashbar_installed' ) ) {
         update_option( 'hashbar_installed', time() );
     }
@@ -102,6 +184,56 @@ function hashbar_deactivate_pro_version(){
             }
         }
         wp_reset_query(); wp_reset_postdata();
+    }
+
+    if(!get_option('hashbar_sample_bar_added')) {
+        
+        // Check if the post already exists to prevent duplicates
+        $existing_post = get_posts([
+            'post_type'   => 'wphash_ntf_bar',
+            'post_status' => 'draft',
+            'numberposts' => 1,
+        ]);
+        if (!empty($existing_post)) {
+            return; // If the post exists, do nothing
+        }
+
+        $block_content = '<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+        <div class="wp-block-group"><!-- wp:paragraph {"style":{"typography":{"fontSize":"28px"},"layout":{"selfStretch":"fill","flexSize":null}}} -->
+        <p style="font-size:28px">New Year, New Savings: Mega Bundle Upgrade Offer! Only <strong>$159</strong></p>
+        <!-- /wp:paragraph -->
+
+        <!-- wp:buttons -->
+        <div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"palette-color-8","textColor":"palette-color-2","style":{"border":{"radius":"100px"},"elements":{"link":{"color":{"text":"var:preset|color|palette-color-2"}}}}} -->
+        <div class="wp-block-button"><a class="wp-block-button__link has-palette-color-2-color has-palette-color-8-background-color has-text-color has-background has-link-color wp-element-button" style="border-radius:100px">Upgrade</a></div>
+        <!-- /wp:button --></div>
+        <!-- /wp:buttons --></div>
+        <!-- /wp:group -->';
+
+        // Prepare the post data
+        $default_post = [
+            'post_title'   => 'Sample Hashbar',
+            'post_content' => $block_content, // Insert Gutenberg blocks here
+            'post_status'  => 'draft',
+            'post_type'    => 'wphash_ntf_bar', // Replace with your post type slug
+        ];
+
+        // Insert the post and get the ID
+        $post_id = wp_insert_post($default_post);
+
+        if (!is_wp_error($post_id)) {
+            // Mark it as the default post with meta
+            update_post_meta($post_id, '_wphash_notification_content_bg_image', [
+                'url' => esc_url(HASHBAR_WPNB_URI . '/assets/images/top-bar-bg.png'),
+            ]);
+            update_post_meta($post_id, '_wphash_notification_content_padding', [
+                'padding_top' => '10px',
+                'padding_right' => '0px',
+                'padding_bottom' => '10px',
+                'padding_left' => '0px',
+            ]);
+            update_option('hashbar_sample_bar_added', true);
+        }
     }
 }
 
@@ -380,10 +512,15 @@ function hashbar_wpnb_load_notification_to_footer(){
     wp_reset_query(); wp_reset_postdata();
 }
 
-//notification bar output hashbar_wpnb_output
+/**
+ * Generate notification bar output
+ * @param int $post_id ID of the post
+ * @param boolean $admin Whether to show notification on admin page
+ * @return void
+ */
 function hashbar_wpnb_output($post_id){
     // Don't load notification bar in admin
-    if( is_admin() || is_customize_preview() ){
+    if( (is_admin() || is_customize_preview()) ){
         return;
     }
 

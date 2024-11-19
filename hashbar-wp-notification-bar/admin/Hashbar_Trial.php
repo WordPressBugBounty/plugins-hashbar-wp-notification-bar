@@ -345,7 +345,7 @@ if ( ! class_exists( 'Hashbar_Trial' ) ) {
             }
 
             if ( $bar ) {
-                add_action( 'admin_notices', [ $this, 'show_offer_bar' ], 999999 );
+                add_action( 'hashbar_admin_notices', [ $this, 'show_offer_bar' ], 999999 );
             }
 
             if ( $popup ) {
@@ -431,7 +431,8 @@ if ( ! class_exists( 'Hashbar_Trial' ) ) {
         
             /* Custom CSS */
             #wpbody .htiop-bar-notice{
-                margin-bottom: 0 !important;
+                width: 100%;
+                margin: 0 0 15px !important;
             }
         </style>
             <?php

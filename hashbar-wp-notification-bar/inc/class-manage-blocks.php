@@ -139,7 +139,7 @@ class Manage_Blocks {
 	 */
 	public function block_editor_assets() {
 		wp_enqueue_style( 'hashbar-block-editor-style', HASHBAR_WPNB_URI . '/assets/css/block-editor-style.css', false, HASHBAR_WPNB_VERSION, 'all' );
-		wp_enqueue_style( 'hashbar-pro-frontend', HASHBAR_WPNB_URI.'/assets/css/frontend.css', '', time());
+		wp_enqueue_style( 'hashbar-frontend', HASHBAR_WPNB_URI.'/assets/css/frontend.css', '', time());
 		wp_enqueue_script( 'jquery-countdown', HASHBAR_WPNB_URI.'/assets/js/jquery.countdown.min.js', array('jquery'),HASHBAR_WPNB_VERSION, true);
 
 		wp_localize_script(
