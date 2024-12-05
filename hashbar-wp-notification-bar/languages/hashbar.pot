@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: HashBar - WordPress Notification Bar\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-30 03:53+0000\n"
+"POT-Creation-Date: 2024-12-05 08:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -31,12 +31,12 @@ msgid ""
 "the page."
 msgstr ""
 
-#: inc/recomendation/Class_Recommended_Plugins.php:243
+#: inc/recomendation/Class_Recommended_Plugins.php:244
 msgid "Activate"
 msgstr ""
 
 #: inc/recomendation/Class_Recommended_Plugins.php:126
-#: inc/recomendation/Class_Recommended_Plugins.php:254
+#: inc/recomendation/Class_Recommended_Plugins.php:255
 msgid "Activated"
 msgstr ""
 
@@ -64,7 +64,7 @@ msgstr ""
 msgid "All Products"
 msgstr ""
 
-#: inc/metabox.php:409
+#: inc/metabox.php:410
 msgid ""
 "An arrow icon will be displayed instead of showing the notification. "
 "Clicking on the arrow button, the notification will be displayed."
@@ -74,12 +74,16 @@ msgstr ""
 msgid "Analytics"
 msgstr ""
 
-#: admin/plugin-options.php:223
+#: admin/plugin-options.php:226
 msgid "Analytics Overview"
 msgstr ""
 
 #: inc/metabox.php:130
 msgid "Any Post/Page/Custom Post IDS"
+msgstr ""
+
+#: admin/class-notices.php:81
+msgid "Are you cheating?"
 msgstr ""
 
 #: inc/recomendation/hashbar-recomendation.php:149
@@ -94,7 +98,7 @@ msgstr ""
 #. %3$s: strong end tag
 #. %4$s: a tag start
 #. %5$s: a tag end
-#: admin/class-diagnostic-data.php:480
+#: admin/class-diagnostic-data.php:568
 #, php-format
 msgid ""
 "At %2$s%1$s%3$s, we prioritize continuous improvement and compatibility. To "
@@ -108,12 +112,16 @@ msgid ""
 "guaranteed. %4$sPrivacy Policy%5$s"
 msgstr ""
 
-#: inc/metabox.php:929 inc/metabox.php:985 inc/metabox.php:1049
+#: inc/metabox.php:933 inc/metabox.php:989 inc/metabox.php:1053
 msgid "Background"
 msgstr ""
 
-#: inc/metabox.php:659 inc/metabox.php:690
-msgid "BG color"
+#: inc/metabox.php:675 inc/metabox.php:706
+msgid "Background color"
+msgstr ""
+
+#: inc/metabox.php:681 inc/metabox.php:712
+msgid "Background hover color"
 msgstr ""
 
 #: build/blocks/hashbar-promobanner/block.json:1
@@ -198,7 +206,7 @@ msgctxt "block title"
 msgid "Hashbar Promo Banner Image"
 msgstr ""
 
-#: inc/metabox.php:943 inc/metabox.php:1019 inc/metabox.php:1083
+#: inc/metabox.php:947 inc/metabox.php:1023 inc/metabox.php:1087
 msgid "Border radius"
 msgstr ""
 
@@ -214,13 +222,13 @@ msgstr ""
 msgid "Bottom Right"
 msgstr ""
 
-#: init.php:821 inc/recomendation/Class_Recommended_Plugins.php:122
-#: inc/recomendation/Class_Recommended_Plugins.php:231
-#: inc/recomendation/Class_Recommended_Plugins.php:285
+#: init.php:961 inc/recomendation/Class_Recommended_Plugins.php:122
+#: inc/recomendation/Class_Recommended_Plugins.php:232
+#: inc/recomendation/Class_Recommended_Plugins.php:286
 msgid "Buy Now"
 msgstr ""
 
-#: inc/recomendation/Class_Recommended_Plugins.php:271
+#: inc/recomendation/Class_Recommended_Plugins.php:272
 msgid "By "
 msgstr ""
 
@@ -230,7 +238,7 @@ msgid ""
 "categorie(archive) page above."
 msgstr ""
 
-#: inc/metabox.php:714
+#: inc/metabox.php:718
 msgid "Call to Action Button"
 msgstr ""
 
@@ -251,20 +259,16 @@ msgid ""
 "Choose the area of your site, where the notification should be displayed."
 msgstr ""
 
-#: admin/plugin-options.php:260
+#: admin/plugin-options.php:263
 msgid "Click Through Rate"
 msgstr ""
 
-#: inc/metabox.php:653
+#: inc/metabox.php:657
 msgid "Close Button"
 msgstr ""
 
-#: inc/metabox.php:458
+#: inc/metabox.php:459
 msgid "Close button text"
-msgstr ""
-
-#: inc/metabox.php:665 inc/metabox.php:696
-msgid "Color"
 msgstr ""
 
 #: inc/recomendation/hashbar-recomendation.php:185
@@ -279,47 +283,43 @@ msgid ""
 "addition to its basic features."
 msgstr ""
 
-#: inc/metabox.php:594
-msgid "Content Area"
-msgstr ""
-
-#: inc/metabox.php:599
+#: inc/metabox.php:601
 msgid "Content background color"
 msgstr ""
 
-#: inc/metabox.php:605
+#: inc/metabox.php:607
 msgid "Content background image"
 msgstr ""
 
-#: inc/metabox.php:616
+#: inc/metabox.php:618
 msgid "Content border"
 msgstr ""
 
-#: inc/metabox.php:630
+#: inc/metabox.php:632
 msgid "Content margin"
 msgstr ""
 
-#: inc/metabox.php:622
+#: inc/metabox.php:624
 msgid "Content opacity"
 msgstr ""
 
-#: inc/metabox.php:642
+#: inc/metabox.php:645
 msgid "Content padding"
 msgstr ""
 
-#: inc/metabox.php:611
+#: inc/metabox.php:613
 msgid "Content text color"
 msgstr ""
 
-#: inc/metabox.php:395
+#: inc/metabox.php:396
 msgid "Content width"
 msgstr ""
 
-#: inc/metabox.php:435
+#: inc/metabox.php:436
 msgid "Control visibility of the close icon/button notification."
 msgstr ""
 
-#: inc/metabox.php:448
+#: inc/metabox.php:449
 msgid "Control visibility of the open arrow icon/button."
 msgstr ""
 
@@ -327,7 +327,7 @@ msgstr ""
 msgid "Cookies expire time."
 msgstr ""
 
-#: admin/class-diagnostic-data.php:487
+#: admin/class-diagnostic-data.php:575
 msgid "Count Me In"
 msgstr ""
 
@@ -335,7 +335,11 @@ msgstr ""
 msgid "Count Only 1 From Each IP"
 msgstr ""
 
-#: inc/metabox.php:785
+#: inc/metabox.php:1111
+msgid "Countdown"
+msgstr ""
+
+#: inc/metabox.php:789
 msgid "Countdown date"
 msgstr ""
 
@@ -343,7 +347,7 @@ msgstr ""
 msgid "Coupon Zen"
 msgstr ""
 
-#: admin/plugin-options.php:291
+#: admin/plugin-options.php:294
 msgid "CTR"
 msgstr ""
 
@@ -351,7 +355,7 @@ msgstr ""
 msgid "Custom"
 msgstr ""
 
-#: inc/metabox.php:849
+#: inc/metabox.php:853
 msgid "Custom labels"
 msgstr ""
 
@@ -363,19 +367,19 @@ msgstr ""
 msgid "DataCaptia"
 msgstr ""
 
-#: inc/metabox.php:858 inc/shortcode.php:106
+#: inc/metabox.php:862 inc/shortcode.php:106
 msgid "Days"
 msgstr ""
 
-#: inc/metabox.php:343 inc/metabox.php:397
+#: inc/metabox.php:343 inc/metabox.php:398
 msgid "Default"
 msgstr ""
 
-#: inc/metabox.php:762
+#: inc/metabox.php:766
 msgid "Design"
 msgstr ""
 
-#: inc/metabox.php:516 inc/metabox.php:553
+#: inc/metabox.php:517 inc/metabox.php:555
 msgid "Disable"
 msgstr ""
 
@@ -383,7 +387,11 @@ msgstr ""
 msgid "Disable for Archives"
 msgstr ""
 
-#: inc/metabox.php:423
+#: admin/class-notices.php:279
+msgid "Dismiss this notice."
+msgstr ""
+
+#: inc/metabox.php:424
 msgid ""
 "Display the notification after a specified delay in seconds. Leave it empty "
 "or use 0 to disable this option. The default is 0 seconds."
@@ -416,7 +424,7 @@ msgid ""
 "and popular by keeping the visitors on your website for a longer period."
 msgstr ""
 
-#: inc/metabox.php:515 inc/metabox.php:552
+#: inc/metabox.php:516 inc/metabox.php:554
 msgid "Enable"
 msgstr ""
 
@@ -428,29 +436,40 @@ msgstr ""
 msgid "Enable Analytics to get the analytical report about your notifications."
 msgstr ""
 
-#: inc/metabox.php:773
+#: inc/metabox.php:777
 msgid "Enable countdown"
 msgstr ""
 
-#: inc/metabox.php:550
+#: inc/metabox.php:552
 msgid ""
-"Enable this, when you want to get disabled this notification at a specific "
-"date/time. <br>After reaching the assigned date/time this notification will "
-"be disabled automatically."
+"Enable this option to disable the notification on a specific date and time. "
+"After the assigned time, the notification will no longer appear."
 msgstr ""
 
 #: admin/plugin-options.php:150
 msgid "Enable to count the views and clicks only once from each IP-address."
 msgstr ""
 
-#: inc/metabox.php:755
+#: inc/metabox.php:759
 msgid ""
 "Enter margin value for top, right, bottom, left of Promo Banner. Use unit px "
 "/ %. Example: 70px 5% 5px 5px.<br>Default Values: Top:50px, Right:50px, "
 "Bottom:50px, Left:50px"
 msgstr ""
 
-#: inc/metabox.php:525 inc/metabox.php:534
+#: inc/metabox.php:637
+msgid ""
+"Enter margin values for top, right, bottom, and left. Use units like px or %."
+" Example: 70px 5% 5px 5px."
+msgstr ""
+
+#: inc/metabox.php:650
+msgid ""
+"Enter padding values for top, right, bottom, and left. Use units like px or "
+"%. Example: 70px 5% 5px 5px."
+msgstr ""
+
+#: inc/metabox.php:526 inc/metabox.php:535
 msgid ""
 "Enter the scroll position value. You can use either use a fixed number or a "
 "percentage value. Example: 50 or 50%"
@@ -464,7 +483,7 @@ msgstr ""
 msgid "Everyone"
 msgstr ""
 
-#: inc/metabox.php:623
+#: inc/metabox.php:625
 msgid "Example: 0.5"
 msgstr ""
 
@@ -472,7 +491,7 @@ msgstr ""
 msgid "Exclude pages for notification"
 msgstr ""
 
-#: inc/metabox.php:562
+#: inc/metabox.php:564
 msgid "Expiry date/time"
 msgstr ""
 
@@ -496,11 +515,15 @@ msgstr ""
 msgid "Filter items list"
 msgstr ""
 
-#: inc/metabox.php:398
+#: inc/metabox.php:399
 msgid "Full Width"
 msgstr ""
 
-#: init.php:267
+#: inc/metabox.php:484
+msgid "General Options"
+msgstr ""
+
+#: init.php:400
 msgid "Go Premium!"
 msgstr ""
 
@@ -536,7 +559,7 @@ msgstr ""
 msgid "Hashbar Blocks"
 msgstr ""
 
-#: admin/plugin-options.php:197
+#: admin/plugin-options.php:199
 msgid "HashBar Global Options"
 msgstr ""
 
@@ -566,7 +589,7 @@ msgstr ""
 msgid "HashBars"
 msgstr ""
 
-#: inc/recomendation/Class_Recommended_Plugins.php:228
+#: inc/recomendation/Class_Recommended_Plugins.php:229
 msgid "HasTheme"
 msgstr ""
 
@@ -578,15 +601,15 @@ msgstr ""
 msgid "Header CSS selector"
 msgstr ""
 
-#: inc/metabox.php:949
+#: inc/metabox.php:953
 msgid "Height"
 msgstr ""
 
-#: inc/metabox.php:503
+#: inc/metabox.php:504
 msgid "Hide on desktop device"
 msgstr ""
 
-#: inc/metabox.php:493
+#: inc/metabox.php:494
 msgid "Hide on mobile device"
 msgstr ""
 
@@ -598,19 +621,11 @@ msgstr ""
 msgid "Homepage Only"
 msgstr ""
 
-#: inc/metabox.php:866 inc/shortcode.php:110
+#: inc/metabox.php:870 inc/shortcode.php:110
 msgid "Hours"
 msgstr ""
 
-#: inc/metabox.php:677 inc/metabox.php:708
-msgid "Hover BG color"
-msgstr ""
-
-#: inc/metabox.php:671 inc/metabox.php:702
-msgid "Hover color"
-msgstr ""
-
-#: inc/metabox.php:542
+#: inc/metabox.php:543
 msgid "How many times to show this notification"
 msgstr ""
 
@@ -699,6 +714,10 @@ msgstr ""
 msgid "https://theplugindemo.com/hashbar/"
 msgstr ""
 
+#: init.php:65
+msgid "I already did"
+msgstr ""
+
 #: admin/plugin-options.php:122
 msgid ""
 "If check this option. The notification will not appear again on a page, "
@@ -725,12 +744,6 @@ msgid ""
 "#header/.header"
 msgstr ""
 
-#: inc/metabox.php:543
-msgid ""
-"Input the number, how many times will appear this notification. Number "
-"consider by each page load where the notification appears"
-msgstr ""
-
 #: inc/metabox.php:289
 msgid ""
 "Input URL parameter value, Example: discount_50 . So your URL should look "
@@ -752,7 +765,7 @@ msgstr ""
 msgid "Insert into item"
 msgstr ""
 
-#: inc/recomendation/Class_Recommended_Plugins.php:249
+#: inc/recomendation/Class_Recommended_Plugins.php:250
 msgid "Install Now"
 msgstr ""
 
@@ -782,13 +795,7 @@ msgstr ""
 msgid "Keep Notification Bar Closed"
 msgstr ""
 
-#: inc/metabox.php:389
-msgid ""
-"Leave it empty for default. Example: 350px. It can be used for the "
-"Left/Right notification & promo banner."
-msgstr ""
-
-#: inc/metabox.php:459 inc/metabox.php:467
+#: inc/metabox.php:460 inc/metabox.php:468
 msgid "Leave it empty for the default icon."
 msgstr ""
 
@@ -800,19 +807,23 @@ msgstr ""
 msgid "Left Wall"
 msgstr ""
 
-#: inc/metabox.php:408
+#: inc/metabox.php:409
 msgid "Load as minimized"
 msgstr ""
 
-#: inc/metabox.php:720
+#: inc/metabox.php:724
 msgid "Margin"
 msgstr ""
 
-#: inc/metabox.php:1025
+#: init.php:64
+msgid "Maybe Later"
+msgstr ""
+
+#: inc/metabox.php:1029
 msgid "Min Width"
 msgstr ""
 
-#: inc/metabox.php:874 inc/shortcode.php:114
+#: inc/metabox.php:878 inc/shortcode.php:114
 msgid "Minutes"
 msgstr ""
 
@@ -820,7 +831,7 @@ msgstr ""
 msgid "Mobile device breakpoint (px)"
 msgstr ""
 
-#: inc/recomendation/Class_Recommended_Plugins.php:293
+#: inc/recomendation/Class_Recommended_Plugins.php:294
 msgid "More Details"
 msgstr ""
 
@@ -839,7 +850,7 @@ msgid ""
 "switch to their preferred currency or their country’s currency."
 msgstr ""
 
-#: admin/plugin-options.php:282
+#: admin/plugin-options.php:285
 msgid "Name"
 msgstr ""
 
@@ -847,12 +858,12 @@ msgstr ""
 msgid "New Notification"
 msgstr ""
 
-#: inc/metabox.php:412 inc/metabox.php:438 inc/metabox.php:451
-#: inc/metabox.php:495 inc/metabox.php:505 inc/metabox.php:776
+#: inc/metabox.php:413 inc/metabox.php:439 inc/metabox.php:452
+#: inc/metabox.php:496 inc/metabox.php:506 inc/metabox.php:780
 msgid "No"
 msgstr ""
 
-#: admin/class-diagnostic-data.php:490
+#: admin/class-diagnostic-data.php:578
 msgid "No, Thanks"
 msgstr ""
 
@@ -876,7 +887,11 @@ msgstr ""
 msgid "Notification bar"
 msgstr ""
 
-#: inc/metabox.php:473
+#: inc/metabox.php:596
+msgid "Notification Bar Area"
+msgstr ""
+
+#: inc/metabox.php:474
 msgid "Notification Bar Options"
 msgstr ""
 
@@ -900,7 +915,7 @@ msgstr ""
 msgid "Notification bar will be displayed on top of the page."
 msgstr ""
 
-#: inc/metabox.php:421
+#: inc/metabox.php:422
 msgid "Notification delay"
 msgstr ""
 
@@ -912,11 +927,15 @@ msgstr ""
 msgid "Notifications list navigation"
 msgstr ""
 
-#: inc/metabox.php:683
+#: init.php:63
+msgid "Ok, you deserve it!"
+msgstr ""
+
+#: inc/metabox.php:687
 msgid "Open button"
 msgstr ""
 
-#: inc/metabox.php:466
+#: inc/metabox.php:467
 msgid "Open button text"
 msgstr ""
 
@@ -924,7 +943,7 @@ msgstr ""
 msgid "Others"
 msgstr ""
 
-#: inc/metabox.php:732
+#: inc/metabox.php:736
 msgid "Padding"
 msgstr ""
 
@@ -936,17 +955,17 @@ msgstr ""
 msgid "Parent Notification:"
 msgstr ""
 
-#: inc/metabox.php:842
+#: inc/metabox.php:846
 msgid ""
 "Pase this shortcode <code>[hashbar_countdown]</code> anywhere in the content "
 "editor above, to show the countdown."
 msgstr ""
 
-#: inc/recomendation/Class_Recommended_Plugins.php:394
+#: inc/recomendation/Class_Recommended_Plugins.php:395
 msgid "Plugin Not Found"
 msgstr ""
 
-#: inc/recomendation/Class_Recommended_Plugins.php:414
+#: inc/recomendation/Class_Recommended_Plugins.php:415
 msgid "Plugin Successfully Activated"
 msgstr ""
 
@@ -972,7 +991,7 @@ msgstr ""
 msgid "Posts"
 msgstr ""
 
-#: init.php:269
+#: init.php:402
 msgid "Premium"
 msgstr ""
 
@@ -984,11 +1003,11 @@ msgstr ""
 msgid "Preview Link Generator"
 msgstr ""
 
-#: init.php:816
+#: init.php:956
 msgid "Pro Notice"
 msgstr ""
 
-#: init.php:819
+#: init.php:959
 msgid "Pro Version is Required!"
 msgstr ""
 
@@ -1008,7 +1027,7 @@ msgstr ""
 msgid "Products Of Selected Categories"
 msgstr ""
 
-#: inc/metabox.php:10 inc/metabox.php:744
+#: inc/metabox.php:10 inc/metabox.php:748
 msgid "Promo Banner"
 msgstr ""
 
@@ -1036,7 +1055,7 @@ msgstr ""
 msgid "Promo Title, Promo content and button for a link."
 msgstr ""
 
-#: init.php:269
+#: init.php:402
 msgid "Purchase our"
 msgstr ""
 
@@ -1062,8 +1081,8 @@ msgstr ""
 msgid "Recommended"
 msgstr ""
 
-#: inc/metabox.php:796
-msgid "Recurring Countdown"
+#: inc/metabox.php:800
+msgid "Recurring countdown"
 msgstr ""
 
 #: inc/custom-posts.php:28
@@ -1082,15 +1101,15 @@ msgstr ""
 msgid "Right Wall"
 msgstr ""
 
-#: inc/metabox.php:549
+#: inc/metabox.php:551
 msgid "Schedule notification expiry date/time"
 msgstr ""
 
-#: inc/metabox.php:533
+#: inc/metabox.php:534
 msgid "Scroll position to hide"
 msgstr ""
 
-#: inc/metabox.php:524
+#: inc/metabox.php:525
 msgid "Scroll position to show"
 msgstr ""
 
@@ -1098,7 +1117,7 @@ msgstr ""
 msgid "Search Notification"
 msgstr ""
 
-#: inc/metabox.php:882 inc/shortcode.php:118
+#: inc/metabox.php:886 inc/shortcode.php:118
 msgid "Seconds"
 msgstr ""
 
@@ -1126,7 +1145,7 @@ msgstr ""
 
 #. %1$s: a tag start
 #. %2$s: a tag end
-#: admin/class-diagnostic-data.php:485
+#: admin/class-diagnostic-data.php:573
 #, php-format
 msgid ""
 "Server information (Web server, PHP version, MySQL version), WordPress "
@@ -1135,7 +1154,7 @@ msgid ""
 "collected or tracked. %1$sLearn more%2$s."
 msgstr ""
 
-#: inc/metabox.php:787
+#: inc/metabox.php:791
 msgid ""
 "Set a Date after which the countdown will get disabled. </br> The countdown "
 "date must be greater than current date/time."
@@ -1144,7 +1163,7 @@ msgstr ""
 #. %1$s: current_time with date format option
 #. %2$s: current_time with custom format
 #. %2$s: General option url
-#: inc/metabox.php:570
+#: inc/metabox.php:572
 #, php-format
 msgid ""
 "Set a Date/Time after which the notification will get disabled. </br> The "
@@ -1159,19 +1178,25 @@ msgstr ""
 msgid "Set featured image"
 msgstr ""
 
-#: init.php:111 admin/plugin-options.php:9 admin/plugin-options.php:9
+#: inc/metabox.php:389
+msgid ""
+"Set the width for the notification area, useful for left/right notifications "
+"and promo banners. Leave empty to use the default width. Example: 350px"
+msgstr ""
+
+#: init.php:244 admin/plugin-options.php:9 admin/plugin-options.php:9
 msgid "Settings"
 msgstr ""
 
-#: inc/metabox.php:434
+#: inc/metabox.php:435
 msgid "Show close button"
 msgstr ""
 
-#: inc/metabox.php:447
+#: inc/metabox.php:448
 msgid "Show open button"
 msgstr ""
 
-#: inc/metabox.php:513
+#: inc/metabox.php:514
 msgid "Show/Hide notification based on scroll position"
 msgstr ""
 
@@ -1179,23 +1204,46 @@ msgstr ""
 msgid "Sirve – Simple Directory Listing"
 msgstr ""
 
-#: inc/metabox.php:750 inc/metabox.php:961
+#: inc/metabox.php:754 inc/metabox.php:965
 msgid "Spacing"
 msgstr ""
 
-#: inc/metabox.php:915
+#: inc/metabox.php:544
+msgid ""
+"Specify how many times this notification will appear for the user. Each page "
+"load counts as one view. Example: 10"
+msgstr ""
+
+#: inc/metabox.php:919
 msgid "Style"
 msgstr ""
 
-#: inc/metabox.php:990 inc/metabox.php:1054
+#: inc/metabox.php:663 inc/metabox.php:693 inc/metabox.php:994
+#: inc/metabox.php:1058
 msgid "Text color"
+msgstr ""
+
+#: inc/metabox.php:669 inc/metabox.php:699
+msgid "Text hover color"
+msgstr ""
+
+#: init.php:60
+msgid "Thank you for choosing HashBar to show notifications to your audience!"
+msgstr ""
+
+#. %1$s: project name
+#. %2$s: strong start tag
+#. %3$s: strong end tag
+#: admin/class-diagnostic-data.php:604
+#, php-format
+msgid "Thank you very much for supporting %2$s%1$s%3$s."
 msgstr ""
 
 #: inc/metabox.php:336
 msgid "Theme's header type"
 msgstr ""
 
-#: init.php:820
+#: init.php:960
 msgid "This feature is available in the pro version."
 msgstr ""
 
@@ -1209,7 +1257,7 @@ msgstr ""
 msgid "Top"
 msgstr ""
 
-#: admin/plugin-options.php:322
+#: admin/plugin-options.php:325
 msgid "Top 10 Countries"
 msgstr ""
 
@@ -1221,15 +1269,15 @@ msgstr ""
 msgid "Top Rignt"
 msgstr ""
 
-#: admin/plugin-options.php:232 admin/plugin-options.php:288
+#: admin/plugin-options.php:235 admin/plugin-options.php:291
 msgid "Total Clicks"
 msgstr ""
 
-#: admin/plugin-options.php:246 admin/plugin-options.php:285
+#: admin/plugin-options.php:249 admin/plugin-options.php:288
 msgid "Total Views"
 msgstr ""
 
-#: admin/plugin-options.php:277
+#: admin/plugin-options.php:280
 msgid "Track the analytics for each notification bar"
 msgstr ""
 
@@ -1242,7 +1290,7 @@ msgid "Update Notification"
 msgstr ""
 
 #: admin/plugin-options.php:19 admin/plugin-options.php:20
-#: admin/plugin-options.php:318
+#: admin/plugin-options.php:321
 msgid "Upgrade to Pro"
 msgstr ""
 
@@ -1266,12 +1314,16 @@ msgstr ""
 msgid "User Tracking Options"
 msgstr ""
 
-#: init.php:269
+#: init.php:402
 msgid "version to unlock this feature!"
 msgstr ""
 
 #: inc/custom-posts.php:22
 msgid "View Notification"
+msgstr ""
+
+#: inc/metabox.php:584
+msgid "Visibility Options"
 msgstr ""
 
 #: inc/recomendation/hashbar-recomendation.php:245
@@ -1293,7 +1345,7 @@ msgstr ""
 msgid "WC Sales Notification"
 msgstr ""
 
-#: inc/metabox.php:799
+#: inc/metabox.php:803
 msgid ""
 "When this option is enabled, the countdown timer will automatically restart "
 "</br> for the same duration as originally set once the countdown period ends."
@@ -1307,7 +1359,7 @@ msgid ""
 "notification metabox options."
 msgstr ""
 
-#: init.php:758 inc/metabox.php:183
+#: init.php:898 inc/metabox.php:183
 msgid "Where to show"
 msgstr ""
 
@@ -1330,7 +1382,7 @@ msgstr ""
 msgid "Whols Pro"
 msgstr ""
 
-#: inc/metabox.php:955
+#: inc/metabox.php:959
 msgid "Width"
 msgstr ""
 
@@ -1351,6 +1403,12 @@ msgstr ""
 
 #: inc/recomendation/hashbar-recomendation.php:221
 msgid "WordPress Mega Menu Builder for Elementor"
+msgstr ""
+
+#: init.php:61
+msgid ""
+"Would you mind doing us a huge favor by providing your feedback on WordPress?"
+" Your support helps us spread the word and greatly boosts our motivation."
 msgstr ""
 
 #: inc/recomendation/hashbar-recomendation.php:91
@@ -1374,9 +1432,13 @@ msgid ""
 "17."
 msgstr ""
 
-#: inc/metabox.php:411 inc/metabox.php:437 inc/metabox.php:450
-#: inc/metabox.php:496 inc/metabox.php:506 inc/metabox.php:775
+#: inc/metabox.php:412 inc/metabox.php:438 inc/metabox.php:451
+#: inc/metabox.php:497 inc/metabox.php:507 inc/metabox.php:779
 msgid "Yes"
+msgstr ""
+
+#: admin/class-notices.php:73
+msgid "You are not authorized."
 msgstr ""
 
 #: inc/recomendation/hashbar-recomendation.php:122
@@ -1390,7 +1452,7 @@ msgid ""
 msgstr ""
 
 #. %1$s: project name
-#: admin/class-diagnostic-data.php:497
+#: admin/class-diagnostic-data.php:584
 #, php-format
 msgid "🌟 Enhance Your %1$s Experience as a Valued Contributor!"
 msgstr ""

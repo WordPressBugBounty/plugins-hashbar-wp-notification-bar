@@ -481,7 +481,7 @@ if( class_exists( 'CSF' ) ) {
 	// General Options
 	CSF::createSection( $prefix, array(
 		'id'     => 'genearl_settings',
-		'title'  => esc_html__( 'General Options', 'private-store' ),
+		'title'  => esc_html__( 'General Options', 'hashbar' ),
 		'icon'   => 'fas fa-sliders-h',
 		'fields' => $section_1_fields
 	 ));
@@ -581,7 +581,7 @@ if( class_exists( 'CSF' ) ) {
 	);
 	CSF::createSection( $prefix, array(
 		'id'     => 'genearl_settings',
-		'title'  => esc_html__( 'Visibility Options', 'private-store' ),
+		'title'  => esc_html__( 'Visibility Options', 'hashbar' ),
 		'icon'   => 'far fa-eye',
 		'fields' => $visibility_fields
 	 ));
@@ -1108,7 +1108,7 @@ if( class_exists( 'CSF' ) ) {
 
 	CSF::createSection( $prefix, array(
 		'id'     => 'countdwon_settings',
-		'title'  => esc_html__( 'Countdown', 'private-store' ),
+		'title'  => esc_html__( 'Countdown', 'hashbar' ),
 		'icon'   => 'fas fa-stopwatch',
 		'fields' => $countdown_fields
 	));

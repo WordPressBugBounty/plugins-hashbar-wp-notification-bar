@@ -3,7 +3,7 @@ Contributors: devitemsllc, htplugins, hasthemes, tarekht, zenaulislam, aslamhasi
 Tags: wordpress notification bar,notification,notification bar,offer bar,promotion bar
 Requires at least: 5.0
 Tested up to: 6.7
-Stable tag: 1.5.5
+Stable tag: 1.5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -138,6 +138,10 @@ Needs assistance to use this plugin?
 Feel free to [Contact us](https://hasthemes.com/contact-us/)
 
 == Changelog ==
+
+= Version: 1.5.6 - Date: 05 Dec 2024 =
+* Fixed: Translation issue in notification metabox.
+
 = Version: 1.5.5 - Date: 19 Nov 2024 =
 * Enhanced: UI/UX for a better user experience
 

@@ -3,7 +3,7 @@
  * Plugin Name: HashBar - WordPress Notification Bar
  * Plugin URI:  https://theplugindemo.com/hashbar/
  * Description: Notification Bar plugin for WordPress
- * Version:     1.5.5
+ * Version:     1.5.6
  * Author:      HasThemes
  * Author URI:  https://hasthemes.com
  * Text Domain: hashbar
@@ -15,7 +15,7 @@
 define( 'HASHBAR_WPNB_ROOT', __FILE__ );
 define( 'HASHBAR_WPNB_URI', plugins_url('',HASHBAR_WPNB_ROOT) );
 define( 'HASHBAR_WPNB_DIR', dirname(HASHBAR_WPNB_ROOT ) );
-define( 'HASHBAR_WPNB_VERSION', '1.5.5');
+define( 'HASHBAR_WPNB_VERSION', '1.5.6');
 
 $wordpress_version = (int)get_bloginfo( 'version' );
 $hashbar_gutenberg_enable = $wordpress_version < 5 ? false : true;
@@ -37,10 +37,11 @@ add_action('init', function() {
         include_once( HASHBAR_WPNB_DIR. '/admin/Hashbar_Trial.php');
         include_once( HASHBAR_WPNB_DIR. '/admin/class-notice-manager.php');
         include_once( HASHBAR_WPNB_DIR. '/admin/class-notices.php');
+        include_once( HASHBAR_WPNB_DIR. '/admin/class-deactivation.php');
     }
 });
 
-function hashbar_remove_admin_notice(){
+function hashbar_free_remove_admin_notice(){
     $current_screen = get_current_screen();
     $hide_screen = ['edit-wphash_ntf_bar', 'wphash_ntf_bar', 'wphash_ntf_bar_page_hashbar_options_page', 'wphash_ntf_bar_page_recommendations', 'update'];
     if( in_array( $current_screen->id, $hide_screen) ){
@@ -48,7 +49,7 @@ function hashbar_remove_admin_notice(){
         remove_all_actions('all_admin_notices');
     }
 }
-add_action('in_admin_header', 'hashbar_remove_admin_notice', 1000);
+add_action('in_admin_header', 'hashbar_free_remove_admin_notice', 1000);
 
 function hashbar_show_rating_notice() {
         $message = '<div class="hashbar-review-notice-wrap">
