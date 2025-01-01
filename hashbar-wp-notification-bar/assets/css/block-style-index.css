@@ -25,6 +25,9 @@
 .has-text-align-right{
 	justify-content: flex-end;
 }
+.has-text-align-space-between{
+	justify-content: space-between;
+}
 
  .has-text-align-center.wp-block-hashbar-pro-hashbar-blokcs .hashbar-pro-block-wraper.inline-alignment{
  	-webkit-box-pack: center;

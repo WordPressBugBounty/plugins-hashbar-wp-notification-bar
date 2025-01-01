@@ -114,7 +114,8 @@ if ( ! class_exists( 'Hashbar_Notice' ) ){
             }
             .hashbar-admin-notice.promo-banner {
                 position: relative;
-                padding: 8px;
+                padding-top: 20px;
+                padding-right: 40px;
             }
             .hashbar-admin-notice.sidebar-notice {
                 margin: 0;

@@ -791,7 +791,7 @@ if( class_exists( 'CSF' ) ) {
 			'desc' => __( 'Set a Date after which the countdown will get disabled. </br> The countdown date must be greater than current date/time.', 'hashbar'),
 			'field_name' => $prefix. 'countdown_schedule_datetime'
 		),
-		'dependency'		 => array( $prefix. 'count_down', '==', 'ntf_countdown_enable' ),
+		'dependency' => array( $prefix. 'count_down', '==', 'ntf_countdown_enable' ),
 	);
 
 	$countdown_fields[] = array(
@@ -802,7 +802,7 @@ if( class_exists( 'CSF' ) ) {
 		'default' => false,
 		'desc' 	  => __( 'When this option is enabled, the countdown timer will automatically restart </br> for the same duration as originally set once the countdown period ends.', 'hashbar'),
 		'class'   => 'hashbar_pro_notice',
-		'dependency'=> array( $prefix. 'count_down', '==', 'ntf_countdown_enable' ),
+		'dependency' => array( $prefix. 'count_down', '==', 'ntf_countdown_enable' ),
 	);
 
 	$countdown_fields[] = array(
@@ -853,7 +853,7 @@ if( class_exists( 'CSF' ) ) {
 	  'title'   => __( 'Custom labels', 'hashbar'),
 	  'label'   => 'Yes',
 	  'default' => false,
-	  'dependency'		 => array( $prefix. 'count_down', '==', 'ntf_countdown_enable' ),
+	  'dependency' => array( $prefix. 'count_down', '==', 'ntf_countdown_enable' ),
 	);
 
 	$countdown_fields[] = array(
@@ -910,14 +910,14 @@ if( class_exists( 'CSF' ) ) {
 	  'label'   => 'Yes',
 	  'default' => false,
 	  'class' 	 => 'hashbar_pro_notice',
-	  'dependency'=> array( $prefix. 'count_down', '==', 'ntf_countdown_enable' ),
+	  'dependency' => array( $prefix. 'count_down', '==', 'ntf_countdown_enable' ),
 	);
 
 	$countdown_fields[] = array(
 		'id'    => $prefix. 'countdown_heading',
 		'type'  => 'heading',
 		'title' => esc_html__( 'Style', 'hashbar' ),
-		'dependency'=> array( $prefix. 'count_down', '==', 'ntf_countdown_enable' ),
+		'dependency' => array( $prefix. 'count_down', '==', 'ntf_countdown_enable' ),
 	);
 
 	$countdown_fields[] = array(
@@ -943,25 +943,28 @@ if( class_exists( 'CSF' ) ) {
 			    ),
 			    array(
 					'id'    => 'countdown_brdr_rdus',
-					'type'  => 'number',
+					'type'  => 'slider',
 					'title' =>  esc_html__( 'Border radius', 'hashbar' ),
-					'unit'  => 'px'
+					'unit'  => 'px',
+					'max'	=> 200,
 				),
 				array(
 					'id'    => 'countdown_box_height',
-					'type'  => 'number',
+					'type'  => 'slider',
 					'title' =>  esc_html__( 'Height', 'hashbar' ),
 					'unit'  => 'px',
+					'max'	=> 200,
 				),
 				array(
 					'id'    => 'countdown_box_width',
-					'type'  => 'number',
+					'type'  => 'slider',
 					'title' =>  esc_html__( 'Width', 'hashbar' ),
 					'unit'  => 'px',
+					'max'	=> 200,
 				),
 				array(
 					'id'    => 'countdown_box_spacing',
-					'type'  => 'number',
+					'type'  => 'slider',
 					'title' =>  esc_html__( 'Spacing', 'hashbar' ),
 					'unit'  => 'px',
 				),
@@ -1019,15 +1022,17 @@ if( class_exists( 'CSF' ) ) {
 			    ),
 			    array(
 					'id'    => 'countdown_timer_border_radius',
-					'type'  => 'number',
+					'type'  => 'slider',
 					'title' => esc_html__( 'Border radius', 'hashbar' ),
-					'unit'    => 'px'
+					'unit'    => 'px',
+					'max'	=> 200,
 				),
 				array(
 					'id'    => 'countdown_timer_min_width',
-					'type'  => 'number',
+					'type'  => 'slider',
 					'title' => esc_html__( 'Min Width', 'hashbar' ),
 					'unit'  => 'px',
+					'max'	=> 200,
 				),
 				array(
 			      'id'          => 'countdown_timer_box_padding',
@@ -1083,9 +1088,10 @@ if( class_exists( 'CSF' ) ) {
 			    ),
 			    array(
 					'id'    => 'countdown_label_border_radius',
-					'type'  => 'number',
+					'type'  => 'slider',
 					'title' => esc_html__( 'Border radius', 'hashbar' ),
-					'unit'    => 'px'
+					'unit'    => 'px',
+					'max'	=> 200,
 				),
 				array(
 			      'id'          => 'countdown_timer_label_padding',
@@ -1103,7 +1109,7 @@ if( class_exists( 'CSF' ) ) {
 	          )
 	        )
 	    ),
-	    'dependency'=> array( $prefix. 'count_down', '==', 'ntf_countdown_enable' ),
+	    'dependency' => array( $prefix. 'count_down', '==', 'ntf_countdown_enable' ),
 	);
 
 	CSF::createSection( $prefix, array(

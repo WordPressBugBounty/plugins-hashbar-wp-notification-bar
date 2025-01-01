@@ -801,3 +801,8 @@ a.hthb-pro-link {
   font-weight: 600;
   font-size: 15px;
 }
+
+/* Metabox Style */
+.csf-field-slider .csf--wrap {
+  max-width: 300px;
+}

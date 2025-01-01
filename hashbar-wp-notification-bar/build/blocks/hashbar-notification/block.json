@@ -11,9 +11,60 @@
     "notification"
   ],
   "textdomain": "hashbar",
+  "example": {
+    "attributes": {
+      "hashbarContent": "New Year, New Savings: Mega Bundle Upgrade Offer! Only <strong>$159</strong>"
+    }
+  },
   "editorScript": "file:./index.js",
   "attributes": {
+    "id": {
+      "type": "string"
+    },
     "textAlignment": {
+      "type": "string"
+    },
+    "contentFont": {
+      "type": "string"
+    },
+    "contentSize": {
+      "type": "number"
+    },
+    "contentWeight": {
+      "type": "string"
+    },
+    "contentLineHeight": {
+      "type": "number"
+    },
+    "contentLetterSpacing": {
+      "type": "number"
+    },
+    "contentDecoration": {
+      "type": "string"
+    },
+    "contentTransform": {
+      "type": "string"
+    },
+    "contentColor": {
+      "type": "string"
+    },
+    "hasbarBtnFontSize": {
+      "type": "number",
+      "default": 18
+    },
+    "btnWeight": {
+      "type": "string"
+    },
+    "btnLineHeight": {
+      "type": "number"
+    },
+    "btnLetterSpacing": {
+      "type": "number"
+    },
+    "btnDecoration": {
+      "type": "string"
+    },
+    "btnTransform": {
       "type": "string"
     },
     "hasbarButton": {
@@ -22,10 +73,6 @@
         "text": "Button",
         "link": "#"
       }
-    },
-    "hasbarBtnFontSize": {
-      "type": "number",
-      "default": 18
     },
     "hashbarBtnRemove": {
       "type": "string",
@@ -44,7 +91,8 @@
       "default": "no"
     },
     "hashbarContent": {
-      "type": "string"
+      "type": "string",
+      "default": "New Year, New Savings: Mega Bundle Upgrade Offer! Only <strong>$159</strong>"
     },
     "BtnBorderRadius": {
       "type": "number",

@@ -13,10 +13,19 @@
   "textdomain": "hashbar",
   "editorScript": "file:./index.js",
   "render": "file:./render.php",
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
   "attributes": {
     "blockUniqId": {
       "type": "string",
       "default": ""
+    },
+    "preview": {
+      "type": "boolean",
+      "default": false
     },
     "countdown_style": {
       "type": "string",

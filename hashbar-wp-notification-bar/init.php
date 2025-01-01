@@ -3,7 +3,7 @@
  * Plugin Name: HashBar - WordPress Notification Bar
  * Plugin URI:  https://theplugindemo.com/hashbar/
  * Description: Notification Bar plugin for WordPress
- * Version:     1.5.6
+ * Version:     1.5.7
  * Author:      HasThemes
  * Author URI:  https://hasthemes.com
  * Text Domain: hashbar
@@ -15,7 +15,7 @@
 define( 'HASHBAR_WPNB_ROOT', __FILE__ );
 define( 'HASHBAR_WPNB_URI', plugins_url('',HASHBAR_WPNB_ROOT) );
 define( 'HASHBAR_WPNB_DIR', dirname(HASHBAR_WPNB_ROOT ) );
-define( 'HASHBAR_WPNB_VERSION', '1.5.6');
+define( 'HASHBAR_WPNB_VERSION', '1.5.7');
 
 $wordpress_version = (int)get_bloginfo( 'version' );
 $hashbar_gutenberg_enable = $wordpress_version < 5 ? false : true;
@@ -323,6 +323,13 @@ function hashbar_wpnb_textdomain() {
 }
 add_action( 'init', 'hashbar_wpnb_textdomain' );
 
+function hashbar_wpnb_enqueue_block_assets() {
+    $dev_mode = false;
+    $version  = $dev_mode ? time() : HASHBAR_WPNB_VERSION;
+    wp_enqueue_style( 'hashbar-frontend', HASHBAR_WPNB_URI.'/assets/css/frontend.css',[],$version);
+}
+add_action( 'enqueue_block_assets', 'hashbar_wpnb_enqueue_block_assets' );
+
 // enqueue scripts
 add_action( 'wp_enqueue_scripts','hashbar_wpnb_enqueue_scripts');
 function  hashbar_wpnb_enqueue_scripts(){
@@ -330,7 +337,7 @@ function  hashbar_wpnb_enqueue_scripts(){
     $version  = $dev_mode ? time() : HASHBAR_WPNB_VERSION;
 
     // enqueue styles
-    wp_enqueue_style( 'hashbar-frontend', HASHBAR_WPNB_URI.'/assets/css/frontend.css','',$version);
+    // wp_enqueue_style( 'hashbar-frontend', HASHBAR_WPNB_URI.'/assets/css/frontend.css',[],$version);
 
     //register script
     wp_register_script( 'jquery-countdown', HASHBAR_WPNB_URI.'/assets/js/jquery.countdown.min.js', array('jquery'), HASHBAR_WPNB_VERSION, true);
@@ -380,7 +387,7 @@ function  hashbar_wpnb_admin_enqueue_scripts(){
         wp_enqueue_script( 'tooltipster-bundle', HASHBAR_WPNB_URI.'/libs/tooltipster/js/tooltipster.bundle.min.js', array('jquery'), HASHBAR_WPNB_VERSION, false );
         wp_enqueue_script( 'jquery-ui-dialog');
         wp_enqueue_script( 'jquery-ui-timepicker-addon', HASHBAR_WPNB_URI. '/admin/js/jquery-ui-timepicker-addon.min.js', array('jquery', 'jquery-ui-datepicker'),HASHBAR_WPNB_VERSION );
-        wp_enqueue_script( 'hashbar-admin', HASHBAR_WPNB_URI.'/admin/js/admin.js', array('jquery', 'jquery-ui-dialog'), time(), false);
+        wp_enqueue_script( 'hashbar-admin', HASHBAR_WPNB_URI.'/admin/js/admin.js', array('jquery', 'jquery-ui-dialog', 'wp-blocks', 'wp-data'), time(), false);
 
         $hashbar_localize_data = [
             'ajaxurl'            => admin_url( 'admin-ajax.php' ),

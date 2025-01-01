@@ -319,7 +319,7 @@ if ( ! class_exists( 'CSF_Setup' ) ) {
       $directory_uri  = set_url_scheme( $directory_uri, $protocol_uri );
 
       self::$dir = $dirname;
-      self::$url = plugins_url( 'hashbar-wp-notification-bar/libs/codestar-framework/' );
+      self::$url = plugins_url( 'hashbar-wp-notification-bar/libs/codestar-framework' );
 
     }
 

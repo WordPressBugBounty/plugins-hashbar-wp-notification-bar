@@ -2,8 +2,14 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 /**
  * Add Plugin Deactivation Feedback
+ * 
+ * Edit:
+ * - $PROJECT_NAME
+ * - $PROJECT_VERSION
+ * - $PROJECT_SLUG
+ * - $PROJECT_PRO_SLUG
  */
-class HT_Plugin_Deactivation_Feedback {
+class Hashbar_Plugin_Deactivation_Feedback {
 
     public $PROJECT_NAME = 'Hashbar';
     public $PROJECT_TYPE = 'wordpress-plugin';
@@ -13,6 +19,7 @@ class HT_Plugin_Deactivation_Feedback {
     public $PROJECT_PRO_ACTIVE;
     public $PROJECT_PRO_INSTALL;
     public $PROJECT_PRO_VERSION;
+    // public $DATA_CENTER = 'https://webhook.site/2bf26ba9-09fe-44f2-a007-8f433a4c95f5'; // For testing purpose only
     public $DATA_CENTER = 'https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjAwNTY1MDYzZTA0MzM1MjY1NTUzNyI_3D_pc';
 
     private static $_instance = null;
@@ -31,7 +38,7 @@ class HT_Plugin_Deactivation_Feedback {
         $this->PROJECT_PRO_INSTALL = $this->is_pro_plugin_installed();
         $this->PROJECT_PRO_VERSION = $this->get_pro_version();
         add_action('admin_footer', [ $this, 'deactivation_feedback' ]);
-        add_action('wp_ajax_ht_plugin_deactivation_feedback', [ $this, 'handle_feedback' ]);
+        add_action('wp_ajax_hashbar_plugin_deactivation_feedback', [ $this, 'handle_feedback' ]);
     }
 
     
@@ -362,41 +369,41 @@ class HT_Plugin_Deactivation_Feedback {
     }
 
     public function deactivation_form_html() { ?>
-        <div id="ht-deactivation-dialog" style="display: none;">
-            <div class="ht-deactivation-dialog-content">
-                <button type="button" class="ht-close-dialog" aria-label="Close">&times;</button>
-                <h2 class="ht-deactivation-dialog-title">Quick Feedback</h2>
-                <p class="ht-deactivation-dialog-desc">If you have a moment, please let us know why you are deactivating: <?php echo esc_html($this->PROJECT_NAME); ?></p>
-                <form id="ht-deactivation-feedback-form">
-                    <div class="ht-feedback-options">
-                        <label>
-                            <input type="radio" checked name="reason" data-id="" value="I no longer need the plugin">
-                            I no longer need the plugin
-                        </label>
+        <div id="hashbar-deactivation-dialog" style="display: none;">
+            <div class="hashbar-deactivation-dialog-content">
+                <button type="button" class="hashbar-close-dialog" aria-label="Close">&times;</button>
+                <h2 class="hashbar-deactivation-dialog-title">Quick Feedback</h2>
+                <p class="hashbar-deactivation-dialog-desc">If you have a moment, please let us know why you are deactivating: <?php echo esc_html($this->PROJECT_NAME); ?></p>
+                <form id="hashbar-deactivation-feedback-form">
+                    <div class="hashbar-feedback-options">
                         <label>
                             <input type="radio" name="reason" data-id="found_better" value="I found a better plugin">
                             I found a better plugin
                         </label>
-                        <div id="ht-found_better-reason-text" class="ht-deactivation-reason-input" style="display: none;">
+                        <div id="hashbar-found_better-reason-text" class="hashbar-deactivation-reason-input" style="display: none;">
                             <textarea name="found_better_reason" placeholder="Please share which plugin."></textarea>
                         </div>
                         <label>
                             <input type="radio" name="reason" data-id="stopped_working" value="The plugin suddenly stopped working">
                             The plugin suddenly stopped working
                         </label>
-                        <div id="ht-stopped_working-reason-text" class="ht-deactivation-reason-input" style="display: none;">
+                        <div id="hashbar-stopped_working-reason-text" class="hashbar-deactivation-reason-input" style="display: none;">
                             <textarea name="stopped_working_reason" placeholder="Please share more details."></textarea>
                         </div>
                         <label>
                             <input type="radio" name="reason" data-id="found_bug" value="I encountered an error or bug">
                             I encountered an error or bug
                         </label>
-                        <div id="ht-found_bug-reason-text" class="ht-deactivation-reason-input" style="display: none;">
+                        <div id="hashbar-found_bug-reason-text" class="hashbar-deactivation-reason-input" style="display: none;">
                             <textarea name="found_bug_reason" placeholder="Please describe the error/bug you encountered. This will help us fix it for future users."></textarea>
                         </div>
                         <label>
                             <input type="radio" name="reason" data-id="not_working" value="I could not get the plugin to work">
                             I could not get the plugin to work
+                        </label>
+                        <label>
+                            <input type="radio" name="reason" data-id="" value="I no longer need the plugin">
+                            I no longer need the plugin
                         </label>
                         <label>
                             <input type="radio" name="reason" data-id="" value="It's a temporary deactivation">
@@ -406,13 +413,13 @@ class HT_Plugin_Deactivation_Feedback {
                             <input type="radio" name="reason" data-id="other" value="Other">
                             Other
                         </label>
-                        <div id="ht-other-reason-text" class="ht-deactivation-reason-input" style="display: none;">
+                        <div id="hashbar-other-reason-text" class="hashbar-deactivation-reason-input" style="display: none;">
                             <textarea name="other_reason" placeholder="Please share the reason."></textarea>
                         </div>
                     </div>
-                    <div class="ht-deactivation-dialog-buttons">
+                    <div class="hashbar-deactivation-dialog-buttons">
                         <button type="submit" class="button button-primary">Submit & Deactivate</button>
-                        <a href="#" class="ht-skip-feedback">Skip & Deactivate</a>
+                        <a href="#" class="hashbar-skip-feedback">Skip & Deactivate</a>
                     </div>
                 </form>
             </div>
@@ -427,38 +434,38 @@ class HT_Plugin_Deactivation_Feedback {
                 let pluginToDeactivate = '';
                 
                 function closeDialog() {
-                    $('#ht-deactivation-dialog').hide();
+                    $('#hashbar-deactivation-dialog').hide();
                     pluginToDeactivate = '';
                 }
                 
                 $('[data-slug="<?php echo esc_attr($this->PROJECT_SLUG); ?>"] .deactivate a').on('click', function(e) {
                     e.preventDefault();
                     pluginToDeactivate = $(this).attr('href');
-                    $('#ht-deactivation-dialog').show();
+                    $('#hashbar-deactivation-dialog').show();
                 });
 
-                $('.ht-close-dialog').on('click', closeDialog);
+                $('.hashbar-close-dialog').on('click', closeDialog);
 
-                $('#ht-deactivation-dialog').on('click', function(e) {
+                $('#hashbar-deactivation-dialog').on('click', function(e) {
                     if (e.target === this) {
                         closeDialog();
                     }
                 });
                 
-                $('.ht-deactivation-dialog-content').on('click', function(e) {
+                $('.hashbar-deactivation-dialog-content').on('click', function(e) {
                     e.stopPropagation();
                 });
 
                 $('input[name="reason"]').on('change', function() {
-                    $('.ht-deactivation-reason-input').removeClass('active').hide();
+                    $('.hashbar-deactivation-reason-input').removeClass('active').hide();
                     
                     const id = $(this).data('id');
                     if (['other', 'found_better', 'stopped_working', 'found_bug'].includes(id)) {
-                        $(`#ht-${id}-reason-text`).addClass('active').show();
+                        $(`#hashbar-${id}-reason-text`).addClass('active').show();
                     }
                 });
 
-                $('#ht-deactivation-feedback-form').on('submit', function(e) {
+                $('#hashbar-deactivation-feedback-form').on('submit', function(e) {
                     e.preventDefault();
                     
                     const $submitButton = $(this).find('button[type="submit"]');
@@ -467,10 +474,10 @@ class HT_Plugin_Deactivation_Feedback {
                     $submitButton.text('Submitting...').prop('disabled', true);
 
                     const reason = $('input[name="reason"]:checked').val();
-                    const message = $('.ht-deactivation-reason-input.active textarea').val() || '';
+                    const message = $('.hashbar-deactivation-reason-input.active textarea').val() || '';
                     
                     const data = {
-                        action: 'ht_plugin_deactivation_feedback',
+                        action: 'hashbar_plugin_deactivation_feedback',
                         reason: reason,
                         message: message,
                         nonce: '<?php echo esc_js($nonce); ?>'
@@ -490,7 +497,7 @@ class HT_Plugin_Deactivation_Feedback {
                         });
                 });
 
-                $('.ht-skip-feedback').on('click', function(e) {
+                $('.hashbar-skip-feedback').on('click', function(e) {
                     e.preventDefault();
                     window.location.href = pluginToDeactivate;
                 });
@@ -500,7 +507,7 @@ class HT_Plugin_Deactivation_Feedback {
     }
     public function deactivation_form_css() { ?>
         <style>
-            #ht-deactivation-dialog {
+            #hashbar-deactivation-dialog {
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -513,7 +520,7 @@ class HT_Plugin_Deactivation_Feedback {
                 justify-content: center;
             }
 
-            .ht-deactivation-dialog-content {
+            .hashbar-deactivation-dialog-content {
                 background: #fff;
                 padding: 30px;
                 max-width: 500px;
@@ -522,11 +529,11 @@ class HT_Plugin_Deactivation_Feedback {
                 box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
                 position: relative;
             }
-            .ht-deactivation-dialog-title {
+            .hashbar-deactivation-dialog-title {
                 margin-top: 0;
             }
 
-            .ht-close-dialog {
+            .hashbar-close-dialog {
                 position: absolute;
                 top: 10px;
                 right: 10px;
@@ -545,39 +552,39 @@ class HT_Plugin_Deactivation_Feedback {
                 font-weight: 700;
             }
 
-            .ht-close-dialog:hover {
+            .hashbar-close-dialog:hover {
                 background: #e0e0e0;
                 color: #333;
             }
 
-            .ht-feedback-options {
+            .hashbar-feedback-options {
                 margin: 20px 0;
             }
 
-            .ht-feedback-options label {
+            .hashbar-feedback-options label {
                 display: block;
                 margin: 10px 0;
             }
 
 
-            .ht-deactivation-reason-input {
+            .hashbar-deactivation-reason-input {
                 margin-bottom: 15px;
             }
-            .ht-deactivation-reason-input textarea {
+            .hashbar-deactivation-reason-input textarea {
                 width: 100%;
                 min-height: 60px;
                 padding: 6px 8px;
                 display: block;
             }
 
-            .ht-deactivation-dialog-buttons {
+            .hashbar-deactivation-dialog-buttons {
                 margin-top: 20px;
                 display: flex;
                 align-items: center;
                 justify-content: flex-end;
             }
 
-            .ht-skip-feedback {
+            .hashbar-skip-feedback {
                 margin-left: 10px;
                 color: #666;
                 text-decoration: none;
@@ -587,4 +594,4 @@ class HT_Plugin_Deactivation_Feedback {
 }
 
 // Initialize the class
-HT_Plugin_Deactivation_Feedback::instance();
+Hashbar_Plugin_Deactivation_Feedback::instance();
