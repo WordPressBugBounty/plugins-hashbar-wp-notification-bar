@@ -3,7 +3,7 @@
  * Plugin Name: HashBar - WordPress Notification Bar
  * Plugin URI:  https://theplugindemo.com/hashbar/
  * Description: Notification Bar plugin for WordPress
- * Version:     1.5.7
+ * Version:     1.5.8
  * Author:      HasThemes
  * Author URI:  https://hasthemes.com
  * Text Domain: hashbar
@@ -15,7 +15,7 @@
 define( 'HASHBAR_WPNB_ROOT', __FILE__ );
 define( 'HASHBAR_WPNB_URI', plugins_url('',HASHBAR_WPNB_ROOT) );
 define( 'HASHBAR_WPNB_DIR', dirname(HASHBAR_WPNB_ROOT ) );
-define( 'HASHBAR_WPNB_VERSION', '1.5.7');
+define( 'HASHBAR_WPNB_VERSION', '1.5.8');
 
 $wordpress_version = (int)get_bloginfo( 'version' );
 $hashbar_gutenberg_enable = $wordpress_version < 5 ? false : true;
@@ -557,6 +557,7 @@ function hashbar_wpnb_output($post_id){
             $positon = 'hthb-pos--bottom-promo';
         }
 
+        $notification_sticky = get_post_meta( $post_id , '_wphash_notification_sticky', true );
         $where_to_show = get_post_meta( $post_id , '_wphash_show_hide_scroll', true );
         $scroll_trigger_status = get_post_meta($post_id, '_wphash_show_hide_scroll', true);
 
@@ -834,6 +835,7 @@ function hashbar_wpnb_output($post_id){
             $notification_bar_classes_arr[] = $where_to_show == 'show_hide_scroll_enable' ? 'hthb-scroll' : '';
             $notification_bar_classes_arr[] = $count_down == 'ntf_countdown_enable' ? 'hthb-countdown' : ''; 
             $notification_bar_classes_arr[] = $count_position == 'center' ? 'hthb-countdown-center' : '';
+            $notification_bar_classes_arr[] = $positon == 'hthb-pos--top' && $notification_sticky == '0' ? 'hthb-absolute' : '';
 
             $notification_bar_classes = implode(' ', $notification_bar_classes_arr);
         ?>

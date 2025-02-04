@@ -3,7 +3,7 @@ Contributors: devitemsllc, htplugins, hasthemes, tarekht, zenaulislam, aslamhasi
 Tags: wordpress notification bar,notification,notification bar,offer bar,promotion bar
 Requires at least: 5.0
 Tested up to: 6.7
-Stable tag: 1.5.7
+Stable tag: 1.5.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -138,6 +138,9 @@ Needs assistance to use this plugin?
 Feel free to [Contact us](https://hasthemes.com/contact-us/)
 
 == Changelog ==
+
+= Version: 1.5.8 - Date: 04 Feb 2025 =
+* Added: Option to enable/disable sticky notification bar on top.
 
 = Version: 1.5.7 - Date: 01 Jan 2025 =
 * Added: Typography options for "Hashbar Notification" block.

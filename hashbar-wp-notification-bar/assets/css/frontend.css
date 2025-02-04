@@ -48,6 +48,9 @@ body {
   background-size: cover;
   background-position: center center;
 }
+.hthb-notification.hthb-absolute {
+  position: absolute;
+}
 .hthb-notification.hthb-pos--bottom {
     top: auto !important;
     bottom: 0;

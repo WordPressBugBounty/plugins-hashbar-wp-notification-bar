@@ -326,6 +326,13 @@ if( class_exists( 'CSF' ) ) {
 		'inline'  => true,
 		'default' => 'ht-n-top',
 	);
+	$section_1_fields[] = array(
+		'id'      => $prefix. 'notification_sticky',
+		'type'    => 'switcher',
+		'title'   => __('Enable sticky notification', 'hashbar'),
+		'default'    => true,
+		'dependency' => array($prefix. 'notification_position', '==', 'ht-n-top'),
+	);
 
 	$themes_header_type_title = sprintf(
 	    /*
