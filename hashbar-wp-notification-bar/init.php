@@ -3,7 +3,7 @@
  * Plugin Name: HashBar - WordPress Notification Bar
  * Plugin URI:  https://theplugindemo.com/hashbar/
  * Description: Notification Bar plugin for WordPress
- * Version:     1.5.8
+ * Version:     1.5.9
  * Author:      HasThemes
  * Author URI:  https://hasthemes.com
  * Text Domain: hashbar
@@ -15,7 +15,7 @@
 define( 'HASHBAR_WPNB_ROOT', __FILE__ );
 define( 'HASHBAR_WPNB_URI', plugins_url('',HASHBAR_WPNB_ROOT) );
 define( 'HASHBAR_WPNB_DIR', dirname(HASHBAR_WPNB_ROOT ) );
-define( 'HASHBAR_WPNB_VERSION', '1.5.8');
+define( 'HASHBAR_WPNB_VERSION', '1.5.9');
 
 $wordpress_version = (int)get_bloginfo( 'version' );
 $hashbar_gutenberg_enable = $wordpress_version < 5 ? false : true;
@@ -52,7 +52,15 @@ function hashbar_free_remove_admin_notice(){
 add_action('in_admin_header', 'hashbar_free_remove_admin_notice', 1000);
 
 function hashbar_show_rating_notice() {
-        $message = '<div class="hashbar-review-notice-wrap">
+    $nonce = wp_create_nonce( 'hashbar_notices_nonce' );
+    $notice_qyery_param = [
+        'action' => 'hashbar_notices',
+        'notice_nonce' => $nonce,
+        'noticeid' => 'hashbar-notice-id-ratting',
+        'expiretime' => WEEK_IN_SECONDS,
+        'closeby' => 'transient',
+    ];
+    $message = '<div class="hashbar-review-notice-wrap">
         <div class="hashbar-rating-notice-logo">
             <img src="' . esc_url(HASHBAR_WPNB_URI . "/assets/images/logo.png") . '" alt="HashBar" style="max-width:110px"/>
         </div>
@@ -61,8 +69,8 @@ function hashbar_show_rating_notice() {
             <p>'.esc_html__('Would you mind doing us a huge favor by providing your feedback on WordPress? Your support helps us spread the word and greatly boosts our motivation.','hashbar').'</p>
             <div class="hashbar-review-notice-action">
                 <a href="https://wordpress.org/support/plugin/hashbar-wp-notification-bar/reviews/?filter=5#new-post" class="hashbar-review-notice button-primary" target="_blank">'.esc_html__('Ok, you deserve it!','hashbar').'</a>
-                <a href="#" class="hashbar-notice-close hashbar-review-notice"><span class="dashicons dashicons-calendar"></span>'.esc_html__('Maybe Later','hashbar').'</a>
-                <a href="#" data-already-did="yes" class="hashbar-notice-close hashbar-review-notice"><span class="dashicons dashicons-smiley"></span>'.esc_html__('I already did','hashbar').'</a>
+                <a href="'. esc_url( add_query_arg(array_merge($notice_qyery_param), 'admin-ajax.php') ) .'" class="hashbar-notice-close hashbar-review-notice"><span class="dashicons dashicons-calendar"></span>'.esc_html__('Maybe Later','hashbar').'</a>
+                <a href="'. esc_url( add_query_arg(array_merge($notice_qyery_param, ['alreadydid' => 'yes']), 'admin-ajax.php') ) .'" data-already-did="yes" class="hashbar-notice-close hashbar-review-notice"><span class="dashicons dashicons-smiley"></span>'.esc_html__('I already did','hashbar').'</a>
             </div>
         </div>
     </div>';
@@ -75,7 +83,7 @@ function hashbar_show_rating_notice() {
                 'message_type' => 'html',
                 'message'     => $message,
                 'display_after'  => ( 14 * DAY_IN_SECONDS ),
-                'expire_time' => ( 7 * DAY_IN_SECONDS ),
+                'expire_time' => ( WEEK_IN_SECONDS ),
                 'close_by'    => 'transient'
             ]
         );
@@ -96,7 +104,7 @@ function hashbar_show_diagnostic_notice() {
                 'dismissible' => true,
                 'message_type' => 'html',
                 'message'     => $message,
-                'display_after'  => ( 7 * DAY_IN_SECONDS ),
+                'display_after'  => ( WEEK_IN_SECONDS ),
                 'expire_time' => ( 0 * DAY_IN_SECONDS ),
                 'close_by'    => 'transient'
             ]

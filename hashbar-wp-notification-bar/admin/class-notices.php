@@ -52,18 +52,32 @@ if ( ! class_exists( 'Hashbar_Notice' ) ){
             add_action( 'wp_ajax_hashbar_notices', [ $this, 'ajax_dismiss' ] );
         }
 
+        public function delay_other_notices_on_dismiss($id, $expire_time = WEEK_IN_SECONDS, $close_by = 'transient') {
+            $notices = $this->get_notices();
+            foreach ($notices as $key => $notice) {
+                $notice_id = 'hashbar-notice-id-'.$notice['id'];
+                if( $notice_id !== $id ) {
+                    if($close_by === 'transient') {
+                        $timeout = get_transient("timeout_$notice_id" );
+                        if( false == $timeout ) {
+                            set_transient( $notice_id, true, $key * DAY_IN_SECONDS + $expire_time);
+                        }
+                    }
+                }
+            }
+        }
+
         /**
          * Ajax Action for Notice dismiss
          *
          * @return void
          */
         public function ajax_dismiss() {
-
-            $nonce       = !empty( $_POST['notice_nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['notice_nonce'] ) ) : '';
-            $notice_id   = ( isset( $_POST['noticeid'] ) ) ? sanitize_key( $_POST['noticeid'] ) : '';
-            $alreadydid  = ( isset( $_POST['alreadydid'] ) ) ? sanitize_key( $_POST['alreadydid'] ) : '';
-            $expire_time = ( isset( $_POST['expiretime'] ) ) ? sanitize_text_field( wp_unslash( $_POST['expiretime'] ) ) : '';
-            $close_by    = ( isset( $_POST['closeby'] ) ) ? sanitize_key( $_POST['closeby'] ) : '';
+            $nonce       = !empty( $_REQUEST['notice_nonce'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['notice_nonce'] ) ) : '';
+            $notice_id   = isset($_REQUEST['noticeid']) ? sanitize_key( $_REQUEST['noticeid'] ) : '';
+            $alreadydid  = isset($_REQUEST['alreadydid']) ? sanitize_key( $_REQUEST['alreadydid'] ) : '';
+            $expire_time = isset($_REQUEST['expiretime']) ? sanitize_text_field( wp_unslash( $_REQUEST['expiretime'] ) ) : '';
+            $close_by    = isset($_REQUEST['closeby']) ? sanitize_key( $_REQUEST['closeby'] ) : '';
             $notice      = $this->get_notice_by_id( $notice_id );
             $capability  = isset( $notice['capability'] ) ? $notice['capability'] : 'manage_options';
 
@@ -94,10 +108,13 @@ if ( ! class_exists( 'Hashbar_Notice' ) ){
                         set_transient( $notice_id, true, $expire_time );
                     }
                 }
+                $this->delay_other_notices_on_dismiss($notice_id);
 
+                wp_safe_redirect( wp_get_referer() );
                 wp_send_json_success();
             }
 
+            wp_safe_redirect( wp_get_referer() );
             wp_send_json_error();
         }
 
