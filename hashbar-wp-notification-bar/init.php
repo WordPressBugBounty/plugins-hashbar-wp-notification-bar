@@ -3,7 +3,7 @@
  * Plugin Name: HashBar - WordPress Notification Bar
  * Plugin URI:  https://theplugindemo.com/hashbar/
  * Description: Notification Bar plugin for WordPress
- * Version:     1.5.9
+ * Version:     1.6.0
  * Author:      HasThemes
  * Author URI:  https://hasthemes.com
  * Text Domain: hashbar
@@ -15,7 +15,7 @@
 define( 'HASHBAR_WPNB_ROOT', __FILE__ );
 define( 'HASHBAR_WPNB_URI', plugins_url('',HASHBAR_WPNB_ROOT) );
 define( 'HASHBAR_WPNB_DIR', dirname(HASHBAR_WPNB_ROOT ) );
-define( 'HASHBAR_WPNB_VERSION', '1.5.9');
+define( 'HASHBAR_WPNB_VERSION', '1.6.0');
 
 $wordpress_version = (int)get_bloginfo( 'version' );
 $hashbar_gutenberg_enable = $wordpress_version < 5 ? false : true;
@@ -26,19 +26,19 @@ if ( ! function_exists('is_plugin_active') ){
 }
 include_once( HASHBAR_WPNB_DIR. '/inc/custom-posts.php');
 
-if(is_admin()){
-    include_once( HASHBAR_WPNB_DIR. '/inc/recomendation/Class_Recommended_Plugins.php');
-    include_once( HASHBAR_WPNB_DIR. '/inc/recomendation/hashbar-recomendation.php');
-    include_once( HASHBAR_WPNB_DIR. '/admin/class-diagnostic-data.php');
-}
-
 add_action('init', function() {
     if(is_admin()){
         include_once( HASHBAR_WPNB_DIR. '/admin/Hashbar_Trial.php');
         include_once( HASHBAR_WPNB_DIR. '/admin/class-notice-manager.php');
         include_once( HASHBAR_WPNB_DIR. '/admin/class-notices.php');
         include_once( HASHBAR_WPNB_DIR. '/admin/class-deactivation.php');
+
+        include_once( HASHBAR_WPNB_DIR. '/inc/recomendation/Class_Recommended_Plugins.php');
+        include_once( HASHBAR_WPNB_DIR. '/inc/recomendation/hashbar-recomendation.php');
+        include_once( HASHBAR_WPNB_DIR. '/admin/class-diagnostic-data.php');
     }
+
+    include_once( HASHBAR_WPNB_DIR. '/inc/metabox.php');
 });
 
 function hashbar_free_remove_admin_notice(){
@@ -153,8 +153,6 @@ if(!is_plugin_active( 'hashbar-pro/init.php' )){
     if ( ! class_exists( 'CSF' ) ) {
         require_once HASHBAR_WPNB_DIR .'/libs/codestar-framework/classes/setup.class.php';
     }
-
-    include_once( HASHBAR_WPNB_DIR. '/inc/metabox.php');
 
 	add_action( 'admin_enqueue_scripts','hashbar_wpnb_admin_enqueue_scripts');
 }

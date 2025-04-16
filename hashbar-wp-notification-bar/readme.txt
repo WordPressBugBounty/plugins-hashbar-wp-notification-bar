@@ -2,8 +2,8 @@
 Contributors: devitemsllc, htplugins, hasthemes, tarekht, zenaulislam, aslamhasib, alberuni-azad
 Tags: wordpress notification bar,notification,notification bar,offer bar,promotion bar
 Requires at least: 5.0
-Tested up to: 6.7
-Stable tag: 1.5.9
+Tested up to: 6.8
+Stable tag: 1.6.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -138,6 +138,9 @@ Needs assistance to use this plugin?
 Feel free to [Contact us](https://hasthemes.com/contact-us/)
 
 == Changelog ==
+
+= Version: 1.6.0 - Date: 16 Apr 2025 =
+* Added: Compatibility with the latest WordPress version.
 
 = Version: 1.5.9 - Date: 05 Mar 2025 =
 * Fixed: Notice dismiss issue.
