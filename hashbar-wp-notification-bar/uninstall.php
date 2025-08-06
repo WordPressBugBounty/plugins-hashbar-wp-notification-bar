@@ -1,6 +1,6 @@
 <?php
 
-use \Hashbarfree\Analytics\Database_Installer as DeleteTable;
+use \HashbarFree\DatabaseInstaller\Database_Installer as DeleteTable;
 
 /*
  * HT Google Place Review unstall plugin

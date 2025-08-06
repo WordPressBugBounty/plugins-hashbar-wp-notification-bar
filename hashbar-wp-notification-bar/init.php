@@ -3,7 +3,7 @@
  * Plugin Name: HashBar - WordPress Notification Bar
  * Plugin URI:  https://theplugindemo.com/hashbar/
  * Description: Notification Bar plugin for WordPress
- * Version:     1.6.1
+ * Version:     1.7.0
  * Author:      HasThemes
  * Author URI:  https://hasthemes.com
  * Text Domain: hashbar
@@ -15,7 +15,7 @@
 define( 'HASHBAR_WPNB_ROOT', __FILE__ );
 define( 'HASHBAR_WPNB_URI', plugins_url('',HASHBAR_WPNB_ROOT) );
 define( 'HASHBAR_WPNB_DIR', dirname(HASHBAR_WPNB_ROOT ) );
-define( 'HASHBAR_WPNB_VERSION', '1.6.1');
+define( 'HASHBAR_WPNB_VERSION', '1.7.0');
 
 $wordpress_version = (int)get_bloginfo( 'version' );
 $hashbar_gutenberg_enable = $wordpress_version < 5 ? false : true;
@@ -25,6 +25,9 @@ if ( ! function_exists('is_plugin_active') ){
     include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 }
 include_once( HASHBAR_WPNB_DIR. '/inc/custom-posts.php');
+// settings panel files
+include_once( HASHBAR_WPNB_DIR. '/admin/settings-panel/settings-panel.php');
+
 
 add_action('init', function() {
     if(is_admin()){
@@ -32,18 +35,24 @@ add_action('init', function() {
         include_once( HASHBAR_WPNB_DIR. '/admin/class-notice-manager.php');
         include_once( HASHBAR_WPNB_DIR. '/admin/class-notices.php');
         include_once( HASHBAR_WPNB_DIR. '/admin/class-deactivation.php');
-
-        include_once( HASHBAR_WPNB_DIR. '/inc/recomendation/Class_Recommended_Plugins.php');
-        include_once( HASHBAR_WPNB_DIR. '/inc/recomendation/hashbar-recomendation.php');
         include_once( HASHBAR_WPNB_DIR. '/admin/class-diagnostic-data.php');
     }
 
     include_once( HASHBAR_WPNB_DIR. '/inc/metabox.php');
+    // settings panel files
+    include_once( HASHBAR_WPNB_DIR . '/admin/settings-panel/api/admin-dashboard-api.php');
+    include_once( HASHBAR_WPNB_DIR . '/admin/settings-panel/api/changelog-api.php');
+    include_once( HASHBAR_WPNB_DIR . '/admin/settings-panel/api/recommended-plugins-api.php');
+    include_once( HASHBAR_WPNB_DIR . '/admin/settings-panel/api/admin-settings.php');
+    add_action('rest_api_init', function() {
+        $plugins_api = new \HASHBAR\Api\Plugins();
+        $plugins_api->register_routes();
+    });
 });
 
 function hashbar_free_remove_admin_notice(){
     $current_screen = get_current_screen();
-    $hide_screen = ['edit-wphash_ntf_bar', 'wphash_ntf_bar', 'wphash_ntf_bar_page_hashbar_options_page', 'wphash_ntf_bar_page_recommendations', 'update'];
+    $hide_screen = ['edit-wphash_ntf_bar', 'wphash_ntf_bar', 'wphash_ntf_bar_page_hashbar_options_page', 'wphash_ntf_bar_page_recommendations', 'update','toplevel_page_hashbar'];
     if( in_array( $current_screen->id, $hide_screen) ){
         remove_all_actions('admin_notices');
         remove_all_actions('all_admin_notices');
@@ -168,7 +177,7 @@ function hashbar_register_activation_hook(){
         deactivate_plugins('hashbar-pro/init.php');
     }
 
-    \Hashbarfree\Analytics\Database_Installer::create_tables();
+    \HashbarFree\DatabaseInstaller\Database_Installer::create_tables();
 
     $plugin_data = get_file_data( HASHBAR_WPNB_ROOT, array('Version'=>'Version'), 'plugin' );
     $vesion = $plugin_data['Version'];
@@ -240,6 +249,7 @@ function hashbar_register_activation_hook(){
                 'padding_left' => '0px',
             ]);
             update_option('hashbar_sample_bar_added', true);
+            update_post_meta($post_id, '_wphash_notification_where_to_show', 'none');
         }
     }
 }
@@ -265,7 +275,7 @@ function hashbar_wpnb_tablecreate(){
 
     if($analytics_table_exist === false){
         if(version_compare($vesion,'1.2.3','>')){
-            \Hashbarfree\Analytics\Database_Installer::create_tables();
+            \HashbarFree\DatabaseInstaller\Database_Installer::create_tables();
         }
     }
 }

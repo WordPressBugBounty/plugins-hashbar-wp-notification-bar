@@ -3,7 +3,7 @@
  * Installer class
  */
 
-namespace Hashbarfree\Analytics;
+namespace HashbarFree\DatabaseInstaller;
 
 class Database_Installer {
 
@@ -50,7 +50,6 @@ class Database_Installer {
     */
     public static function drop_tables() {
         global $wpdb;
-        $table = $wpdb->prefix .'hthb_analytics';
-        $wpdb->query( $wpdb->prepare("DROP TABLE IF EXISTS %s", $table) );  // phpcs:ignore
+        $wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}hthb_analytics" );  // phpcs:ignore
     }
 }

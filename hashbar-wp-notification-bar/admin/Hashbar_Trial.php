@@ -64,8 +64,8 @@ if ( ! class_exists( 'Hashbar_Trial' ) ) {
             $this->prefix = 'hashbar';
             $this->pro_file = 'hashbar-pro/init.php';
             $this->data_center = 'https://feed.hasthemes.com/hashbar/tw/';
-            $this->initial_page = admin_url( 'edit.php?post_type=wphash_ntf_bar' );
-            $this->screen_ids =  array('edit-wphash_ntf_bar', 'wphash_ntf_bar_page_hashbar_options_page');
+            $this->initial_page = admin_url( 'admin.php?page=hashbar#/' );
+            $this->screen_ids =  array('edit-wphash_ntf_bar', 'wphash_ntf_bar_page_hashbar_options_page','toplevel_page_hashbar');
 
             add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
             add_action( 'admin_init', [ $this, 'run_offer' ], 999999 );
@@ -430,10 +430,6 @@ if ( ! class_exists( 'Hashbar_Trial' ) ) {
             <style>body.htiop-popup-open{overflow:hidden!important}#TB_window.htiop-popup-window #TB_title,#htiop-popup-inner{display:none!important;width:0!important;height:0!important;opacity:0!important;visibility:hidden!important;overflow:hidden!important}#TB_overlay.htiop-popup-overlay{-webkit-transition:.5s ease-out!important;-moz-transition:.5s ease-out!important;transition:.5s ease-out!important;opacity:0!important}#TB_overlay.htiop-popup-overlay{background:#0b0b0b!important;opacity:.9!important}#TB_window.htiop-popup-window,#TB_window.htiop-popup-window #TB_ajaxContent{background-color:transparent!important;padding:0!important;margin:0!important}#TB_window.htiop-popup-window #TB_ajaxContent{-webkit-transition:opacity .5s!important;-moz-transition:opacity .5s!important;transition:opacity .5s!important;opacity:0!important}#TB_window.htiop-popup-window{width:100%!important;height:100%!important;top:0!important;left:0!important;overflow:hidden auto!important;-webkit-box-shadow:none!important;-moz-box-shadow:none!important;box-shadow:none!important;max-height: none;max-width: none;transform: translate(0);}#TB_window.htiop-popup-window #TB_ajaxContent{border:none!important;border-radius:0!important;width:auto!important;height:auto!important;text-align:unset!important;line-height:unset!important;overflow:hidden!important;opacity:1!important}#TB_window.htiop-popup-window #TB_ajaxContent,#TB_window.htiop-popup-window #TB_ajaxContent *,#TB_window.htiop-popup-window #TB_ajaxContent ::after,#TB_window.htiop-popup-window #TB_ajaxContent ::before{-webkit-box-sizing:border-box!important;-moz-box-sizing:border-box!important;box-sizing:border-box!important}#TB_window.htiop-popup-window #TB_ajaxContent p{padding:unset!important}#TB_window.htiop-popup-window #TB_ajaxContent .htiop-popup-base{position:relative!important}#TB_window.htiop-popup-window #TB_ajaxContent .htiop-popup-close{position:absolute!important;width:44px!important;height:44px!important;top:0!important;right:0!important;cursor:pointer!important;text-align:center!important}#TB_window.htiop-popup-window #TB_ajaxContent .htiop-popup-close .dashicons{display:inline-block!important;width:44px!important;height:44px!important;font-size:24px!important;line-height:44px!important;color:#333!important;opacity:.65!important}#TB_window.htiop-popup-window #TB_ajaxContent .htiop-popup-close:hover .dashicons{opacity:1!important}#TB_window.htiop-popup-window #TB_ajaxContent .htiop-popup-wrap{display:flex!important;flex-wrap:wrap!important;align-items:center!important;justify-content:center!important;min-height:100vh!important;padding:15px!important;margin:0!important}
         
             /* Custom CSS */
-            #wpbody .htiop-bar-notice{
-                width: 100%;
-                margin: 0 0 15px !important;
-            }
         </style>
             <?php
         }

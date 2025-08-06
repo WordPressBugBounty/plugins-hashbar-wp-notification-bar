@@ -40,7 +40,7 @@ function hashbar_wpnb_custom_posts() {
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
-		'show_in_menu'          => true,
+		'show_in_menu'          => false,
 		'menu_position'         => 5,
 		'menu_icon'             => 'dashicons-format-status',
 		'show_in_rest'       	=> $hashbar_gutenberg_enable,

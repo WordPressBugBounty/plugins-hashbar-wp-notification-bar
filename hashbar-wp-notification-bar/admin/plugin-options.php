@@ -208,16 +208,15 @@ function hashbar_wpnb_options_page(  ) {
 	<?php
 
 }
-
 function hashbar_wpnb_analytics_page(){
-	$total_traking 		= false != get_transient( 'total_hthb_analytics_count' ) ? get_transient( 'total_hthb_analytics_count' ) : array(); 
-	$postwise_traking   = false != get_transient( 'postwise_hthb_analytics_count' ) ? get_transient( 'postwise_hthb_analytics_count' ) : array();
-	$country_traking    = false != get_transient( 'countrywise_hthb_analytics_count' ) ? get_transient( 'countrywise_hthb_analytics_count' ) : array();
+	$total_traking 		= false != get_transient( 'total_ht_traking_count' ) ? get_transient( 'total_ht_traking_count' ) : array();
+	$postwise_traking   = false != get_transient( 'postwise_ht_traking_count' ) ? get_transient( 'postwise_ht_traking_count' ) : array(); 
+	$country_traking    = false != get_transient( 'countrywise_ht_traking_count' ) ? get_transient( 'countrywise_ht_traking_count' ) : array();
 
 	$trk_lenght   = count($total_traking);
-	$total_clicks = $trk_lenght > 0 && !is_null($total_traking[0]['totalclicks']) ? $total_traking[0]['totalclicks'] : 0;
-	$total_views  = $trk_lenght > 0 && !is_null($total_traking[0]['totalviews']) ? $total_traking[0]['totalviews'] : 0;
-	$total_clthrt = $trk_lenght > 0 && !is_null($total_traking[0]['totalviews']) && !is_null($total_traking[0]['totalclicks'])? round(($total_traking[0]['totalclicks']/$total_traking[0]['totalviews'])*100, 2) : 0;
+	$total_clicks = $trk_lenght > 0 ? $total_traking[0]['totalclicks'] : 0;
+	$total_views  = $trk_lenght > 0 ? $total_traking[0]['totalviews'] : 0;
+	$total_clthrt = $trk_lenght > 0 ? round(($total_traking[0]['totalclicks']/$total_traking[0]['totalviews'])*100, 2) : 0;
 
 	?>
 	<div class="hthb--site-wrapper-reveal">
@@ -229,42 +228,43 @@ function hashbar_wpnb_analytics_page(){
 	            <div class="hthb--col-lg-4 hthb--col-md-4 hthb--col-sm-6 ">
 	                <div class="hthb-card__box">
 	                    <div class="hthb-card__icon">
-	                        <img src="<?php echo esc_url(HASHBAR_WPNB_URI.'/admin/img/click-icons.png'); ?>" alt="">
+	                        <img src="<?php echo esc_url( HASHBAR_WPNB_URI . '/admin/img/click-icons.png')?>" alt="Click">
 	                    </div>
 	                    <div class="hthb-card__content">
 	                        <h6 class="hthb-card__title"><?php echo esc_html__( 'Total Clicks','hashbar') ?></h6>
-	                        <h4 class="hthb-card__nubmer"><?php echo esc_html($total_clicks); ?></h4>
+	                        <h4 class="hthb-card__nubmer"><?php echo esc_html( $total_clicks ); ?></h4>
 	                    </div>
 	                    <div class="hthb-card__inner-image">
-	                        <img src="<?php echo esc_url(HASHBAR_WPNB_URI.'/admin/img/views-icons-bg.png'); ?>" alt="">
+	                        <img src="<?php echo esc_url( HASHBAR_WPNB_URI . '/admin/img/views-icons-bg.png')?>" alt="icon">
 	                    </div>
 	                </div>
 	            </div>
 	            <div class="hthb--col-lg-4 hthb--col-md-4 hthb--col-sm-6 ">
 	                <div class="hthb-card__box hthb-card__box--two">
 	                    <div class="hthb-card__icon hthb-card__icon--two">
-	                        <img src="<?php echo esc_url(HASHBAR_WPNB_URI.'/admin/img/views-icons.png'); ?>" alt="">
+	                        <img src="<?php echo esc_url( HASHBAR_WPNB_URI . '/admin/img/views-icons.png')?>" alt="icon">
 	                    </div>
 	                    <div class="hthb-card__content">
 	                        <h6 class="hthb-card__title"><?php echo esc_html__( 'Total Views','hashbar') ?></h6>
-	                        <h4 class="hthb-card__nubmer hthb-card__nubmer--two"><?php echo esc_html($total_views); ?></h4>
+	                        <h4 class="hthb-card__nubmer hthb-card__nubmer--two"><?php echo esc_html( $total_views ); ?></h4>
 	                    </div>
 	                    <div class="hthb-card__inner-image">
-	                        <img src="<?php echo esc_url(HASHBAR_WPNB_URI.'/admin/img/click-icons-bg.png'); ?>" alt="">
+	                        <img src="<?php echo esc_url( HASHBAR_WPNB_URI . '/admin/img/click-icons-bg.png')?>" alt="icon">
+
 	                    </div>
 	                </div>
 	            </div>
 	            <div class="hthb--col-lg-4 hthb--col-md-4 hthb--col-sm-6 ">
 	                <div class="hthb-card__box hthb-card__box--three">
 	                    <div class="hthb-card__icon hthb-card__icon--three">
-	                        <img src="<?php echo esc_url(HASHBAR_WPNB_URI.'/admin/img/rate-icons.png'); ?>" alt="">
+	                        <img src="<?php echo esc_url( HASHBAR_WPNB_URI . '/admin/img/rate-icons.png')?>" alt="icon">
 	                    </div>
 	                    <div class="hthb-card__content">
 	                        <h6 class="hthb-card__title"><?php echo esc_html__( 'Click Through Rate','hashbar') ?></h6>
-	                        <h4 class="hthb-card__nubmer hthb-card__nubmer--three"><?php echo esc_html($total_clthrt); ?>%</h4>
+	                        <h4 class="hthb-card__nubmer hthb-card__nubmer--three"><?php echo esc_html( $total_clthrt ); ?>%</h4>
 	                    </div>
 	                    <div class="hthb-card__inner-image">
-	                        <img src="<?php echo esc_url(HASHBAR_WPNB_URI.'/admin/img/rate-icons-bg.png'); ?>" alt="">
+	                        <img src="<?php echo esc_url( HASHBAR_WPNB_URI . '/admin/img/rate-icons-bg.png')?>" alt="icon">
 	                    </div>
 	                </div>
 	            </div>
@@ -277,7 +277,7 @@ function hashbar_wpnb_analytics_page(){
 	        <div class="hthb--row">
 	            <div class="hthb--col-lg-8">
 	                <div class="hthb-traking">
-	                    <h6 class="hthb-traking__heading"><?php echo esc_html__( 'Track the analytics for each notification bar','hashbar') ?></h6>
+	                    <h6 class="hthb-traking__heading"><?php echo esc_html__( 'Traking By Notification Bars','hashbar') ?></h6>
 
 	                    <div class="hthb-traking__wrap">
 	                        <div class="hthb-traking__header">
@@ -291,34 +291,31 @@ function hashbar_wpnb_analytics_page(){
 	                                <?php echo esc_html__( 'Total Clicks','hashbar'); ?>
 	                            </div>
 	                            <div class="hthb-traking__header-item hthb-traking__header-item--through-rate">
-	                                <?php echo esc_html__( 'CTR','hashbar'); ?>
+	                                <?php echo esc_html__( 'Through Rate','hashbar'); ?>
 	                            </div>
 	                        </div>
 	                        <div class="hthb-traking__body">
-	                        	<?php 
-	                        	$args = array( 'post_type' => 'wphash_ntf_bar', 'posts_per_page' => -1 );
-        						$ntf_analytics_query = new WP_Query($args);
-	                        	while( $ntf_analytics_query->have_posts() ):
-
-	                        		$ntf_analytics_query->the_post();
-	                        		$post_id = get_the_id(); ?>
-
-	                        		<?php if('publish' == get_post_status($post_id)):?>
+	                        	<?php foreach ($postwise_traking as $postwise_count):?>
+	                        		<?php if('publish' == get_post_status($postwise_count['post_id'])): ?>
 			                            <div class="hthb-traking__items">
 			                                <div class="hthb-traking__item hthb-traking__item--title">
-			                                    <?php echo esc_html(get_the_title($post_id)); ?>
+			                                    <?php echo get_the_title($postwise_count['post_id']); ?>
 			                                </div>
-			                                <div class="hthb-traking__item hthb-traking__item--total-views-number">0</div>
-			                                <div class="hthb-traking__item hthb-traking__item--total-clicks-number">0</div>
-			                                <div class="hthb-traking__item hthb-traking__item--through-rate-numbmer">0 %</div>
+			                                <div class="hthb-traking__item hthb-traking__item--total-views-number">
+			                                    <?php echo $postwise_count['totalviews']; ?>
+			                                </div>
+			                                <div class="hthb-traking__item hthb-traking__item--total-clicks-number">
+			                                    <?php echo $postwise_count['totalclicks']; ?>
+			                                </div>
+			                                <div class="hthb-traking__item hthb-traking__item--through-rate-numbmer">
+			                                    <?php echo round(($postwise_count['totalclicks']/$postwise_count['totalviews'])*100, 2); ?> %
+			                                </div>
 			                            </div>
-		                        	<?php endif; ?>
-
-		                        <?php endwhile; ?>
+			                        <?php endif; ?>
+		                        <?php endforeach; ?>
 	                        </div>
 	                    </div>
 	                </div>
-	                <a target="_blank" class="hthb-pro-link" href="<?php echo esc_url('https://hasthemes.com/plugins/wordpress-notification-bar-plugin/') ?>"><?php echo esc_html__('Upgrade to Pro','hashbar') ?></a>
 	            </div>
 	            <div class="hthb--col-lg-4 ">
 	                <div class="hthb-top-countries">
@@ -326,7 +323,7 @@ function hashbar_wpnb_analytics_page(){
 	                    <?php foreach ($country_traking as $countrywise_count):?>
 		                    <div class="hthb-top-countries__list-wrap">
 		                        <div class="hthb-top-countries__item">
-		                            <div class="hthb-top-countries__name"><?php echo esc_html($countrywise_count['country']); ?></div>
+		                            <div class="hthb-top-countries__name"><?php echo $countrywise_count['country']; ?></div>
 		                        </div>
 		                    </div>
 		                <?php endforeach; ?>

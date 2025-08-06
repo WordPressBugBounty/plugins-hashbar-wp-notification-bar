@@ -1,6 +1,7 @@
 <?php
 
-namespace Hashbarfree\Analytics;
+namespace HashbarFree\AnalyticsProcess;
+use \HashbarFree\AnalyticsCash;
 
 /**
  * analytical data store
@@ -107,14 +108,16 @@ class Analytical_Process
 
         $table_name = $wpdb->prefix . 'hthb_analytics';
 
-        $wpdb->insert( $table_name, $data ); // phpcs:ignore
+        $wpdb->insert( $table_name, $data );
     }
 
     public function existing_ip_analytics($post_id,$ip){
         global $wpdb;
         $post_id        = (int)$post_id;
         $table_name     = $wpdb->prefix . 'hthb_analytics';
-        $results        = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM %s WHERE post_id = %d AND ip_address= %s",[ $table_name, $post_id, $ip ]), ARRAY_A ); // phpcs:ignore
+        $sql            = "SELECT * FROM {$table_name} WHERE post_id = %d AND ip_address= %s";
+        $query          = $wpdb->prepare( $sql,$post_id,$ip);
+        $results        = $wpdb->get_results( $query,ARRAY_A);
 
         return $results;
     }
@@ -123,7 +126,9 @@ class Analytical_Process
         global $wpdb;
         $post_id        = (int)$post_id;
         $table_name     = $wpdb->prefix . 'hthb_analytics';
-        $results        = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM %s WHERE post_id = %d AND country = %s AND ip_address= %s", [$table_name, $post_id, $country,$ip] ), ARRAY_A ); // phpcs:ignore
+        $sql            = "SELECT * FROM {$table_name} WHERE post_id = %d AND country = %s AND ip_address= %s";
+        $query          = $wpdb->prepare( $sql,$post_id,$country,$ip);
+        $results        = $wpdb->get_results( $query,ARRAY_A);
 
         return $results;
     }
@@ -134,7 +139,7 @@ class Analytical_Process
         $table_name          = $wpdb->prefix . 'hthb_analytics';
         $existing_data       = $this->existing_post_analytics($post_id,$data['country'],$data['ip_address'])[0];
         
-        $wpdb->update( // phpcs:ignore
+        $wpdb->update(
             $table_name,
             array( 
                 'views'        => $existing_data['views']  + $data['views'], 
@@ -150,8 +155,8 @@ class Analytical_Process
     }
 
     public function post_analytics_delete($post_id = ''){
-        if ( isset( $_GET['post'] ) && is_array( $_GET['post'] ) ) { // phpcs:ignore
-            foreach ( $_GET['post'] as $post_id ) { // phpcs:ignore
+        if ( isset( $_GET['post'] ) && is_array( $_GET['post'] ) ) {
+            foreach ( $_GET['post'] as $post_id ) {
                 $this->delete_analytics_data( $post_id );
             }
         } else {
@@ -162,9 +167,12 @@ class Analytical_Process
     private function delete_analytics_data($pid){
         global $wpdb;
         $table_name = $wpdb->prefix . 'hthb_analytics';
-        $var = $wpdb->get_var( $wpdb->prepare( "SELECT post_id FROM %s WHERE post_id = %d", [$table_name, $pid] ) ); // phpcs:ignore
+
+        $query = $wpdb->prepare( "SELECT post_id FROM $table_name WHERE post_id = %d", $pid );
+        $var = $wpdb->get_var( $query );
         if ( $var ) {
-            $wpdb->query( $wpdb->prepare( "DELETE FROM %s WHERE post_id = %d", [$table_name, $pid] ) ); // phpcs:ignore
+            $query2 = $wpdb->prepare( "DELETE FROM $table_name WHERE post_id = %d", $pid );
+            $wpdb->query( $query2 );
             Cash_Data::delete_cache();
             Cash_Data::cached();
         }

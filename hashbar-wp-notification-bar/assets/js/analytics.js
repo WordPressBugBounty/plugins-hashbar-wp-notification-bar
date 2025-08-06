@@ -1,9 +1,6 @@
 (function ($) {
 	"use strict";
 
-	if(hashbar_analytical.enable_analytics == ''){
-		return;
-	}
 
 	$(window).on('load',function(){
 		notification_bars();

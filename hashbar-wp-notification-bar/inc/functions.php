@@ -144,3 +144,37 @@ function hashbar_wpnb_check_post(){
   }
   return false;
 }
+
+/**
+ * Get Post List
+ * return array
+ * @param string $post_type
+ * @return array
+ * since 1.7.0
+ */
+if ( !function_exists( 'hashbar_post_list' ) ){
+  function hashbar_post_list( $post_type = 'post', $limit = -1 ){
+    $options = array();
+    if ( 'product_cat' == $post_type ){
+ 
+      $categories = get_terms( array(
+          'taxonomy' => 'product_cat',
+          'hide_empty' => false,
+      ) );
+      if ( ! empty( $categories ) && ! is_wp_error( $categories ) ){
+          foreach ( $categories as $term ) {
+              $options[ $term->term_id ] = $term->name;
+          }
+          return $options;
+      }
+    }
+    $all_post = array( 'posts_per_page' => $limit, 'post_type'=> $post_type, 'post_status' => 'publish' );
+    $post_terms = get_posts( $all_post );
+    if ( ! empty( $post_terms ) && ! is_wp_error( $post_terms ) ){
+        foreach ( $post_terms as $term ) {
+            $options[ $term->ID ] = $term->post_title;
+        }
+        return $options;
+    }
+  }
+}
