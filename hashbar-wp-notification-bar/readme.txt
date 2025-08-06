@@ -1,9 +1,9 @@
 === HashBar - WordPress Notification Bar ===
-Contributors: devitemsllc, htplugins, hasthemes, tarekht, zenaulislam, aslamhasib, alberuni-azad
+Contributors: devitemsllc, htplugins, hasthemes, zenaulislam, aslamhasib, yeasinrony, madhusudandev
 Tags: wordpress notification bar,notification,notification bar,offer bar,promotion bar
 Requires at least: 5.0
 Tested up to: 6.8
-Stable tag: 1.6.0
+Stable tag: 1.7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -138,6 +138,13 @@ Needs assistance to use this plugin?
 Feel free to [Contact us](https://hasthemes.com/contact-us/)
 
 == Changelog ==
+
+= Version: 1.7.0 - Date: 28 July 2025 =
+* Improved: UI/UX for a better user experience
+* Fixed: Analytics report display issue.
+
+= Version: 1.6.1 - Date: 17 Jun 2025 =
+* Fixed: Notification position value change issue on reload.
 
 = Version: 1.6.0 - Date: 16 Apr 2025 =
 * Added: Compatibility with the latest WordPress version.

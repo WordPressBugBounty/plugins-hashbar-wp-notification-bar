@@ -101,12 +101,17 @@ document.addEventListener('DOMContentLoaded', function() {
               // Correct way to set checked attribute
               if(!isPromoBannerUsed) {
                   const defaultRadio = document.querySelector('[value="ht-n-top"]');
-                  if (defaultRadio) {
-                      defaultRadio.checked = true;
-                      document.querySelectorAll(`[data-value="${defaultRadio.value}"]`).forEach(item => {
-                          item.style.removeProperty("display");
-                          item.classList.remove('csf-depend-on');
-                      });
+                  const currentSelection = document.querySelector('[name="_wphash_[_wphash_notification_position]"]:checked');
+                  
+                  // Only set default if no option is currently selected or if a promo option was selected
+                  if (!currentSelection || ['ht-n_toppromo', 'ht-n_bottompromo'].includes(currentSelection.value)) {
+                      if (defaultRadio) {
+                          defaultRadio.checked = true;
+                          document.querySelectorAll(`[data-value="${defaultRadio.value}"]`).forEach(item => {
+                              item.style.removeProperty("display");
+                              item.classList.remove('csf-depend-on');
+                          });
+                      }
                   }
               }
               previousState = isPromoBannerUsed;
