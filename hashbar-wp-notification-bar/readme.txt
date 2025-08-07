@@ -3,7 +3,7 @@ Contributors: devitemsllc, htplugins, hasthemes, zenaulislam, aslamhasib, yeasin
 Tags: wordpress notification bar,notification,notification bar,offer bar,promotion bar
 Requires at least: 5.0
 Tested up to: 6.8
-Stable tag: 1.7.0
+Stable tag: 1.7.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -138,8 +138,10 @@ Needs assistance to use this plugin?
 Feel free to [Contact us](https://hasthemes.com/contact-us/)
 
 == Changelog ==
+= Version: 1.7.1 - Date: 06 Aug 2025 =
+* Fixed: Analytics Enable/Disable issue.
 
-= Version: 1.7.0 - Date: 28 July 2025 =
+= Version: 1.7.0 - Date: 06 Aug 2025 =
 * Improved: UI/UX for a better user experience
 * Fixed: Analytics report display issue.
 

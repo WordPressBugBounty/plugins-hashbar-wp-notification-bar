@@ -338,12 +338,12 @@ class Hashbar_Settings_Panel_Settings {
                     ],
                     'desc' => __('Set the unit of time for cookies expiration.', 'hashbar'),
                 ],
-                // 'enable_analytics' => [
-                //     'label' => __('Enable Analytics', 'hashbar'),
-                //     'type' => 'checkbox',
-                //     'default' => false,
-                //     'desc' => __('Enable Analytics to get the analytical report about your notifications.', 'hashbar'),
-                // ],
+                'enable_analytics' => [
+                    'label' => __('Enable Analytics', 'hashbar'),
+                    'type' => 'checkbox',
+                    'default' => false,
+                    'desc' => __('Enable Analytics to get the analytical report about your notifications.', 'hashbar'),
+                ],
                 'count_onece_byip' => [
                     'label' => __('Count Only 1 From Each IP', 'hashbar'),
                     'type' => 'checkbox',

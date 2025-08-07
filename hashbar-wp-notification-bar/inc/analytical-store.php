@@ -1,7 +1,7 @@
 <?php
 
 namespace HashbarFree\AnalyticsProcess;
-use \HashbarFree\AnalyticsCash;
+use \HashbarFree\AnalyticsCash\Cash_Data;
 
 /**
  * analytical data store

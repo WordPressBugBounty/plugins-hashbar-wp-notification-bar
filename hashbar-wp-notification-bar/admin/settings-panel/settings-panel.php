@@ -117,7 +117,6 @@ class Hashbar_Settiigs_Panel {
         $localize_data = [
             'ajaxurl'          => admin_url( 'admin-ajax.php' ),
             'adminURL'         => admin_url(),
-            'adminPostUrl'         => admin_url( 'admin-post.php' ),
             'pluginURL'        => plugin_dir_url( __FILE__ ),
             'assetsURL'        => plugin_dir_url( __FILE__ ) . 'assets/',
             'restUrl' => rest_url(),  // This will include the wp-json prefix

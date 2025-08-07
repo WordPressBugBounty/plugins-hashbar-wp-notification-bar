@@ -1,6 +1,9 @@
 (function ($) {
 	"use strict";
-
+	
+	if( hashbar_analytical.enable_analytics == 'false' || hashbar_analytical.enable_analytics == false || hashbar_analytical.enable_analytics == 0 || hashbar_analytical.enable_analytics == '0' ){
+		return;
+	}
 
 	$(window).on('load',function(){
 		notification_bars();
