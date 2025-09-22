@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: HashBar - WordPress Notification Bar\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-05 08:23+0000\n"
+"POT-Creation-Date: 2025-09-21 05:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -13,16 +13,28 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.6.4; wp-6.2.2\n"
+"X-Loco-Version: 2.8.0; wp-6.8.2; php-8.2.26\n"
 "X-Domain: hashbar"
 
 #: inc/metabox.php:260
 msgid " "
 msgstr ""
 
+#: admin/settings-panel/api/admin-settings.php:502
+msgid " (Pro)"
+msgstr ""
+
 #: inc/shortcode.php:105 inc/shortcode.php:109 inc/shortcode.php:113
 #: inc/shortcode.php:117
 msgid "00"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:129
+msgid "4,32,17"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:206
+msgid "50,60,54"
 msgstr ""
 
 #: inc/metabox.php:10
@@ -31,66 +43,106 @@ msgid ""
 "the page."
 msgstr ""
 
-#: inc/recomendation/Class_Recommended_Plugins.php:244
-msgid "Activate"
-msgstr ""
-
-#: inc/recomendation/Class_Recommended_Plugins.php:126
-#: inc/recomendation/Class_Recommended_Plugins.php:255
-msgid "Activated"
-msgstr ""
-
-#: inc/recomendation/Class_Recommended_Plugins.php:125
+#: admin/settings-panel/settings-panel.php:139
 msgid "Activating.."
+msgstr ""
+
+#: admin/settings-panel/settings-panel.php:140
+msgid "Active"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:491
+msgid "Active Installations"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:299
+msgid "Active Notifications"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:412
+msgid "Add New"
 msgstr ""
 
 #: inc/custom-posts.php:17 inc/custom-posts.php:18
 msgid "Add New Notification"
 msgstr ""
 
-#: inc/custom-posts.php:16
+#: admin/settings-panel/api/admin-settings.php:601
+msgid "Additional features for Contact Form 7"
+msgstr ""
+
+#: admin/settings-panel/settings-panel.php:128
+msgid "All Items have been Loaded"
+msgstr ""
+
+#: inc/custom-posts.php:16 admin/settings-panel/api/admin-settings.php:298
 msgid "All Notifications"
 msgstr ""
 
-#: inc/metabox.php:296
+#: inc/metabox.php:296 admin/settings-panel/api/admin-settings.php:236
 msgid "All Pages"
 msgstr ""
 
-#: inc/metabox.php:295
+#: inc/metabox.php:295 admin/settings-panel/api/admin-settings.php:235
 msgid "All Posts"
 msgstr ""
 
-#: inc/metabox.php:300
+#: inc/metabox.php:300 admin/settings-panel/api/admin-settings.php:286
 msgid "All Products"
 msgstr ""
 
-#: inc/metabox.php:410
+#: inc/metabox.php:417
 msgid ""
 "An arrow icon will be displayed instead of showing the notification. "
 "Clicking on the arrow button, the notification will be displayed."
 msgstr ""
 
-#: admin/plugin-options.php:11
+#: admin/settings-panel/api/admin-dashboard-api.php:200
+msgid "An error occurred while duplicating the post"
+msgstr ""
+
+#: admin/settings-panel/api/admin-dashboard-api.php:335
+msgid "An error occurred while updating settings"
+msgstr ""
+
+#: admin/plugin-options.php:11 admin/settings-panel/api/admin-settings.php:57
 msgid "Analytics"
 msgstr ""
 
-#: admin/plugin-options.php:226
+#: admin/plugin-options.php:225 admin/settings-panel/api/admin-settings.php:438
 msgid "Analytics Overview"
+msgstr ""
+
+#: admin/settings-panel/templates/sidebar-banner.php:22
+msgid "And So Much More!"
 msgstr ""
 
 #: inc/metabox.php:130
 msgid "Any Post/Page/Custom Post IDS"
 msgstr ""
 
-#: admin/class-notices.php:81
+#: admin/settings-panel/api/admin-settings.php:117
+msgid "Any Post/Page/Custom Post IDs"
+msgstr ""
+
+#: admin/class-notices.php:95
 msgid "Are you cheating?"
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:149
-msgid ""
-"Are you getting frustrated with WooCommerce’s current way of presenting the "
-"variants for your products? Well, say goodbye to dropdowns and start showing "
-"the product variations in a whole new light with Swatchly."
+#: inc/class-hashbar-vue-builder.php:96
+msgid "Are you sure you want to clear the canvas?"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:420
+msgid "Are you sure you want to delete this notification?"
+msgstr ""
+
+#: inc/class-hashbar-vue-builder.php:95
+msgid "Are you sure you want to delete this?"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:400
+msgid "Are you sure you want to reset all settings to default values?"
 msgstr ""
 
 #. %1$s: project name
@@ -112,15 +164,15 @@ msgid ""
 "guaranteed. %4$sPrivacy Policy%5$s"
 msgstr ""
 
-#: inc/metabox.php:933 inc/metabox.php:989 inc/metabox.php:1053
+#: inc/metabox.php:940 inc/metabox.php:999 inc/metabox.php:1065
 msgid "Background"
 msgstr ""
 
-#: inc/metabox.php:675 inc/metabox.php:706
+#: inc/metabox.php:682 inc/metabox.php:713
 msgid "Background color"
 msgstr ""
 
-#: inc/metabox.php:681 inc/metabox.php:712
+#: inc/metabox.php:688 inc/metabox.php:719
 msgid "Background hover color"
 msgstr ""
 
@@ -206,7 +258,7 @@ msgctxt "block title"
 msgid "Hashbar Promo Banner Image"
 msgstr ""
 
-#: inc/metabox.php:947 inc/metabox.php:1023 inc/metabox.php:1087
+#: inc/metabox.php:954 inc/metabox.php:1033 inc/metabox.php:1099
 msgid "Border radius"
 msgstr ""
 
@@ -214,22 +266,20 @@ msgstr ""
 msgid "Bottom"
 msgstr ""
 
-#: inc/metabox.php:378
+#: inc/metabox.php:385
 msgid "Bottom Left"
 msgstr ""
 
-#: inc/metabox.php:379
+#: inc/metabox.php:386
 msgid "Bottom Right"
 msgstr ""
 
-#: init.php:961 inc/recomendation/Class_Recommended_Plugins.php:122
-#: inc/recomendation/Class_Recommended_Plugins.php:232
-#: inc/recomendation/Class_Recommended_Plugins.php:286
+#: init.php:986 admin/settings-panel/settings-panel.php:135
 msgid "Buy Now"
 msgstr ""
 
-#: inc/recomendation/Class_Recommended_Plugins.php:272
-msgid "By "
+#: admin/settings-panel/settings-panel.php:143
+msgid "BUY PRO"
 msgstr ""
 
 #: inc/metabox.php:262
@@ -238,20 +288,45 @@ msgid ""
 "categorie(archive) page above."
 msgstr ""
 
-#: inc/metabox.php:718
+#: inc/metabox.php:725
 msgid "Call to Action Button"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:402
+#: admin/settings-panel/api/admin-settings.php:457
+msgid "Cancel"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:155
+msgid "Choose Categories"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:187
+msgid "Choose Pages"
 msgstr ""
 
 #: inc/metabox.php:210
 msgid "Choose pages"
 msgstr ""
 
+#: admin/settings-panel/api/admin-settings.php:140
+msgid "Choose Posts"
+msgstr ""
+
 #: inc/metabox.php:194
 msgid "Choose posts"
 msgstr ""
 
+#: admin/settings-panel/api/admin-settings.php:255
+msgid "Choose Products"
+msgstr ""
+
 #: inc/metabox.php:227
 msgid "Choose products"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:171
+msgid "Choose Tags"
 msgstr ""
 
 #: inc/metabox.php:184
@@ -259,68 +334,72 @@ msgid ""
 "Choose the area of your site, where the notification should be displayed."
 msgstr ""
 
-#: admin/plugin-options.php:263
+#: admin/settings-panel/api/admin-settings.php:106
+msgid "Choose where to show the notification."
+msgstr ""
+
+#: admin/plugin-options.php:263 admin/settings-panel/api/admin-settings.php:441
 msgid "Click Through Rate"
 msgstr ""
 
-#: inc/metabox.php:657
+#: inc/metabox.php:664
 msgid "Close Button"
 msgstr ""
 
-#: inc/metabox.php:459
+#: inc/metabox.php:466
 msgid "Close button text"
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:185
-msgid ""
-"Contact Form7 Extensions plugin is a fantastic WordPress plugin that "
-"enriches the functionalities of Contact Form 7.This all-in-one WordPress "
-"plugin will help you turn any contact page into a well-organized, engaging "
-"tool for communicating with your website visitors by providing tons of "
-"advanced features like drag and drop file upload, repeater field, trigger "
-"error for already submitted forms, popup form response, country flags and "
-"dial codes with a telephone input field and acceptance field, etc. in "
-"addition to its basic features."
+#: admin/settings-panel/api/admin-settings.php:396
+msgid "Configure HashBar settings to manage notifications"
 msgstr ""
 
-#: inc/metabox.php:601
+#: inc/metabox.php:608
 msgid "Content background color"
 msgstr ""
 
-#: inc/metabox.php:607
+#: inc/metabox.php:614
 msgid "Content background image"
 msgstr ""
 
-#: inc/metabox.php:618
+#: inc/metabox.php:625
 msgid "Content border"
 msgstr ""
 
-#: inc/metabox.php:632
+#: inc/metabox.php:639
 msgid "Content margin"
 msgstr ""
 
-#: inc/metabox.php:624
+#: inc/metabox.php:631
 msgid "Content opacity"
 msgstr ""
 
-#: inc/metabox.php:645
+#: inc/metabox.php:652
 msgid "Content padding"
 msgstr ""
 
-#: inc/metabox.php:613
+#: inc/metabox.php:620
 msgid "Content text color"
 msgstr ""
 
-#: inc/metabox.php:396
+#: inc/metabox.php:403
 msgid "Content width"
 msgstr ""
 
-#: inc/metabox.php:436
+#: inc/metabox.php:443
 msgid "Control visibility of the close icon/button notification."
 msgstr ""
 
-#: inc/metabox.php:449
+#: inc/metabox.php:456
 msgid "Control visibility of the open arrow icon/button."
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:322
+msgid "Cookies expire time"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:331
+msgid "Cookies expire time unit"
 msgstr ""
 
 #: admin/plugin-options.php:69
@@ -331,55 +410,79 @@ msgstr ""
 msgid "Count Me In"
 msgstr ""
 
-#: admin/plugin-options.php:85
+#: admin/plugin-options.php:85 admin/settings-panel/api/admin-settings.php:348
 msgid "Count Only 1 From Each IP"
 msgstr ""
 
-#: inc/metabox.php:1111
+#: inc/metabox.php:1124
 msgid "Countdown"
 msgstr ""
 
-#: inc/metabox.php:789
+#: inc/metabox.php:796
 msgid "Countdown date"
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:327
-msgid "Coupon Zen"
+#: admin/settings-panel/templates/sidebar-banner.php:20
+msgid "Countdown placement (using shordcode)"
 msgstr ""
 
-#: admin/plugin-options.php:294
-msgid "CTR"
+#: admin/settings-panel/api/admin-settings.php:697
+msgid "Create beautiful sliders for your website using Elementor"
 msgstr ""
 
-#: inc/metabox.php:132
+#: admin/settings-panel/api/admin-settings.php:432
+msgid ""
+"Create engaging notification bars to boost conversions, grow your audience, "
+"and inform visitors easily."
+msgstr ""
+
+#: inc/metabox.php:132 admin/settings-panel/api/admin-settings.php:119
 msgid "Custom"
 msgstr ""
 
-#: inc/metabox.php:853
+#: inc/metabox.php:860
 msgid "Custom labels"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:230
+msgid "Custom Options Where to Show"
 msgstr ""
 
 #: inc/metabox.php:306
 msgid "Custom options where to show"
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:321
-msgid "DataCaptia"
+#: admin/settings-panel/api/admin-settings.php:33
+msgid "Dashboard"
 msgstr ""
 
-#: inc/metabox.php:862 inc/shortcode.php:106
+#: inc/metabox.php:869 inc/shortcode.php:106
+#: admin/settings-panel/api/admin-settings.php:335
 msgid "Days"
 msgstr ""
 
-#: inc/metabox.php:343 inc/metabox.php:398
+#: admin/settings-panel/api/admin-settings.php:574
+msgid "Deactivate plugins per page"
+msgstr ""
+
+#: inc/metabox.php:350 inc/metabox.php:405
 msgid "Default"
 msgstr ""
 
-#: inc/metabox.php:766
+#: admin/settings-panel/api/admin-settings.php:376
+msgid ""
+"Default: 10 items per page. Adjust if you have more notifications to manage."
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:419
+msgid "Delete"
+msgstr ""
+
+#: inc/metabox.php:773
 msgid "Design"
 msgstr ""
 
-#: inc/metabox.php:517 inc/metabox.php:555
+#: inc/metabox.php:524 inc/metabox.php:562
 msgid "Disable"
 msgstr ""
 
@@ -387,155 +490,247 @@ msgstr ""
 msgid "Disable for Archives"
 msgstr ""
 
-#: admin/class-notices.php:279
+#: admin/class-notices.php:297
 msgid "Dismiss this notice."
 msgstr ""
 
-#: inc/metabox.php:424
+#: admin/settings-panel/api/admin-settings.php:708
+msgid "Display Google Reviews on your site."
+msgstr ""
+
+#: admin/settings-panel/templates/sidebar-banner.php:17
+msgid "Display notification post category wise"
+msgstr ""
+
+#: inc/metabox.php:431
 msgid ""
 "Display the notification after a specified delay in seconds. Leave it empty "
 "or use 0 to disable this option. The default is 0 seconds."
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:263
-msgid "Docus Pro"
+#: admin/settings-panel/settings-panel.php:151
+#: admin/settings-panel/api/admin-settings.php:470
+#: admin/settings-panel/api/admin-settings.php:472
+msgid "Documentation"
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:315
-msgid "Docus – YouTube Video Playlist"
-msgstr ""
-
-#: inc/metabox.php:112
+#: inc/metabox.php:112 admin/settings-panel/api/admin-settings.php:110
 msgid "Don't show"
 msgstr ""
 
-#: admin/plugin-options.php:53
+#: admin/plugin-options.php:53 admin/settings-panel/api/admin-settings.php:310
 msgid "Don't Show Again"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:414
+msgid "Draft"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:301
+msgid "Draft Notifications"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:418
+msgid "Duplicate"
+msgstr ""
+
+#: admin/settings-panel/templates/sidebar-banner.php:21
+msgid "Duplicate notification"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:583
+#: admin/settings-panel/api/admin-settings.php:679
+msgid "Easy connection of Facebook pixel to your online store."
 msgstr ""
 
 #: inc/custom-posts.php:20
 msgid "Edit Notification"
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:266
-msgid ""
-"Embedding a YouTube playlist into your website plays a vital role to curate "
-"your content into several categories and make your web content more engaging "
-"and popular by keeping the visitors on your website for a longer period."
-msgstr ""
-
-#: inc/metabox.php:516 inc/metabox.php:554
+#: inc/metabox.php:523 inc/metabox.php:561
 msgid "Enable"
 msgstr ""
 
-#: admin/plugin-options.php:77
+#: admin/plugin-options.php:77 admin/settings-panel/api/admin-settings.php:342
 msgid "Enable Analytics"
 msgstr ""
 
-#: admin/plugin-options.php:141
+#: admin/plugin-options.php:141 admin/settings-panel/api/admin-settings.php:345
 msgid "Enable Analytics to get the analytical report about your notifications."
 msgstr ""
 
-#: inc/metabox.php:777
+#: inc/metabox.php:784
 msgid "Enable countdown"
 msgstr ""
 
-#: inc/metabox.php:552
+#: inc/metabox.php:332
+msgid "Enable sticky notification"
+msgstr ""
+
+#: inc/metabox.php:559
 msgid ""
 "Enable this option to disable the notification on a specific date and time. "
 "After the assigned time, the notification will no longer appear."
 msgstr ""
 
-#: admin/plugin-options.php:150
+#: admin/plugin-options.php:150 admin/settings-panel/api/admin-settings.php:351
 msgid "Enable to count the views and clicks only once from each IP-address."
 msgstr ""
 
-#: inc/metabox.php:759
+#: admin/settings-panel/api/admin-settings.php:468
+msgid ""
+"Engage with our community to connect & share your ideas. Join a network "
+"where collaboration and growth thrive!"
+msgstr ""
+
+#: inc/metabox.php:766
 msgid ""
 "Enter margin value for top, right, bottom, left of Promo Banner. Use unit px "
 "/ %. Example: 70px 5% 5px 5px.<br>Default Values: Top:50px, Right:50px, "
 "Bottom:50px, Left:50px"
 msgstr ""
 
-#: inc/metabox.php:637
+#: inc/metabox.php:644
 msgid ""
 "Enter margin values for top, right, bottom, and left. Use units like px or %."
 " Example: 70px 5% 5px 5px."
 msgstr ""
 
-#: inc/metabox.php:650
+#: inc/metabox.php:657
 msgid ""
 "Enter padding values for top, right, bottom, and left. Use units like px or "
 "%. Example: 70px 5% 5px 5px."
 msgstr ""
 
-#: inc/metabox.php:526 inc/metabox.php:535
+#: inc/metabox.php:533 inc/metabox.php:542
 msgid ""
 "Enter the scroll position value. You can use either use a fixed number or a "
 "percentage value. Example: 50 or 50%"
 msgstr ""
 
-#: inc/metabox.php:113
+#: inc/metabox.php:113 admin/settings-panel/api/admin-settings.php:111
 msgid "Entire Site"
 msgstr ""
 
-#: admin/plugin-options.php:159
+#: admin/settings-panel/api/admin-settings.php:498
+msgid "Error"
+msgstr ""
+
+#: inc/class-hashbar-vue-builder.php:232
+msgid "Error occurred while saving"
+msgstr ""
+
+#: inc/class-hashbar-vue-builder.php:94
+msgid "Error occurred!"
+msgstr ""
+
+#: admin/plugin-options.php:159 admin/settings-panel/api/admin-settings.php:357
 msgid "Everyone"
 msgstr ""
 
-#: inc/metabox.php:625
+#: inc/metabox.php:632
 msgid "Example: 0.5"
 msgstr ""
 
-#: inc/metabox.php:271
+#: inc/metabox.php:271 admin/settings-panel/api/admin-settings.php:126
 msgid "Exclude pages for notification"
 msgstr ""
 
-#: inc/metabox.php:564
+#: inc/metabox.php:571
 msgid "Expiry date/time"
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:67
+#: admin/settings-panel/api/admin-settings.php:600
 msgid "Extensions For CF7"
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:182
-msgid "Extensions For CF7 Pro"
+#: admin/settings-panel/api/admin-dashboard-api.php:157
+msgid "Failed to create post duplicate"
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:291
-msgid "Faster YouTube Embed"
+#: admin/settings-panel/api/admin-settings.php:424
+msgid "Failed to disable notification"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:425
+msgid "Failed to load notifications"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:501
+msgid "Failed to load settings. Please try again."
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:404
+msgid "Failed to reset settings"
+msgstr ""
+
+#: inc/class-hashbar-vue-builder.php:226
+msgid "Failed to save hashbar"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:500
+msgid "Failed to save settings. Please try again."
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:459
+msgid "Failed to update notification settings"
 msgstr ""
 
 #: inc/custom-posts.php:26
 msgid "Featured Image"
 msgstr ""
 
+#: admin/settings-panel/api/admin-settings.php:410
+msgid "Filter by status"
+msgstr ""
+
 #: inc/custom-posts.php:34
 msgid "Filter items list"
 msgstr ""
 
-#: inc/metabox.php:399
+#: admin/settings-panel/api/admin-settings.php:296
+msgid "Filter Nofitications"
+msgstr ""
+
+#: inc/metabox.php:406
 msgid "Full Width"
 msgstr ""
 
-#: inc/metabox.php:484
+#: inc/metabox.php:491
 msgid "General Options"
 msgstr ""
 
-#: init.php:400
+#: admin/settings-panel/templates/sidebar-banner.php:11
+msgid "Get Hashbar"
+msgstr ""
+
+#: admin/settings-panel/templates/sidebar-banner.php:12
+msgid ""
+"Get more powerful plugin management features to elevate your WordPress "
+"website"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:466
+msgid "Get Support"
+msgstr ""
+
+#: init.php:423
 msgid "Go Premium!"
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:236
+#: admin/settings-panel/api/admin-settings.php:456
+msgid "Go to Other Settings"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:705
 msgid "Google Place Review"
 msgstr ""
 
-#: admin/plugin-options.php:160
+#: admin/plugin-options.php:160 admin/settings-panel/api/admin-settings.php:358
 msgid "Guest Users Only"
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:49
+#: admin/settings-panel/settings-panel.php:41
 msgid "HashBar"
 msgstr ""
 
@@ -563,18 +758,8 @@ msgstr ""
 msgid "HashBar Global Options"
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:194
-msgid ""
-"HashBar is a WordPress Notification / Alert / Offer Bar plugin which allows "
-"you to create unlimited notification bars to notify your customers. This "
-"plugin has option to show email subscription form (sometimes it increases up "
-"to 500% email subscriber), Offer text and buttons about your promotions. "
-"This plugin has the options to add unlimited background colors and images to "
-"make your notification bar more professional."
-msgstr ""
-
-#: inc/recomendation/hashbar-recomendation.php:191
-msgid "HashBar Pro"
+#: inc/class-hashbar-vue-builder.php:253
+msgid "Hashbar not found"
 msgstr ""
 
 #: inc/class-manage-blocks.php:104
@@ -585,125 +770,85 @@ msgstr ""
 msgid "Hashbar Promo Banner Image"
 msgstr ""
 
-#: inc/custom-posts.php:12
-msgid "HashBars"
+#: inc/class-hashbar-vue-builder.php:221
+msgid "Hashbar saved successfully!"
 msgstr ""
 
-#: inc/recomendation/Class_Recommended_Plugins.php:229
-msgid "HasTheme"
+#: admin/settings-panel/api/admin-settings.php:395
+msgid "HashBar Settings"
+msgstr ""
+
+#: inc/custom-posts.php:12 admin/settings-panel/settings-panel.php:40
+msgid "HashBars"
 msgstr ""
 
 #. Author of the plugin
 msgid "HasThemes"
 msgstr ""
 
-#: inc/metabox.php:356
+#: admin/settings-panel/templates/sidebar-banner.php:37
+msgid "Have We Fully Met Your Expectations?"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:485
+msgid ""
+"Have you ever noticed any missing features? Please notify us if you do. As "
+"soon as possible, our staff will add any necessary features based on your "
+"requests. Our commitment to our clients is second to none."
+msgstr ""
+
+#: inc/metabox.php:363
 msgid "Header CSS selector"
 msgstr ""
 
-#: inc/metabox.php:953
+#: inc/metabox.php:961
 msgid "Height"
 msgstr ""
 
-#: inc/metabox.php:504
+#: inc/metabox.php:511
 msgid "Hide on desktop device"
 msgstr ""
 
-#: inc/metabox.php:494
+#: inc/metabox.php:501
 msgid "Hide on mobile device"
 msgstr ""
 
-#: inc/metabox.php:294
+#: inc/metabox.php:294 admin/settings-panel/api/admin-settings.php:234
 msgid "Homepage"
 msgstr ""
 
-#: inc/metabox.php:114
+#: inc/metabox.php:114 admin/settings-panel/api/admin-settings.php:112
 msgid "Homepage Only"
 msgstr ""
 
-#: inc/metabox.php:870 inc/shortcode.php:110
+#: inc/metabox.php:877 inc/shortcode.php:110
+#: admin/settings-panel/api/admin-settings.php:336
 msgid "Hours"
 msgstr ""
 
-#: inc/metabox.php:543
+#: inc/metabox.php:550
 msgid "How many times to show this notification"
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:254
-msgid "HT Click To Call"
+#: admin/settings-panel/api/admin-settings.php:591
+#: admin/settings-panel/api/admin-settings.php:592
+msgid ""
+"HT Contact Form Widget For Elementor Page Builder & Gutenberg Blocks & Form "
+"Builder."
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:61
-msgid "HT Contact Form 7"
-msgstr ""
-
-#: inc/recomendation/hashbar-recomendation.php:285
-msgid "HT Feed"
-msgstr ""
-
-#: inc/recomendation/hashbar-recomendation.php:43
+#: admin/settings-panel/api/admin-settings.php:544
+#: admin/settings-panel/api/admin-settings.php:669
 msgid "HT Mega"
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:137
-msgid "HT Mega Pro"
-msgstr ""
-
-#: inc/recomendation/hashbar-recomendation.php:79
-msgid "HT Menu"
-msgstr ""
-
-#: inc/recomendation/hashbar-recomendation.php:218
-msgid "HT Menu Pro"
-msgstr ""
-
-#: inc/recomendation/hashbar-recomendation.php:85
-msgid "HT Script"
-msgstr ""
-
-#: inc/recomendation/hashbar-recomendation.php:209
-msgid "HT Script Pro"
-msgstr ""
-
-#: inc/recomendation/hashbar-recomendation.php:55
+#: admin/settings-panel/api/admin-settings.php:696
 msgid "HT Slider For Elementor"
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:227
-msgid "HT Slider Pro For Elementor"
-msgstr ""
-
-#: inc/recomendation/hashbar-recomendation.php:230
-msgid ""
-"HT Slider Pro is a plugin to create a slider for WordPress websites easily "
-"using the Elementor page builder. 80+ prebuild slides/templates are included "
-"in this plugin. There is the option to create a post slider, WooCommerce "
-"product slider, Video slider, image slider, etc. Fullscreen, full width and "
-"box layout option are included."
-msgstr ""
-
-#: inc/recomendation/hashbar-recomendation.php:339
-msgid "HT Social Share"
-msgstr ""
-
-#: inc/recomendation/hashbar-recomendation.php:73
-msgid "HT WPForms"
-msgstr ""
-
-#: inc/recomendation/hashbar-recomendation.php:257
-msgid ""
-"HT – Click to Call is a lightweight WordPress plugin that allows you to add "
-"a floating click to call button on your website. It will offer your website "
-"visitors an opportunity to call your business immediately at the right "
-"moment, especially when they are interested in your products or services and "
-"seeking more information."
-msgstr ""
-
-#: inc/recomendation/hashbar-recomendation.php:140
-msgid ""
-"HTMega is an absolute addon for elementor that includes 80+ elements & 360 "
-"Blocks with unlimited variations. HT Mega brings limitless possibilities. "
-"Embellish your site with the elements of HT Mega."
+#: admin/settings-panel/api/admin-settings.php:545
+#: admin/settings-panel/api/admin-settings.php:670
+msgid "HTMega is an absolute addon for elementor that includes 80+ elements"
 msgstr ""
 
 #. Author URI of the plugin
@@ -714,11 +859,11 @@ msgstr ""
 msgid "https://theplugindemo.com/hashbar/"
 msgstr ""
 
-#: init.php:65
+#: init.php:82
 msgid "I already did"
 msgstr ""
 
-#: admin/plugin-options.php:122
+#: admin/plugin-options.php:122 admin/settings-panel/api/admin-settings.php:313
 msgid ""
 "If check this option. The notification will not appear again on a page, "
 "after closing the notification."
@@ -730,15 +875,45 @@ msgid ""
 "your header."
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:239
+#: admin/settings-panel/api/admin-settings.php:534
 msgid ""
-"If you are searching for a modern and excellent google places review "
-"WordPress plugin to showcase reviews from Google Maps and strengthen trust "
-"between you and your site visitors, look no further than HT Google Place "
-"Review"
+"If you own a WooCommerce website, you ll almost certainly want to use these "
+"capabilities: Woo Builder (Elementor WooCommerce Builder), WooCommerce "
+"Templates, WooCommerce Widgets,..."
 msgstr ""
 
-#: inc/metabox.php:357
+#: admin/settings-panel/api/admin-settings.php:627
+msgid ""
+"If you own a WooCommerce website, you’ll almost certainly want to use these "
+"capabilities: Woo Builder (Elementor WooCommerce Builder), WooCommerce "
+"Templates, WooCommerce Widgets,..."
+msgstr ""
+
+#: admin/settings-panel/settings-panel.php:134
+msgid "Import"
+msgstr ""
+
+#: admin/settings-panel/settings-panel.php:132
+msgid "Import to Library"
+msgstr ""
+
+#: admin/settings-panel/settings-panel.php:133
+msgid "Import to Page"
+msgstr ""
+
+#: admin/settings-panel/settings-panel.php:127
+msgid "in this package"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:416
+msgid "Inactive"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:300
+msgid "Inactive Notifications"
+msgstr ""
+
+#: inc/metabox.php:364
 msgid ""
 "Input the CSS selector of your transparent / sticky header. Example: "
 "#header/.header"
@@ -751,51 +926,64 @@ msgid ""
 "will see this notification."
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:212
+#: admin/settings-panel/api/admin-settings.php:218
+msgid ""
+"Input URL parameter value, Example: discount_50. Your URL should look like: "
+"example.com/?param=discount_50"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:688
 msgid ""
 "Insert Headers and Footers Code allows you to insert Google Analytics, "
 "Facebook Pixel, custom CSS, custom HTML, JavaScript code to your website "
-"header and footer without modifying your theme code.This plugin has the "
-"option to add any custom code to your theme in one place, no need to edit "
-"the theme code. It will save your time and remove the hassle for the theme "
-"update."
+"header and footer without modifying your theme code"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:687
+msgid "Insert Headers and Footers Code – HT Script"
 msgstr ""
 
 #: inc/custom-posts.php:30
 msgid "Insert into item"
 msgstr ""
 
-#: inc/recomendation/Class_Recommended_Plugins.php:250
-msgid "Install Now"
-msgstr ""
-
-#: inc/recomendation/Class_Recommended_Plugins.php:124
+#: admin/settings-panel/settings-panel.php:138
 msgid "Installing.."
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:109
-msgid "JustTables"
+#: inc/class-hashbar-vue-builder.php:248
+msgid "Invalid hashbar ID"
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:167
+#: admin/settings-panel/api/admin-settings.php:374
+msgid "Items per Page"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:469
+msgid "Join Now"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:467
+msgid "Join Our Community"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:645
 msgid ""
 "JustTables is an incredible WordPress plugin that lets you showcase all your "
 "WooCommerce products in a sortable and filterable table view. It allows your "
 "customers to easily navigate through different attributes of the products "
-"and compare them on a single page. This plugin will be of great help if you "
-"are looking for an easy solution that increases the chances of landing a "
-"sale on your online store."
+"and compare them on a single page..."
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:164
-msgid "JustTables Pro"
+#: admin/settings-panel/api/admin-settings.php:644
+msgid "JustTables – WooCommerce Product Table"
 msgstr ""
 
-#: admin/plugin-options.php:61
+#: admin/plugin-options.php:61 admin/settings-panel/api/admin-settings.php:316
 msgid "Keep Notification Bar Closed"
 msgstr ""
 
-#: inc/metabox.php:460 inc/metabox.php:468
+#: inc/metabox.php:467 inc/metabox.php:475
 msgid "Leave it empty for the default icon."
 msgstr ""
 
@@ -807,60 +995,100 @@ msgstr ""
 msgid "Left Wall"
 msgstr ""
 
-#: inc/metabox.php:409
+#: admin/settings-panel/api/admin-settings.php:65
+msgid "License"
+msgstr ""
+
+#: inc/metabox.php:416
 msgid "Load as minimized"
 msgstr ""
 
-#: inc/metabox.php:724
+#: inc/class-hashbar-vue-builder.php:97 inc/class-hashbar-vue-builder.php:109
+msgid "Loading Vue Builder..."
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:499
+msgid "Loading..."
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:409
+msgid "Manage Notifications"
+msgstr ""
+
+#: inc/metabox.php:731
 msgid "Margin"
 msgstr ""
 
-#: init.php:64
+#: admin/settings-panel/api/changelog-api.php:130
+msgid "Marked as read successfully"
+msgstr ""
+
+#: init.php:81
 msgid "Maybe Later"
 msgstr ""
 
-#: inc/metabox.php:1029
+#: inc/metabox.php:1040
 msgid "Min Width"
 msgstr ""
 
-#: inc/metabox.php:878 inc/shortcode.php:114
+#: inc/metabox.php:885 inc/shortcode.php:114
+#: admin/settings-panel/api/admin-settings.php:337
 msgid "Minutes"
 msgstr ""
 
-#: admin/plugin-options.php:101
+#: admin/settings-panel/api/admin-settings.php:484
+msgid "Missing Any Feature?"
+msgstr ""
+
+#: admin/plugin-options.php:101 admin/settings-panel/api/admin-settings.php:365
 msgid "Mobile device breakpoint (px)"
 msgstr ""
 
-#: inc/recomendation/Class_Recommended_Plugins.php:294
+#: admin/settings-panel/api/admin-settings.php:492
 msgid "More Details"
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:115
-msgid "Multi Currency"
-msgstr ""
-
-#: inc/recomendation/hashbar-recomendation.php:173
-msgid "Multi Currency Pro for WooCommerce"
-msgstr ""
-
-#: inc/recomendation/hashbar-recomendation.php:176
-msgid ""
-"Multi-Currency Pro for WooCommerce is a prominent currency switcher plugin "
-"for WooCommerce. This plugin allows your website or online store visitors to "
-"switch to their preferred currency or their country’s currency."
-msgstr ""
-
-#: admin/plugin-options.php:285
+#: admin/plugin-options.php:285 admin/settings-panel/api/admin-settings.php:443
 msgid "Name"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:465
+msgid ""
+"Need help or want a free store set-up? We will get back to you within 12-24 "
+"hours after receiving your inquiry."
+msgstr ""
+
+#: admin/settings-panel/settings-panel.php:149
+msgid "Need Help with Hashbar?"
 msgstr ""
 
 #: inc/custom-posts.php:19
 msgid "New Notification"
 msgstr ""
 
-#: inc/metabox.php:413 inc/metabox.php:439 inc/metabox.php:452
-#: inc/metabox.php:496 inc/metabox.php:506 inc/metabox.php:780
+#: inc/metabox.php:420 inc/metabox.php:446 inc/metabox.php:459
+#: inc/metabox.php:503 inc/metabox.php:513 inc/metabox.php:787
 msgid "No"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:449
+msgid "No country data available"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:448
+msgid "No notification data available"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:423
+msgid "No notifications are available at the moment"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:421
+msgid "No Notifications Found"
+msgstr ""
+
+#: admin/settings-panel/api/admin-dashboard-api.php:120
+msgid "No post ID provided"
 msgstr ""
 
 #: admin/class-diagnostic-data.php:578
@@ -875,11 +1103,15 @@ msgstr ""
 msgid "Not found in Trash"
 msgstr ""
 
+#: admin/settings-panel/settings-panel.php:129
+msgid "Nothing Found"
+msgstr ""
+
 #: inc/custom-posts.php:14
 msgid "Notification Archives"
 msgstr ""
 
-#: inc/metabox.php:388
+#: inc/metabox.php:395
 msgid "Notification area width"
 msgstr ""
 
@@ -887,11 +1119,11 @@ msgstr ""
 msgid "Notification bar"
 msgstr ""
 
-#: inc/metabox.php:596
+#: inc/metabox.php:603
 msgid "Notification Bar Area"
 msgstr ""
 
-#: inc/metabox.php:474
+#: inc/metabox.php:481
 msgid "Notification Bar Options"
 msgstr ""
 
@@ -915,8 +1147,24 @@ msgstr ""
 msgid "Notification bar will be displayed on top of the page."
 msgstr ""
 
-#: inc/metabox.php:422
+#: inc/metabox.php:429
 msgid "Notification delay"
+msgstr ""
+
+#: admin/settings-panel/api/admin-dashboard-api.php:258
+msgid "Notification deleted successfully"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:455
+msgid "Notification Enable/Disable Settings"
+msgstr ""
+
+#: admin/settings-panel/api/admin-dashboard-api.php:243
+msgid "Notification updated successfully"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:41
+msgid "Notifications"
 msgstr ""
 
 #: inc/custom-posts.php:32
@@ -927,27 +1175,40 @@ msgstr ""
 msgid "Notifications list navigation"
 msgstr ""
 
-#: init.php:63
+#: init.php:80
 msgid "Ok, you deserve it!"
 msgstr ""
 
-#: inc/metabox.php:687
+#: inc/metabox.php:694
 msgid "Open button"
 msgstr ""
 
-#: inc/metabox.php:467
+#: inc/metabox.php:474
 msgid "Open button text"
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:273
+#: admin/settings-panel/api/admin-settings.php:655
 msgid "Others"
 msgstr ""
 
-#: inc/metabox.php:736
+#: admin/settings-panel/settings-panel.php:150
+msgid ""
+"Our comprehensive documentation provides detailed information on how to use "
+"Hashbar effectively to improve your websites performance."
+msgstr ""
+
+#: admin/settings-panel/settings-panel.php:144
+msgid ""
+"Our free version is great, but it doesn't have all our advanced features. "
+"The best way to unlock all of the features in our plugin is by purchasing "
+"the pro version."
+msgstr ""
+
+#: inc/metabox.php:743
 msgid "Padding"
 msgstr ""
 
-#: inc/metabox.php:119
+#: inc/metabox.php:119 admin/settings-panel/api/admin-settings.php:116
 msgid "Pages"
 msgstr ""
 
@@ -955,22 +1216,35 @@ msgstr ""
 msgid "Parent Notification:"
 msgstr ""
 
-#: inc/metabox.php:846
+#: inc/metabox.php:853
 msgid ""
 "Pase this shortcode <code>[hashbar_countdown]</code> anywhere in the content "
 "editor above, to show the countdown."
 msgstr ""
 
-#: inc/recomendation/Class_Recommended_Plugins.php:395
-msgid "Plugin Not Found"
-msgstr ""
-
-#: inc/recomendation/Class_Recommended_Plugins.php:415
-msgid "Plugin Successfully Activated"
+#: admin/settings-panel/api/admin-settings.php:582
+#: admin/settings-panel/api/admin-settings.php:678
+msgid "Pixelavo – Facebook Pixel Conversion API"
 msgstr ""
 
 #: inc/metabox.php:319
 msgid "Positioning"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:114
+msgid "Post Categories"
+msgstr ""
+
+#: admin/settings-panel/api/admin-dashboard-api.php:194
+msgid "Post duplicated successfully"
+msgstr ""
+
+#: admin/settings-panel/api/admin-dashboard-api.php:128
+msgid "Post not found"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:115
+msgid "Post Tags"
 msgstr ""
 
 #: inc/custom-posts.php:10
@@ -983,51 +1257,59 @@ msgctxt "Post Type Singular Name"
 msgid "Notification bar"
 msgstr ""
 
+#: admin/settings-panel/api/admin-settings.php:203
+msgid "Post/Page/Custom Post IDs"
+msgstr ""
+
 #: inc/metabox.php:280
 msgid "Post/Page/Custom post ids"
 msgstr ""
 
-#: inc/metabox.php:118
+#: inc/metabox.php:118 admin/settings-panel/api/admin-settings.php:113
 msgid "Posts"
 msgstr ""
 
-#: init.php:402
+#: init.php:425
 msgid "Premium"
 msgstr ""
 
-#: inc/recomendation/Class_Recommended_Plugins.php:123
+#: admin/settings-panel/settings-panel.php:137
 msgid "Preview"
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:303
-msgid "Preview Link Generator"
+#: admin/settings-panel/templates/sidebar-banner.php:11
+msgid "PRO"
 msgstr ""
 
-#: init.php:956
+#: admin/settings-panel/settings-panel.php:141
+msgid "Pro"
+msgstr ""
+
+#: init.php:981
 msgid "Pro Notice"
 msgstr ""
 
-#: init.php:959
+#: init.php:984
 msgid "Pro Version is Required!"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:271
+msgid "Product Categories"
 msgstr ""
 
 #: inc/metabox.php:245
 msgid "Product categories"
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:146
-msgid "Product Variation Swatches"
-msgstr ""
-
-#: inc/metabox.php:123
+#: inc/metabox.php:123 admin/settings-panel/api/admin-settings.php:250
 msgid "Products"
 msgstr ""
 
-#: inc/metabox.php:125
+#: inc/metabox.php:125 admin/settings-panel/api/admin-settings.php:251
 msgid "Products Of Selected Categories"
 msgstr ""
 
-#: inc/metabox.php:10 inc/metabox.php:748
+#: inc/metabox.php:10 inc/metabox.php:755
 msgid "Promo Banner"
 msgstr ""
 
@@ -1035,7 +1317,7 @@ msgstr ""
 msgid "Promo Banner Bottom"
 msgstr ""
 
-#: inc/metabox.php:376
+#: inc/metabox.php:383
 msgid "Promo banner bottom position"
 msgstr ""
 
@@ -1047,7 +1329,7 @@ msgstr ""
 msgid "Promo Banner Top"
 msgstr ""
 
-#: inc/metabox.php:364
+#: inc/metabox.php:371
 msgid "Promo banner top position"
 msgstr ""
 
@@ -1055,33 +1337,33 @@ msgstr ""
 msgid "Promo Title, Promo content and button for a link."
 msgstr ""
 
-#: init.php:402
+#: admin/settings-panel/templates/sidebar-banner.php:40
+msgid "Provide Your Feedback"
+msgstr ""
+
+#: init.php:425
 msgid "Purchase our"
 msgstr ""
 
-#: inc/metabox.php:281
+#: inc/metabox.php:281 admin/settings-panel/api/admin-settings.php:204
 msgid ""
 "Put the post/page/custom post ids here separated by a comma. Example: 50,60,"
 "54"
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:309
-msgid "QuickSwish"
+#: admin/settings-panel/templates/sidebar-banner.php:34
+msgid "Rating icon"
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:279
-msgid "Really Simple Google Tag Manager"
-msgstr ""
-
-#: inc/recomendation/Class_Recommended_Plugins.php:71
-msgid "Recommendations"
-msgstr ""
-
-#: inc/recomendation/hashbar-recomendation.php:30
+#: admin/settings-panel/api/admin-settings.php:527
 msgid "Recommended"
 msgstr ""
 
-#: inc/metabox.php:800
+#: admin/settings-panel/api/admin-settings.php:73
+msgid "Recommended Plugins"
+msgstr ""
+
+#: inc/metabox.php:807 admin/settings-panel/templates/sidebar-banner.php:19
 msgid "Recurring countdown"
 msgstr ""
 
@@ -1089,7 +1371,23 @@ msgstr ""
 msgid "Remove featured image"
 msgstr ""
 
-#: admin/plugin-options.php:161
+#: admin/settings-panel/api/admin-settings.php:486
+msgid "Request Feature"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:401
+msgid "Reset"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:397
+msgid "Reset All Settings"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:399
+msgid "Reset Settings"
+msgstr ""
+
+#: admin/plugin-options.php:161 admin/settings-panel/api/admin-settings.php:359
 msgid "Rigestered Users Only"
 msgstr ""
 
@@ -1101,15 +1399,40 @@ msgstr ""
 msgid "Right Wall"
 msgstr ""
 
-#: inc/metabox.php:551
+#: inc/class-hashbar-vue-builder.php:91
+#: admin/settings-panel/api/admin-settings.php:458
+msgid "Save"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:398
+msgid "Save Settings"
+msgstr ""
+
+#: inc/class-hashbar-vue-builder.php:93
+msgid "Saved successfully!"
+msgstr ""
+
+#: inc/class-hashbar-vue-builder.php:92
+msgid "Saving..."
+msgstr ""
+
+#: admin/settings-panel/templates/sidebar-banner.php:18
+msgid "Schedule Notification Expiry Date/Time"
+msgstr ""
+
+#: inc/metabox.php:558
 msgid "Schedule notification expiry date/time"
 msgstr ""
 
-#: inc/metabox.php:534
+#: admin/settings-panel/api/admin-settings.php:415
+msgid "Scheduled At:"
+msgstr ""
+
+#: inc/metabox.php:541
 msgid "Scroll position to hide"
 msgstr ""
 
-#: inc/metabox.php:525
+#: inc/metabox.php:532
 msgid "Scroll position to show"
 msgstr ""
 
@@ -1117,30 +1440,76 @@ msgstr ""
 msgid "Search Notification"
 msgstr ""
 
-#: inc/metabox.php:886 inc/shortcode.php:118
+#: admin/settings-panel/api/admin-settings.php:411
+msgid "Search Notifications..."
+msgstr ""
+
+#: inc/metabox.php:893 inc/shortcode.php:118
 msgid "Seconds"
 msgstr ""
 
-#: inc/metabox.php:211
+#: admin/settings-panel/api/admin-settings.php:158
+#: admin/settings-panel/api/admin-settings.php:274
+msgid "Select Categories"
+msgstr ""
+
+#: inc/metabox.php:211 admin/settings-panel/api/admin-settings.php:190
 msgid "Select Pages"
 msgstr ""
 
-#: inc/metabox.php:195
+#: inc/metabox.php:195 admin/settings-panel/api/admin-settings.php:143
 msgid "Select Posts"
 msgstr ""
 
 #: inc/metabox.php:228 inc/metabox.php:247
+#: admin/settings-panel/api/admin-settings.php:258
 msgid "Select Products"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:156
+msgid "Select specific categories where this notification will appear"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:231
+msgid "Select specific locations where this notification will appear"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:188
+msgid "Select specific pages where this notification will appear"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:141
+msgid "Select specific posts where this notification will appear"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:256
+msgid "Select specific products where this notification will appear"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:172
+msgid "Select specific tags where this notification will appear"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:174
+msgid "Select Tags"
 msgstr ""
 
 #: inc/metabox.php:17
 msgid "Select what type of header you are using in your theme. "
 msgstr ""
 
-#: inc/metabox.php:346
+#: inc/metabox.php:353
 msgid ""
 "Select what type of header you are using in your theme.<br>If it is "
 "transparent or sticky, make sure to specify the CSS selector of your header."
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:107
+msgid "Select Where to Show"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:362
+msgid "Select which users to track for analytics."
 msgstr ""
 
 #. %1$s: a tag start
@@ -1154,7 +1523,7 @@ msgid ""
 "collected or tracked. %1$sLearn more%2$s."
 msgstr ""
 
-#: inc/metabox.php:791
+#: inc/metabox.php:798
 msgid ""
 "Set a Date after which the countdown will get disabled. </br> The countdown "
 "date must be greater than current date/time."
@@ -1163,7 +1532,7 @@ msgstr ""
 #. %1$s: current_time with date format option
 #. %2$s: current_time with custom format
 #. %2$s: General option url
-#: inc/metabox.php:572
+#: inc/metabox.php:579
 #, php-format
 msgid ""
 "Set a Date/Time after which the notification will get disabled. </br> The "
@@ -1178,57 +1547,141 @@ msgstr ""
 msgid "Set featured image"
 msgstr ""
 
-#: inc/metabox.php:389
+#: admin/settings-panel/api/admin-settings.php:371
+msgid "Set the breakpoint for mobile devices in pixels."
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:339
+msgid "Set the unit of time for cookies expiration."
+msgstr ""
+
+#: inc/metabox.php:396
 msgid ""
 "Set the width for the notification area, useful for left/right notifications "
 "and promo banners. Leave empty to use the default width. Example: 350px"
 msgstr ""
 
-#: init.php:244 admin/plugin-options.php:9 admin/plugin-options.php:9
+#: init.php:260 admin/plugin-options.php:9 admin/plugin-options.php:9
+#: admin/settings-panel/api/admin-settings.php:49
 msgid "Settings"
 msgstr ""
 
-#: inc/metabox.php:435
+#: admin/settings-panel/api/admin-settings.php:403
+msgid "Settings have been reset successfully"
+msgstr ""
+
+#: admin/settings-panel/api/admin-dashboard-api.php:329
+msgid "Settings updated successfully"
+msgstr ""
+
+#: inc/metabox.php:442
 msgid "Show close button"
 msgstr ""
 
-#: inc/metabox.php:448
+#: admin/settings-panel/api/admin-settings.php:413
+msgid "Show in:"
+msgstr ""
+
+#: inc/metabox.php:455
 msgid "Show open button"
 msgstr ""
 
-#: inc/metabox.php:514
+#: inc/metabox.php:521
 msgid "Show/Hide notification based on scroll position"
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:333
-msgid "Sirve – Simple Directory Listing"
+#: admin/settings-panel/api/admin-dashboard-api.php:273
+msgid "Sidebar template file not found."
 msgstr ""
 
-#: inc/metabox.php:754 inc/metabox.php:965
+#: inc/metabox.php:761 inc/metabox.php:975
 msgid "Spacing"
 msgstr ""
 
-#: inc/metabox.php:544
+#: inc/metabox.php:551
 msgid ""
 "Specify how many times this notification will appear for the user. Each page "
 "load counts as one view. Example: 10"
 msgstr ""
 
-#: inc/metabox.php:919
+#: admin/settings-panel/api/admin-settings.php:328
+msgid ""
+"Specify the duration of the expiration time for the cookie when a user "
+"closes the notification bar. After the expiration time has passed, the "
+"notification will reappear for that user. (Default: 7 Days)."
+msgstr ""
+
+#: inc/metabox.php:926
 msgid "Style"
 msgstr ""
 
-#: inc/metabox.php:663 inc/metabox.php:693 inc/metabox.php:994
-#: inc/metabox.php:1058
+#: admin/settings-panel/api/admin-settings.php:479
+msgid "Subscribe Now"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:477
+msgid "Subscribe Our Newsletter"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:478
+msgid ""
+"Subscribe to receive discount, offer, plugin updates and news in your inbox."
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:497
+msgid "Success"
+msgstr ""
+
+#: admin/settings-panel/settings-panel.php:153
+msgid "Support"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:464
+msgid "Support & Feedback"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:555
+#: admin/settings-panel/api/admin-settings.php:661
+msgid "Support Genix is a support ticket system for WordPress and WooCommerce."
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:554
+#: admin/settings-panel/api/admin-settings.php:660
+msgid "Support Genix Lite – Support Tickets Managing System"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:635
+msgid "Swatchly"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:636
+msgid ""
+"Swatchly – WooCommerce Variation Swatches for Products (product attributes: "
+"Image swatch, Color swatches, Label swatches...)"
+msgstr ""
+
+#: inc/metabox.php:670 inc/metabox.php:700 inc/metabox.php:1004
+#: inc/metabox.php:1070
 msgid "Text color"
 msgstr ""
 
-#: inc/metabox.php:669 inc/metabox.php:699
+#: inc/metabox.php:676 inc/metabox.php:706
 msgid "Text hover color"
 msgstr ""
 
-#: init.php:60
+#: admin/settings-panel/api/admin-settings.php:431
+msgid "Thank you for choosing Hashbar Notification Bar! 🚀"
+msgstr ""
+
+#: init.php:77
 msgid "Thank you for choosing HashBar to show notifications to your audience!"
+msgstr ""
+
+#: admin/settings-panel/templates/sidebar-banner.php:39
+msgid ""
+"Thank you for choosing our plugin! If it makes your work easier, please "
+"share your happiness with a 5-star rating on WordPress. It’ll take just 2 "
+"minutes & means a lot to us!"
 msgstr ""
 
 #. %1$s: project name
@@ -1239,12 +1692,18 @@ msgstr ""
 msgid "Thank you very much for supporting %2$s%1$s%3$s."
 msgstr ""
 
-#: inc/metabox.php:336
+#: inc/metabox.php:343
 msgid "Theme's header type"
 msgstr ""
 
-#: init.php:960
+#: init.php:985
 msgid "This feature is available in the pro version."
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:272
+msgid ""
+"This notification will appear in all product details/archive pages of "
+"selected categories"
 msgstr ""
 
 #: inc/metabox.php:246
@@ -1253,44 +1712,78 @@ msgid ""
 "of the selected categories above."
 msgstr ""
 
+#: admin/plugin-options.php:294 admin/settings-panel/api/admin-settings.php:446
+msgid "Through Rate"
+msgstr ""
+
 #: inc/metabox.php:6 inc/metabox.php:78 inc/metabox.php:147 inc/metabox.php:156
 msgid "Top"
 msgstr ""
 
-#: admin/plugin-options.php:325
+#: admin/plugin-options.php:322
 msgid "Top 10 Countries"
 msgstr ""
 
-#: inc/metabox.php:366
+#: admin/settings-panel/api/admin-settings.php:447
+msgid "Top Countries"
+msgstr ""
+
+#: inc/metabox.php:373
 msgid "Top Left"
 msgstr ""
 
-#: inc/metabox.php:367
+#: inc/metabox.php:374
 msgid "Top Rignt"
 msgstr ""
 
-#: admin/plugin-options.php:235 admin/plugin-options.php:291
+#: admin/plugin-options.php:234 admin/plugin-options.php:291
+#: admin/settings-panel/api/admin-settings.php:439
+#: admin/settings-panel/api/admin-settings.php:445
 msgid "Total Clicks"
 msgstr ""
 
-#: admin/plugin-options.php:249 admin/plugin-options.php:288
+#: admin/plugin-options.php:248 admin/plugin-options.php:288
+#: admin/settings-panel/api/admin-settings.php:440
+#: admin/settings-panel/api/admin-settings.php:444
 msgid "Total Views"
 msgstr ""
 
-#: admin/plugin-options.php:280
-msgid "Track the analytics for each notification bar"
+#: admin/settings-panel/api/admin-settings.php:442
+msgid "Tracking By Notification Bars"
 msgstr ""
 
-#: inc/metabox.php:344
+#: admin/plugin-options.php:280
+msgid "Traking By Notification Bars"
+msgstr ""
+
+#: inc/metabox.php:351
 msgid "Transparent / Sticky"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:422
+msgid "Try adjusting your search or filter criteria"
+msgstr ""
+
+#: inc/class-hashbar-vue-builder.php:180 inc/class-hashbar-vue-builder.php:242
+msgid "Unauthorized access"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:450
+msgid "Unlock this feature and more by upgrading to HashBar Pro"
 msgstr ""
 
 #: inc/custom-posts.php:21
 msgid "Update Notification"
 msgstr ""
 
+#: admin/settings-panel/templates/sidebar-banner.php:27
+msgid "Upgrade To PRO"
+msgstr ""
+
 #: admin/plugin-options.php:19 admin/plugin-options.php:20
-#: admin/plugin-options.php:321
+#: admin/settings-panel/settings-panel.php:61
+#: admin/settings-panel/settings-panel.php:62
+#: admin/settings-panel/api/admin-settings.php:391
 msgid "Upgrade to Pro"
 msgstr ""
 
@@ -1302,53 +1795,72 @@ msgstr ""
 msgid "URL paramenter value"
 msgstr ""
 
-#: inc/metabox.php:131
+#: inc/metabox.php:131 admin/settings-panel/api/admin-settings.php:118
 msgid "URL Parameter"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:217
+msgid "URL Parameter Value"
 msgstr ""
 
 #: inc/custom-posts.php:29
 msgid "Use as featured image"
 msgstr ""
 
-#: admin/plugin-options.php:93
+#: admin/plugin-options.php:93 admin/settings-panel/api/admin-settings.php:354
 msgid "User Tracking Options"
 msgstr ""
 
-#: init.php:402
+#: init.php:425
 msgid "version to unlock this feature!"
 msgstr ""
 
-#: inc/custom-posts.php:22
+#: admin/settings-panel/settings-panel.php:152
+msgid "Video Tutorial"
+msgstr ""
+
+#: inc/custom-posts.php:22 admin/settings-panel/api/admin-settings.php:417
 msgid "View Notification"
 msgstr ""
 
-#: inc/metabox.php:584
+#: inc/metabox.php:591
 msgid "Visibility Options"
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:245
-msgid "Was This Helpful?"
+#: inc/class-hashbar-vue-builder.php:33 inc/class-hashbar-vue-builder.php:34
+msgid "Vue Builder"
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:248
+#: admin/settings-panel/api/admin-settings.php:471
 msgid ""
-"Was this helpful? is a WordPress plugin that allows you to take visitors' "
-"feedback on your post/pages or any article. A visitor can share his feedback "
-"by like/dislike/yes/no"
+"We've regularly updated the documentation to help you use the plugin "
+"effectively."
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:97
-msgid "WC Builder"
+#: admin/settings-panel/api/admin-settings.php:433
+msgid "Welcome to Hashbar Notification"
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:297
-msgid "WC Sales Notification"
+#: admin/settings-panel/api/admin-settings.php:430
+msgid "Welcome to Hashbar Notification!"
 msgstr ""
 
-#: inc/metabox.php:803
+#: admin/settings-panel/templates/sidebar-banner.php:15
+msgid "What You Get"
+msgstr ""
+
+#: inc/metabox.php:810
 msgid ""
 "When this option is enabled, the countdown timer will automatically restart "
 "</br> for the same duration as originally set once the countdown period ends."
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:319
+msgid ""
+"When you close the notification bar once then it will always keep closed in "
+"all pages of your site. This option will be effective for the notifications "
+"which have set \"Load as minimized = No\" from the notification metabox "
+"options"
 msgstr ""
 
 #: admin/plugin-options.php:132
@@ -1359,90 +1871,64 @@ msgid ""
 "notification metabox options."
 msgstr ""
 
-#: init.php:898 inc/metabox.php:183
+#: init.php:923 inc/metabox.php:183
 msgid "Where to show"
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:103
-msgid "Whols"
+#: admin/settings-panel/api/admin-settings.php:105
+msgid "Where to Show: "
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:158
-msgid ""
-"Whols is an outstanding WordPress plugin for WooCommerce that allows store "
-"owners to set wholesale prices for the products of their online stores. This "
-"plugin enables you to show special wholesale prices to the wholesaler. Users "
-"can easily request to become a wholesale customer by filling out a simple "
-"online registration form. Once the registration is complete, the owner of "
-"the store will be able to review the request and approve the request either "
-"manually or automatically."
+#: admin/settings-panel/api/admin-settings.php:563
+#: admin/settings-panel/api/admin-settings.php:617
+msgid "Whols – Wholesale Prices and B2B Store"
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:155
-msgid "Whols Pro"
-msgstr ""
-
-#: inc/metabox.php:959
+#: inc/metabox.php:968
 msgid "Width"
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:37
+#: admin/settings-panel/api/admin-settings.php:612
+msgid "WooCommerce"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:564
+#: admin/settings-panel/api/admin-settings.php:618
+msgid "WooCommerce Wholesale plugin for B2B store management."
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:533
+#: admin/settings-panel/api/admin-settings.php:626
 msgid "WooLentor"
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:131
-msgid ""
-"WooLentor is one of the most popular WooCommerce Elementor Addons on "
-"WordPress.org. It has been downloaded more than 672,148 times and 60,000 "
-"stores are using WooLentor plugin. Why not you?"
-msgstr ""
-
-#: inc/recomendation/hashbar-recomendation.php:128
-msgid "WooLentor Pro"
-msgstr ""
-
-#: inc/recomendation/hashbar-recomendation.php:221
-msgid "WordPress Mega Menu Builder for Elementor"
-msgstr ""
-
-#: init.php:61
+#: init.php:78
 msgid ""
 "Would you mind doing us a huge favor by providing your feedback on WordPress?"
 " Your support helps us spread the word and greatly boosts our motivation."
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:91
+#: admin/settings-panel/api/admin-settings.php:573
 msgid "WP Plugin Manager"
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:200
-msgid "WP Plugin Manager Pro"
-msgstr ""
-
-#: inc/recomendation/hashbar-recomendation.php:203
-msgid ""
-"WP Plugin Manager Pro is a specialized WordPress Plugin that helps you to "
-"deactivate unnecessary WordPress Plugins page wise and boosts the speed of "
-"your WordPress site to improve the overall site performance."
-msgstr ""
-
-#: inc/metabox.php:272
+#: inc/metabox.php:272 admin/settings-panel/api/admin-settings.php:127
 msgid ""
 "Write any Page/Post/Custom Post ids here separated by comma. Example: 4,32,"
 "17."
 msgstr ""
 
-#: inc/metabox.php:412 inc/metabox.php:438 inc/metabox.php:451
-#: inc/metabox.php:497 inc/metabox.php:507 inc/metabox.php:779
+#: inc/metabox.php:419 inc/metabox.php:445 inc/metabox.php:458
+#: inc/metabox.php:504 inc/metabox.php:514 inc/metabox.php:786
 msgid "Yes"
 msgstr ""
 
-#: admin/class-notices.php:73
+#: admin/class-notices.php:87
 msgid "You are not authorized."
 msgstr ""
 
-#: inc/recomendation/hashbar-recomendation.php:122
-msgid "You May Also Like"
+#: admin/settings-panel/api/changelog-api.php:89
+msgid "You do not have permissions to manage this resource."
 msgstr ""
 
 #: inc/metabox.php:11

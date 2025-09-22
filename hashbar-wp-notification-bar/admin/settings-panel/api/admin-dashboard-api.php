@@ -347,7 +347,7 @@ function hashbar_get_notifications($request) {
     $args = array(
         'post_type'      => 'wphash_ntf_bar',
         'posts_per_page' => -1,
-        'post_status'    => ['publish', 'draft']
+        'post_status'    => ['publish', 'draft', 'future']
     );
 
    $admin_settings = Hashbar_Settings_Panel_Settings::get_instance();
@@ -367,11 +367,12 @@ function hashbar_get_notifications($request) {
             'title'   => $notification->post_title,
             'content' => $notification->post_content,
             'created_at' => $notification->post_date,
-            'status'  => get_post_meta($notification->ID, '_wphash_notification_where_to_show', true),
+            'status'  => $notification->post_status == 'draft' ? 'none' : get_post_meta($notification->ID, '_wphash_notification_where_to_show', true),
             'settings' => [],
             'notification_enable_options' => $enable_options,
             'post_status' => $notification->post_status,
-            'permalink' => get_post_permalink($notification->ID)
+            'permalink' => get_post_permalink($notification->ID),
+            'post_date' => $notification->post_date
         );
     }
     $response_data = array(

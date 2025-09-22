@@ -387,33 +387,120 @@ class Hashbar_Settings_Panel_Settings {
 
     public function get_labels_texts() {
         return [
+            // Existing strings
             'upgrade_to_pro' => __('Upgrade to Pro', 'hashbar'),
-            'select_pages' => __('Select Pages:', 'hashbar'),
-            'select_posts' => __('Select Posts:', 'hashbar'),
-            'page_types' => __('Page Type', 'hashbar'),
-            'select' => __('Select', 'hashbar'),
-            'uri_conditions' => __('URI Conditions:', 'hashbar'),
-            'add_condition' => __('Add Condition:', 'hashbar'),
-            'field_desc_uri' => __('E.g. You can use \'contact-us\' on URLs like https://example.com/contact-us or leave it blank for the homepage.', 'hashbar'),
-            'save_enable' => __('Save & Enable', 'hashbar'),
-            'cancel' => __('Cancel', 'hashbar'),
-            'post_types_settings' => __('Post Types Settings', 'hashbar'),
-            'display_settings' => __('Display Settings', 'hashbar'),
-            'show_thumbnails' => __('Show Plugin Thumbnails', 'hashbar'),
-            'show_thumbnails_desc' => __('Enable this option to display plugin thumbnails in the plugin list. (After enabling, you need to refresh the page to see the changes.)', 'hashbar'),
-            'items_per_page' => __('Items Per Page in Plugin List', 'hashbar'),
-            'items_per_page_desc' => __('Select how many plugins to display per page in the manage plugin list.', 'hashbar'),
-            'items' => __('items', 'hashbar'),
-            'save_settings' => __('Save Settings', 'hashbar'),
-            'select_post_types_desc' => __('Select the custom post types where you want to disable plugins.', 'hashbar'),
-            'add_post_type' => __('Add post type...', 'hashbar'),
-            'number_of_posts' => __('Number of Posts to Load', 'hashbar'),
-            'number_of_posts_desc' => __('Default: 150 posts. Adjust if you have more posts to manage.', 'hashbar'),
-            'save_settings_note' => '',
-            // Backend specific labels
-            'backend_page_selection' => __('Backend Page Selection', 'hashbar'),
-            'select_admin_pages' => __('Select Admin Pages:', 'hashbar'),
-            'backend_conditions' => __('Backend Conditions:', 'hashbar'),
+
+            // Settings Page
+            'settings_page' => [
+                'title' => __('HashBar Settings', 'hashbar'),
+                'description' => __('Configure HashBar settings to manage notifications', 'hashbar'),
+                'reset_settings' => __('Reset All Settings', 'hashbar'),
+                'save_settings' => __('Save Settings', 'hashbar'),
+                'reset_confirm_title' => __('Reset Settings', 'hashbar'),
+                'reset_confirm_message' => __('Are you sure you want to reset all settings to default values?', 'hashbar'),
+                'reset_confirm_button' => __('Reset', 'hashbar'),
+                'reset_cancel_button' => __('Cancel', 'hashbar'),
+                'reset_success_message' => __('Settings have been reset successfully', 'hashbar'),
+                'reset_error_message' => __('Failed to reset settings', 'hashbar'),
+            ],
+
+            // Notifications Page
+            'notifications_page' => [
+                'title' => __('Manage Notifications', 'hashbar'),
+                'filter_placeholder' => __('Filter by status', 'hashbar'),
+                'search_placeholder' => __('Search Notifications...', 'hashbar'),
+                'add_new_button' => __('Add New', 'hashbar'),
+                'show_in_label' => __('Show in:', 'hashbar'),
+                'draft_status' => __('Draft', 'hashbar'),
+                'scheduled_at_label' => __('Scheduled At:', 'hashbar'),
+                'inactive_status' => __('Inactive', 'hashbar'),
+                'view_notification' => __('View Notification', 'hashbar'),
+                'duplicate_action' => __('Duplicate', 'hashbar'),
+                'delete_action' => __('Delete', 'hashbar'),
+                'delete_confirm' => __('Are you sure you want to delete this notification?', 'hashbar'),
+                'no_notifications_title' => __('No Notifications Found', 'hashbar'),
+                'no_notifications_search' => __('Try adjusting your search or filter criteria', 'hashbar'),
+                'no_notifications_empty' => __('No notifications are available at the moment', 'hashbar'),
+                'disable_notification_error' => __('Failed to disable notification', 'hashbar'),
+                'load_notifications_error' => __('Failed to load notifications', 'hashbar'),
+            ],
+
+            // Welcome Section
+            'welcome_section' => [
+                'title' => __('Welcome to Hashbar Notification!', 'hashbar'),
+                'subtitle' => __('Thank you for choosing Hashbar Notification Bar! 🚀', 'hashbar'),
+                'description' => __('Create engaging notification bars to boost conversions, grow your audience, and inform visitors easily.', 'hashbar'),
+                'video_title' => __('Welcome to Hashbar Notification', 'hashbar'),
+            ],
+
+            // Analytics Section
+            'analytics_section' => [
+                'title' => __('Analytics Overview', 'hashbar'),
+                'total_clicks' => __('Total Clicks', 'hashbar'),
+                'total_views' => __('Total Views', 'hashbar'),
+                'click_through_rate' => __('Click Through Rate', 'hashbar'),
+                'tracking_title' => __('Tracking By Notification Bars', 'hashbar'),
+                'table_name' => __('Name', 'hashbar'),
+                'table_views' => __('Total Views', 'hashbar'),
+                'table_clicks' => __('Total Clicks', 'hashbar'),
+                'table_rate' => __('Through Rate', 'hashbar'),
+                'top_countries' => __('Top Countries', 'hashbar'),
+                'no_notification_data' => __('No notification data available', 'hashbar'),
+                'no_country_data' => __('No country data available', 'hashbar'),
+                'upgrade_message' => __('Unlock this feature and more by upgrading to HashBar Pro', 'hashbar'),
+            ],
+
+            // Notification Modal
+            'notification_modal' => [
+                'title' => __('Notification Enable/Disable Settings', 'hashbar'),
+                'go_to_settings' => __('Go to Other Settings', 'hashbar'),
+                'cancel_button' => __('Cancel', 'hashbar'),
+                'save_button' => __('Save', 'hashbar'),
+                'update_settings_error' => __('Failed to update notification settings', 'hashbar'),
+            ],
+
+            // Dashboard Cards Section
+            'dashboard_cards' => [
+                'support_title' => __('Support & Feedback', 'hashbar'),
+                'support_description' => __('Need help or want a free store set-up? We will get back to you within 12-24 hours after receiving your inquiry.', 'hashbar'),
+                'support_button' => __('Get Support', 'hashbar'),
+                'community_title' => __('Join Our Community', 'hashbar'),
+                'community_description' => __('Engage with our community to connect & share your ideas. Join a network where collaboration and growth thrive!', 'hashbar'),
+                'community_button' => __('Join Now', 'hashbar'),
+                'documentation_title' => __('Documentation', 'hashbar'),
+                'documentation_description' => __('We\'ve regularly updated the documentation to help you use the plugin effectively.', 'hashbar'),
+                'documentation_button' => __('Documentation', 'hashbar'),
+            ],
+
+            // Newsletter Section
+            'newsletter_section' => [
+                'badge_text' => __('Subscribe Our Newsletter', 'hashbar'),
+                'title' => __('Subscribe to receive discount, offer, plugin updates and news in your inbox.', 'hashbar'),
+                'subscribe_button' => __('Subscribe Now', 'hashbar'),
+            ],
+
+            // Missing Features Section
+            'missing_features' => [
+                'title' => __('Missing Any Feature?', 'hashbar'),
+                'description' => __('Have you ever noticed any missing features? Please notify us if you do. As soon as possible, our staff will add any necessary features based on your requests. Our commitment to our clients is second to none.', 'hashbar'),
+                'request_button' => __('Request Feature', 'hashbar'),
+            ],
+
+            // Plugin Grid Section
+            'plugin_grid' => [
+                'active_installations' => __('Active Installations', 'hashbar'),
+                'more_details' => __('More Details', 'hashbar'),
+            ],
+
+            // Common Messages
+            'common' => [
+                'success' => __('Success', 'hashbar'),
+                'error' => __('Error', 'hashbar'),
+                'loading' => __('Loading...', 'hashbar'),
+                'save_failed' => __('Failed to save settings. Please try again.', 'hashbar'),
+                'load_failed' => __('Failed to load settings. Please try again.', 'hashbar'),
+                'pro_suffix' => __(' (Pro)', 'hashbar'),
+            ],
         ];
     }
 

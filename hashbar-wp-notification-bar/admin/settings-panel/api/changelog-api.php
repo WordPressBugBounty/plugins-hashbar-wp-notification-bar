@@ -182,6 +182,26 @@ class ChangeLog extends WP_REST_Controller {
     private function get_changelog_data() {
         return [
             [
+                'version' => '1.7.2',
+                'date'    => '2025-09-22',
+                'changes' => [
+                    'Fixed' => [
+                        'Fixed: Schedule Notification Display issue.',
+                        'Fixed: Draft Notification Switcher Enable/Disable issue.',
+                        'Fixed: A few minor issues.'
+                    ],
+                ],
+            ],
+            [
+                'version' => '1.7.1',
+                'date'    => '2025-08-06',
+                'changes' => [
+                    'Fixed' => [
+                        'Fixed: Analytics Enable/Disable issue.'
+                    ],
+                ],
+            ],
+            [
                 'version' => '1.7.0',
                 'date'    => '2025-08-06',
                 'changes' => [
