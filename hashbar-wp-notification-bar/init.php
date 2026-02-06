@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: HashBar - WordPress Notification Bar
+ * Plugin Name: HashBar - Announcement, Notification Bar & Popup Campaign
  * Plugin URI:  https://theplugindemo.com/hashbar/
- * Description: Notification Bar plugin for WordPress
- * Version:     1.7.2
+ * Description: Announcement, Notification & Popup Campaign plugin for WordPress
+ * Version:     1.9.0
  * Author:      HasThemes
  * Author URI:  https://hasthemes.com
  * Text Domain: hashbar
@@ -15,7 +15,7 @@
 define( 'HASHBAR_WPNB_ROOT', __FILE__ );
 define( 'HASHBAR_WPNB_URI', plugins_url('',HASHBAR_WPNB_ROOT) );
 define( 'HASHBAR_WPNB_DIR', dirname(HASHBAR_WPNB_ROOT ) );
-define( 'HASHBAR_WPNB_VERSION', '1.7.2');
+define( 'HASHBAR_WPNB_VERSION', '1.9.0');
 
 $wordpress_version = (int)get_bloginfo( 'version' );
 $hashbar_gutenberg_enable = $wordpress_version < 5 ? false : true;
@@ -25,13 +25,25 @@ if ( ! function_exists('is_plugin_active') ){
     include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 }
 include_once( HASHBAR_WPNB_DIR. '/inc/custom-posts.php');
+include_once( HASHBAR_WPNB_DIR. '/inc/announcement-bar-cpt.php');
+include_once( HASHBAR_WPNB_DIR. '/inc/announcement-bar-frontend.php');
+include_once( HASHBAR_WPNB_DIR. '/inc/ab-test-database.php');
+include_once( HASHBAR_WPNB_DIR. '/inc/ab-test-assignment.php');
+include_once( HASHBAR_WPNB_DIR. '/inc/ab-test-tracking.php');
+include_once( HASHBAR_WPNB_DIR. '/inc/ab-test-statistics.php');
+include_once( HASHBAR_WPNB_DIR. '/inc/ab-test-winner.php');
+// Popup Campaign files
+include_once( HASHBAR_WPNB_DIR. '/inc/popup-campaign-cpt.php');
+include_once( HASHBAR_WPNB_DIR. '/inc/popup-campaign-database.php');
+include_once( HASHBAR_WPNB_DIR. '/inc/popup-campaign-form-handler.php');
+include_once( HASHBAR_WPNB_DIR. '/inc/popup-campaign-frontend.php');
+include_once( HASHBAR_WPNB_DIR. '/inc/popup-analytics-processor.php');
 // settings panel files
 include_once( HASHBAR_WPNB_DIR. '/admin/settings-panel/settings-panel.php');
 
-
 add_action('init', function() {
     if(is_admin()){
-        include_once( HASHBAR_WPNB_DIR. '/admin/Hashbar_Trial.php');
+        //include_once( HASHBAR_WPNB_DIR. '/admin/Hashbar_Trial.php'); // disable for halloween campaign
         include_once( HASHBAR_WPNB_DIR. '/admin/class-notice-manager.php');
         include_once( HASHBAR_WPNB_DIR. '/admin/class-notices.php');
         include_once( HASHBAR_WPNB_DIR. '/admin/class-deactivation.php');
@@ -41,9 +53,18 @@ add_action('init', function() {
     include_once( HASHBAR_WPNB_DIR. '/inc/metabox.php');
     // settings panel files
     include_once( HASHBAR_WPNB_DIR . '/admin/settings-panel/api/admin-dashboard-api.php');
+    include_once( HASHBAR_WPNB_DIR . '/admin/settings-panel/api/announcement-bar-api.php');
+    include_once( HASHBAR_WPNB_DIR . '/admin/settings-panel/api/announcement-analytics-api.php');
+    include_once( HASHBAR_WPNB_DIR . '/admin/settings-panel/api/pages-posts-ajax.php');
     include_once( HASHBAR_WPNB_DIR . '/admin/settings-panel/api/changelog-api.php');
     include_once( HASHBAR_WPNB_DIR . '/admin/settings-panel/api/recommended-plugins-api.php');
+    include_once( HASHBAR_WPNB_DIR . '/admin/settings-panel/api/ab-test-api.php');
     include_once( HASHBAR_WPNB_DIR . '/admin/settings-panel/api/admin-settings.php');
+    // Popup Campaign API files
+    include_once( HASHBAR_WPNB_DIR . '/admin/settings-panel/api/popup-campaign-api.php');
+    include_once( HASHBAR_WPNB_DIR . '/admin/settings-panel/api/popup-campaign-settings.php');
+    include_once( HASHBAR_WPNB_DIR . '/admin/settings-panel/api/popup-analytics-api.php');
+    include_once( HASHBAR_WPNB_DIR . '/admin/settings-panel/api/popup-ab-test-api.php');
     add_action('rest_api_init', function() {
         $plugins_api = new \HASHBAR\Api\Plugins();
         $plugins_api->register_routes();
@@ -126,11 +147,6 @@ function hashbar_show_promo_notice() {
     $noticeManager = Hashbar_Notice_Manager::instance();
     $notices = $noticeManager->get_notices_info();
     if(!empty($notices)) {
-        $notices = array_map(function($notice) {
-            $notice["display_after"] = false;
-            $notice["expire_time"] = WEEK_IN_SECONDS;
-            return $notice;
-        }, $notices);
         foreach ($notices as $notice) {
             if(empty($notice['disable'])) {
                 Hashbar_Notice::set_notice($notice);
@@ -144,6 +160,7 @@ include_once( HASHBAR_WPNB_DIR. '/inc/functions.php');
 include_once( HASHBAR_WPNB_DIR. '/inc/database-installer.php');
 include_once( HASHBAR_WPNB_DIR. '/inc/manage-cash.php');
 include_once( HASHBAR_WPNB_DIR. '/inc/analytical-store.php');
+include_once( HASHBAR_WPNB_DIR. '/inc/announcement-analytics-processor.php');
 
 if(!is_plugin_active( 'hashbar-pro/init.php' )){
     include_once( HASHBAR_WPNB_DIR. '/inc/shortcode.php');
@@ -166,7 +183,7 @@ if(!is_plugin_active( 'hashbar-pro/init.php' )){
 	add_action( 'admin_enqueue_scripts','hashbar_wpnb_admin_enqueue_scripts');
 }
 
-// deactivate the pro version 
+// deactivate the pro version
 // added a sample hashbar notification as draft
 register_activation_hook( HASHBAR_WPNB_ROOT, 'hashbar_register_activation_hook' );
 function hashbar_register_activation_hook(){
@@ -178,6 +195,9 @@ function hashbar_register_activation_hook(){
     }
 
     \HashbarFree\DatabaseInstaller\Database_Installer::create_tables();
+    \HashbarFree\DatabaseInstaller\Database_Installer::create_announcement_analytics_table();
+    \HashbarFree\ABTest\AB_Test_Database::create_tables();
+    Hashbar_Popup_Campaign_Database::create_tables();
 
     $plugin_data = get_file_data( HASHBAR_WPNB_ROOT, array('Version'=>'Version'), 'plugin' );
     $vesion = $plugin_data['Version'];
@@ -270,12 +290,27 @@ add_action( 'plugins_loaded', 'hashbar_wpnb_tablecreate' );
 function hashbar_wpnb_tablecreate(){
 
     $analytics_table_exist =get_option( 'hthb_analyticstbl_exist', $default = false );
+    $announcement_analytics_table_exist = get_option( 'hthb_announcement_analyticstbl_exist', $default = false );
     $plugin_data = get_file_data( HASHBAR_WPNB_ROOT, array('Version'=>'Version'), 'plugin' );
     $vesion = $plugin_data['Version'];
 
     if($analytics_table_exist === false){
         if(version_compare($vesion,'1.2.3','>')){
             \HashbarFree\DatabaseInstaller\Database_Installer::create_tables();
+        }
+    }
+
+    if($announcement_analytics_table_exist === false){
+        if(version_compare($vesion,'1.2.3','>')){
+            \HashbarFree\DatabaseInstaller\Database_Installer::create_announcement_analytics_table();
+        }
+    }
+
+    // Create A/B test tables
+    $ab_test_tables_exist = get_option( 'hthb_ab_test_tables_exist', false );
+    if($ab_test_tables_exist === false){
+        if(version_compare($vesion,'1.2.3','>')){
+            \HashbarFree\ABTest\AB_Test_Database::create_tables();
         }
     }
 }
@@ -340,27 +375,22 @@ function hashbar_wpnb_textdomain() {
 add_action( 'init', 'hashbar_wpnb_textdomain' );
 
 function hashbar_wpnb_enqueue_block_assets() {
-    $dev_mode = false;
-    $version  = $dev_mode ? time() : HASHBAR_WPNB_VERSION;
-    wp_enqueue_style( 'hashbar-frontend', HASHBAR_WPNB_URI.'/assets/css/frontend.css',[],$version);
+    wp_enqueue_style( 'hashbar-frontend', HASHBAR_WPNB_URI.'/assets/css/frontend.css',[],HASHBAR_WPNB_VERSION);
 }
 add_action( 'enqueue_block_assets', 'hashbar_wpnb_enqueue_block_assets' );
 
 // enqueue scripts
 add_action( 'wp_enqueue_scripts','hashbar_wpnb_enqueue_scripts');
 function  hashbar_wpnb_enqueue_scripts(){
-    $dev_mode = false;
-    $version  = $dev_mode ? time() : HASHBAR_WPNB_VERSION;
-
     // enqueue styles
-    // wp_enqueue_style( 'hashbar-frontend', HASHBAR_WPNB_URI.'/assets/css/frontend.css',[],$version);
+    // wp_enqueue_style( 'hashbar-frontend', HASHBAR_WPNB_URI.'/assets/css/frontend.css',[],HASHBAR_WPNB_VERSION);
 
     //register script
     wp_register_script( 'jquery-countdown', HASHBAR_WPNB_URI.'/assets/js/jquery.countdown.min.js', array('jquery'), HASHBAR_WPNB_VERSION, true);
 
     // enqueue js
-    wp_enqueue_script( 'hashbar-frontend', HASHBAR_WPNB_URI.'/assets/js/frontend.js', array('jquery'),$version, false);
-    wp_enqueue_script( 'hashbar-analytics', HASHBAR_WPNB_URI.'/assets/js/analytics.js', array('jquery'), $version, true );
+    wp_enqueue_script( 'hashbar-frontend', HASHBAR_WPNB_URI.'/assets/js/frontend.js', array('jquery'), HASHBAR_WPNB_VERSION, false);
+    wp_enqueue_script( 'hashbar-analytics', HASHBAR_WPNB_URI.'/assets/js/analytics.js', array('jquery'), HASHBAR_WPNB_VERSION, true );
     wp_enqueue_script( 'js-cookie', HASHBAR_WPNB_URI.'/assets/js/js.cookie.min.js',array('jquery'),HASHBAR_WPNB_VERSION, false);
 
     $checkbox_value            = hashbar_wpnb_get_opt('dont_show_bar_after_close');
@@ -978,7 +1008,7 @@ add_action( 'admin_footer', 'pro_version_notice');
 
 function pro_version_notice(){
     ?>
-        <a href="#TB_inline?height=250&width=400&inlineId=hashbar_pro_notice" class="thickbox hashbar_trigger_pro_notice" style="display: none;"><?php echo esc_html__('Pro Notice', 'hashbar') ?></a> 
+        <a href="#TB_inline?height=250&width=400&inlineId=hashbar_pro_notice" class="thickbox hashbar_trigger_pro_notice" style="display: none;"><?php echo esc_html__('Pro Notice', 'hashbar') ?></a>
         <div id="hashbar_pro_notice" style="display: none;">
             <div class="hashbar_pro_notice_wrapper">
                 <h3><?php echo esc_html__('Pro Version is Required!', 'hashbar') ?></h3>
@@ -987,4 +1017,16 @@ function pro_version_notice(){
             </div>
         </div>
     <?php
+}
+
+/**
+ * Initialize A/B test visitor ID early in WordPress lifecycle
+ * This prevents "headers already sent" warnings by setting cookies before output
+ */
+add_action( 'wp_loaded', 'hashbar_initialize_ab_test_visitor' );
+function hashbar_initialize_ab_test_visitor() {
+	if ( ! is_admin() && ! wp_doing_ajax() ) {
+		// Initialize visitor ID for A/B testing (this sets cookie before any output)
+		\HashbarFree\ABTest\AB_Test_Assignment::get_visitor_id();
+	}
 }

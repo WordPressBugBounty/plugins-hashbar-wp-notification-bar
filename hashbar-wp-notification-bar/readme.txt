@@ -1,143 +1,606 @@
-=== HashBar - WordPress Notification Bar ===
+=== HashBar - Announcement, Notification Bar & Popup Campaign ===
 Contributors: devitemsllc, htplugins, hasthemes, zenaulislam, aslamhasib, yeasinrony, madhusudandev
-Tags: wordpress notification bar,notification,notification bar,offer bar,promotion bar
+Tags: notification bar, popup, announcement bar, lead capture, countdown timer
 Requires at least: 5.0
-Tested up to: 6.8
-Stable tag: 1.7.2
+Tested up to: 6.9
+Stable tag: 1.9.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-HashBar is a WordPress Notification Bar plugin which allows you to create unlimited notification bars to notify your customers. 
+Create Announcement Bars, Notification Bars & Popup Campaigns with countdown timers, A/B testing, smart targeting & analytics.
 
-== Description == 
-[HashBar](https://hasthemes.com/plugins/wordpress-notification-bar-plugin/) is a handy WordPress Notification Bar Plugin that will take your WordPress site to the next level. You can set up as many notification bars as you want and customize their content to suit your needs. For example, do you need to add an email subscription form? Simply enter in your newsletter title and signup URL, then let it go! With HashBar's eye-catching color schemes and stunning images (you can add new backgrounds at any time by using the simple WP editor), there's no way of not being noticed! So spread the word about what you have to offer without having to make much effort with this one-of-a-kind plugin for WordPress sites.
+== Description ==
+= 🔔 The Most Powerful WordPress Announcement Bar, Notification Bar & Popup Campaign Plugin =
 
-With HashBar, you can create unlimited notification bars to notify your customers. **Sometimes this increases up to 500% of subscribers or conversion!** In addition, you get to add an email subscription form, offer text, and buttons about any promotions that are going on. These notifications are great for building a solid subscriber list, driving website traffic, and boosting social media activity by sharing functions built right in the bar itself!
+[**HashBar**](https://hasthemes.com/plugins/wordpress-notification-bar-plugin/) is a powerful all-in-one WordPress plugin for **Announcement Bars**, **Notification Bars**, and **Popup Campaigns** that will take your WordPress site to the next level. Create unlimited **Announcement Bars** with countdown timers and coupons, embed **Notification Bars** with page builders, and build **high-converting Popup Campaigns** with smart triggers and lead capture forms. Advanced customization options, professional design controls, intelligent targeting, and advanced scheduling maximize your engagement and conversions.
 
-HashBar is an easy-to-install notification plugin for WordPress, allowing you to easily create WordPress notification bars that can be used in any resolution (Desktop/Tablet/Mobile). HashBar – WordPress Notification Bar plugin comes with the option to show all of your promotion buttons (like credit offers and giveaways) and add a form for email subscriptions which has been proven %100 effective!
+**Sometimes notification bars and popups can increase up to 500% of subscribers or conversions!**
 
-👉 [HashBar Landing Page](https://hasthemes.com/plugins/wordpress-notification-bar-plugin/) | [Live Demo](https://theplugindemo.com/hashbar/) | [Purchase Pro](https://hasthemes.com/wordpress-notification-bar-plugin/#hasbar-price) | [Documentation](https://hasthemes.com/docs/hashbar/) | [Support](https://hasthemes.com/contact-us) 👈
+👉 [**Plugin Landing Page**](https://hasthemes.com/plugins/wordpress-notification-bar-plugin/) | [**Live Demo**](https://theplugindemo.com/hashbar/) | [**Purchase Pro**](https://hasthemes.com/plugins/wordpress-notification-bar-plugin/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=purchasepro/#hasbar-price) | [**Documentation**](https://hasthemes.com/docs/hashbar/) | [**Support**](https://hasthemes.com/contact-us/) 👈
 
-### Video Documentation:
+= 🎬 Video Tutorial =
 
-https://youtu.be/sBmDMjYshpc
+https://www.youtube.com/watch?v=9VUc5Is-9Uw
 
-**#1: Main Features:**
+= 🎯 Key Highlights =
 
-1. Gutenberg support
-1. Elementor Page builder support
-1. WPBakery Page builder support
-1. King Composer Page builder support
-1. Target where to show the notifications (See all targeting options below at #2)
-1. Custom positioning (Top, Bottom, Left Wall, Right Wall, Promo Banner Top, Promo Banner Bottom)
-1. Option to load the notification as minimized
-1. Show / Hide notification based on scroll position
-1. Show / Hide the close button
-1. Option to add close button text
-1. Option to add open button text
-1. Option to show/hide notification for Desktop Device
-1. Option to show/hide notification for Mobile Device
-1. Enable/Disable analytics for the notifications (See all analytics options below at #3)
-1. Don't show notification after close (New feature)
-1. Keep Closed. After manually closing the notification bar once, it will be kept closed from all the pages. (New feature)
-1. Set how many times the notification should be shown
-1. Shortcode generator for classic editor
-1. Promo Banner Gutenberg Block (New feature)
-1. Promo Banner Image Gutenberg Block (New feature)
-1. Customize mobile device breakpoint
-1. Show countdown into the notification bar
-1. Countdown feature with lots of customization options
-1. Countdown block for the gutenberg editor
-1. Compatible With WPML
+* 🎨 **18 Announcement Bar Templates** - Get started in seconds with beautiful pre-designed templates
+* 🎪 **8 Popup Campaign Types** - Lead capture, announcements, promotions, exit intent, and more
+* 🖌️ **Advanced Design Options** - Solid colors, gradients, background images, and custom CSS
+* 📊 **A/B Testing** - Test multiple variations to find the winning design
+* 🎬 **15 Smooth Animations** - Multiple entry and exit animation options
+* 📈 **Comprehensive Analytics** - Track impressions, clicks, conversions, and CTR
+* 🎯 **Smart Targeting** - Display based on pages, devices, countries, and user behavior
+* ⏱️ **Countdown Timers** - Fixed, recurring, or evergreen timers for urgency
+* 📝 **Lead Capture Forms** - 11 field types with FREE Mailchimp integration
+* ⚡ **8 Smart Triggers** - Exit intent, scroll depth, time delay, and more
+* 👁️ **Live Preview** - See changes in real-time before publishing
 
-**#2: Targeting Options:**
+HashBar is an easy-to-install plugin for WordPress, allowing you to easily create notification bars and popup campaigns that work perfectly on all devices. With options for custom backgrounds, beautiful gradients, professional CSS styling, stunning animations, and smart triggers, there's no way your notifications and popups won't be noticed!
 
-1. Option to set notification for the "Entire Site"
-1. Option to set notification for only the "Homepage"
-1. Option to set notification for specific "Posts", "Pages" or "WooCommerce Products"
-1. Option to set notification for "All products" of a certain WooCommerce Product category(s) (Pro)
-1. Option to set notification by for some "Page/Post/Custom Posts" by using their ID
-1. Option to set notification based on certain URL visits (URL parameter)
-1. Option to set notification for "All Pages"
-1. Option to set notification for "All Posts"
-1. Option to set notification for "All Products" &
-1. Much more
+= 🎨 Announcement Bar Features =
 
-**#3: Analytics Options (New Features):**
+= 📚 18 Pre-built Templates =
 
-1. Total Clicks
-1. Total Views
-1. Click Through Rate (CTR)
-1. Count only 1 record from each IP for the analytics
-1. Record analytics from (All Users / Guest Users / Registered Users)
-1. Track the analytics for each notification bar (Pro)
+Get started quickly with professionally designed templates.
 
-**#4: Design Customization Options:**
+**🆓 Free Templates:**
 
-1. Content Background color
-1. Content Background Image
-1. Content Text Color
-1. Background Opacity
-1. Close Button BG Color
-1. Close Button Color
-1. Close Button Hover Color
-1. Close Button Hover BG Color
-1. Open Button Bg Color
-1. Open Button Color
-1. Open Button Hover Color
-1. Open Button Hover Bg Color
-1. Notification bar margin and padding
+* ✅ **Classic** - Simple and clean notification banner
+* ✅ **Sale Alert** - Eye-catching design for flash sales
+* ✅ **Free Shipping** - Green theme for shipping promotions
+* ✅ **Info Banner** - Blue style for updates and news
+* ✅ **Countdown Sale** - Includes countdown timer
+* ✅ **Coupon Display** - Showcases discount codes
+* ✅ **Minimal Elegant** - Clean design for premium brands
+* ✅ **Urgent Alert** - Bold orange for urgency
+* ✅ **Holiday Special** - Festive seasonal design
+* ✅ **Limited Stock** - Red urgency design
 
-**Other Pro Features:**
+**⭐ Pro Templates:**
 
-1. Exclude certain page/post/custom post for being the notification bar shown
-1. Support for Sticky/Transparent header
-1. Schedule notification. The notification will automatically appear on your chosen date/time
-1. Schedule notification. The notification will automatically disappear after your chosen date/time
-1. Recurring Countdown. The countdown the countdown timer will automatically restart once the time is over
+* ⭐ **Trust Builder** - Gradient with trust signals
+* ⭐ **New Launch** - Product launch style
+* ⭐ **Premium Gold** - Luxury gradient design
+* ⭐ **Summer Vibes** - Warm seasonal design
+* ⭐ **Social Media** - Purple gradient for social
+* ⭐ **Bundle Deal** - Green gradient for bundles
+* ⭐ **VIP Exclusive** - Members-only style
+* ⭐ **Early Bird** - Pre-order style
 
-**Compatibility with WPML**
+= 📝 Content & Messaging =
 
-HashBar offers seamless integration with WPML, the leading multilingual translation plugin in the industry. This integration allows you to easily translate and localize your website with the plugin, making it accessible to a global audience in their preferred languages. With HashBar, you can break through language barriers and expand your reach like never before.
+* ✅ **Message Text** - Up to 500 characters per message
+* ✅ **Multiple Messages** - Add unlimited rotating messages
+* ✅ **Message Rotation** - Auto-cycle between messages (5-60 seconds)
+* ✅ **CTA Button** - Customizable text, URL, and target
+* ✅ **Default Button Text** - Auto-fills "Shop Now" when enabled
 
-Wanna see the pro version? [Check it out now!](https://hasthemes.com/0lx0)
+= 📍 Position & Display =
 
-== Other Projects ==
-We have a lot of plugins and extensions that might interest you. Try out other projects by following this link:
+* ✅ **Top of Page** - Display at website top
+* ✅ **Bottom of Page** - Display at website bottom
+* ✅ **Sticky Mode** - Stays visible while scrolling
+* ✅ **Z-Index Control** - Set stacking order (1-999999)
+* ✅ **Close Button** - Customizable text and position (left/right)
+* ⭐ **Reopen Button (Pro)** - Allow reopening closed bars
 
-<strong>[Woolentor Addons](https://wordpress.org/plugins/woolentor-addons/)</strong>
-Woolentor is a WooCommerce page builder plugin that extends the functionality of the WooCommerce store. These Elementor Addons provide additional features and options for WooCommerce stores. Woolentor is the best alternative for ShopReady, Kadence, JetWidgets, ShopEngine, and CoDesigner. The Woolentor addons come with 50+ free Elementor widgets like Wishlist Extension Addon, Product compare, Product Filters, Product Variation Swatches, Shopify Style Checkout, Product Slider and 50+ pro Elementor Widgets like Checkout Fields Editor, Partial Payment, Email Customizer for WooCommerce with ready Email Templates, WooCommerce Email Automation, Multi Step Checkout, and many much more. Also it provide 90+ WooCommerce Elementor templates, 22+ WooCommerce Modules, and Gutenberg Blocks.
+= 🍪 Cookie Duration Options =
 
-<strong>[HT Mega For Elementor](https://wordpress.org/plugins/ht-mega-for-elementor/)</strong>
-HT Mega is an Elementor Addons that comes with custom page builder,  header builder, footer builder, mega menus, and more for your Elementor based website. The HT Mega plugin also includes a comprehensive set of Elementor widgets, readymade Elementor templates and Elementor Blocks.  HT Mega plugin works like ElementsKit, Essential Addons for Elementor, Royal Elementor Addons, Premium Addons, Happy Addons, PowerPack Addons, Unlimited Elements, Qi Addons, etc. The HT Mega plugin provides 84+ free Elementor widgets like Post Grid widget, Slider widget, Accordion widget, Elementor Forms widget, Contact Form Widget, Elementor tables, and other related items. It also provides 18+ pro widgets like Filterable Gallery Widget, Event Box Widget, Breadcrumbs Widget, Elementor Facebook Review Widget, Elementor Category List Widget, etc.
+* ✅ Show on each page reload
+* ✅ Session only (until browser closes)
+* ✅ 1 Hour / 6 Hours / 1 Day / 7 Days / 2 Weeks / 1 Month
+* ✅ Never (persistent dismissal)
 
-<strong>[WP Plugin Manager - Deactivate plugins per page](https://wordpress.org/plugins/wp-plugin-manager/)</strong>
-WP Plugin Manager is the perfect solution for those who want to disable certain plugins on specific pages or posts. With this plugin, you can easily activate or deactivate plugins on a per-page or per-post basis. Whichever plugin you don’t need you can deactivate or disable that plugin with the help of WP plugin Manager.
+= 🎨 Design & Styling =
 
-<strong>[Extensions For Cf7](https://wordpress.org/plugins/extensions-for-cf7/)</strong>
-Contact Form 7 is an excellent plugin for organizing your contact page. The CF7 extensions plugin includes Contact Form 7 Database, enabling Conditional Fields for Contact Form 7, etc. It allows fields to be set up as either visible or hidden depending upon the input from visitors. In addition, integrating seamlessly with Mailchimp brings leads generated every time someone fills out one form into an associated email list immediately. 
+**Background Options:**
 
-<strong>[Whols](https://wordpress.org/plugins/whols/)</strong>
-Whols is an outstanding plugin for WooCommerce that allows store owners to set wholesale prices for the products of their online stores. With Whols, you can easily add custom fields to your registration form, set minimum product requirements, and control how wholesale prices are displayed on both the shop and product detail pages. Whols work  like Wholesale Suite, B2Bking and B2B plugins.
+* ✅ Solid Color (Free)
+* ⭐ Gradient (Pro) - Two-color with 4 directions
+* ⭐ Image (Pro) - Upload with Cover/Contain/Auto
 
-<strong>[Just Tables](https://wordpress.org/plugins/just-tables/)</strong>
-JustTables is a WooCommerce product table plugin that helps you easily create and manage tables for your products. It includes 28 pre-built columns with options to enable/disable, and you can add custom columns with custom fields/taxonomies. Just Tables also allows you to order table columns using drag and drop and set the number of products per page.
+**Typography:**
 
-<strong>[Swatchly](https://wordpress.org/plugins/swatchly/)</strong>
-Swatchly is a WooCommerce product variation swatches plugin that allows you to add color swatches to your product pages. With Swatchly, you can enable swatches for the shop, product list, and product details pages. There are three swatch types (label swatche, color swatche, image swatche), and the plugin supports multi-colored swatches.
+* ✅ Font Family: System UI, Arial, Georgia, Courier New, Trebuchet MS, Times New Roman
+* ✅ Font Weight: Light (300) to Bold (700)
+* ✅ Font Size: 12px to 32px
+* ✅ Text Alignment: Left, Center, Right
 
-<strong>[HT Slider For Elementor](https://wordpress.org/plugins/ht-slider-for-elementor/)</strong>
-HT Slider For Elementor is a powerful and user-friendly slider addon for Elementor. You can customize the look and feel of your slider with HT Slider's custom styling options. You also have the option to display your slides by id and category. Plus, HT Slider For Elementor comes with custom design options for slider navigation and pagination, so you can easily control the look and feel of your slider. 
+**Spacing:**
 
-<strong>[HT Contact form](https://wordpress.org/plugins/ht-contactform/)</strong>
-HT Contact Form 7 Widget is an Elementor addon that allows you to easily drag and drop Contact Form 7 forms into your web pages. With the help of this plugin, you can choose your form from the drop-down list, Custom Styling Options, and add it to any page or place on your website. The HT Contact Form 7 Widget is an essential tool for anyone using Contact Form 7 on their website.
+* ✅ Bar Height: 40px to 200px
+* ✅ Padding: Individual control for all sides
 
-== 👉 Need Help? ==
-Is there any feature that you want to get in this plugin? 
-Needs assistance to use this plugin? 
-Feel free to [Contact us](https://hasthemes.com/contact-us/)
+**Button Styling:**
+
+* ✅ CTA Button: Colors, hover effects, font size, border radius
+* ✅ Close Button: Colors, hover effects, font size, border radius
+
+**Custom CSS (Pro):**
+
+* ⭐ CSS Editor with syntax highlighting
+* ⭐ Selectors: `.hashbar-announcement-bar`, `.hashbar-announcement-cta`, `.hashbar-coupon-display`, `.hashbar-announcement-close`
+
+= 🎪 Popup Campaign Features =
+
+= 📋 8 Campaign Types =
+
+**🆓 Free:**
+
+* ✅ **Lead Capture** - Collect emails and build your list
+* ✅ **Announcement** - Share important news and updates
+* ✅ **Promotion** - Highlight special offers and deals
+* ✅ **Exit Intent** - Catch leaving visitors with offers
+* ✅ **Welcome** - Greet new visitors
+
+**⭐ Pro:**
+
+* ⭐ **Survey** - Collect feedback and opinions
+* ⭐ **Age Verification** - Verify visitor age before entry
+* ⭐ **Cookie Consent** - GDPR-compliant cookie notices
+
+= 📍 7 Popup Positions =
+
+**🆓 Free:**
+
+* ✅ **Center Modal** - Classic centered popup
+* ✅ **Bottom Right** - Corner slide-in popup
+* ✅ **Bottom Left** - Alternative corner position
+* ✅ **Floating Box** - Floating element that stays in view
+
+**⭐ Pro:**
+
+* ⭐ **Fullscreen** - Covers entire viewport
+* ⭐ **Side Panel Left** - Slides in from left edge
+* ⭐ **Side Panel Right** - Slides in from right edge
+
+= ⚡ 8 Smart Triggers =
+
+**🆓 Free:**
+
+* ✅ **Immediate** - Show as soon as page loads
+* ✅ **Time Delay** - Show after X seconds on page
+* ✅ **Exit Intent** - Show when mouse moves to leave
+
+**⭐ Pro:**
+
+* ⭐ **Scroll Depth** - Show after scrolling X% of page
+* ⭐ **Element Click** - Show when specific element is clicked
+* ⭐ **User Inactivity** - Show after X seconds of no activity
+* ⭐ **Element Visible** - Show when element enters viewport
+* ⭐ **Page Views** - Show after X page views
+
+= 📝 Form Builder (11 Field Types) =
+
+**🆓 Free:**
+
+* ✅ Email - Email address with validation
+* ✅ Name - Single name field
+* ✅ Checkbox - Single checkbox for consent
+
+**⭐ Pro:**
+
+* ⭐ Text - Single-line text input
+* ⭐ Textarea - Multi-line text area
+* ⭐ Phone - Phone number input
+* ⭐ Dropdown - Select with options
+* ⭐ Radio Buttons - Multiple choice options
+* ⭐ Date Picker - Date selection field
+* ⭐ Hidden Field - Invisible data field
+* ⭐ GDPR Consent - Privacy consent checkbox
+
+**Form Features:**
+
+* ✅ Drag & drop field ordering
+* ✅ Custom labels and placeholders
+* ✅ Required field validation
+* ✅ Success message customization
+* ✅ Redirect URL after submission
+* ✅ Custom submit button text
+
+= 📦 Content Types =
+
+**🆓 Free:**
+
+* ✅ Custom Content - Rich text editor with heading, text, image, button
+* ✅ HT Contact Form - HashThemes form integration
+
+**⭐ Pro:**
+
+* ⭐ Custom HTML - Write your own HTML code
+* ⭐ Contact Form 7 - Embed CF7 forms
+* ⭐ WPForms - Embed WPForms
+* ⭐ Ninja Forms - Embed Ninja Forms
+* ⭐ Gravity Forms - Embed Gravity Forms
+* ⭐ Fluent Forms - Embed Fluent Forms
+* ⭐ Shortcode - Any shortcode-based content
+
+= 🖼️ Image Position Options =
+
+* ✅ **Free:** Top, Bottom
+* ⭐ **Pro:** Left, Right, Background
+
+= 🔄 Frequency Control =
+
+**🆓 Free:**
+
+* ✅ Every Page Load
+* ✅ Once Per Session
+* ✅ Once Per Day
+
+**⭐ Pro:**
+
+* ⭐ Once Every X Days
+* ⭐ Once Ever
+* ⭐ X Times Total
+
+= 🔗 Mailchimp Integration (Free) =
+
+* ✅ Connect with API key
+* ✅ Select audience/list
+* ✅ Enable/disable double opt-in
+* ✅ Auto-tag subscribers for segmentation
+
+= 🔧 Shared Features (Both Announcement Bar & Popup) =
+
+= ⏰ Countdown Timer =
+
+Create urgency with powerful countdown timers in both Announcement Bars and Popup Campaigns.
+
+**Timer Types:**
+
+* ✅ **Fixed Date (Free)** - Countdown to specific date/time
+* ⭐ **Evergreen (Pro)** - Personal timer per visitor
+* ⭐ **Recurring (Pro)** - Resets at set times/days
+
+**Timer Styles:**
+
+* ✅ Simple/Inline (Free)
+* ✅ Boxes (Free)
+* ✅ Digital (Free)
+* ⭐ Circular (Pro)
+
+**Timer Options:**
+
+* ✅ Show/Hide: Days, hours, minutes, seconds
+* ✅ Custom text before and after timer
+* ✅ Site or visitor timezone
+* ✅ Full color customization
+
+= 🎟️ Coupon Display =
+
+Distribute discount codes with one-click copy functionality.
+
+**Styles:**
+
+* ✅ Simple (Free) - Clean text with border
+* ✅ Dashed (Free) - Dashed border style
+* ⭐ Ticket (Pro) - Voucher/ticket design
+* ⭐ Gradient (Pro) - Modern gradient background
+
+**Features:**
+
+* ✅ One-click copy to clipboard
+* ✅ Custom label and description
+* ✅ Custom "Copy" and "Copied!" text
+* ✅ Full color customization
+* ✅ Auto-apply to WooCommerce cart (Announcement Bar)
+
+= 🎯 Targeting Options =
+
+Show your bars and popups to the right audience.
+
+**📄 Page Targeting:**
+
+* ✅ All Pages
+* ✅ Homepage Only
+* ✅ Specific Pages/Posts
+* ✅ All Except Excluded
+
+**📱 Device Targeting:**
+
+* ✅ Desktop
+* ✅ Tablet
+* ✅ Mobile
+
+**🌍 Geographic Targeting:**
+
+* ✅ All Countries (Free)
+* ⭐ Specific Country Selection (Pro)
+
+**👤 User Targeting:**
+
+* ✅ All Users
+* ✅ Logged-in Users Only
+* ✅ Guest Visitors Only
+
+= 📅 Scheduling =
+
+Automate your campaigns with advanced scheduling.
+
+* ✅ Start date and time
+* ✅ End date and time
+* ✅ Site or visitor timezone
+* ⭐ Recurring days - Monday through Sunday (Pro)
+* ⭐ Time targeting - Start and end time daily (Pro)
+
+= ✨ Animations =
+
+Professional entry and exit animations for attention-grabbing displays.
+
+**Entry Animations:**
+
+* ✅ Fade In (Free)
+* ✅ Slide Down/Up (Free)
+* ⭐ Slide Left/Right (Pro)
+* ⭐ Zoom In (Pro)
+* ⭐ Bounce In (Pro)
+* ⭐ Flip In (Pro)
+
+**Exit Animations:**
+
+* ✅ Fade Out (Free)
+* ✅ Slide Out Up/Down (Free)
+* ⭐ Slide Out Left/Right (Pro)
+* ⭐ Zoom Out (Pro)
+* ⭐ Bounce Out (Pro)
+
+**Duration:** 100ms to 2000ms customizable
+
+= 📊 Analytics Dashboard (FREE!) =
+
+Track performance with comprehensive built-in analytics.
+
+* ✅ Total views, clicks, and conversions
+* ✅ Click-through rate (CTR)
+* ✅ Conversion rate
+* ✅ Device breakdown (Desktop, Mobile, Tablet)
+* ✅ Geographic insights by country
+* ✅ Page performance by URL
+* ✅ Timeline: Daily, weekly, monthly views
+* ✅ CSV export for detailed analysis
+
+= 🔬 A/B Testing (Pro) =
+
+Find the winning design with automatic split testing.
+
+* ⭐ Create unlimited test variants
+* ⭐ Automatic traffic splitting
+* ⭐ Track impressions, clicks, conversions per variant
+* ⭐ Statistical confidence levels (Low/Medium/High)
+* ⭐ Automatic winner detection
+* ⭐ Per-variant analytics
+
+= 📢 Notification Bar Features =
+
+The classic Notification Bar with page builder integration for embedding notifications directly into your content.
+
+= 🔌 Page Builder Compatibility =
+
+* ✅ **Gutenberg** - 4 native blocks included
+* ✅ **Elementor** - Full support
+* ✅ **WPBakery** - Full support
+* ✅ **King Composer** - Full support
+* ✅ **Classic Editor** - Shortcode generator included
+
+= 📦 Gutenberg Blocks =
+
+* ✅ **Promo Banner Block** - Create promotional banners
+* ✅ **Promo Banner Image Block** - Image-based promo banners
+* ✅ **Countdown Block** - Add countdown timers
+* ✅ **Notification Block** - Display notifications
+
+= 📍 Position Options =
+
+* ✅ Top Position
+* ✅ Bottom Position
+* ✅ Left Wall
+* ✅ Right Wall
+* ✅ Promo Banner Top
+* ✅ Promo Banner Bottom
+
+= 🎛️ Display Controls =
+
+* ✅ Show/Hide on Desktop
+* ✅ Show/Hide on Mobile
+* ✅ Custom mobile breakpoint
+* ✅ Load as minimized option
+* ✅ Show/Hide based on scroll position
+* ✅ Close button with custom text
+* ✅ Open button with custom text
+* ✅ Keep closed after manual close
+
+**Note:** Announcement Bar and Popup Campaign have their own dedicated admin panel with live preview - no page builder required!
+
+= 🌐 WPML Compatibility =
+
+HashBar offers seamless integration with WPML, the leading multilingual translation plugin. Translate and localize your notification bars and popup campaigns for a global audience.
+
+= 📊 Use Cases =
+
+**🔔 Announcement Bars:**
+
+* 🔥 Flash sales and limited-time offers
+* 📧 Newsletter and email signups
+* 🆕 New product announcements
+* 🎟️ Coupon code distribution
+* 🚚 Free shipping threshold notices
+* 🎄 Holiday hours and closures
+* 📱 Social media follower campaigns
+
+**🎪 Popup Campaigns:**
+
+* 📥 Lead capture and email list building
+* 🛒 Exit intent cart abandonment recovery
+* 🎉 Welcome popups for first-time visitors
+* 📊 Survey collection and user feedback
+* 🔞 Age verification for restricted content
+* 🍪 Cookie consent for GDPR compliance
+* ⏰ Urgency campaigns with countdown timers
+* 💰 Promotional offers with coupon codes
+
+= 🔥 Other Popular Plugins by HasThemes =
+
+* [**ShopLentor (formerly WooLentor)**](https://wordpress.org/plugins/woolentor-addons/) – WooCommerce page builder plugin with 120+ free Elementor widgets, 110+ WooCommerce templates, and Gutenberg Blocks. Best alternative for ShopReady, Kadence, JetWidgets, ShopEngine, and CoDesigner.
+
+* [**HT Mega For Elementor**](https://wordpress.org/plugins/ht-mega-for-elementor/) – Elementor Addons with 135+ professional widgets, AI-powered content writer, theme builder, and 790+ ready-made blocks. Works like ElementsKit, Essential Addons, Royal Elementor Addons.
+
+* [**WP Plugin Manager**](https://wordpress.org/plugins/wp-plugin-manager/) – Disable certain plugins on specific pages or posts for better performance. Activate or deactivate plugins on a per-page basis.
+
+* [**Extensions For CF7**](https://wordpress.org/plugins/extensions-for-cf7/) – Contact Form 7 Database, Conditional Fields, and Mailchimp integration for lead generation.
+
+* [**Whols**](https://wordpress.org/plugins/whols/) – WooCommerce wholesale pricing plugin. Set wholesale prices, custom registration fields, and minimum requirements. Works like Wholesale Suite, B2Bking.
+
+* [**JustTables**](https://wordpress.org/plugins/just-tables/) – WooCommerce product table plugin with 28 pre-built columns, custom fields support, and drag-and-drop ordering.
+
+* [**Swatchly**](https://wordpress.org/plugins/swatchly/) – WooCommerce product variation swatches with color, label, and image swatch types.
+
+* [**HT Slider For Elementor**](https://wordpress.org/plugins/ht-slider-for-elementor/) – Powerful slider addon for Elementor with custom styling options and navigation controls.
+
+* [**HT Contact Form**](https://wordpress.org/plugins/ht-contactform/) – Elementor addon for Contact Form 7 with drag-and-drop and custom styling options.
+
+Wanna see the pro version? [**Check it out now!**](https://hasthemes.com/plugins/wordpress-notification-bar-plugin/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=purchasepro/#hasbar-price)
+
+= 💬 Need Help? =
+
+Is there any feature that you want to get in this plugin?
+Needs assistance to use this plugin?
+
+* 🎫 [**Create a Support Ticket**](https://hasthemes.com/contact-us/)
+* 💡 [**Feature Request / Bug Report**](https://hasthemes.com/wishform/)
+* 📚 [**Documentation**](https://hasthemes.com/docs/hashbar/)
+
+== Installation ==
+
+= Modern Way: =
+1. Go to WordPress Dashboard > Plugins > Add New
+2. Search for "HashBar"
+3. Click Install, then Activate
+
+= Manual Way: =
+1. Download and unzip the plugin
+2. Upload `hashbar-wp-notification-bar` folder to `/wp-content/plugins/`
+3. Activate via the Plugins menu
+
+= After Activation: =
+1. Go to HashBar menu in your WordPress admin
+2. Create a new Announcement Bar or Popup Campaign
+3. Customize using the visual editor with live preview
+4. Publish and watch your conversions grow!
+
+== Frequently Asked Questions ==
+
+= Is coding knowledge required? =
+
+No! HashBar features a visual editor with live preview. Pro users can add custom CSS for advanced styling.
+
+= Can I create unlimited notification bars? =
+
+Yes! Both Free and Pro versions allow unlimited bars and popups.
+
+= Does HashBar work with my theme? =
+
+Yes, HashBar works with all standard WordPress themes including Astra, OceanWP, GeneratePress, Kadence, Divi, and more.
+
+= Can I target visitors from specific countries? =
+
+Yes! Free version shows to all countries. Pro version allows targeting specific countries.
+
+= Does it work with page builders? =
+
+Yes! The Notification Bar integrates with Gutenberg (4 blocks), Elementor, WPBakery, King Composer, and Classic Editor. Announcement Bar and Popup Campaign have their own dedicated admin panel with live preview.
+
+= Can I schedule bars to appear automatically? =
+
+Yes! Set start and end dates with specific times. Pro adds recurring schedules.
+
+= Does HashBar include countdown timers? =
+
+Yes! Free includes fixed countdown. Pro adds recurring and evergreen timers.
+
+= Will HashBar slow down my website? =
+
+No! HashBar uses optimized asset delivery and lightweight code.
+
+= Is it mobile responsive? =
+
+Yes! All bars and popups are fully responsive with device-specific visibility options.
+
+= Can I track performance? =
+
+Yes! Built-in analytics tracks impressions, clicks, CTR, and conversions.
+
+= Does it work with WooCommerce? =
+
+Yes! Target specific products, categories, or shop pages. Coupons can auto-apply to cart.
+
+= Is WPML supported? =
+
+Yes! Full WPML compatibility for multilingual sites.
+
+= What is A/B testing? =
+
+Create multiple variants and automatically split traffic to find the best performer. Available in Pro.
+
+= What is an evergreen countdown? =
+
+A personalized timer that starts fresh for each visitor, creating individual urgency. Pro feature.
+
+= What triggers are available for popups? =
+
+8 triggers: Immediate, Time Delay, Exit Intent (Free), plus Scroll Depth, Element Click, User Inactivity, Element Visible, Page Views (Pro).
+
+= Can I capture leads? =
+
+Yes! Form builder with 11 field types and FREE Mailchimp integration included.
+
+= Is there a money-back guarantee? =
+
+Yes! 30-day money-back guarantee on Pro purchases.
+
+== Screenshots ==
+
+1. **Unlimited Announcement Bars** - Create, manage, and schedule campaigns instantly
+2. **Rich Content & Messaging** - Configure messages, buttons, and call-to-actions easily
+3. **Complete Popup Campaign Manager** - Create, customize, and track conversion campaigns
+4. **Pre-built Templates & Live Preview** - Choose a conversion-ready design or start from scratch
+5. **7 Popup Positions & 8 Campaign Types** - From fullscreen takeovers to subtle slide-ins
+6. **Boost Sales with Countdowns** - Create urgency with Evergreen & Recurring timers
+7. **Advanced Gradients & Design** - Full control over backgrounds, typography, and visual styling
+8. **Eye-Catching Animations** - Control entrance and exit effects with precision timing
+9. **Smart Targeting & Scheduling** - Control exactly who sees your notification bars and when
+10. **Real-Time Analytics & Reporting** - Track impressions, clicks, CTR, and conversions visually
+11. **A/B Testing & Analytics** - Compare variants, split traffic, and pick a winner automatically
 
 == Changelog ==
+
+= Version: 1.9.0 - Date: 28 Jan 2026 =
+* Added: Popup Campaign with templates, 8 campaign types, 7 positions, and 8 smart triggers.
+* Added: Form Builder with 11 field types and Mailchimp integration.
+* Added: Popup Countdown Timer, Coupon Display, and Smooth Animations.
+* Added: Popup Analytics Dashboard and A/B Testing (Pro).
+* Added: Default CTA button text and sticky live preview in Announcement Bar Editor.
+* Improved: Page targeting and typography sections in Announcement Bar Editor.
+* Improved: Timezone select option with Site and visitor Timezone in Announcement Bar.
+
+= Version: 1.8.0 - Date: 06 Jan 2026 =
+* Added: Modern Announcement Bar with Templates, Countdown, Targeting, Animation, and Scheduling
+* Added: Announcement Bar Analytics
+* Added: Coupon code display with copy functionality
+* Improved: UI/UX for better user experience
+
+= Version: 1.7.5 - Date: 13 Nov 2025 =
+* Fixed: Admin notice display issue.
+
+= Version: 1.7.4 - Date: 23 Oct 2025 =
+* Improved: Minor UI update and optimizations.
+
+= Version: 1.7.3 - Date: 13 Oct 2025 =
+* Added: Scheduled Notifications filter option in notification list.
+* Improved: Filter logic to show only active scheduled notifications.
+* Fixed: Pagination reset issue when changing filters or search query.
+
 = Version: 1.7.2 - Date: 22 Sep 2025 =
 * Fixed: Schedule Notification Display issue.
 * Fixed: Draft Notification Switcher Enable/Disable issue.
@@ -165,200 +628,10 @@ Feel free to [Contact us](https://hasthemes.com/contact-us/)
 = Version: 1.5.7 - Date: 01 Jan 2025 =
 * Added: Typography options for "Hashbar Notification" block.
 
-= Version: 1.5.6 - Date: 05 Dec 2024 =
-* Fixed: Translation issue in notification metabox.
+== Upgrade Notice ==
 
-= Version: 1.5.5 - Date: 19 Nov 2024 =
-* Enhanced: UI/UX for a better user experience
+= 1.9.0 =
+🎪 HUGE UPDATE! Introducing Popup Campaign with templates, 8 campaign types, 7 positions, 8 triggers, form builder, and analytics. Update now!
 
-= Version: 1.5.4 - Date: 01 Oct 2024 =
-* Fixed: Issue with "Where to show" set to "Homepage Only" not working.
-
-= Version: 1.5.3 - Date: 26 Aug 2024 =
-* Updated: 3rd party libraries for latest PHP version compatibility.
-
-= Version: 1.5.2 - Date: 30 July 2024 =
-* Fixed: Translation issue in plugin analytics section.
-* Updated: Language translation .pot file.
-
-= Version: 1.5.1 - Date: 03 July 2024 =
-* Added: Option to delay notification display.
-* Updated: Language translation .pot file.
-
-= Version: 1.5.0 - Date: 06 Jun 2024 =
-* Tweak: Added compatibility with latest gutenberg block editor
-
-= Version: 1.4.9 - Date: 04 Jun 2024 =
-* Fixed: Issue with "Where to show" set to "Homepage Only" not working.
-
-= Version: 1.4.8 - Date: 15 May 2024 =
-* Added: Block json schema for all gutenberg blocks.
-
-= Version: 1.4.7 - Date: 04 April 2024 =
-* Added: Option to add border on notification content area.
-
-= Version: 1.4.6 - Date: 03 April 2024 =
-* Fixed: Escaping issues have been resolved in multiple areas.
-
-= Version: 1.4.5 - Date: 13 Mar 2024 =
-* Fixed: The "Don't Show Notification After Close" and "Keep The Notification Bar Closed" options were causing all notifications to disappear
-* Fixed: Cookie Count not getting update issue
-* Fixed: Diagnostic data notice dismiss issue
-
-= Version: 1.4.4 - Date: 17 Dec 2023 =
-* Tweak: CSS for cross-browser compatibility
-* Tweak: Opt-in message to provide non-sensitive diagnostic data and usage information to improve the plugin
-
-= Version: 1.4.3 - Date: 16 Oct 2023 =
-* Tweak: Added compatibility with WPML plugin.
-
-= Version: 1.4.2 - Date: 13 Sep 2023 =
-* Tweak: Filtered the gutenberg blocks link while displaying.
-* Fixed: Showing the notifications on search page issue.
-
-= Version: 1.4.1 - Date: 05 Sep 2023 =
-* Fixed: Prevent allowing to input javascript: in the URL field in the notification bar, promo banner, and promo banner image block.
-
-= Version: 1.4.0 - Date: 01 Aug 2023 =
-* Updated: Language file.
-
-= Version: 1.3.9 - Date: 19 June 2023 =
-* Added: Cookie expire time.
-
-= Version: 1.3.8 - Date: 14 Jan 2023 =
-* Tweak: Updated all URLS which is treated as Malware URL by Wordfence plugin
-
-= Version: 1.3.7 - Date: 12 Jan 2023 =
-* Tweak: Updated pattern image for WordFence DNS issue
-
-= Version: 1.3.6 - Date: 26 Dec 2022 =
-* Fixed: Some bugs in the hashbar_btn shortcode
-
-= Version: 1.3.5 - Date: 27 Sep 2022 =
-* Updated: Plugin list in the Recommendations menu
-* Fixed: Invisible directory of javascript file in Codestar library
-
-= Version: 1.3.4 - Date: 11 Aug 2022 =
-* Fixed: Keep close bar option was not working after enabling show/hide scroll position.
-
-= Version: 1.3.3 - Date: 25 Mar 2022 =
-* Added: No Follow and Sponsored attribute add in button.
-* Fixed: Hashbar block pattern disable for other post.
-
-= Version: 1.3.2 - Date: 16 Mar 2022 =
-* Fixed: When Custom->All Posts is selected as the display location. The notification also displays for products.
-
-= Version: 1.3.1 - Date: 13 Feb 2022 =
-* Added: Filter hook named hashbar_should_output
-* Fixed: Guentenberg block text missplacement
-
-= Version: 1.3.0 - Date: 24 Jan 2022 =
-* Added: Countdown feature with lots of customization options
-* Added: Countdown Block for gutenberg editor
-* Removed: Update notice
-
-= Version: 1.2.8 - Date: 2 Dec 2021 =
-* Fixed: image uploads url cnaged by hashbar post
-
-= Version: 1.2.7 - Date: 13 Nov 2021 =
-* Fixed: Individually show or hide the show button in notificaiton bar
-* Fixed: Left and right's wall notification bar width in mobile device.
-
-= Version: 1.2.6 - Date: 6 Nov 2021 =
-* Added: Option to notification show button enable disable
-
-= Version: 1.2.5 - Date: 16 Oct 2021 =
-* fix issue of admin bar dropdown menu cover by notification bar
-* fix jQuery load function deprecated issue
-
-= Version: 1.2.4 - Date: 3 Oct 2021 (Major Update) =
-* Completely Rewrites: Old CSS & the JS codes (Clearing cache after updating to this version is recommended)
-* Improved: Metabox options to make it more user friendly & serve better user experience
-* Improved: A few options names to describe the usages of those options more clearly
-* Added: Analytics feature
-* Added: Option to show/hide notification based on scroll position
-* Added: Option to keep the notification bar closed by using cookie
-* Added: Option to set notification for Specific Posts / Pages / Products (Previously it was available in the PRO version only)
-* Updated: Background image field data type (previously it was "string" from now the field type is "array")
-
-= Version: 1.2.3 - Date: 26 Aug 2021 =
-* Fixed: Gutenberg widget conflict problem
-
-= Version: 1.2.2 - Date: 14 Aug 2021 =
-* fixed: fix notification bar conflicting issue with promobanner.
-* fixed: fix notification bar menu cover issue with scrolling.
-* Added: only show and only hide notification and promo banner with scrolling.
-
-= Version: 1.2.1 - Date: 02 Aug 2021 =
-* fixed: multiple promo banner selector issue.
-* fixed: improve scroll position accurate value.
-
-= Version: 1.2.0 - Date: 19 Jul 2021 =
-* Added: Promo Banner gutenberg block.
-* Added: Promo Banner image gutenberg block.
-* Added: Enable Mobile Device break poing option
-* Added: Option for Promo Banner show hide with scroll positon.
-* Added: Top and bottom position for Promo Banner
-
-= Version: 1.1.9 - Date: 27 May 2021 =
-* Pro version deactivate option on activate the light version
-* add pro feature only for showing and highlight the pro version.
-
-= Version: 1.1.8 - Date: 18 jan 2021 =
-* Remove Material icon dependency
-* Add svg icon 
-
-= Version: 1.1.7 - Date: 2021-01-06 =
-* Capability With latest WordPress version
-
-= Version: 1.1.6 - Date: 2020-12-01 =
-* Add alignment option in block.
-* Fix blang p tag issue.
-
-= Version: 1.1.5 - Date: 2020-10-25 =
-* Gutenbeg block Issue solved.
-
-= Version: 1.1.4 - Date: 2020-10-25 =
-* Add content margin and padding option.
-* Enable gutenbeg block.
-* Add hashbar button shortcode as gutenberg block in block editor.
-
-= Version: 1.1.1 - Date: 2020-04-25 =
-* Divi conflict issue solved.
-* Mobile body Extra space issue solved. (thanks to mikeydiamonds)
-* Avada mobile menu conflict issue solved
-
-= Version: 1.1.0 - Date: 2020-03-30 =
-* Multiple Activation Issue Solved.
-* Close Button Style issue solved.
-* Meta box conditional Field issue solved.
-
-== Installation ==
-This section describes how to install the HashBar – WordPress Notification Bar plugin and get it working.
-
-= 1) Install =
-
-= Modern Way: =
-1. Go to the WordPress Dashboard "Add New Plugin" section.
-2. Search For "HashBar".
-3. Install, then Activate it.
-
-= Old Way: =
-1. Unzip (if it is zipped) and Upload `hashbar-wp-notification-bar ` folder to the `/wp-content/plugins/` directory
-2. Activate the plugin through the 'Plugins' menu in WordPress
-
-= 2) Configure =
-1. After install and activate the plugin you will get a notice to install CMB2 Plugin, please install it to get this plugin's full functionality
-2. To install the plugin click on the "install" link from the notification
-3. ‘HashBars’ Menu will be appear in Backend
-4. Create new HashBar and relax!
-
-== Screenshots ==
-1. All Notification Bars Live Preview
-2. Analytics Overview
-3. Add Notification Bar With Gutenberg Editor
-4. Add Notification Bar With Classic Editor
-5. Customization General Options
-6. Customization Visibility Options
-7. Customization Design Options
-8. Customization Countdown Options
+= 1.8.0 =
+🎉 Major update! 18 templates, countdown timers, analytics, and more. Update recommended!

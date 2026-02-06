@@ -96,12 +96,12 @@ function hashbar_wpnb_settings_init(  ) {
 		'hashbar_wpnb_options_group_1_section' 
 	);
 
-	add_settings_field( 
-		'mobile_device_breakpoint', 
-		__( 'Mobile device breakpoint (px)', 'hashbar' ), 
-		'hashbar_wpnb_text_render', 
-		'options_group_1', 
-		'hashbar_wpnb_options_group_1_section' 
+	add_settings_field(
+		'mobile_device_breakpoint',
+		__( 'Mobile device breakpoint (px)', 'hashbar' ),
+		'hashbar_wpnb_text_render',
+		'options_group_1',
+		'hashbar_wpnb_options_group_1_section'
 	);
 
 	// dismiss the admin notice for user

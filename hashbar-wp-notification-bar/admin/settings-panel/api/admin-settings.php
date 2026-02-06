@@ -14,6 +14,7 @@ class Hashbar_Settings_Panel_Settings {
     }
 
     private function __construct() {
+        // Temporarily set to true for A/B testing development in free version
         $this->is_pro = defined('HASHBAR_WPNBP_VERSION');
     }
 
@@ -37,11 +38,28 @@ class Hashbar_Settings_Panel_Settings {
                 'visible' => true,
                 'isRouter' => true
             ],
+            'announcement_bar' => [
+                'label' => __('Announcement Bar', 'hashbar'),
+                'icon' => 'MessageCircle',
+                'link' => '/announcement-bar',
+                'order' => 2,
+                'visible' => true,
+                'isRouter' => true
+            ],
+            'popup_campaign' => [
+                'label' => __('Popup Campaign', 'hashbar'),
+                'icon' => 'Popup',
+                'link' => '/popup-campaign',
+                'order' => 3,
+                'visible' => true,
+                'isRouter' => true,
+                'proBadge' => false
+            ],
             'notifications' => [
-                'label' => __('Notifications', 'hashbar'),
+                'label' => __('Notification Bar', 'hashbar'),
                 'icon' => 'Bell',
                 'link' => '/notifications',
-                'order' => 2,
+                'order' => 4,
                 'visible' => true,
                 'isRouter' => true
             ],
@@ -49,7 +67,7 @@ class Hashbar_Settings_Panel_Settings {
                 'label' => __('Settings', 'hashbar'),
                 'icon' => 'Setting',
                 'link' => '/settings',
-                'order' => 3,
+                'order' => 5,
                 'visible' => true,
                 'isRouter' => true
             ],
@@ -57,15 +75,25 @@ class Hashbar_Settings_Panel_Settings {
                 'label' => __('Analytics', 'hashbar'),
                 'icon' => 'DataAnalysis',
                 'link' => '/analytics',
-                'order' => 4,
+                'order' => 6,
                 'visible' => true,
                 'isRouter' => true
+            ],
+            'ab_testing' => [
+                'label' => __('A/B Testing', 'hashbar'),
+                'icon' => 'Trophy',
+                'link' => '/ab-testing',
+                'order' => 7,
+                'visible' => true,
+                'isRouter' => true,
+                'isPro' => true,
+                'proBadge' => true
             ],
             'license' => [
                 'label' => __('License', 'hashbar'),
                 'icon' => 'Key',
                 'link' => $this->get_help_section()['licenseLink'],
-                'order' => 5,
+                'order' => 8,
                 'visible' => false,
                 'target' => '_self'
             ],
@@ -73,18 +101,10 @@ class Hashbar_Settings_Panel_Settings {
                 'label' => __('Recommended Plugins', 'hashbar'),
                 'icon' => 'Promotion',
                 'link' => '/recommended',
-                'order' => 6,
+                'order' => 9,
                 'visible' => true,
                 'isRouter' => true
             ]
-            // 'license' => [
-            //     'label' => __('License', 'hashbar'),
-            //     'icon' => 'Key',
-            //     'link' => '/license',
-            //     'order' => 4,
-            //     'visible' => true,
-            //     'isRouter' => true
-            // ],
         ];
     }
 
@@ -299,8 +319,8 @@ class Hashbar_Settings_Panel_Settings {
                         'active_notifications' => __('Active Notifications', 'hashbar'),
                         'inactive_notifications' => __('Inactive Notifications', 'hashbar'),
                         'draft' => __('Draft Notifications', 'hashbar'),
+                        'scheduled_notifications' => __('Scheduled Notifications', 'hashbar'),
                     ],
-                    'isPro' => ['backend_optimized'],
                     'proBadge' => false,
                     'type' => 'select',
                 ]
@@ -423,6 +443,7 @@ class Hashbar_Settings_Panel_Settings {
                 'no_notifications_empty' => __('No notifications are available at the moment', 'hashbar'),
                 'disable_notification_error' => __('Failed to disable notification', 'hashbar'),
                 'load_notifications_error' => __('Failed to load notifications', 'hashbar'),
+                'recommendation_note' => __('<strong>Recommended:</strong> We highly recommend using our <a class="announcement-link">Announcement Bar</a> and <a class="popup-link">Popup Campaign</a> features for better visitor engagement. These features come with predefined templates and advanced options, making it easy to set up and customize.', 'hashbar'),
             ],
 
             // Welcome Section

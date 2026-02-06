@@ -487,12 +487,10 @@ class Hashbar_Plugin_Deactivation_Feedback {
                             if (response.success) {
                                 window.location.href = pluginToDeactivate;
                             } else {
-                                console.error('Feedback submission failed:', response.data);
                                 $submitButton.text(originalText).prop('disabled', false);
                             }
                         })
                         .fail(function(xhr) {
-                            console.error('Feedback submission failed:', xhr.responseText);
                             $submitButton.text(originalText).prop('disabled', false);
                         });
                 });

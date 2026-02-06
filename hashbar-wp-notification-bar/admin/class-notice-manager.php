@@ -71,7 +71,7 @@ class Hashbar_Notice_Manager{
         $transient = get_transient( $transient_key );
         if ( ! $transient || $force_update ) {
             $info = self::get_content_remote_request( $url );
-            set_transient( $transient_key, wp_json_encode( $info ), 2 * DAY_IN_SECONDS );
+            set_transient( $transient_key, wp_json_encode( $info ), 7 * DAY_IN_SECONDS );
         }
     }
 

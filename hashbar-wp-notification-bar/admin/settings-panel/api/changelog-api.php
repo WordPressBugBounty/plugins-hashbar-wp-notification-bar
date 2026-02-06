@@ -182,6 +182,70 @@ class ChangeLog extends WP_REST_Controller {
     private function get_changelog_data() {
         return [
             [
+                'version' => '1.9.0',
+                'date'    => '2026-01-28',
+                'changes' => [
+                    'Added' => [
+                        'Popup Campaign with templates, 8 campaign types, 7 positions, and 8 smart triggers.',
+                        'Form Builder with 11 field types and Mailchimp integration.',
+                        'Popup Countdown Timer, Coupon Display, and 15 Animations.',
+                        'Popup Analytics Dashboard and A/B Testing (Pro).',
+                        'Default CTA button text and sticky live preview in Announcement Bar Editor.',
+                    ],
+                    'Improved' => [
+                        'Page targeting and typography sections in Announcement Bar Editor.',
+                        'Timezone select option with Site and visitor Timezone in Announcement Bar.',
+                    ],
+                ],
+            ],
+            [
+                'version' => '1.8.0',
+                'date'    => '2026-01-06',
+                'changes' => [
+                    'Added' => [
+                        'Modern Announcement Bar with Templates, Countdown timer, Targeting, Position, Animation, and Scheduling options.',
+                        'Announcement Bar Analytics for tracking impressions, clicks, and CTR.',
+                        'Coupon code display with copy functionality for Announcement Bars.',
+                    ],
+                    'Improved' => [
+                        'UI/UX for a better user experience.',
+                    ],
+                ],
+            ],
+            [
+                'version' => '1.7.5',
+                'date'    => '2025-11-13',
+                'changes' => [
+                    'Fixed' => [
+                        'Admin notice display issue.',
+                    ],
+                ],
+            ],
+            [
+                'version' => '1.7.4',
+                'date'    => '2025-10-23',
+                'changes' => [
+                    'Improved' => [
+                        'Minor UI update and optimizations.',
+                    ],
+                ],
+            ],
+            [
+                'version' => '1.7.3',
+                'date'    => '2025-10-13',
+                'changes' => [
+                    'Added' => [
+                        'Added: Scheduled Notifications filter option in notification list.',
+                    ],
+                    'Improved' => [
+                        'Improved: Filter logic to show only active scheduled notifications.',
+                    ],
+                    'Fixed' => [
+                        'Fixed: Pagination reset issue when changing filters or search query.',
+                    ],
+                ],
+            ],
+            [
                 'version' => '1.7.2',
                 'date'    => '2025-09-22',
                 'changes' => [

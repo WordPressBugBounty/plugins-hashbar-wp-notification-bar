@@ -131,8 +131,7 @@ if ( ! class_exists( 'Hashbar_Notice' ) ){
             }
             .hashbar-admin-notice.promo-banner {
                 position: relative;
-                padding-top: 20px;
-                padding-right: 40px;
+                padding: 10px!important;
             }
             .hashbar-admin-notice.sidebar-notice {
                 margin: 0;
@@ -167,7 +166,17 @@ if ( ! class_exists( 'Hashbar_Notice' ) ){
             }
             .hashbar-review-notice-content h3 {
                 margin: 0;
-            }";
+            }
+            #hashbar-notice-id-hashbar-halloween-notice{
+                padding: 10px !important;
+                line-height: 0;
+                border-left-color: #4a1289;
+                border-radius: 10px;
+            }
+            .hashbar-admin-notice .notice-dismiss:before{
+                color: #ddd;
+            }    
+            ";
 
             $scripts = "jQuery(document).ready( function($) {
                 $( '.hashbar-admin-notice.is-dismissible' ).on( 'click', '.notice-dismiss,.hashbar-notice-close', function(e) {
@@ -384,7 +393,7 @@ if ( ! class_exists( 'Hashbar_Notice' ) ){
                         }
 
                         // Notice Message
-                        if( $notice_arg['message_type'] === 'text'){
+                        if( $notice_arg['message_type'] === 'text' && !empty( $notice_arg['message'] ) ){
                             printf('<p>%1$s</p>', wp_kses_post( $notice_arg['message'] ) );
                         }else{
                             echo wp_kses_post( $notice_arg['message'] );

@@ -152,6 +152,93 @@ function hashbar_wpnb_check_post(){
  * @return array
  * since 1.7.0
  */
+/**
+ * Get supported countries list for geographic targeting
+ *
+ * @param bool $include_all Whether to include "All Countries" option
+ * @return array Country code => Country name
+ * @since 2.0.0
+ */
+if ( ! function_exists( 'hashbar_get_countries_list' ) ) {
+  function hashbar_get_countries_list( $include_all = false ) {
+    $countries = array(
+      'US' => esc_html__( 'United States', 'hashbar' ),
+      'GB' => esc_html__( 'United Kingdom', 'hashbar' ),
+      'CA' => esc_html__( 'Canada', 'hashbar' ),
+      'AU' => esc_html__( 'Australia', 'hashbar' ),
+      'DE' => esc_html__( 'Germany', 'hashbar' ),
+      'FR' => esc_html__( 'France', 'hashbar' ),
+      'ES' => esc_html__( 'Spain', 'hashbar' ),
+      'IT' => esc_html__( 'Italy', 'hashbar' ),
+      'NL' => esc_html__( 'Netherlands', 'hashbar' ),
+      'BE' => esc_html__( 'Belgium', 'hashbar' ),
+      'CH' => esc_html__( 'Switzerland', 'hashbar' ),
+      'AT' => esc_html__( 'Austria', 'hashbar' ),
+      'SE' => esc_html__( 'Sweden', 'hashbar' ),
+      'NO' => esc_html__( 'Norway', 'hashbar' ),
+      'DK' => esc_html__( 'Denmark', 'hashbar' ),
+      'FI' => esc_html__( 'Finland', 'hashbar' ),
+      'PL' => esc_html__( 'Poland', 'hashbar' ),
+      'CZ' => esc_html__( 'Czech Republic', 'hashbar' ),
+      'IE' => esc_html__( 'Ireland', 'hashbar' ),
+      'JP' => esc_html__( 'Japan', 'hashbar' ),
+      'CN' => esc_html__( 'China', 'hashbar' ),
+      'IN' => esc_html__( 'India', 'hashbar' ),
+      'BR' => esc_html__( 'Brazil', 'hashbar' ),
+      'MX' => esc_html__( 'Mexico', 'hashbar' ),
+      'KR' => esc_html__( 'South Korea', 'hashbar' ),
+      'SG' => esc_html__( 'Singapore', 'hashbar' ),
+      'HK' => esc_html__( 'Hong Kong', 'hashbar' ),
+      'TH' => esc_html__( 'Thailand', 'hashbar' ),
+      'MY' => esc_html__( 'Malaysia', 'hashbar' ),
+      'ID' => esc_html__( 'Indonesia', 'hashbar' ),
+      'PH' => esc_html__( 'Philippines', 'hashbar' ),
+      'VN' => esc_html__( 'Vietnam', 'hashbar' ),
+      'NZ' => esc_html__( 'New Zealand', 'hashbar' ),
+      'ZA' => esc_html__( 'South Africa', 'hashbar' ),
+      'RU' => esc_html__( 'Russia', 'hashbar' ),
+      'UA' => esc_html__( 'Ukraine', 'hashbar' ),
+      'GR' => esc_html__( 'Greece', 'hashbar' ),
+      'PT' => esc_html__( 'Portugal', 'hashbar' ),
+      'AR' => esc_html__( 'Argentina', 'hashbar' ),
+      'CL' => esc_html__( 'Chile', 'hashbar' ),
+      'CO' => esc_html__( 'Colombia', 'hashbar' ),
+      'PE' => esc_html__( 'Peru', 'hashbar' ),
+      'TR' => esc_html__( 'Turkey', 'hashbar' ),
+      'AE' => esc_html__( 'United Arab Emirates', 'hashbar' ),
+      'SA' => esc_html__( 'Saudi Arabia', 'hashbar' ),
+      'IL' => esc_html__( 'Israel', 'hashbar' ),
+      'BD' => esc_html__( 'Bangladesh', 'hashbar' ),
+      'PK' => esc_html__( 'Pakistan', 'hashbar' ),
+      'LK' => esc_html__( 'Sri Lanka', 'hashbar' ),
+      'EG' => esc_html__( 'Egypt', 'hashbar' ),
+      'NG' => esc_html__( 'Nigeria', 'hashbar' ),
+      'KE' => esc_html__( 'Kenya', 'hashbar' ),
+    );
+
+    if ( $include_all ) {
+      return array_merge(
+        array( 'all' => esc_html__( 'All Countries (Worldwide)', 'hashbar' ) ),
+        $countries
+      );
+    }
+
+    return $countries;
+  }
+}
+
+/**
+ * Get Pro countries list (country codes that require Pro)
+ *
+ * @return array Country codes
+ * @since 2.0.0
+ */
+if ( ! function_exists( 'hashbar_get_pro_countries' ) ) {
+  function hashbar_get_pro_countries() {
+    return array_keys( hashbar_get_countries_list( false ) );
+  }
+}
+
 if ( !function_exists( 'hashbar_post_list' ) ){
   function hashbar_post_list( $post_type = 'post', $limit = -1 ){
     $options = array();

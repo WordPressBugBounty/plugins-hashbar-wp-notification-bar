@@ -267,7 +267,6 @@ function hashbar_get_sidebar_content() {
         $template_path = HASHBAR_WPNB_DIR . '/admin/settings-panel/templates/sidebar-banner.php';
         
         if (!file_exists($template_path)) {
-            error_log('Hashbar - Template not found: ' . $template_path);
             return new WP_Error(
                 'template_not_found',
                 esc_html__('Sidebar template file not found.', 'hashbar'),
@@ -289,7 +288,6 @@ function hashbar_get_sidebar_content() {
         ], 200);
 
     } catch (Exception $e) {
-        error_log('Hashbar - Sidebar Content Error: ' . $e->getMessage());
         return new WP_Error(
             'template_error',
             $e->getMessage(),
@@ -306,29 +304,34 @@ function hashbar_update_dashboard_settings($request) {
 
         // Get and decode JSON data
         $settings = json_decode($request->get_body(), true);
-        
+
         if (json_last_error() !== JSON_ERROR_NONE) {
             return new WP_REST_Response([
                 'success' => false,
                 'message' => 'Invalid JSON data'
             ], 400);
         }
-        // Update options
+        // Update free version options
         $update_result = update_option('hashbar_wpnb_opt', $settings);
-        
+
         if ($update_result === false && $settings !== get_option('hashbar_wpnb_opt')) {
             return new WP_REST_Response([
                 'success' => false,
                 'message' => 'Failed to update settings in database'
             ], 500);
         }
-        
+
+        // Sync settings to Pro version's option as well for cross-version compatibility
+        if (defined('HASHBAR_WPNBP_VERSION')) {
+            update_option('hashbar_wpnbp_opt', $settings);
+        }
+
         return new WP_REST_Response([
             'success' => true,
             'data' => $settings,
             'message' =>  esc_html__( 'Settings updated successfully', 'hashbar' ),
         ], 200);
-        
+
     } catch (Throwable $e) {
         return new WP_REST_Response([
             'success' => false,
@@ -477,8 +480,14 @@ function hashbar_get_analytics_data() {
 
 // Reset settings to default values
 function hashbar_reset_settings() {
-    
+
     update_option('hashbar_wpnb_opt', null);
+
+    // Sync reset to Pro version as well
+    if (defined('HASHBAR_WPNBP_VERSION')) {
+        update_option('hashbar_wpnbp_opt', null);
+    }
+
     return new WP_REST_Response([
         'success' => true,
         'message' => 'Settings reset successfully',

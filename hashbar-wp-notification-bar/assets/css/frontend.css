@@ -666,6 +666,163 @@ body {
           flex-direction: row-reverse;
 }
 
+/* Announcement Bar Countdown Styles */
+.hashbar-announcement-bar-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Countdown sections - ensure they render as full-width blocks */
+.hashbar-announcement-bar-wrapper > div:not(.hashbar-announcement-bar) {
+  display: block !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  position: relative;
+  z-index: 999999998;
+  margin: 0 !important;
+  padding: 8px 20px !important;
+}
+
+
+.hashbar-countdown-timer {
+  display: inline-block;
+  font-weight: bold;
+  margin-left: 8px;
+  min-width: 100px;
+  white-space: nowrap;
+}
+
+.hashbar-countdown-timer.countdown-simple {
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.5px;
+  font-size: inherit;
+}
+
+/* Announcement content wrapper - handles left/right countdown positioning */
+.hashbar-announcement-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.hashbar-countdown-timer.countdown-digital {
+  font-family: 'Courier New', monospace;
+  letter-spacing: 1px;
+  font-size: 1.05em;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.countdown-circular {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin: 0 4px;
+}
+
+/* Circular box style */
+.countdown-circle-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  min-height: 70px;
+  border: none;
+  border-radius: 50%;
+  font-weight: 700;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  font-family: 'Courier New', 'Courier', monospace;
+  padding: 4px 2px;
+  box-sizing: border-box;
+}
+
+.countdown-circle-box .countdown-number {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+.countdown-circle-box .countdown-label {
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1;
+  display: block;
+  margin-top: 2px;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+/* Rounded square box style */
+.countdown-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  min-height: 70px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  font-family: 'Courier New', 'Courier', monospace;
+  padding: 4px 2px;
+  box-sizing: border-box;
+}
+
+.countdown-box .countdown-number {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+.countdown-box .countdown-label {
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1;
+  display: block;
+  margin-top: 2px;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+/* Before countdown section - positioned right before the fixed bar */
+.hashbar-countdown-before-section {
+  position: fixed !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  z-index: 999999998 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
 /*Theme support*/
 .theme-salient .hthb-top-unset{
     top: unset !important;
