@@ -1468,6 +1468,19 @@ class Hashbar_Popup_Campaign_Settings {
 					'value'    => 'click',
 				),
 			),
+			'_wphash_popup_trigger_click_delay' => array(
+				'type'      => 'number',
+				'label'     => esc_html__( 'Delay After Click (seconds)', 'hashbar' ),
+				'default'   => 0,
+				'min'       => 0,
+				'max'       => 300,
+				'isPro'     => ! self::is_pro(),
+				'condition' => array(
+					'key'      => '_wphash_popup_trigger_type',
+					'operator' => '==',
+					'value'    => 'click',
+				),
+			),
 			'_wphash_popup_trigger_inactivity_time' => array(
 				'type'      => 'number',
 				'label'     => esc_html__( 'Inactivity Time (seconds)', 'hashbar' ),

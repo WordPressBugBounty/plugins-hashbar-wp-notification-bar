@@ -631,13 +631,6 @@ class Hashbar_Announcement_Bar_Settings {
 				'label' => esc_html__( 'Cookie Duration', 'hashbar' ),
 				'isPro' => false,
 			),
-			'_wphash_ab_cookie_use_custom' => array(
-				'type'        => 'switch',
-				'label'       => esc_html__( 'Use custom cookie duration', 'hashbar' ),
-				'description' => esc_html__( 'Override global cookie settings for this announcement bar', 'hashbar' ),
-				'default'     => false,
-				'isPro'       => false,
-			),
 			'_wphash_ab_cookie_expire_after_close' => array(
 				'type'        => 'select',
 				'label'       => esc_html__( 'Expire After Close', 'hashbar' ),
@@ -655,11 +648,6 @@ class Hashbar_Announcement_Bar_Settings {
 					'never'        => esc_html__( 'Never (persistent)', 'hashbar' ),
 				),
 				'isPro'       => false,
-				'condition'   => array(
-					'key'      => '_wphash_ab_cookie_use_custom',
-					'operator' => '==',
-					'value'    => true,
-				),
 			),
 		);
 	}

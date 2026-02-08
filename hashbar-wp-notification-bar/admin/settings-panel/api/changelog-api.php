@@ -182,6 +182,21 @@ class ChangeLog extends WP_REST_Controller {
     private function get_changelog_data() {
         return [
             [
+                'version' => '1.9.1',
+                'date'    => '2026-02-08',
+                'changes' => [
+                    'Added' => [
+                        'Delay After Click option for On Element Click popup trigger (Pro).',
+                    ],
+                    'Improved' => [
+                        '2-column layout for Exit Intent and On Element Click trigger settings.',
+                    ],
+                    'Fixed' => [
+                        'Close Button Reopen issue in Notification bar.',
+                    ],
+                ],
+            ],
+            [
                 'version' => '1.9.0',
                 'date'    => '2026-01-28',
                 'changes' => [

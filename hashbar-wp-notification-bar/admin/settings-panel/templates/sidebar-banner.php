@@ -14,11 +14,12 @@ if (!defined('ABSPATH')) {
         <div class="hashbar-opt-get-pro-content">
             <h3 class="hashbar-opt-get-pro-title"><?php esc_html_e('What You Get', 'hashbar')?></h3>
             <ul>
-                <li><?php esc_html_e('Display notification post category wise', 'hashbar')?></li>
-                <li><?php esc_html_e('Schedule Notification Expiry Date/Time', 'hashbar')?></li>
-                <li><?php esc_html_e('Recurring countdown', 'hashbar')?></li>
-                <li><?php esc_html_e('Countdown placement (using shordcode)', 'hashbar')?></li>
-                <li><?php esc_html_e('Duplicate notification', 'hashbar')?></li>
+                <li><?php esc_html_e('Advanced Popup Campaign & Smart Triggers', 'hashbar')?></li>
+                <li><?php esc_html_e('Premium Announcement Bar Templates', 'hashbar')?></li>
+                <li><?php esc_html_e('In-Depth Analytics & A/B Testing', 'hashbar')?></li>
+                <li><?php esc_html_e('Advanced Form Builder & Mailchimp', 'hashbar')?></li>
+                <li><?php esc_html_e('Dynamic Countdown & Coupon System', 'hashbar')?></li>
+                <li><?php esc_html_e('Advanced Scheduling & Geo Targeting', 'hashbar')?></li>
                 <li><?php esc_html_e('And So Much More!', 'hashbar')?></li>
             </ul>
 

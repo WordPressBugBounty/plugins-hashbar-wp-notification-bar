@@ -793,25 +793,12 @@ function hashbar_render_single_bar( $bar ) {
 			'1_month'      => 30,
 			'never'        => 3650,   // 10 years
 		);
-		return isset( $presets[ $preset ] ) ? $presets[ $preset ] : 7;
+		return isset( $presets[ $preset ] ) ? $presets[ $preset ] : -1; // Default to show_on_reload
 	};
 
-	// Get cookie duration settings with fallback hierarchy
-	$cookie_use_custom_raw = get_post_meta( $bar_id, '_wphash_ab_cookie_use_custom', true );
-	$cookie_use_custom     = ! empty( $cookie_use_custom_raw ) && $cookie_use_custom_raw !== '0' && $cookie_use_custom_raw !== 'false';
-
-	if ( $cookie_use_custom ) {
-		// Use per-bar settings (preset dropdown)
-		$cookie_preset = get_post_meta( $bar_id, '_wphash_ab_cookie_expire_after_close', true ) ?: '7_days';
-		$cookie_duration = $convert_preset_to_days( $cookie_preset );
-		$cookie_unit = 'days';
-	} else {
-		// Use global settings as fallback (from Settings page stored in hashbar_wpnb_opt)
-		$global_settings = get_option( 'hashbar_wpnb_opt' );
-		$cookie_preset = isset( $global_settings['ab_cookies_expire_after_close'] ) ? $global_settings['ab_cookies_expire_after_close'] : '7_days';
-		$cookie_duration = $convert_preset_to_days( $cookie_preset );
-		$cookie_unit = 'days';
-	}
+	// Get cookie duration from per-bar settings (default: show_on_reload)
+	$cookie_preset = get_post_meta( $bar_id, '_wphash_ab_cookie_expire_after_close', true ) ?: 'show_on_reload';
+	$cookie_duration = $convert_preset_to_days( $cookie_preset );
 
 	// Handle both string ('1', 'true') and boolean values from React
 	// When saved from React, true becomes '1', false becomes empty string

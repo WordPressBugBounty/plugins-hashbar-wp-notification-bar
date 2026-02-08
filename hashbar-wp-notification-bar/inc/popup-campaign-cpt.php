@@ -758,6 +758,14 @@ function hashbar_register_popup_campaign_meta() {
 		'default'           => '',
 	) );
 
+	register_post_meta( 'wphash_popup', '_wphash_popup_trigger_click_delay', array(
+		'type'              => 'integer',
+		'description'       => __( 'Delay in seconds after click before showing popup', 'hashbar' ),
+		'single'            => true,
+		'show_in_rest'      => true,
+		'default'           => 0,
+	) );
+
 	register_post_meta( 'wphash_popup', '_wphash_popup_trigger_inactivity_time', array(
 		'type'              => 'integer',
 		'description'       => __( 'Inactivity time in seconds', 'hashbar' ),

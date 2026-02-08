@@ -949,6 +949,7 @@ class Frontend {
 		$settings['trigger_delay'] = get_post_meta( $popup_id, '_wphash_popup_trigger_delay', true ) ?: 5;
 		$settings['trigger_scroll_percent'] = get_post_meta( $popup_id, '_wphash_popup_trigger_scroll_percent', true ) ?: 50;
 		$settings['trigger_click_selector'] = get_post_meta( $popup_id, '_wphash_popup_trigger_click_selector', true );
+		$settings['trigger_click_delay'] = (int) ( get_post_meta( $popup_id, '_wphash_popup_trigger_click_delay', true ) ?: 0 );
 		$settings['trigger_inactivity_time'] = get_post_meta( $popup_id, '_wphash_popup_trigger_inactivity_time', true ) ?: 30;
 		$settings['trigger_element_selector'] = get_post_meta( $popup_id, '_wphash_popup_trigger_element_selector', true );
 		$settings['trigger_page_views_count'] = get_post_meta( $popup_id, '_wphash_popup_trigger_page_views_count', true ) ?: 3;
@@ -1070,6 +1071,7 @@ class Frontend {
 			'data-trigger-delay'             => $settings['trigger_delay'],
 			'data-trigger-scroll-percent'    => $settings['trigger_scroll_percent'],
 			'data-trigger-click-selector'    => $settings['trigger_click_selector'],
+			'data-trigger-click-delay'       => $settings['trigger_click_delay'],
 			'data-trigger-inactivity-time'   => $settings['trigger_inactivity_time'],
 			'data-trigger-element-selector'  => $settings['trigger_element_selector'],
 			'data-trigger-page-views-count'  => $settings['trigger_page_views_count'],

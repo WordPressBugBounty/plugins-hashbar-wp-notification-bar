@@ -145,6 +145,8 @@
 
         // When clicked open button
         $('.hthb-open-toggle').on('click', function(){
+            // Remove manually-closed class to allow reopening
+            $(this).closest('.hthb-notification').removeClass('hthb-manually-closed');
             $(this).showNotification( top_notification_height, bottom_notification_height, left_wall_notification_width, right_wall_notification_width );
         });
 

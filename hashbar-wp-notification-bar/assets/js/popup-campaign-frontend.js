@@ -77,6 +77,7 @@
         triggerDelay: parseInt(element.getAttribute('data-trigger-delay'), 10) || 5,
         triggerScrollPercent: parseInt(element.getAttribute('data-trigger-scroll-percent'), 10) || 50,
         triggerClickSelector: element.getAttribute('data-trigger-click-selector') || '',
+        triggerClickDelay: parseInt(element.getAttribute('data-trigger-click-delay'), 10) || 0,
         triggerInactivityTime: parseInt(element.getAttribute('data-trigger-inactivity-time'), 10) || 30,
         triggerElementSelector: element.getAttribute('data-trigger-element-selector') || '',
         triggerPageViewsCount: parseInt(element.getAttribute('data-trigger-page-views-count'), 10) || 3,
@@ -600,6 +601,7 @@
     setupClickTrigger: function(popup) {
       var self = this;
       var selector = popup.config.triggerClickSelector;
+      var clickDelay = popup.config.triggerClickDelay || 0;
 
       if (!selector) {
         return;
@@ -611,7 +613,13 @@
         var target = e.target.closest(selector);
         if (target) {
           e.preventDefault();
-          self.showPopup(popup);
+          if (clickDelay > 0) {
+            setTimeout(function() {
+              self.showPopup(popup);
+            }, clickDelay * 1000);
+          } else {
+            self.showPopup(popup);
+          }
         }
       });
     },

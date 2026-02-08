@@ -3,7 +3,7 @@ Contributors: devitemsllc, htplugins, hasthemes, zenaulislam, aslamhasib, yeasin
 Tags: notification bar, popup, announcement bar, lead capture, countdown timer
 Requires at least: 5.0
 Tested up to: 6.9
-Stable tag: 1.9.0
+Stable tag: 1.9.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -123,6 +123,8 @@ Get started quickly with professionally designed templates.
 * ⭐ Selectors: `.hashbar-announcement-bar`, `.hashbar-announcement-cta`, `.hashbar-coupon-display`, `.hashbar-announcement-close`
 
 = 🎪 Popup Campaign Features =
+
+https://www.youtube.com/watch?v=2sfpzqQ7OUU
 
 = 📋 8 Campaign Types =
 
@@ -574,6 +576,11 @@ Yes! 30-day money-back guarantee on Pro purchases.
 11. **A/B Testing & Analytics** - Compare variants, split traffic, and pick a winner automatically
 
 == Changelog ==
+
+= Version: 1.9.1 - Date: 08 Feb 2026 =
+* Added: Delay After Click option for On Element Click popup trigger (Pro).
+* Improved: 2-column layout for Exit Intent and On Element Click trigger settings.
+* Fixed: Close Button Reopen issue in Notification bar.
 
 = Version: 1.9.0 - Date: 28 Jan 2026 =
 * Added: Popup Campaign with templates, 8 campaign types, 7 positions, and 8 smart triggers.
