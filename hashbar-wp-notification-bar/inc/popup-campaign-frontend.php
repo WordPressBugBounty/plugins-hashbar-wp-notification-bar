@@ -587,7 +587,7 @@ class Frontend {
 			return false;
 		}
 
-		if ( $user_status === 'logged_out' && $is_logged_in ) {
+		if ( ( $user_status === 'guests' || $user_status === 'logged_out' ) && $is_logged_in ) {
 			return false;
 		}
 
@@ -904,6 +904,24 @@ class Frontend {
 		// Content
 		$settings['image'] = get_post_meta( $popup_id, '_wphash_popup_image', true );
 		$settings['image_position'] = get_post_meta( $popup_id, '_wphash_popup_image_position', true ) ?: 'top';
+		$settings['image_width'] = get_post_meta( $popup_id, '_wphash_popup_image_width', true ) ?: 100;
+		$settings['image_width_unit'] = get_post_meta( $popup_id, '_wphash_popup_image_width_unit', true ) ?: '%';
+		$settings['image_alignment'] = get_post_meta( $popup_id, '_wphash_popup_image_alignment', true ) ?: 'center';
+		$settings['image_border_radius'] = get_post_meta( $popup_id, '_wphash_popup_image_border_radius', true );
+		if ( ! is_array( $settings['image_border_radius'] ) ) {
+			$settings['image_border_radius'] = array( 'top' => 0, 'right' => 0, 'bottom' => 0, 'left' => 0 );
+		}
+		$settings['content_padding'] = get_post_meta( $popup_id, '_wphash_popup_content_padding', true );
+		if ( ! is_array( $settings['content_padding'] ) ) {
+			$settings['content_padding'] = array( 'top' => 0, 'right' => 0, 'bottom' => 0, 'left' => 0 );
+		}
+		$settings['content_border_radius'] = get_post_meta( $popup_id, '_wphash_popup_content_border_radius', true );
+		if ( ! is_array( $settings['content_border_radius'] ) ) {
+			$settings['content_border_radius'] = array( 'top' => 0, 'right' => 0, 'bottom' => 0, 'left' => 0 );
+		}
+		$settings['content_bg_color'] = get_post_meta( $popup_id, '_wphash_popup_content_bg_color', true ) ?: 'transparent';
+		$settings['content_valign'] = get_post_meta( $popup_id, '_wphash_popup_content_valign', true ) ?: 'middle';
+		$settings['content_gap'] = intval( get_post_meta( $popup_id, '_wphash_popup_content_gap', true ) );
 		$settings['heading'] = get_post_meta( $popup_id, '_wphash_popup_heading', true );
 		$settings['subheading'] = get_post_meta( $popup_id, '_wphash_popup_subheading', true );
 		$settings['description'] = get_post_meta( $popup_id, '_wphash_popup_description', true );
@@ -1049,6 +1067,18 @@ class Frontend {
 		// Custom CSS
 		$settings['custom_css'] = get_post_meta( $popup_id, '_wphash_popup_custom_css', true );
 
+		// Content order
+		$content_order = get_post_meta( $popup_id, '_wphash_popup_content_order', true );
+		$settings['content_order'] = ! empty( $content_order ) && is_array( $content_order )
+			? $content_order
+			: array( 'heading', 'subheading', 'description', 'countdown', 'coupon', 'form_or_buttons' );
+
+		// Element spacing
+		$element_spacing = get_post_meta( $popup_id, '_wphash_popup_element_spacing', true );
+		$settings['element_spacing'] = ! empty( $element_spacing ) && is_array( $element_spacing )
+			? $element_spacing
+			: array( 'heading' => 6, 'subheading' => 8, 'description' => 16, 'countdown' => 16, 'coupon' => 16, 'form_or_buttons' => 0 );
+
 		return $settings;
 	}
 
@@ -1178,7 +1208,54 @@ class Frontend {
 
 		<?php if ( ! empty( $settings['custom_css'] ) ) : ?>
 			<style>
-				<?php echo wp_strip_all_tags( $settings['custom_css'] ); ?>
+				<?php
+				$custom_css = wp_strip_all_tags( $settings['custom_css'] );
+				$scope_id   = '#hashbar-popup-' . intval( $popup_id );
+				$css_rules  = explode( '}', $custom_css );
+				$scoped_css = '';
+
+				foreach ( $css_rules as $rule ) {
+					$rule = trim( $rule );
+					if ( empty( $rule ) ) {
+						continue;
+					}
+
+					$brace_pos = strpos( $rule, '{' );
+					if ( false === $brace_pos ) {
+						continue;
+					}
+
+					$selector     = trim( substr( $rule, 0, $brace_pos ) );
+					$declarations = trim( substr( $rule, $brace_pos + 1 ) );
+
+					if ( empty( $selector ) || empty( $declarations ) ) {
+						continue;
+					}
+
+					// Prefix each comma-separated selector with the unique scope.
+					$selectors = array_map( 'trim', explode( ',', $selector ) );
+					$prefixed  = array_map(
+						function ( $sel ) use ( $scope_id ) {
+							if ( empty( $sel ) ) {
+								return $sel;
+							}
+							// Replace .hashbar-popup-campaign with unique ID.
+							if ( '.hashbar-popup-campaign' === $sel ) {
+								return $scope_id;
+							}
+							if ( 0 === strpos( $sel, '.hashbar-popup-campaign' ) ) {
+								return $scope_id . substr( $sel, strlen( '.hashbar-popup-campaign' ) );
+							}
+							return $scope_id . ' ' . $sel;
+						},
+						$selectors
+					);
+
+					$scoped_css .= implode( ', ', $prefixed ) . ' { ' . $declarations . " }\n";
+				}
+
+				echo $scoped_css; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Already sanitized by wp_strip_all_tags.
+				?>
 			</style>
 		<?php endif; ?>
 
@@ -1191,6 +1268,7 @@ class Frontend {
 		<div class="hashbar-popup-campaign <?php echo esc_attr( $position_class ); ?><?php echo $initial_hidden ? ' hashbar-popup-countdown-hidden' : ''; ?>" id="hashbar-popup-<?php echo esc_attr( $popup_id ); ?>" data-popup-id="<?php echo esc_attr( $popup_id ); ?>" <?php echo $data_attrs; // phpcs:ignore ?> style="<?php echo esc_attr( $hidden_style ); ?>">
 
 			<div class="hashbar-popup-container" style="
+				<?php echo $settings['close_position'] !== 'outside' ? 'overflow: hidden;' : ''; ?>
 				width: <?php echo esc_attr( $settings['width'] ); ?>px;
 				max-width: <?php echo esc_attr( $settings['max_width'] ); ?>%;
 				padding: <?php echo esc_attr( $padding_str ); ?>;
@@ -1234,6 +1312,9 @@ class Frontend {
 				--coupon-gradient-start: <?php echo esc_attr( $settings['coupon_gradient_start'] ); ?>;
 				--coupon-gradient-end: <?php echo esc_attr( $settings['coupon_gradient_end'] ); ?>;
 				--coupon-copied-bg: <?php echo esc_attr( $settings['coupon_copied_bg_color'] ); ?>;
+				--heading-size: <?php echo esc_attr( $settings['heading_size'] ); ?>px;
+				--subheading-size: <?php echo esc_attr( $settings['subheading_size'] ); ?>px;
+				--text-size: <?php echo esc_attr( $settings['text_size'] ); ?>px;
 				--content-align: <?php echo esc_attr( $settings['text_align'] ); ?>;
 				--content-justify: <?php echo esc_attr( $settings['text_align'] === 'left' ? 'flex-start' : ( $settings['text_align'] === 'right' ? 'flex-end' : 'center' ) ); ?>;
 				--form-align: <?php echo esc_attr( $settings['form_alignment'] ); ?>;
@@ -1249,13 +1330,25 @@ class Frontend {
 				--form-label-color: <?php echo esc_attr( $settings['form_label_color'] ); ?>;
 				--form-label-size: <?php echo esc_attr( $settings['form_label_font_size'] ); ?>px;
 				--form-checkbox-accent: <?php echo esc_attr( $settings['form_checkbox_accent_color'] ); ?>;
+				<?php if ( isset( $settings['image_width_unit'] ) && $settings['image_width_unit'] === 'px' ) : ?>--popup-image-width: <?php echo intval( $settings['image_width'] ); ?>px;<?php endif; ?>
 			">
 
 				<?php if ( $settings['close_enabled'] ) : ?>
 					<?php $this->render_close_button( $settings, $close_position_class ); ?>
 				<?php endif; ?>
 
-				<div class="hashbar-popup-content">
+				<?php
+				$content_styles = array();
+				if ( ! empty( $image_url ) ) {
+					$content_styles[] = 'gap: ' . intval( $settings['content_gap'] ) . 'px';
+				}
+				$content_style_attr = ! empty( $content_styles ) ? ' style="' . esc_attr( implode( '; ', $content_styles ) ) . '"' : '';
+				$content_classes = 'hashbar-popup-content';
+				if ( ! empty( $image_url ) && in_array( $settings['image_position'], array( 'left', 'right' ), true ) ) {
+					$content_classes .= ' hashbar-popup-split';
+				}
+				?>
+				<div class="<?php echo esc_attr( $content_classes ); ?>"<?php echo $content_style_attr; ?>>
 					<?php if ( $settings['content_type'] === 'custom' ) : ?>
 						<?php $this->render_custom_content( $popup_id, $settings, $image_url, $form_fields ); ?>
 					<?php else : ?>
@@ -1302,50 +1395,162 @@ class Frontend {
 	 * @param array  $form_fields Form fields array.
 	 */
 	protected function render_custom_content( $popup_id, $settings, $image_url, $form_fields ) {
+		// Build image wrapper inline styles
+		$image_styles = array();
+		$image_width = isset( $settings['image_width'] ) ? intval( $settings['image_width'] ) : 100;
+		$image_width_unit = isset( $settings['image_width_unit'] ) ? $settings['image_width_unit'] : '%';
+		if ( $image_width > 0 ) {
+			if ( $image_width_unit === 'px' ) {
+				$image_styles[] = 'width: ' . $image_width . 'px';
+			} elseif ( $image_width < 100 ) {
+				$image_styles[] = 'width: ' . $image_width . '%';
+			}
+		}
+		$img_br = isset( $settings['image_border_radius'] ) ? $settings['image_border_radius'] : array( 'top' => 0, 'right' => 0, 'bottom' => 0, 'left' => 0 );
+		$br_top = intval( $img_br['top'] ?? 0 );
+		$br_right = intval( $img_br['right'] ?? 0 );
+		$br_bottom = intval( $img_br['bottom'] ?? 0 );
+		$br_left = intval( $img_br['left'] ?? 0 );
+		if ( $br_top || $br_right || $br_bottom || $br_left ) {
+			$image_styles[] = 'border-radius: ' . $br_top . 'px ' . $br_right . 'px ' . $br_bottom . 'px ' . $br_left . 'px';
+			$image_styles[] = 'overflow: hidden';
+		}
+		// Image alignment
+		$img_align = isset( $settings['image_alignment'] ) ? $settings['image_alignment'] : 'center';
+		$img_pos = isset( $settings['image_position'] ) ? $settings['image_position'] : 'top';
+		if ( in_array( $img_pos, array( 'top', 'bottom' ), true ) ) {
+			if ( $img_align === 'left' ) {
+				$image_styles[] = 'margin-right: auto';
+				$image_styles[] = 'margin-left: 0';
+			} elseif ( $img_align === 'right' ) {
+				$image_styles[] = 'margin-left: auto';
+				$image_styles[] = 'margin-right: 0';
+			} else {
+				$image_styles[] = 'margin-left: auto';
+				$image_styles[] = 'margin-right: auto';
+			}
+		} elseif ( in_array( $img_pos, array( 'left', 'right' ), true ) ) {
+			if ( $img_align === 'top' ) {
+				$image_styles[] = 'align-self: flex-start';
+			} elseif ( $img_align === 'bottom' ) {
+				$image_styles[] = 'align-self: flex-end';
+			} else {
+				$image_styles[] = 'align-self: center';
+			}
+		}
+		// Add image spacing margin for top/bottom positions
+		if ( in_array( $img_pos, array( 'top', 'bottom' ), true ) ) {
+			$gap_margin = intval( $settings['content_gap'] );
+			if ( $img_pos === 'top' ) {
+				$image_styles[] = 'margin-bottom: ' . $gap_margin . 'px';
+			} else {
+				$image_styles[] = 'margin-top: ' . $gap_margin . 'px';
+			}
+		}
+		$image_style_attr = ! empty( $image_styles ) ? ' style="' . esc_attr( implode( '; ', $image_styles ) ) . '"' : '';
 		?>
 
 		<?php if ( ! empty( $image_url ) && in_array( $settings['image_position'], array( 'top', 'left' ), true ) ) : ?>
-			<div class="hashbar-popup-image hashbar-popup-image--<?php echo esc_attr( $settings['image_position'] ); ?>">
+			<div class="hashbar-popup-image hashbar-popup-image--<?php echo esc_attr( $settings['image_position'] ); ?>"<?php echo $image_style_attr; ?>>
 				<img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $settings['heading'] ); ?>" />
 			</div>
 		<?php endif; ?>
 
-		<div class="hashbar-popup-body">
-			<?php if ( ! empty( $settings['heading'] ) ) : ?>
-				<h2 class="hashbar-popup-heading" style="color: <?php echo esc_attr( $settings['heading_color'] ); ?>; font-size: <?php echo esc_attr( $settings['heading_size'] ); ?>px; font-weight: <?php echo esc_attr( $settings['heading_weight'] ); ?>; text-transform: <?php echo esc_attr( $settings['text_transform'] ); ?>;">
-					<?php echo esc_html( $settings['heading'] ); ?>
-				</h2>
-			<?php endif; ?>
+		<?php
+		$body_styles = array();
+		if ( ! empty( $image_url ) ) {
+			$cp = $settings['content_padding'];
+			if ( ! empty( $cp['top'] ) || ! empty( $cp['right'] ) || ! empty( $cp['bottom'] ) || ! empty( $cp['left'] ) ) {
+				$body_styles[] = sprintf( 'padding: %dpx %dpx %dpx %dpx', intval( $cp['top'] ), intval( $cp['right'] ), intval( $cp['bottom'] ), intval( $cp['left'] ) );
+			}
+			if ( ! empty( $settings['content_bg_color'] ) && 'transparent' !== $settings['content_bg_color'] ) {
+				$body_styles[] = 'background-color: ' . $settings['content_bg_color'];
+			}
+			$cbr = $settings['content_border_radius'];
+			if ( ! empty( $cbr['top'] ) || ! empty( $cbr['right'] ) || ! empty( $cbr['bottom'] ) || ! empty( $cbr['left'] ) ) {
+				$body_styles[] = sprintf( 'border-radius: %dpx %dpx %dpx %dpx', intval( $cbr['top'] ), intval( $cbr['right'] ), intval( $cbr['bottom'] ), intval( $cbr['left'] ) );
+				$body_styles[] = 'overflow: hidden';
+			}
+			$valign_map = array( 'top' => 'flex-start', 'middle' => 'center', 'bottom' => 'flex-end' );
+			$body_styles[] = 'display: flex';
+			$body_styles[] = 'flex-direction: column';
+			$body_styles[] = 'justify-content: ' . ( isset( $valign_map[ $settings['content_valign'] ] ) ? $valign_map[ $settings['content_valign'] ] : 'center' );
+			$body_styles[] = 'align-self: stretch';
+		}
+		$body_style_attr = ! empty( $body_styles ) ? ' style="' . esc_attr( implode( '; ', $body_styles ) ) . '"' : '';
+		?>
+		<div class="hashbar-popup-body"<?php echo $body_style_attr; ?>>
+			<?php
+			$content_order = isset( $settings['content_order'] ) && is_array( $settings['content_order'] )
+				? $settings['content_order']
+				: array( 'heading', 'subheading', 'description', 'countdown', 'coupon', 'form_or_buttons' );
 
-			<?php if ( ! empty( $settings['subheading'] ) ) : ?>
-				<h3 class="hashbar-popup-subheading" style="color: <?php echo esc_attr( $settings['subheading_color'] ); ?>; font-size: <?php echo esc_attr( $settings['subheading_size'] ); ?>px; font-weight: <?php echo esc_attr( $settings['subheading_weight'] ); ?>; text-transform: <?php echo esc_attr( $settings['text_transform'] ); ?>;">
-					<?php echo esc_html( $settings['subheading'] ); ?>
-				</h3>
-			<?php endif; ?>
+			$default_spacing = array( 'heading' => 6, 'subheading' => 8, 'description' => 16, 'countdown' => 16, 'coupon' => 16, 'form_or_buttons' => 0 );
+			$element_spacing = isset( $settings['element_spacing'] ) && is_array( $settings['element_spacing'] )
+				? $settings['element_spacing']
+				: $default_spacing;
 
-			<?php if ( ! empty( $settings['description'] ) ) : ?>
-				<div class="hashbar-popup-description" style="color: <?php echo esc_attr( $settings['text_color'] ); ?>; font-size: <?php echo esc_attr( $settings['text_size'] ); ?>px;">
-					<?php echo wp_kses_post( $settings['description'] ); ?>
-				</div>
-			<?php endif; ?>
+			foreach ( $content_order as $element ) :
+				$mb = isset( $element_spacing[ $element ] ) ? intval( $element_spacing[ $element ] ) : ( isset( $default_spacing[ $element ] ) ? $default_spacing[ $element ] : 0 );
+				switch ( $element ) :
+					case 'heading':
+						if ( ! empty( $settings['heading'] ) ) : ?>
+							<h2 class="hashbar-popup-heading" style="color: <?php echo esc_attr( $settings['heading_color'] ); ?>; font-size: <?php echo esc_attr( $settings['heading_size'] ); ?>px; font-weight: <?php echo esc_attr( $settings['heading_weight'] ); ?>; text-transform: <?php echo esc_attr( $settings['text_transform'] ); ?>; margin-bottom: <?php echo esc_attr( $mb ); ?>px;">
+								<?php echo wp_kses_post( $settings['heading'] ); ?>
+							</h2>
+						<?php endif;
+						break;
 
-			<?php if ( $settings['countdown_enabled'] ) : ?>
-				<?php $this->render_countdown( $settings ); ?>
-			<?php endif; ?>
+					case 'subheading':
+						if ( ! empty( $settings['subheading'] ) ) : ?>
+							<h3 class="hashbar-popup-subheading" style="color: <?php echo esc_attr( $settings['subheading_color'] ); ?>; font-size: <?php echo esc_attr( $settings['subheading_size'] ); ?>px; font-weight: <?php echo esc_attr( $settings['subheading_weight'] ); ?>; text-transform: <?php echo esc_attr( $settings['text_transform'] ); ?>; margin-bottom: <?php echo esc_attr( $mb ); ?>px;">
+								<?php echo wp_kses_post( $settings['subheading'] ); ?>
+							</h3>
+						<?php endif;
+						break;
 
-			<?php if ( $settings['coupon_enabled'] && ! empty( $settings['coupon_code'] ) ) : ?>
-				<?php $this->render_coupon( $settings ); ?>
-			<?php endif; ?>
+					case 'description':
+						if ( ! empty( $settings['description'] ) ) : ?>
+							<div class="hashbar-popup-description" style="color: <?php echo esc_attr( $settings['text_color'] ); ?>; font-size: <?php echo esc_attr( $settings['text_size'] ); ?>px; margin-bottom: <?php echo esc_attr( $mb ); ?>px;">
+								<?php echo wp_kses_post( $settings['description'] ); ?>
+							</div>
+						<?php endif;
+						break;
 
-			<?php if ( $settings['form_enabled'] && ! empty( $form_fields ) ) : ?>
-				<?php $this->render_form( $popup_id, $settings, $form_fields ); ?>
-			<?php elseif ( $settings['cta_enabled'] || $settings['secondary_enabled'] ) : ?>
-				<?php $this->render_buttons( $settings ); ?>
-			<?php endif; ?>
+					case 'countdown':
+						if ( $settings['countdown_enabled'] ) : ?>
+							<div style="margin-bottom: <?php echo esc_attr( $mb ); ?>px;">
+								<?php $this->render_countdown( $settings ); ?>
+							</div>
+						<?php endif;
+						break;
+
+					case 'coupon':
+						if ( $settings['coupon_enabled'] && ! empty( $settings['coupon_code'] ) ) : ?>
+							<div style="margin-bottom: <?php echo esc_attr( $mb ); ?>px;">
+								<?php $this->render_coupon( $settings ); ?>
+							</div>
+						<?php endif;
+						break;
+
+					case 'form_or_buttons':
+						if ( $settings['form_enabled'] && ! empty( $form_fields ) ) : ?>
+							<div style="margin-bottom: <?php echo esc_attr( $mb ); ?>px;">
+								<?php $this->render_form( $popup_id, $settings, $form_fields ); ?>
+							</div>
+						<?php elseif ( $settings['cta_enabled'] || $settings['secondary_enabled'] ) : ?>
+							<div style="margin-bottom: <?php echo esc_attr( $mb ); ?>px;">
+								<?php $this->render_buttons( $settings ); ?>
+							</div>
+						<?php endif;
+						break;
+				endswitch;
+			endforeach;
+			?>
 		</div>
 
 		<?php if ( ! empty( $image_url ) && in_array( $settings['image_position'], array( 'bottom', 'right' ), true ) ) : ?>
-			<div class="hashbar-popup-image hashbar-popup-image--<?php echo esc_attr( $settings['image_position'] ); ?>">
+			<div class="hashbar-popup-image hashbar-popup-image--<?php echo esc_attr( $settings['image_position'] ); ?>"<?php echo $image_style_attr; ?>>
 				<img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $settings['heading'] ); ?>" />
 			</div>
 		<?php endif; ?>

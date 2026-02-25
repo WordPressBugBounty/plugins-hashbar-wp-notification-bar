@@ -257,6 +257,7 @@ class Hashbar_Settiigs_Panel {
                 'templates' => $ab_settings->get_templates(),
                 'labels' => $ab_settings->get_labels(),
                 'is_pro' => Hashbar_Announcement_Bar_Settings::is_pro(),
+                'video_guide' => Hashbar_Announcement_Bar_Settings::get_video_guide(),
             ],
             'popupCampaignSettings' => [
                 'tabs' => Hashbar_Popup_Campaign_Settings::get_editor_tabs(),
@@ -265,6 +266,7 @@ class Hashbar_Settiigs_Panel {
                 'labels' => $popup_settings->get_labels(),
                 'formPluginInfo' => Hashbar_Popup_Campaign_Settings::get_form_plugin_info(),
                 'is_pro' => Hashbar_Popup_Campaign_Settings::is_pro(),
+                'video_guide' => Hashbar_Popup_Campaign_Settings::get_video_guide(),
             ],
         ];
         wp_localize_script( 'hashbar-settings-panel', 'HashbarSettingsLocalize', $localize_data );

@@ -3,7 +3,7 @@ Contributors: devitemsllc, htplugins, hasthemes, zenaulislam, aslamhasib, yeasin
 Tags: notification bar, popup, announcement bar, lead capture, countdown timer
 Requires at least: 5.0
 Tested up to: 6.9
-Stable tag: 1.9.1
+Stable tag: 1.9.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -53,7 +53,6 @@ Get started quickly with professionally designed templates.
 * ✅ **Countdown Sale** - Includes countdown timer
 * ✅ **Coupon Display** - Showcases discount codes
 * ✅ **Minimal Elegant** - Clean design for premium brands
-* ✅ **Urgent Alert** - Bold orange for urgency
 * ✅ **Holiday Special** - Festive seasonal design
 * ✅ **Limited Stock** - Red urgency design
 
@@ -67,6 +66,8 @@ Get started quickly with professionally designed templates.
 * ⭐ **Bundle Deal** - Green gradient for bundles
 * ⭐ **VIP Exclusive** - Members-only style
 * ⭐ **Early Bird** - Pre-order style
+* ⭐ **Premium Popup Templates** - Access to specialized templates like Flash Sale, Cyber Monday, and Split E-commerce.
+* ⭐ **Priority Support** - Dedicated support for Pro users.
 
 = 📝 Content & Messaging =
 
@@ -576,6 +577,22 @@ Yes! 30-day money-back guarantee on Pro purchases.
 11. **A/B Testing & Analytics** - Compare variants, split traffic, and pick a winner automatically
 
 == Changelog ==
+
+= Version: 1.9.2 - Date: 25 Feb 2026 =
+* Added: Content element drag-and-drop ordering in Design tab for Popup Campaigns.
+* Added: Image Width control with px/% unit toggle for Popup Campaigns.
+* Added: Image Alignment option based on image position for Popup Campaigns.
+* Added: Image Border Radius control with individual corner inputs for Popup Campaigns.
+* Added: Flash Sale, Cyber Monday, and Split E-commerce templates for Popup Campaigns (Pro).
+* Added: Content Wrapper Styles section for Popup Campaigns.
+* Improved: Popup Campaign editor tabs now use responsive overflow menu instead of horizontal scroll.
+* Improved: Collapsible sections in Popup Campaign Design tab for better navigation.
+* Improved: Announcement Bar editor header restyled with inline title input.
+* Fixed: Cookie interfering with server-side caching.
+* Fixed: User Targeting "Show To" option not working for Popup Campaigns (Guests Only setting was ignored).
+* Fixed: HTML rendering in heading, subheading, and description fields for Popup Campaigns.
+* Fixed: CTA Button Styling section not showing intermittently in Announcement Bar Design tab.
+* Fixed: Publish/Update button text now correctly shows "Update" when editing existing items.
 
 = Version: 1.9.1 - Date: 08 Feb 2026 =
 * Added: Delay After Click option for On Element Click popup trigger (Pro).

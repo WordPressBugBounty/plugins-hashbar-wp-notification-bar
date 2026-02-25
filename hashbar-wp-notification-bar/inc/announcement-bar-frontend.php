@@ -628,12 +628,12 @@ function hashbar_is_bar_closed( $bar_id ) {
 function hashbar_render_single_bar( $bar ) {
 	$bar_id = $bar->ID;
 
-	// Check A/B test and get assigned variant
+	// Check A/B test and get assigned variant (Pro-only feature)
 	$variant_id = false;
 	$variant_settings = array();
 	$pending_variant_settings = array();
 	$test_enabled = get_post_meta( $bar_id, '_wphash_ab_test_enabled', true );
-	if ( $test_enabled && $test_enabled !== 'false' && $test_enabled !== '0' ) {
+	if ( defined( 'HASHBAR_WPNBP_VERSION' ) && $test_enabled && $test_enabled !== 'false' && $test_enabled !== '0' ) {
 		$variant_id = \HashbarFree\ABTest\AB_Test_Assignment::get_assigned_variant( $bar_id );
 		if ( $variant_id ) {
 			// Get variant settings

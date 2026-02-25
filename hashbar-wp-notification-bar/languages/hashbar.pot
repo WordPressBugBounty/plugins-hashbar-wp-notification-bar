@@ -1,9 +1,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: HashBar - WordPress Notification Bar\n"
+"Project-Id-Version: HashBar - Announcement, Notification Bar & Popup "
+"Campaign\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-12 11:09+0000\n"
+"POT-Creation-Date: 2026-02-25 09:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -13,15 +14,35 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.8.0; wp-6.8.3; php-8.4.0\n"
+"X-Loco-Version: 2.8.1; wp-6.9.1; php-8.2.26\n"
 "X-Domain: hashbar"
 
 #: inc/metabox.php:260
 msgid " "
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:503
+#: admin/settings-panel/api/admin-settings.php:523
 msgid " (Pro)"
+msgstr ""
+
+#. %s: field label
+#: inc/popup-campaign-form-handler.php:255
+#, php-format
+msgid "%s is required"
+msgstr ""
+
+#: inc/ab-test-winner.php:113
+#, php-format
+msgid "%s is the winner with %.2f%% improvement (%.1f%% confidence)"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-api.php:433
+#: admin/settings-panel/api/popup-campaign-api.php:472
+msgid "(Copy)"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1667
+msgid "+ Add Another Message"
 msgstr ""
 
 #: inc/shortcode.php:105 inc/shortcode.php:109 inc/shortcode.php:113
@@ -29,12 +50,45 @@ msgstr ""
 msgid "00"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:129
+#: admin/settings-panel/api/announcement-bar-settings.php:678
+msgid "1 Day"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:676
+msgid "1 Hour"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:681
+msgid "1 Month"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:680
+msgid "2 Weeks"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:149
 msgid "4,32,17"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:206
+#: admin/settings-panel/api/admin-settings.php:226
 msgid "50,60,54"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:677
+msgid "6 Hours"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:679
+msgid "7 Days"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:446
+msgid ""
+"<strong>Recommended:</strong> We highly recommend using our <a "
+"class=\"announcement-link\">Announcement Bar</a> and <a class=\"popup-link\">"
+"Popup Campaign</a> features for better visitor engagement. These features "
+"come with predefined templates and advanced options, making it easy to set "
+"up and customize."
 msgstr ""
 
 #: inc/metabox.php:10
@@ -43,51 +97,148 @@ msgid ""
 "the page."
 msgstr ""
 
-#: admin/settings-panel/settings-panel.php:139
+#: admin/settings-panel/api/announcement-bar-settings.php:1312
+msgid "A simple and clean notification banner"
+msgstr ""
+
+#: admin/settings-panel/api/ab-test-api.php:145
+msgid "A/B test is not enabled for this bar"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:717
+msgid "A/B test variants"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:83
+#: admin/settings-panel/api/announcement-bar-settings.php:1284
+msgid "A/B Testing"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1643
+msgid "AB Testing Results"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1610
+msgid "Actions"
+msgstr ""
+
+#: admin/settings-panel/settings-panel.php:210
 msgid "Activating.."
 msgstr ""
 
-#: admin/settings-panel/settings-panel.php:140
+#: admin/settings-panel/settings-panel.php:211
 msgid "Active"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:492
+#: admin/settings-panel/api/announcement-bar-settings.php:1172
+msgid "Active Days"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:512
 msgid "Active Installations"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:299
+#: admin/settings-panel/api/admin-settings.php:319
 msgid "Active Notifications"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:413
+#: admin/settings-panel/api/announcement-bar-settings.php:1512
+msgid "Add Another Message"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:562
+msgid ""
+"Add custom CSS to style your announcement bar. Use .hashbar-announcement-bar,"
+" .hashbar-announcement-cta, .hashbar-coupon-display, or .hashbar-"
+"announcement-close as selectors."
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:432
 msgid "Add New"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:24 inc/announcement-bar-cpt.php:25
+msgid "Add New Announcement"
 msgstr ""
 
 #: inc/custom-posts.php:17 inc/custom-posts.php:18
 msgid "Add New Notification"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:602
+#: inc/popup-campaign-cpt.php:37 inc/popup-campaign-cpt.php:38
+msgid "Add New Popup"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1513
+msgid "Add Variant"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:622
 msgid "Additional features for Contact Form 7"
 msgstr ""
 
-#: admin/settings-panel/settings-panel.php:128
+#: admin/settings-panel/api/announcement-bar-settings.php:1101
+msgid "Advanced Coupon Options"
+msgstr ""
+
+#: admin/settings-panel/templates/sidebar-banner.php:20
+msgid "Advanced Form Builder & Mailchimp"
+msgstr ""
+
+#: admin/settings-panel/templates/sidebar-banner.php:17
+msgid "Advanced Popup Campaign & Smart Triggers"
+msgstr ""
+
+#: admin/settings-panel/templates/sidebar-banner.php:22
+msgid "Advanced Scheduling & Geo Targeting"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:969
+msgid "After close behavior"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:985
+msgid "After conversion behavior"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:23
+msgid "All Announcements"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1539
+msgid "All Bars"
+msgstr ""
+
+#: inc/functions.php:221
+msgid "All Countries (Worldwide)"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:709
+msgid "All Except Excluded"
+msgstr ""
+
+#: admin/settings-panel/settings-panel.php:196
 msgid "All Items have been Loaded"
 msgstr ""
 
-#: inc/custom-posts.php:16 admin/settings-panel/api/admin-settings.php:298
+#: inc/custom-posts.php:16 admin/settings-panel/api/admin-settings.php:318
 msgid "All Notifications"
 msgstr ""
 
-#: inc/metabox.php:296 admin/settings-panel/api/admin-settings.php:236
+#: inc/metabox.php:296 admin/settings-panel/api/admin-settings.php:256
+#: admin/settings-panel/api/announcement-bar-settings.php:706
 msgid "All Pages"
 msgstr ""
 
-#: inc/metabox.php:295 admin/settings-panel/api/admin-settings.php:235
+#: inc/popup-campaign-cpt.php:36
+msgid "All Popups"
+msgstr ""
+
+#: inc/metabox.php:295 admin/settings-panel/api/admin-settings.php:255
 msgid "All Posts"
 msgstr ""
 
-#: inc/metabox.php:300 admin/settings-panel/api/admin-settings.php:286
+#: inc/metabox.php:300 admin/settings-panel/api/admin-settings.php:306
 msgid "All Products"
 msgstr ""
 
@@ -101,48 +252,136 @@ msgstr ""
 msgid "An error occurred while duplicating the post"
 msgstr ""
 
-#: admin/settings-panel/api/admin-dashboard-api.php:335
+#: admin/settings-panel/api/admin-dashboard-api.php:338
 msgid "An error occurred while updating settings"
 msgstr ""
 
-#: admin/plugin-options.php:11 admin/settings-panel/api/admin-settings.php:57
+#: admin/plugin-options.php:11 admin/settings-panel/settings-panel.php:71
+#: admin/settings-panel/api/admin-settings.php:75
 msgid "Analytics"
 msgstr ""
 
-#: admin/plugin-options.php:225 admin/settings-panel/api/admin-settings.php:439
+#: admin/settings-panel/api/announcement-bar-settings.php:1613
+msgid "Analytics Data"
+msgstr ""
+
+#: admin/plugin-options.php:225 admin/settings-panel/api/admin-settings.php:459
 msgid "Analytics Overview"
 msgstr ""
 
-#: admin/settings-panel/templates/sidebar-banner.php:22
+#: admin/settings-panel/templates/sidebar-banner.php:23
 msgid "And So Much More!"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:118
+#: admin/settings-panel/api/announcement-bar-settings.php:1235
+msgid "Animation"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:1028
+msgid "Animation delay in ms"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1265
+msgid "Animation Duration"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:700 inc/popup-campaign-cpt.php:1020
+msgid "Animation duration in ms"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1330
+msgid "Announce free shipping offers"
+msgstr ""
+
+#: admin/settings-panel/api/popup-campaign-api.php:570
+msgid "Announce sales and discount offers"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:21
+msgid "Announcement Archives"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:20 inc/announcement-bar-cpt.php:45
+#: admin/settings-panel/settings-panel.php:67
+#: admin/settings-panel/api/admin-settings.php:42
+#: admin/settings-panel/api/announcement-bar-settings.php:1615
+msgid "Announcement Bar"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-api.php:276
+msgid "Announcement bar created successfully"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-api.php:397
+msgid "Announcement bar deleted successfully"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-api.php:458
+msgid "Announcement bar duplicated successfully"
+msgstr ""
+
+#: admin/settings-panel/api/ab-test-api.php:134
+#: admin/settings-panel/api/ab-test-api.php:206
+#: admin/settings-panel/api/ab-test-api.php:249
+#: admin/settings-panel/api/announcement-bar-api.php:203
+#: admin/settings-panel/api/announcement-bar-api.php:302
+#: admin/settings-panel/api/announcement-bar-api.php:381
+#: admin/settings-panel/api/announcement-bar-api.php:423
+msgid "Announcement bar not found"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-api.php:355
+msgid "Announcement bar updated successfully"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:19
+#: admin/settings-panel/api/announcement-bar-settings.php:1526
+msgid "Announcement Bars"
+msgstr ""
+
+#. Description of the plugin
+msgid "Announcement, Notification & Popup Campaign plugin for WordPress"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:39
+msgid "Announcements list"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:40
+msgid "Announcements list navigation"
 msgstr ""
 
 #: inc/metabox.php:130
 msgid "Any Post/Page/Custom Post IDS"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:117
+#: admin/settings-panel/api/admin-settings.php:137
 msgid "Any Post/Page/Custom Post IDs"
+msgstr ""
+
+#: admin/settings-panel/api/popup-campaign-api.php:863
+msgid "API key is required"
 msgstr ""
 
 #: admin/class-notices.php:95
 msgid "Are you cheating?"
 msgstr ""
 
-#: inc/class-hashbar-vue-builder.php:96
-msgid "Are you sure you want to clear the canvas?"
+#: admin/settings-panel/api/announcement-bar-settings.php:1533
+msgid "Are you sure you want to delete this announcement bar?"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:421
+#: admin/settings-panel/api/admin-settings.php:440
 msgid "Are you sure you want to delete this notification?"
 msgstr ""
 
-#: inc/class-hashbar-vue-builder.php:95
-msgid "Are you sure you want to delete this?"
+#: admin/settings-panel/api/admin-settings.php:420
+msgid "Are you sure you want to reset all settings to default values?"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:401
-msgid "Are you sure you want to reset all settings to default values?"
+#: inc/functions.php:203
+msgid "Argentina"
 msgstr ""
 
 #. %1$s: project name
@@ -164,16 +403,142 @@ msgid ""
 "guaranteed. %4$sPrivacy Policy%5$s"
 msgstr ""
 
+#: inc/functions.php:168
+msgid "Australia"
+msgstr ""
+
+#: inc/functions.php:176
+msgid "Austria"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:287
+msgid "Auto"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1090
+msgid "Auto-apply to Cart"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:644
+msgid "Auto-apply to cart"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1079
+msgid "Auto-copy on click"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:636
+msgid "Auto-copy to clipboard"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:187
+msgid "Automatically rotate between multiple messages"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1574
+msgid "Average CTR"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1577
+msgid "Average Position"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1509
+msgid "Back"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1584
+msgid "Back to List"
+msgstr ""
+
 #: inc/metabox.php:940 inc/metabox.php:999 inc/metabox.php:1065
 msgid "Background"
 msgstr ""
 
-#: inc/metabox.php:682 inc/metabox.php:713
+#: admin/settings-panel/api/announcement-bar-settings.php:218
+#: admin/settings-panel/api/announcement-bar-settings.php:1671
+msgid "Background Color"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:170 inc/metabox.php:682 inc/metabox.php:713
+#: inc/popup-campaign-cpt.php:519
 msgid "Background color"
 msgstr ""
 
 #: inc/metabox.php:688 inc/metabox.php:719
 msgid "Background hover color"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:268
+msgid "Background Image"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:543
+msgid "Background image"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:202
+msgid "Background image settings"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:230
+msgid "Background Type"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:511
+msgid "Background type"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:194
+msgid "Background type (solid/gradient/image)"
+msgstr ""
+
+#: inc/functions.php:211
+msgid "Bangladesh"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:133
+msgid "Bar Content"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:347
+msgid "Bar Height"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:258
+msgid "Bar height in pixels"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:585
+msgid "Bar Position"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:580
+msgid "Bar Position & Display"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:319
+msgid "Bar position (top/bottom)"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1541
+msgid "bars"
+msgstr ""
+
+#: admin/settings-panel/api/popup-campaign-api.php:569
+msgid "Basic Promotion"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:789
+msgid "Behavioral Targeting"
+msgstr ""
+
+#: inc/functions.php:174
+msgid "Belgium"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:915
+msgid "Below (Underneath Message)"
 msgstr ""
 
 #: build/blocks/hashbar-promobanner/block.json:1
@@ -258,8 +623,30 @@ msgctxt "block title"
 msgid "Hashbar Promo Banner Image"
 msgstr ""
 
+#: admin/settings-panel/api/announcement-bar-settings.php:320
+#: admin/settings-panel/api/announcement-bar-settings.php:438
+#: admin/settings-panel/api/announcement-bar-settings.php:533
+msgid "Bold (700)"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:630
+msgid "Border color"
+msgstr ""
+
 #: inc/metabox.php:954 inc/metabox.php:1033 inc/metabox.php:1099
 msgid "Border radius"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:614
+msgid "Border radius in pixels"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:283
+msgid "Border settings"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:622
+msgid "Border width in pixels"
 msgstr ""
 
 #: inc/metabox.php:7 inc/metabox.php:86 inc/metabox.php:148 inc/metabox.php:157
@@ -270,15 +657,93 @@ msgstr ""
 msgid "Bottom Left"
 msgstr ""
 
+#: admin/settings-panel/api/announcement-bar-settings.php:590
+msgid "Bottom of page"
+msgstr ""
+
 #: inc/metabox.php:386
 msgid "Bottom Right"
 msgstr ""
 
-#: init.php:986 admin/settings-panel/settings-panel.php:135
+#: admin/settings-panel/api/announcement-bar-settings.php:1245
+msgid "Bounce In"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1258
+msgid "Bounce Out"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:897
+msgid "Box"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:638
+msgid "Box shadow preset"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:299
+msgid "Box shadow settings"
+msgstr ""
+
+#: inc/functions.php:187
+msgid "Brazil"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1606
+msgid "Bulk Delete"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1452
+msgid "Bundle Deal"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:386
+#: admin/settings-panel/api/announcement-bar-settings.php:481
+msgid "Button Background Color"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:647
+msgid "Button background color"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:679
+msgid "Button border radius"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:687
+msgid "Button font size"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:663
+msgid "Button hover background"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:671
+msgid "Button hover text color"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:162
+msgid "Button Text"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:375
+#: admin/settings-panel/api/announcement-bar-settings.php:470
+msgid "Button Text Color"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:655
+msgid "Button text color"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:167
+msgid "Button URL"
+msgstr ""
+
+#: init.php:1021 admin/settings-panel/settings-panel.php:206
 msgid "Buy Now"
 msgstr ""
 
-#: admin/settings-panel/settings-panel.php:143
+#: admin/settings-panel/settings-panel.php:216
 msgid "BUY PRO"
 msgstr ""
 
@@ -292,16 +757,49 @@ msgstr ""
 msgid "Call to Action Button"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:403
-#: admin/settings-panel/api/admin-settings.php:458
+#: admin/settings-panel/api/announcement-bar-settings.php:158
+msgid "Call-to-Action Button"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:130
+msgid "Campaign type"
+msgstr ""
+
+#: inc/functions.php:167
+msgid "Canada"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:422
+#: admin/settings-panel/api/admin-settings.php:478
+#: admin/settings-panel/api/announcement-bar-settings.php:1508
 msgid "Cancel"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:155
+#: inc/ab-test-winner.php:157
+msgid "Cannot calculate significance (zero standard error)"
+msgstr ""
+
+#: admin/settings-panel/api/popup-campaign-api.php:591
+msgid "Capture leaving visitors with a special offer"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:337
+msgid "Center"
+msgstr ""
+
+#: inc/functions.php:204
+msgid "Chile"
+msgstr ""
+
+#: inc/functions.php:185
+msgid "China"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:175
 msgid "Choose Categories"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:187
+#: admin/settings-panel/api/admin-settings.php:207
 msgid "Choose Pages"
 msgstr ""
 
@@ -309,7 +807,7 @@ msgstr ""
 msgid "Choose pages"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:140
+#: admin/settings-panel/api/admin-settings.php:160
 msgid "Choose Posts"
 msgstr ""
 
@@ -317,7 +815,7 @@ msgstr ""
 msgid "Choose posts"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:255
+#: admin/settings-panel/api/admin-settings.php:275
 msgid "Choose Products"
 msgstr ""
 
@@ -325,7 +823,7 @@ msgstr ""
 msgid "Choose products"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:171
+#: admin/settings-panel/api/admin-settings.php:191
 msgid "Choose Tags"
 msgstr ""
 
@@ -334,24 +832,196 @@ msgid ""
 "Choose the area of your site, where the notification should be displayed."
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:106
+#: admin/settings-panel/api/announcement-bar-settings.php:586
+msgid "Choose the position where your bar will be displayed"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:126
 msgid "Choose where to show the notification."
 msgstr ""
 
-#: admin/plugin-options.php:263 admin/settings-panel/api/admin-settings.php:442
+#: admin/settings-panel/api/announcement-bar-settings.php:703
+msgid "Choose where your announcement bar will be displayed"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:898
+msgid "Circular"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-api.php:481
+#: admin/settings-panel/api/announcement-bar-settings.php:1311
+msgid "Classic"
+msgstr ""
+
+#: admin/plugin-options.php:263 admin/settings-panel/api/admin-settings.php:462
 msgid "Click Through Rate"
 msgstr ""
 
+#: inc/popup-campaign-frontend.php:1063
+msgid "Click to copy"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:790
+msgid "Click trigger CSS selector"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1625
+msgid "Click-Through Rate"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1624
+#: admin/settings-panel/api/announcement-bar-settings.php:1630
+#: admin/settings-panel/api/announcement-bar-settings.php:1646
+msgid "Clicks"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1561
+msgid "Clicks Over Time"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1589
+msgid "Clone"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1590
+msgid "Close"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:543
+msgid "Close Border Radius"
+msgstr ""
+
 #: inc/metabox.php:664
+#: admin/settings-panel/api/announcement-bar-settings.php:608
 msgid "Close Button"
 msgstr ""
 
-#: inc/metabox.php:466
+#: inc/announcement-bar-cpt.php:450
+msgid "Close button background color"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:485
+msgid "Close button border radius in pixels"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:696
+msgid "Close button color"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:471
+msgid "Close button font size in pixels"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:478
+msgid "Close button font weight"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:464
+msgid "Close button hover background color"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:704
+msgid "Close button hover color"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:457
+msgid "Close button hover text color"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:629
+msgid "Close Button Position"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:162
+msgid "Close button position"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:712
+msgid "Close button size"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:461
+msgid "Close Button Styling"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:617
+msgid "Close Button Text"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:351 inc/metabox.php:466
 msgid "Close button text"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:397
+#: inc/announcement-bar-cpt.php:443
+msgid "Close button text color"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:426
+msgid "Close delay in seconds"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:514
+msgid "Close Font Size"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:527
+msgid "Close Font Weight"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:170
+msgid "Close on ESC key"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:146
+msgid "Close on overlay click"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:319
+msgid "Close popup on CTA click"
+msgstr ""
+
+#: inc/functions.php:205
+msgid "Colombia"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:214
+#: admin/settings-panel/api/announcement-bar-settings.php:1670
+msgid "Colors"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1570
+msgid "Compare with"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1102
+msgid ""
+"Configure advanced coupon features including auto-copy and auto-apply "
+"functionality"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:416
 msgid "Configure HashBar settings to manage notifications"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:134
+msgid "Configure the messages and call-to-action for your announcement bar"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1595
+msgid "Confirm"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:190
+msgid "Contact Form 7 form ID"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:286
+msgid "Contain"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:81
+#: admin/settings-panel/api/announcement-bar-settings.php:1682
+msgid "Content"
 msgstr ""
 
 #: inc/metabox.php:608
@@ -364,6 +1034,10 @@ msgstr ""
 
 #: inc/metabox.php:625
 msgid "Content border"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:729
+msgid "Content element order"
 msgstr ""
 
 #: inc/metabox.php:639
@@ -382,8 +1056,24 @@ msgstr ""
 msgid "Content text color"
 msgstr ""
 
+#: inc/popup-campaign-cpt.php:181
+msgid "Content type (custom, cf7, wpforms, etc.)"
+msgstr ""
+
 #: inc/metabox.php:403
 msgid "Content width"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1650
+msgid "Control"
+msgstr ""
+
+#: inc/ab-test-statistics.php:153 inc/ab-test-winner.php:51
+msgid "Control (Original)"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1519
+msgid "Control Variant (Original)"
 msgstr ""
 
 #: inc/metabox.php:443
@@ -394,11 +1084,43 @@ msgstr ""
 msgid "Control visibility of the open arrow icon/button."
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:323
+#: admin/settings-panel/api/announcement-bar-settings.php:581
+msgid "Control where and how your announcement bar appears"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:604
+msgid "Controls stacking order (higher values appear on top)"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1649
+msgid "Conversion Rate"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1562
+msgid "Conversion Rate Over Time"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1626
+#: admin/settings-panel/api/announcement-bar-settings.php:1632
+#: admin/settings-panel/api/announcement-bar-settings.php:1647
+msgid "Conversions"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:665
+msgid "Cookie Duration"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:384
+msgid ""
+"Cookie expiration preset (session_only, 1_hour, 6_hours, 1_day, 7_days, "
+"2_weeks, 1_month, never)"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:342
 msgid "Cookies expire time"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:332
+#: admin/settings-panel/api/admin-settings.php:351
 msgid "Cookies expire time unit"
 msgstr ""
 
@@ -406,15 +1128,38 @@ msgstr ""
 msgid "Cookies expire time."
 msgstr ""
 
+#: admin/settings-panel/api/announcement-bar-settings.php:1067
+msgid "Copied Button Text"
+msgstr ""
+
+#: inc/announcement-bar-frontend.php:897
+#: admin/settings-panel/api/announcement-bar-settings.php:1069
+msgid "Copied!"
+msgstr ""
+
+#: inc/announcement-bar-frontend.php:896
+#: admin/settings-panel/api/announcement-bar-settings.php:1057
+msgid "Copy"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1055
+msgid "Copy Button Text"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1550
+msgid "Copy Coupon Code"
+msgstr ""
+
 #: admin/class-diagnostic-data.php:575
 msgid "Count Me In"
 msgstr ""
 
-#: admin/plugin-options.php:85 admin/settings-panel/api/admin-settings.php:349
+#: admin/plugin-options.php:85 admin/settings-panel/api/admin-settings.php:368
 msgid "Count Only 1 From Each IP"
 msgstr ""
 
 #: inc/metabox.php:1124
+#: admin/settings-panel/api/announcement-bar-settings.php:96
 msgid "Countdown"
 msgstr ""
 
@@ -422,29 +1167,180 @@ msgstr ""
 msgid "Countdown date"
 msgstr ""
 
-#: admin/settings-panel/templates/sidebar-banner.php:20
-msgid "Countdown placement (using shordcode)"
+#: inc/announcement-bar-cpt.php:612
+msgid "Countdown display format"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:698
+#: admin/settings-panel/api/announcement-bar-settings.php:1549
+msgid "Countdown Ends"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-api.php:530
+#: admin/settings-panel/api/announcement-bar-settings.php:1347
+msgid "Countdown Sale"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1677
+msgid "Countdown Style"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:597
+msgid "Countdown target date/time"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:821
+#: admin/settings-panel/api/announcement-bar-settings.php:1675
+msgid "Countdown Timer"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:831
+msgid "Countdown Type"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:589
+msgid "Countdown type"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:101
+msgid "Coupon"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1020
+#: admin/settings-panel/api/announcement-bar-settings.php:1032
+#: admin/settings-panel/api/announcement-bar-settings.php:1679
+msgid "Coupon Code"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:629
+msgid "Coupon code"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1551
+msgid "Coupon Copied!"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-api.php:542
+#: admin/settings-panel/api/announcement-bar-settings.php:1356
+msgid "Coupon Display"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:285
+msgid "Cover"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:718
 msgid "Create beautiful sliders for your website using Elementor"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:433
+#: admin/settings-panel/api/admin-settings.php:453
 msgid ""
 "Create engaging notification bars to boost conversions, grow your audience, "
 "and inform visitors easily."
 msgstr ""
 
-#: inc/metabox.php:132 admin/settings-panel/api/admin-settings.php:119
+#: admin/settings-panel/api/announcement-bar-settings.php:1527
+msgid "Create New"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1506
+msgid "Create New Announcement Bar"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1348
+msgid "Create urgency with countdown timer"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1609
+msgid "Created"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:448
+msgid "CTA Border Radius"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:400
+msgid "CTA button background color"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:435
+msgid "CTA button border radius in pixels"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:421
+msgid "CTA button font size in pixels"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:428
+msgid "CTA button font weight"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:414
+msgid "CTA button hover background color"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:407
+msgid "CTA button hover text color"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:366
+msgid "CTA Button Styling"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1660
+msgid "CTA Button Text"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:96 inc/popup-campaign-cpt.php:295
+msgid "CTA button text"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:393
+msgid "CTA button text color"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:103 inc/popup-campaign-cpt.php:303
+msgid "CTA button URL"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:419
+msgid "CTA Font Size"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:432
+msgid "CTA Font Weight"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:110 inc/popup-campaign-cpt.php:311
+msgid "CTA link target"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1662
+msgid "CTA Target"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1661
+msgid "CTA URL"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1631
+#: admin/settings-panel/api/announcement-bar-settings.php:1648
+msgid "CTR"
+msgstr ""
+
+#: inc/metabox.php:132 admin/settings-panel/api/admin-settings.php:139
 msgid "Custom"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:144 inc/popup-campaign-cpt.php:720
+#: admin/settings-panel/api/announcement-bar-settings.php:556
+msgid "Custom CSS"
 msgstr ""
 
 #: inc/metabox.php:860
 msgid "Custom labels"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:230
+#: admin/settings-panel/api/admin-settings.php:250
 msgid "Custom Options Where to Show"
 msgstr ""
 
@@ -452,16 +1348,59 @@ msgstr ""
 msgid "Custom options where to show"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:33
+#: admin/settings-panel/api/announcement-bar-settings.php:1569
+msgid "Custom Range"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:230
+msgid "Custom shortcode"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:760
+msgid "Customer Segmentation"
+msgstr ""
+
+#: inc/functions.php:182
+msgid "Czech Republic"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1618
+msgid "Daily"
+msgstr ""
+
+#: admin/settings-panel/settings-panel.php:66
+#: admin/settings-panel/api/admin-settings.php:34
 msgid "Dashboard"
 msgstr ""
 
-#: inc/metabox.php:869 inc/shortcode.php:106
-#: admin/settings-panel/api/admin-settings.php:336
+#: admin/settings-panel/api/announcement-bar-settings.php:1628
+msgid "Date"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1522
+msgid "Date and time are required"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1565
+#: admin/settings-panel/api/announcement-bar-settings.php:1616
+msgid "Date Range"
+msgstr ""
+
+#: inc/metabox.php:869 inc/popup-campaign-frontend.php:1029
+#: inc/shortcode.php:106 admin/settings-panel/api/admin-settings.php:355
+#: admin/settings-panel/api/announcement-bar-settings.php:1552
 msgid "Days"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:575
+#: inc/popup-campaign-cpt.php:977
+msgid "Days to hide after close"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:993
+msgid "Days to hide after conversion"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:595
 msgid "Deactivate plugins per page"
 msgstr ""
 
@@ -469,17 +1408,56 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:377
+#: admin/settings-panel/api/admin-settings.php:396
 msgid ""
 "Default: 10 items per page. Adjust if you have more notifications to manage."
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:420
+#: inc/popup-campaign-cpt.php:798
+msgid "Delay in seconds after click before showing popup"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:439
+#: admin/settings-panel/api/announcement-bar-settings.php:1510
 msgid "Delete"
 msgstr ""
 
+#: admin/settings-panel/api/announcement-bar-settings.php:1532
+msgid "Delete Announcement Bar"
+msgstr ""
+
+#: inc/functions.php:179
+msgid "Denmark"
+msgstr ""
+
 #: inc/metabox.php:773
+#: admin/settings-panel/api/announcement-bar-settings.php:113
+#: admin/settings-panel/api/announcement-bar-settings.php:1683
 msgid "Design"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:741
+msgid "Desktop"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1547
+msgid "Desktop Preview"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1634
+msgid "Device"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1633
+msgid "Device Distribution"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:734
+msgid "Device Targeting"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:896
+msgid "Digital"
 msgstr ""
 
 #: inc/metabox.php:524 inc/metabox.php:562
@@ -490,16 +1468,32 @@ msgstr ""
 msgid "Disable for Archives"
 msgstr ""
 
-#: admin/class-notices.php:297
+#: admin/settings-panel/api/announcement-bar-settings.php:1687
+msgid "Disabled"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1581
+msgid "Discard Changes"
+msgstr ""
+
+#: admin/class-notices.php:306
 msgid "Dismiss this notice."
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:709
+#: admin/settings-panel/api/announcement-bar-settings.php:1021
+msgid "Display a coupon code for your visitors"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:729
 msgid "Display Google Reviews on your site."
 msgstr ""
 
-#: admin/settings-panel/templates/sidebar-banner.php:17
-msgid "Display notification post category wise"
+#: admin/settings-panel/api/announcement-bar-settings.php:1339
+msgid "Display important information or updates"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:946
+msgid "Display Options"
 msgstr ""
 
 #: inc/metabox.php:431
@@ -508,59 +1502,198 @@ msgid ""
 "or use 0 to disable this option. The default is 0 seconds."
 msgstr ""
 
-#: admin/settings-panel/settings-panel.php:151
-#: admin/settings-panel/api/admin-settings.php:471
-#: admin/settings-panel/api/admin-settings.php:473
+#: admin/settings-panel/settings-panel.php:224
+#: admin/settings-panel/api/admin-settings.php:491
+#: admin/settings-panel/api/admin-settings.php:493
 msgid "Documentation"
 msgstr ""
 
-#: inc/metabox.php:112 admin/settings-panel/api/admin-settings.php:110
+#: inc/metabox.php:112 admin/settings-panel/api/admin-settings.php:130
 msgid "Don't show"
 msgstr ""
 
-#: admin/plugin-options.php:53 admin/settings-panel/api/admin-settings.php:311
+#: admin/plugin-options.php:53 admin/settings-panel/api/admin-settings.php:330
 msgid "Don't Show Again"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:415
+#: admin/settings-panel/api/admin-settings.php:434
+#: admin/settings-panel/api/announcement-bar-settings.php:1536
 msgid "Draft"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:301
+#: admin/settings-panel/api/admin-settings.php:321
 msgid "Draft Notifications"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:419
+#: admin/settings-panel/api/admin-settings.php:438
+#: admin/settings-panel/api/announcement-bar-settings.php:1531
+#: admin/settings-panel/api/announcement-bar-settings.php:1588
 msgid "Duplicate"
 msgstr ""
 
-#: admin/settings-panel/templates/sidebar-banner.php:21
-msgid "Duplicate notification"
+#: admin/settings-panel/api/announcement-bar-settings.php:869
+msgid "Duration (hours)"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:584
-#: admin/settings-panel/api/admin-settings.php:680
+#: admin/settings-panel/templates/sidebar-banner.php:21
+msgid "Dynamic Countdown & Coupon System"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1068
+msgid "e.g., Copied!"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1056
+msgid "e.g., Copy"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:163
+msgid "e.g., Shop Now, Learn More"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1485
+msgid "Early Bird"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:604
+#: admin/settings-panel/api/admin-settings.php:700
 msgid "Easy connection of Facebook pixel to your online store."
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1587
+msgid "Edit"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:27
+msgid "Edit Announcement"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1505
+msgid "Edit Announcement Bar"
 msgstr ""
 
 #: inc/custom-posts.php:20
 msgid "Edit Notification"
 msgstr ""
 
+#: inc/popup-campaign-cpt.php:40
+msgid "Edit Popup"
+msgstr ""
+
+#: inc/functions.php:214
+msgid "Egypt"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:814
+msgid "Element visible selector"
+msgstr ""
+
 #: inc/metabox.php:523 inc/metabox.php:561
 msgid "Enable"
 msgstr ""
 
-#: admin/plugin-options.php:77 admin/settings-panel/api/admin-settings.php:343
+#: admin/settings-panel/api/announcement-bar-settings.php:1289
+msgid "Enable A/B Testing"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:709
+msgid "Enable A/B testing"
+msgstr ""
+
+#: admin/plugin-options.php:77 admin/settings-panel/api/admin-settings.php:362
 msgid "Enable Analytics"
 msgstr ""
 
-#: admin/plugin-options.php:141 admin/settings-panel/api/admin-settings.php:346
+#: admin/plugin-options.php:141 admin/settings-panel/api/admin-settings.php:365
 msgid "Enable Analytics to get the analytical report about your notifications."
 msgstr ""
 
-#: inc/metabox.php:784
+#: inc/popup-campaign-cpt.php:355
+msgid "Enable built-in form"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1676
+msgid "Enable Countdown"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:581 inc/metabox.php:784
 msgid "Enable countdown"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:826
+msgid "Enable Countdown Timer"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1680
+msgid "Enable Coupon"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:621
+msgid "Enable coupon"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1026
+msgid "Enable Coupon Display"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1659
+msgid "Enable CTA Button"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:764
+msgid "Enable Customer Segmentation"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:539
+msgid "Enable customer segmentation"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:459
+msgid "Enable double opt-in"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:838
+msgid "Enable exit intent on mobile"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:435
+msgid "Enable Mailchimp integration"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:186
+msgid "Enable Message Rotation"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:135
+msgid "Enable message rotation"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1161
+msgid "Enable Recurring Schedule"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:918
+msgid "Enable referrer targeting"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:648
+msgid "Enable reopen button"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1516
+msgid "Enable reopen button is a Pro feature"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1123
+msgid "Enable Schedule"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:653
+msgid "Enable schedule"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:1039
+msgid "Enable spin wheel"
 msgstr ""
 
 #: inc/metabox.php:332
@@ -573,14 +1706,39 @@ msgid ""
 "After the assigned time, the notification will no longer appear."
 msgstr ""
 
-#: admin/plugin-options.php:150 admin/settings-panel/api/admin-settings.php:352
+#: admin/settings-panel/api/announcement-bar-settings.php:1192
+msgid "Enable Time Targeting"
+msgstr ""
+
+#: admin/plugin-options.php:150 admin/settings-panel/api/admin-settings.php:371
 msgid "Enable to count the views and clicks only once from each IP-address."
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:469
+#: admin/settings-panel/api/announcement-bar-settings.php:1686
+msgid "Enabled"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:882
+#: admin/settings-panel/api/announcement-bar-settings.php:1140
+msgid "End Date & Time"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1523
+msgid "End date must be after start date"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1214
+msgid "End Time"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:489
 msgid ""
 "Engage with our community to connect & share your ideas. Join a network "
 "where collaboration and growth thrive!"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1033
+msgid "Enter coupon code (e.g., SAVE20)"
 msgstr ""
 
 #: inc/metabox.php:766
@@ -608,23 +1766,44 @@ msgid ""
 "percentage value. Example: 50 or 50%"
 msgstr ""
 
-#: inc/metabox.php:113 admin/settings-panel/api/admin-settings.php:111
+#: admin/settings-panel/api/announcement-bar-settings.php:152
+msgid "Enter your announcement message (max 500 characters)"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:561
+msgid "Enter your custom CSS here"
+msgstr ""
+
+#: inc/metabox.php:113 admin/settings-panel/api/admin-settings.php:131
 msgid "Entire Site"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:499
+#: admin/settings-panel/api/announcement-bar-settings.php:1239
+msgid "Entry Animation"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:684 inc/popup-campaign-cpt.php:1004
+msgid "Entry animation"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:519
+#: admin/settings-panel/api/announcement-bar-settings.php:1593
 msgid "Error"
 msgstr ""
 
-#: inc/class-hashbar-vue-builder.php:232
-msgid "Error occurred while saving"
+#: admin/settings-panel/settings-panel.php:198
+msgid "Error Loading Statistics"
 msgstr ""
 
-#: inc/class-hashbar-vue-builder.php:94
-msgid "Error occurred!"
+#: admin/settings-panel/api/ab-test-api.php:166
+msgid "Event tracked successfully"
 msgstr ""
 
-#: admin/plugin-options.php:159 admin/settings-panel/api/admin-settings.php:358
+#: admin/settings-panel/api/announcement-bar-settings.php:836
+msgid "Evergreen"
+msgstr ""
+
+#: admin/plugin-options.php:159 admin/settings-panel/api/admin-settings.php:377
 msgid "Everyone"
 msgstr ""
 
@@ -632,55 +1811,120 @@ msgstr ""
 msgid "Example: 0.5"
 msgstr ""
 
-#: inc/metabox.php:271 admin/settings-panel/api/admin-settings.php:126
+#: inc/metabox.php:271 admin/settings-panel/api/admin-settings.php:146
 msgid "Exclude pages for notification"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:724
+msgid "Exclude Pages/Posts"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1252
+msgid "Exit Animation"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:692 inc/popup-campaign-cpt.php:1012
+msgid "Exit animation"
+msgstr ""
+
+#: admin/settings-panel/api/popup-campaign-api.php:590
+msgid "Exit Intent Offer"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:830
+msgid "Exit intent sensitivity"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1545
+msgid "Exit Preview"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:670
+msgid "Expire After Close"
 msgstr ""
 
 #: inc/metabox.php:571
 msgid "Expiry date/time"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:601
+#: admin/settings-panel/api/announcement-bar-settings.php:1622
+msgid "Export"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:621
 msgid "Extensions For CF7"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1242
+msgid "Fade In"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1256
+msgid "Fade Out"
 msgstr ""
 
 #: admin/settings-panel/api/admin-dashboard-api.php:157
 msgid "Failed to create post duplicate"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:425
+#: admin/settings-panel/api/announcement-bar-api.php:391
+msgid "Failed to delete announcement bar"
+msgstr ""
+
+#: admin/settings-panel/api/popup-campaign-api.php:419
+msgid "Failed to delete popup campaign"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:444
 msgid "Failed to disable notification"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:426
+#: admin/settings-panel/api/popup-campaign-api.php:914
+msgid "Failed to fetch lists"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:445
 msgid "Failed to load notifications"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:502
+#: admin/settings-panel/api/admin-settings.php:522
 msgid "Failed to load settings. Please try again."
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:405
+#: admin/settings-panel/api/admin-settings.php:424
 msgid "Failed to reset settings"
 msgstr ""
 
-#: inc/class-hashbar-vue-builder.php:226
-msgid "Failed to save hashbar"
-msgstr ""
-
-#: admin/settings-panel/api/admin-settings.php:501
+#: admin/settings-panel/api/admin-settings.php:521
 msgid "Failed to save settings. Please try again."
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:460
+#: inc/popup-campaign-form-handler.php:175
+msgid "Failed to save submission"
+msgstr ""
+
+#: admin/settings-panel/api/ab-test-api.php:174
+msgid "Failed to track event"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:480
 msgid "Failed to update notification settings"
 msgstr ""
 
-#: inc/custom-posts.php:26
+#: inc/announcement-bar-cpt.php:33 inc/custom-posts.php:26
+#: inc/popup-campaign-cpt.php:46
 msgid "Featured Image"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:411
+#: admin/settings-panel/api/announcement-bar-settings.php:1600
+msgid "Filter"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:41
+msgid "Filter announcements list"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:430
 msgid "Filter by status"
 msgstr ""
 
@@ -688,16 +1932,109 @@ msgstr ""
 msgid "Filter items list"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:296
+#: admin/settings-panel/api/admin-settings.php:316
 msgid "Filter Nofitications"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:54
+msgid "Filter popups list"
+msgstr ""
+
+#: inc/functions.php:180
+msgid "Finland"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:834
+msgid "Fixed End Date"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:327
+msgid "Fixed position"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:222
+msgid "Fluent Forms form ID"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:301
+msgid "Font Family"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:226 inc/popup-campaign-cpt.php:582
+msgid "Font family"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:325
+msgid "Font Size"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:234
+msgid "Font size in pixels"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:314
+msgid "Font Weight"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:242
+msgid "Font weight"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:363
+msgid "Form fields configuration"
+msgstr ""
+
+#: inc/functions.php:170
+msgid "France"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-api.php:506
+#: admin/settings-panel/api/announcement-bar-settings.php:1329
+msgid "Free Shipping"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:945
+msgid "Frequency type"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1180
+msgid "Friday"
+msgstr ""
+
+#: admin/settings-panel/api/popup-campaign-api.php:623
+msgid "Full attention-grabbing overlay"
 msgstr ""
 
 #: inc/metabox.php:406
 msgid "Full Width"
 msgstr ""
 
+#: admin/settings-panel/api/popup-campaign-api.php:622
+msgid "Fullscreen Takeover"
+msgstr ""
+
 #: inc/metabox.php:491
 msgid "General Options"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:748
+msgid "Geographic Targeting"
+msgstr ""
+
+#: inc/functions.php:169
+msgid "Germany"
+msgstr ""
+
+#: admin/settings-panel/api/popup-campaign-api.php:601
+msgid "Get 15% off when you complete your purchase today."
+msgstr ""
+
+#: admin/settings-panel/api/popup-campaign-api.php:579
+msgid "Get 20% off your first order. Limited time only!"
+msgstr ""
+
+#: admin/settings-panel/api/popup-campaign-api.php:545
+msgid "Get exclusive updates and offers delivered straight to your inbox."
 msgstr ""
 
 #: admin/settings-panel/templates/sidebar-banner.php:11
@@ -710,27 +2047,67 @@ msgid ""
 "website"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:467
+#: admin/settings-panel/api/admin-settings.php:487
 msgid "Get Support"
 msgstr ""
 
-#: init.php:423
+#: init.php:458
 msgid "Go Premium!"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:457
+#: admin/settings-panel/api/admin-settings.php:477
 msgid "Go to Other Settings"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:706
+#: admin/settings-panel/api/admin-settings.php:726
 msgid "Google Place Review"
 msgstr ""
 
-#: admin/plugin-options.php:160 admin/settings-panel/api/admin-settings.php:359
+#: admin/settings-panel/api/announcement-bar-settings.php:234
+msgid "Gradient"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:241
+msgid "Gradient Direction"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:535
+msgid "Gradient direction"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:257
+msgid "Gradient Second Color"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:527
+msgid "Gradient second color"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:178
+msgid "Gradient settings"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1617
+msgid "Granularity"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:214
+msgid "Gravity Forms form ID"
+msgstr ""
+
+#: inc/functions.php:201
+msgid "Greece"
+msgstr ""
+
+#: admin/settings-panel/api/popup-campaign-api.php:553
+msgid "Greet first-time visitors with a friendly message"
+msgstr ""
+
+#: admin/plugin-options.php:160 admin/settings-panel/api/admin-settings.php:378
 msgid "Guest Users Only"
 msgstr ""
 
-#: admin/settings-panel/settings-panel.php:41
+#: admin/settings-panel/settings-panel.php:56
 msgid "HashBar"
 msgstr ""
 
@@ -743,7 +2120,7 @@ msgid "hashbar"
 msgstr ""
 
 #. Name of the plugin
-msgid "HashBar - WordPress Notification Bar"
+msgid "HashBar - Announcement, Notification Bar & Popup Campaign"
 msgstr ""
 
 #: admin/plugin-options.php:11
@@ -758,10 +2135,6 @@ msgstr ""
 msgid "HashBar Global Options"
 msgstr ""
 
-#: inc/class-hashbar-vue-builder.php:253
-msgid "Hashbar not found"
-msgstr ""
-
 #: inc/class-manage-blocks.php:104
 msgid "Hashbar Promo Banner"
 msgstr ""
@@ -770,15 +2143,11 @@ msgstr ""
 msgid "Hashbar Promo Banner Image"
 msgstr ""
 
-#: inc/class-hashbar-vue-builder.php:221
-msgid "Hashbar saved successfully!"
-msgstr ""
-
-#: admin/settings-panel/api/admin-settings.php:396
+#: admin/settings-panel/api/admin-settings.php:415
 msgid "HashBar Settings"
 msgstr ""
 
-#: inc/custom-posts.php:12 admin/settings-panel/settings-panel.php:40
+#: inc/custom-posts.php:12 admin/settings-panel/settings-panel.php:55
 msgid "HashBars"
 msgstr ""
 
@@ -786,11 +2155,11 @@ msgstr ""
 msgid "HasThemes"
 msgstr ""
 
-#: admin/settings-panel/templates/sidebar-banner.php:37
+#: admin/settings-panel/templates/sidebar-banner.php:38
 msgid "Have We Fully Met Your Expectations?"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:486
+#: admin/settings-panel/api/admin-settings.php:506
 msgid ""
 "Have you ever noticed any missing features? Please notify us if you do. As "
 "soon as possible, our staff will add any necessary features based on your "
@@ -801,8 +2170,20 @@ msgstr ""
 msgid "Header CSS selector"
 msgstr ""
 
+#: inc/popup-campaign-cpt.php:566
+msgid "Heading color"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:590
+msgid "Heading size in pixels"
+msgstr ""
+
 #: inc/metabox.php:961
 msgid "Height"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1556
+msgid "Hidden"
 msgstr ""
 
 #: inc/metabox.php:511
@@ -813,42 +2194,66 @@ msgstr ""
 msgid "Hide on mobile device"
 msgstr ""
 
-#: inc/metabox.php:294 admin/settings-panel/api/admin-settings.php:234
+#: admin/settings-panel/api/announcement-bar-settings.php:1419
+msgid "Holiday Special"
+msgstr ""
+
+#: inc/metabox.php:294 admin/settings-panel/api/admin-settings.php:254
 msgid "Homepage"
 msgstr ""
 
-#: inc/metabox.php:114 admin/settings-panel/api/admin-settings.php:112
+#: inc/metabox.php:114 admin/settings-panel/api/admin-settings.php:132
+#: admin/settings-panel/api/announcement-bar-settings.php:707
 msgid "Homepage Only"
 msgstr ""
 
-#: inc/metabox.php:877 inc/shortcode.php:110
-#: admin/settings-panel/api/admin-settings.php:337
+#: inc/functions.php:191
+msgid "Hong Kong"
+msgstr ""
+
+#: inc/metabox.php:877 inc/popup-campaign-frontend.php:1030
+#: inc/shortcode.php:110 admin/settings-panel/api/admin-settings.php:356
+#: admin/settings-panel/api/announcement-bar-settings.php:1553
 msgid "Hours"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:408
+#: admin/settings-panel/api/announcement-bar-settings.php:503
+msgid "Hover Background Color"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:397
+#: admin/settings-panel/api/announcement-bar-settings.php:492
+msgid "Hover Text Color"
 msgstr ""
 
 #: inc/metabox.php:550
 msgid "How many times to show this notification"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:592
-#: admin/settings-panel/api/admin-settings.php:593
+#: admin/settings-panel/api/admin-settings.php:612
+#: admin/settings-panel/api/admin-settings.php:613
 msgid ""
 "HT Contact Form Widget For Elementor Page Builder & Gutenberg Blocks & Form "
 "Builder."
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:545
-#: admin/settings-panel/api/admin-settings.php:670
+#: admin/settings-panel/api/admin-settings.php:565
+#: admin/settings-panel/api/admin-settings.php:690
 msgid "HT Mega"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:697
+#: admin/settings-panel/api/admin-settings.php:717
 msgid "HT Slider For Elementor"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:546
-#: admin/settings-panel/api/admin-settings.php:671
+#: admin/settings-panel/api/admin-settings.php:566
+#: admin/settings-panel/api/admin-settings.php:691
 msgid "HTMega is an absolute addon for elementor that includes 80+ elements"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:168
+msgid "https://example.com"
 msgstr ""
 
 #. Author URI of the plugin
@@ -859,11 +2264,11 @@ msgstr ""
 msgid "https://theplugindemo.com/hashbar/"
 msgstr ""
 
-#: init.php:82
+#: init.php:108
 msgid "I already did"
 msgstr ""
 
-#: admin/plugin-options.php:122 admin/settings-panel/api/admin-settings.php:314
+#: admin/plugin-options.php:122 admin/settings-panel/api/admin-settings.php:333
 msgid ""
 "If check this option. The notification will not appear again on a page, "
 "after closing the notification."
@@ -875,42 +2280,88 @@ msgid ""
 "your header."
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:535
+#: admin/settings-panel/api/admin-settings.php:555
 msgid ""
 "If you own a WooCommerce website, you ll almost certainly want to use these "
 "capabilities: Woo Builder (Elementor WooCommerce Builder), WooCommerce "
 "Templates, WooCommerce Widgets,..."
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:628
+#: admin/settings-panel/api/admin-settings.php:648
 msgid ""
 "If you own a WooCommerce website, you’ll almost certainly want to use these "
 "capabilities: Woo Builder (Elementor WooCommerce Builder), WooCommerce "
 "Templates, WooCommerce Widgets,..."
 msgstr ""
 
-#: admin/settings-panel/settings-panel.php:134
+#: admin/settings-panel/api/announcement-bar-settings.php:235
+msgid "Image"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:254
+msgid "Image position"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:282
+msgid "Image Size"
+msgstr ""
+
+#: admin/settings-panel/settings-panel.php:205
 msgid "Import"
 msgstr ""
 
-#: admin/settings-panel/settings-panel.php:132
+#: admin/settings-panel/settings-panel.php:203
 msgid "Import to Library"
 msgstr ""
 
-#: admin/settings-panel/settings-panel.php:133
+#: admin/settings-panel/settings-panel.php:204
 msgid "Import to Page"
 msgstr ""
 
-#: admin/settings-panel/settings-panel.php:127
+#: admin/settings-panel/api/announcement-bar-settings.php:1623
+#: admin/settings-panel/api/announcement-bar-settings.php:1645
+msgid "Impressions"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1560
+msgid "Impressions Over Time"
+msgstr ""
+
+#: admin/settings-panel/settings-panel.php:195
 msgid "in this package"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:417
+#: admin/settings-panel/templates/sidebar-banner.php:19
+msgid "In-Depth Analytics & A/B Testing"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:436
 msgid "Inactive"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:300
+#: admin/settings-panel/api/admin-settings.php:320
 msgid "Inactive Notifications"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:806
+msgid "Inactivity time in seconds"
+msgstr ""
+
+#: inc/functions.php:186
+msgid "India"
+msgstr ""
+
+#: inc/functions.php:194
+msgid "Indonesia"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-api.php:518
+#: admin/settings-panel/api/announcement-bar-settings.php:1338
+msgid "Info Banner"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1684
+msgid "Inherited"
 msgstr ""
 
 #: inc/metabox.php:364
@@ -926,48 +2377,84 @@ msgid ""
 "will see this notification."
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:218
+#: admin/settings-panel/api/admin-settings.php:238
 msgid ""
 "Input URL parameter value, Example: discount_50. Your URL should look like: "
 "example.com/?param=discount_50"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:689
+#: admin/settings-panel/api/admin-settings.php:709
 msgid ""
 "Insert Headers and Footers Code allows you to insert Google Analytics, "
 "Facebook Pixel, custom CSS, custom HTML, JavaScript code to your website "
 "header and footer without modifying your theme code"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:688
+#: admin/settings-panel/api/admin-settings.php:708
 msgid "Insert Headers and Footers Code – HT Script"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:37
+msgid "Insert into announcement"
 msgstr ""
 
 #: inc/custom-posts.php:30
 msgid "Insert into item"
 msgstr ""
 
-#: admin/settings-panel/settings-panel.php:138
+#: inc/popup-campaign-cpt.php:50
+msgid "Insert into popup"
+msgstr ""
+
+#: admin/settings-panel/settings-panel.php:209
 msgid "Installing.."
 msgstr ""
 
-#: inc/class-hashbar-vue-builder.php:248
-msgid "Invalid hashbar ID"
+#: inc/ab-test-winner.php:141
+msgid "Insufficient sample size (need at least 30 impressions per variant)"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:375
+#: admin/settings-panel/api/popup-campaign-api.php:879
+msgid "Invalid API key format"
+msgstr ""
+
+#: inc/popup-campaign-form-handler.php:473
+msgid "Invalid Mailchimp API key"
+msgstr ""
+
+#: inc/popup-campaign-form-handler.php:65
+msgid "Invalid popup campaign"
+msgstr ""
+
+#: inc/functions.php:183
+msgid "Ireland"
+msgstr ""
+
+#: inc/functions.php:210
+msgid "Israel"
+msgstr ""
+
+#: inc/functions.php:172
+msgid "Italy"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:394
 msgid "Items per Page"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:470
+#: inc/functions.php:184
+msgid "Japan"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:490
 msgid "Join Now"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:468
+#: admin/settings-panel/api/admin-settings.php:488
 msgid "Join Our Community"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:646
+#: admin/settings-panel/api/admin-settings.php:666
 msgid ""
 "JustTables is an incredible WordPress plugin that lets you showcase all your "
 "WooCommerce products in a sortable and filterable table view. It allows your "
@@ -975,12 +2462,32 @@ msgid ""
 "and compare them on a single page..."
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:645
+#: admin/settings-panel/api/admin-settings.php:665
 msgid "JustTables – WooCommerce Product Table"
 msgstr ""
 
-#: admin/plugin-options.php:61 admin/settings-panel/api/admin-settings.php:317
+#: admin/plugin-options.php:61 admin/settings-panel/api/admin-settings.php:336
 msgid "Keep Notification Bar Closed"
+msgstr ""
+
+#: inc/functions.php:216
+msgid "Kenya"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1567
+msgid "Last 30 Days"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1566
+msgid "Last 7 Days"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1568
+msgid "Last 90 Days"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:143
+msgid "Learn More"
 msgstr ""
 
 #: inc/metabox.php:467 inc/metabox.php:475
@@ -988,30 +2495,87 @@ msgid "Leave it empty for the default icon."
 msgstr ""
 
 #: inc/metabox.php:90
+#: admin/settings-panel/api/announcement-bar-settings.php:336
+#: admin/settings-panel/api/announcement-bar-settings.php:632
 msgid "Left"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:913
+msgid "Left (Left of Message)"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:245
+msgid "Left to Right"
 msgstr ""
 
 #: inc/metabox.php:8 inc/metabox.php:149 inc/metabox.php:158
 msgid "Left Wall"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:65
+#: admin/settings-panel/api/admin-settings.php:93
 msgid "License"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:317
+#: admin/settings-panel/api/announcement-bar-settings.php:435
+#: admin/settings-panel/api/announcement-bar-settings.php:530
+msgid "Light (300)"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1476
+msgid "Limited Stock"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:172
+msgid "Link Target"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1583
+msgid "Live Preview"
 msgstr ""
 
 #: inc/metabox.php:416
 msgid "Load as minimized"
 msgstr ""
 
-#: inc/class-hashbar-vue-builder.php:97 inc/class-hashbar-vue-builder.php:109
-msgid "Loading Vue Builder..."
-msgstr ""
-
-#: admin/settings-panel/api/admin-settings.php:500
+#: admin/settings-panel/api/admin-settings.php:520
+#: admin/settings-panel/api/announcement-bar-settings.php:1591
 msgid "Loading..."
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:410
+#: inc/popup-campaign-cpt.php:443
+msgid "Mailchimp API key"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:451
+msgid "Mailchimp list/audience ID"
+msgstr ""
+
+#: inc/popup-campaign-form-handler.php:460
+msgid "Mailchimp not configured properly"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:467
+msgid "Mailchimp subscriber tags"
+msgstr ""
+
+#: inc/popup-campaign-form-handler.php:547
+msgid "Mailchimp subscription failed"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:89
+msgid "Main message text"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:595
+msgid "Make bar sticky (stays visible when scrolling)"
+msgstr ""
+
+#: inc/functions.php:193
+msgid "Malaysia"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:429
 msgid "Manage Notifications"
 msgstr ""
 
@@ -1023,67 +2587,208 @@ msgstr ""
 msgid "Marked as read successfully"
 msgstr ""
 
-#: init.php:81
+#: admin/settings-panel/api/popup-campaign-api.php:631
+msgid "Massive Sale!"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:486
+msgid "Max width percentage"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:961
+msgid "Maximum times to show"
+msgstr ""
+
+#: init.php:107
 msgid "Maybe Later"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1518
+msgid "Message #{count}"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:182
+msgid "Message Rotation"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:152
+msgid "Message rotation interval in seconds"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:151
+#: admin/settings-panel/api/announcement-bar-settings.php:1658
+msgid "Message Text"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:138
+msgid "Messages"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1665
+msgid "Messages & CTA"
+msgstr ""
+
+#: inc/functions.php:188
+msgid "Mexico"
 msgstr ""
 
 #: inc/metabox.php:1040
 msgid "Min Width"
 msgstr ""
 
-#: inc/metabox.php:885 inc/shortcode.php:114
-#: admin/settings-panel/api/admin-settings.php:338
+#: admin/settings-panel/api/announcement-bar-settings.php:1365
+msgid "Minimal Elegant"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:798
+msgid "Minimum Time on Site"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:572
+msgid "Minimum time on site in seconds"
+msgstr ""
+
+#: inc/metabox.php:885 inc/popup-campaign-frontend.php:1031
+#: inc/shortcode.php:114 admin/settings-panel/api/admin-settings.php:357
+#: admin/settings-panel/api/announcement-bar-settings.php:1554
 msgid "Minutes"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:485
+#: admin/settings-panel/api/admin-settings.php:505
 msgid "Missing Any Feature?"
 msgstr ""
 
-#: admin/plugin-options.php:101 admin/settings-panel/api/admin-settings.php:366
+#: admin/settings-panel/api/announcement-bar-settings.php:743
+msgid "Mobile"
+msgstr ""
+
+#: admin/plugin-options.php:101 admin/settings-panel/api/admin-settings.php:385
 msgid "Mobile device breakpoint (px)"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:493
+#: admin/settings-panel/api/announcement-bar-settings.php:1546
+msgid "Mobile Preview"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1176
+msgid "Monday"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1620
+msgid "Monthly"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:513
 msgid "More Details"
 msgstr ""
 
-#: admin/plugin-options.php:285 admin/settings-panel/api/admin-settings.php:444
+#: inc/announcement-bar-cpt.php:127
+msgid "Multiple messages for rotation"
+msgstr ""
+
+#: admin/plugin-options.php:285 admin/settings-panel/api/admin-settings.php:464
 msgid "Name"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:466
+#: admin/settings-panel/api/admin-settings.php:486
 msgid ""
 "Need help or want a free store set-up? We will get back to you within 12-24 "
 "hours after receiving your inquiry."
 msgstr ""
 
-#: admin/settings-panel/settings-panel.php:149
+#: admin/settings-panel/settings-panel.php:222
 msgid "Need Help with Hashbar?"
+msgstr ""
+
+#: inc/functions.php:173
+msgid "Netherlands"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:682
+msgid "Never (persistent)"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:26
+msgid "New Announcement"
+msgstr ""
+
+#: admin/settings-panel/api/popup-campaign-api.php:616
+msgid "New Feature!"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1395
+msgid "New Launch"
 msgstr ""
 
 #: inc/custom-posts.php:19
 msgid "New Notification"
 msgstr ""
 
+#: inc/popup-campaign-cpt.php:39
+msgid "New Popup"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1664
+msgid "New Tab"
+msgstr ""
+
+#: inc/functions.php:197
+msgid "New Zealand"
+msgstr ""
+
+#: admin/settings-panel/api/popup-campaign-api.php:535
+msgid "Newsletter Classic"
+msgstr ""
+
+#: inc/functions.php:215
+msgid "Nigeria"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:206
+msgid "Ninja Forms form ID"
+msgstr ""
+
 #: inc/metabox.php:420 inc/metabox.php:446 inc/metabox.php:459
 #: inc/metabox.php:503 inc/metabox.php:513 inc/metabox.php:787
+#: admin/settings-panel/api/announcement-bar-settings.php:1597
 msgid "No"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:450
+#: admin/settings-panel/api/announcement-bar-settings.php:1639
+msgid ""
+"No analytics data available yet. Views and clicks will appear here as "
+"visitors interact with your announcement bars."
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1529
+msgid "No announcement bars found"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1530
+msgid "No announcement bars yet"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:470
 msgid "No country data available"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:449
+#: inc/popup-campaign-form-handler.php:88
+msgid "No form data provided"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1666
+msgid "No messages configured"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:469
 msgid "No notification data available"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:424
+#: admin/settings-panel/api/admin-settings.php:443
 msgid "No notifications are available at the moment"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:422
+#: admin/settings-panel/api/admin-settings.php:441
 msgid "No Notifications Found"
 msgstr ""
 
@@ -1091,19 +2796,60 @@ msgstr ""
 msgid "No post ID provided"
 msgstr ""
 
+#: admin/settings-panel/api/announcement-bar-settings.php:1603
+msgid "No results found"
+msgstr ""
+
+#: inc/ab-test-winner.php:114
+msgid "No statistically significant winner yet. Continue testing."
+msgstr ""
+
+#: admin/settings-panel/settings-panel.php:199
+msgid "No Statistics Available"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1521
+msgid "No variants yet"
+msgstr ""
+
 #: admin/class-diagnostic-data.php:578
 msgid "No, Thanks"
 msgstr ""
 
-#: inc/custom-posts.php:24
+#: admin/settings-panel/api/announcement-bar-settings.php:318
+#: admin/settings-panel/api/announcement-bar-settings.php:436
+#: admin/settings-panel/api/announcement-bar-settings.php:531
+msgid "Normal (400)"
+msgstr ""
+
+#: inc/functions.php:178
+msgid "Norway"
+msgstr ""
+
+#: inc/ab-test-winner.php:67
+msgid "Not enough data to determine winner. Continue testing."
+msgstr ""
+
+#: inc/ab-test-winner.php:30
+msgid "Not enough variants or data to determine winner"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:31 inc/custom-posts.php:24
+#: inc/popup-campaign-cpt.php:44
 msgid "Not found"
 msgstr ""
 
-#: inc/custom-posts.php:25
+#: inc/announcement-bar-cpt.php:32 inc/custom-posts.php:25
+#: inc/popup-campaign-cpt.php:45
 msgid "Not found in Trash"
 msgstr ""
 
-#: admin/settings-panel/settings-panel.php:129
+#: inc/ab-test-winner.php:179
+#, php-format
+msgid "Not significant (p=%.4f, %.1f%% confidence)"
+msgstr ""
+
+#: admin/settings-panel/settings-panel.php:197
 msgid "Nothing Found"
 msgstr ""
 
@@ -1113,6 +2859,11 @@ msgstr ""
 
 #: inc/metabox.php:395
 msgid "Notification area width"
+msgstr ""
+
+#: admin/settings-panel/settings-panel.php:69
+#: admin/settings-panel/api/admin-settings.php:59
+msgid "Notification Bar"
 msgstr ""
 
 #: inc/custom-posts.php:37
@@ -1125,10 +2876,6 @@ msgstr ""
 
 #: inc/metabox.php:481
 msgid "Notification Bar Options"
-msgstr ""
-
-#. Description of the plugin
-msgid "Notification Bar plugin for WordPress"
 msgstr ""
 
 #: inc/metabox.php:7
@@ -1155,16 +2902,12 @@ msgstr ""
 msgid "Notification deleted successfully"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:456
+#: admin/settings-panel/api/admin-settings.php:476
 msgid "Notification Enable/Disable Settings"
 msgstr ""
 
 #: admin/settings-panel/api/admin-dashboard-api.php:243
 msgid "Notification updated successfully"
-msgstr ""
-
-#: admin/settings-panel/api/admin-settings.php:41
-msgid "Notifications"
 msgstr ""
 
 #: inc/custom-posts.php:32
@@ -1175,7 +2918,28 @@ msgstr ""
 msgid "Notifications list navigation"
 msgstr ""
 
-#: init.php:80
+#: inc/popup-campaign-cpt.php:953
+msgid "Number of days"
+msgstr ""
+
+#: admin/settings-panel/api/popup-campaign-api.php:1182
+msgid "off"
+msgstr ""
+
+#: admin/settings-panel/api/popup-campaign-api.php:1185
+msgid "off cart"
+msgstr ""
+
+#: admin/settings-panel/api/popup-campaign-api.php:1188
+msgid "off product"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:926
+#: admin/settings-panel/api/announcement-bar-settings.php:927
+msgid "Offer ends in:"
+msgstr ""
+
+#: init.php:106
 msgid "Ok, you deserve it!"
 msgstr ""
 
@@ -1187,33 +2951,86 @@ msgstr ""
 msgid "Open button text"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:656
+#: admin/settings-panel/api/announcement-bar-settings.php:175
+msgid "Open in New Tab"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:174
+msgid "Open in Same Window"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:676
 msgid "Others"
 msgstr ""
 
-#: admin/settings-panel/settings-panel.php:150
+#: admin/settings-panel/settings-panel.php:223
 msgid ""
 "Our comprehensive documentation provides detailed information on how to use "
 "Hashbar effectively to improve your websites performance."
 msgstr ""
 
-#: admin/settings-panel/settings-panel.php:144
+#: admin/settings-panel/settings-panel.php:217
 msgid ""
 "Our free version is great, but it doesn't have all our advanced features. "
 "The best way to unlock all of the features in our plugin is by purchasing "
 "the pro version."
 msgstr ""
 
+#: inc/popup-campaign-cpt.php:574
+msgid "Overlay color"
+msgstr ""
+
 #: inc/metabox.php:743
+#: admin/settings-panel/api/announcement-bar-settings.php:355
 msgid "Padding"
 msgstr ""
 
-#: inc/metabox.php:119 admin/settings-panel/api/admin-settings.php:116
+#: inc/announcement-bar-cpt.php:266 inc/popup-campaign-cpt.php:494
+msgid "Padding values"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:513 inc/popup-campaign-cpt.php:869
+msgid "Page IDs to exclude"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1636
+msgid "Page Performance"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:698
+msgid "Page Targeting"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:493 inc/popup-campaign-cpt.php:849
+msgid "Page targeting mode"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1637
+msgid "Page URL"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:822
+msgid "Page views count"
+msgstr ""
+
+#: inc/metabox.php:119 admin/settings-panel/api/admin-settings.php:136
 msgid "Pages"
+msgstr ""
+
+#: inc/functions.php:212
+msgid "Pakistan"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:22
+msgid "Parent Announcement:"
 msgstr ""
 
 #: inc/custom-posts.php:15
 msgid "Parent Notification:"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:35
+msgid "Parent Popup:"
 msgstr ""
 
 #: inc/metabox.php:853
@@ -1222,16 +3039,147 @@ msgid ""
 "editor above, to show the countdown."
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:583
-#: admin/settings-panel/api/admin-settings.php:679
+#: inc/popup-campaign-cpt.php:743
+msgid "Per-element spacing (margin-bottom)"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1321
+msgid "Perfect for promoting limited-time sales"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1564
+msgid "Performance Comparison"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1627
+msgid "Performance Over Time"
+msgstr ""
+
+#: inc/functions.php:206
+msgid "Peru"
+msgstr ""
+
+#: inc/functions.php:195
+msgid "Philippines"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:603
+#: admin/settings-panel/api/admin-settings.php:699
 msgid "Pixelavo – Facebook Pixel Conversion API"
+msgstr ""
+
+#: inc/popup-campaign-form-handler.php:586
+msgid "Please check your email to confirm subscription"
+msgstr ""
+
+#: inc/popup-campaign-form-handler.php:297
+msgid "Please correct the errors below"
+msgstr ""
+
+#: inc/popup-campaign-form-handler.php:270
+msgid "Please enter a valid email address"
+msgstr ""
+
+#: inc/popup-campaign-frontend.php:262
+msgid "Please enter a valid email address."
+msgstr ""
+
+#: inc/popup-campaign-form-handler.php:277
+msgid "Please enter a valid phone number"
+msgstr ""
+
+#: inc/functions.php:181
+msgid "Poland"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:34
+msgid "Popup Archives"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:33 inc/popup-campaign-cpt.php:58
+#: admin/settings-panel/settings-panel.php:68
+#: admin/settings-panel/api/admin-settings.php:50
+msgid "Popup Campaign"
+msgstr ""
+
+#: admin/settings-panel/api/popup-campaign-api.php:293
+msgid "Popup campaign created successfully"
+msgstr ""
+
+#: admin/settings-panel/api/popup-campaign-api.php:428
+msgid "Popup campaign deleted successfully"
+msgstr ""
+
+#: admin/settings-panel/api/popup-campaign-api.php:504
+msgid "Popup campaign duplicated successfully"
+msgstr ""
+
+#: admin/settings-panel/api/popup-campaign-api.php:221
+#: admin/settings-panel/api/popup-campaign-api.php:325
+#: admin/settings-panel/api/popup-campaign-api.php:406
+#: admin/settings-panel/api/popup-campaign-api.php:460
+msgid "Popup campaign not found"
+msgstr ""
+
+#: admin/settings-panel/api/popup-campaign-api.php:374
+msgid "Popup campaign updated successfully"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:32
+msgid "Popup Campaigns"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:278
+msgid "Popup description"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:262
+msgid "Popup heading"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:239
+msgid "Popup image"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:122
+msgid ""
+"Popup position (center, bottom_right, bottom_left, fullscreen, side_left, "
+"side_right, floating)"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:97
+msgid "Popup status (active/inactive)"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:270
+msgid "Popup subheading"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:478
+msgid "Popup width in pixels"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:52
+msgid "Popups list"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:53
+msgid "Popups list navigation"
+msgstr ""
+
+#: inc/functions.php:202
+msgid "Portugal"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:86
+msgid "Position"
 msgstr ""
 
 #: inc/metabox.php:319
 msgid "Positioning"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:114
+#: admin/settings-panel/api/admin-settings.php:134
 msgid "Post Categories"
 msgstr ""
 
@@ -1243,8 +3191,13 @@ msgstr ""
 msgid "Post not found"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:115
+#: admin/settings-panel/api/admin-settings.php:135
 msgid "Post Tags"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:17
+msgctxt "Post Type General Name"
+msgid "Announcement Bars"
 msgstr ""
 
 #: inc/custom-posts.php:10
@@ -1252,12 +3205,27 @@ msgctxt "Post Type General Name"
 msgid "Notification bars"
 msgstr ""
 
+#: inc/popup-campaign-cpt.php:30
+msgctxt "Post Type General Name"
+msgid "Popup Campaigns"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:18
+msgctxt "Post Type Singular Name"
+msgid "Announcement Bar"
+msgstr ""
+
 #: inc/custom-posts.php:11
 msgctxt "Post Type Singular Name"
 msgid "Notification bar"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:203
+#: inc/popup-campaign-cpt.php:31
+msgctxt "Post Type Singular Name"
+msgid "Popup Campaign"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:223
 msgid "Post/Page/Custom Post IDs"
 msgstr ""
 
@@ -1265,35 +3233,53 @@ msgstr ""
 msgid "Post/Page/Custom post ids"
 msgstr ""
 
-#: inc/metabox.php:118 admin/settings-panel/api/admin-settings.php:113
+#: inc/metabox.php:118 admin/settings-panel/api/admin-settings.php:133
 msgid "Posts"
 msgstr ""
 
-#: init.php:425
+#: init.php:460
 msgid "Premium"
 msgstr ""
 
-#: admin/settings-panel/settings-panel.php:137
+#: admin/settings-panel/templates/sidebar-banner.php:18
+msgid "Premium Announcement Bar Templates"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1407
+msgid "Premium Gold"
+msgstr ""
+
+#: admin/settings-panel/settings-panel.php:208
+#: admin/settings-panel/api/announcement-bar-settings.php:1582
 msgid "Preview"
 msgstr ""
 
+#: admin/settings-panel/api/announcement-bar-settings.php:1544
+msgid "Preview Mode"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1515
 #: admin/settings-panel/templates/sidebar-banner.php:11
 msgid "PRO"
 msgstr ""
 
-#: admin/settings-panel/settings-panel.php:141
+#: admin/settings-panel/settings-panel.php:212
 msgid "Pro"
 msgstr ""
 
-#: init.php:981
+#: admin/settings-panel/api/announcement-bar-settings.php:1514
+msgid "Pro Feature"
+msgstr ""
+
+#: init.php:1016
 msgid "Pro Notice"
 msgstr ""
 
-#: init.php:984
+#: init.php:1019
 msgid "Pro Version is Required!"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:271
+#: admin/settings-panel/api/admin-settings.php:291
 msgid "Product Categories"
 msgstr ""
 
@@ -1301,11 +3287,11 @@ msgstr ""
 msgid "Product categories"
 msgstr ""
 
-#: inc/metabox.php:123 admin/settings-panel/api/admin-settings.php:250
+#: inc/metabox.php:123 admin/settings-panel/api/admin-settings.php:270
 msgid "Products"
 msgstr ""
 
-#: inc/metabox.php:125 admin/settings-panel/api/admin-settings.php:251
+#: inc/metabox.php:125 admin/settings-panel/api/admin-settings.php:271
 msgid "Products Of Selected Categories"
 msgstr ""
 
@@ -1337,99 +3323,224 @@ msgstr ""
 msgid "Promo Title, Promo content and button for a link."
 msgstr ""
 
-#: admin/settings-panel/templates/sidebar-banner.php:40
+#: admin/settings-panel/templates/sidebar-banner.php:41
 msgid "Provide Your Feedback"
 msgstr ""
 
-#: init.php:425
+#: admin/settings-panel/api/announcement-bar-settings.php:1538
+msgid "Publish"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1535
+msgid "Published"
+msgstr ""
+
+#: init.php:460
 msgid "Purchase our"
 msgstr ""
 
-#: inc/metabox.php:281 admin/settings-panel/api/admin-settings.php:204
+#: inc/metabox.php:281 admin/settings-panel/api/admin-settings.php:224
 msgid ""
 "Put the post/page/custom post ids here separated by a comma. Example: 50,60,"
 "54"
 msgstr ""
 
-#: admin/settings-panel/templates/sidebar-banner.php:34
+#: admin/settings-panel/templates/sidebar-banner.php:35
 msgid "Rating icon"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:528
+#: admin/settings-panel/api/announcement-bar-settings.php:1614
+msgid ""
+"Real-time analytics for this announcement bar. Data is collected from page "
+"views, button clicks, and user interactions."
+msgstr ""
+
+#: admin/settings-panel/settings-panel.php:72
+#: admin/settings-panel/api/admin-settings.php:548
+#: admin/settings-panel/api/announcement-bar-settings.php:1517
 msgid "Recommended"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:73
+#: admin/settings-panel/api/admin-settings.php:101
 msgid "Recommended Plugins"
 msgstr ""
 
-#: inc/metabox.php:807 admin/settings-panel/templates/sidebar-banner.php:19
+#: admin/settings-panel/api/announcement-bar-settings.php:835
+msgid "Recurring"
+msgstr ""
+
+#: inc/metabox.php:807
 msgid "Recurring countdown"
 msgstr ""
 
-#: inc/custom-posts.php:28
+#: inc/popup-campaign-cpt.php:418
+msgid "Redirect URL after submission"
+msgstr ""
+
+#: inc/popup-campaign-form-handler.php:193
+msgid "Redirecting..."
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:926
+msgid "Referrer match type"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:934
+msgid "Referrer URLs"
+msgstr ""
+
+#: admin/settings-panel/settings-panel.php:213
+#: admin/settings-panel/api/announcement-bar-settings.php:1601
+#: admin/settings-panel/api/announcement-bar-settings.php:1621
+msgid "Refresh"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1511
+msgid "Remove"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:35 inc/custom-posts.php:28
+#: inc/popup-campaign-cpt.php:48
 msgid "Remove featured image"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:487
+#: admin/settings-panel/api/announcement-bar-settings.php:643
+msgid "Reopen Button"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:654
+msgid "Reopen Button Text"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:367
+msgid "Reopen button text"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:507
 msgid "Request Feature"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:402
+#: admin/settings-panel/api/admin-settings.php:421
+#: admin/settings-panel/api/announcement-bar-settings.php:1685
 msgid "Reset"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:398
+#: admin/settings-panel/api/admin-settings.php:417
 msgid "Reset All Settings"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:400
+#: admin/settings-panel/api/announcement-bar-settings.php:1678
+msgid "Reset Countdown Settings"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1681
+msgid "Reset Coupon Settings"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:858
+msgid "Reset Days"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:419
 msgid "Reset Settings"
 msgstr ""
 
-#: admin/plugin-options.php:161 admin/settings-panel/api/admin-settings.php:360
+#: admin/settings-panel/api/announcement-bar-settings.php:847
+msgid "Reset Time"
+msgstr ""
+
+#: admin/settings-panel/settings-panel.php:214
+#: admin/settings-panel/api/announcement-bar-settings.php:1602
+msgid "Retry"
+msgstr ""
+
+#: admin/plugin-options.php:161 admin/settings-panel/api/admin-settings.php:379
 msgid "Rigestered Users Only"
 msgstr ""
 
 #: inc/metabox.php:82
+#: admin/settings-panel/api/announcement-bar-settings.php:338
+#: admin/settings-panel/api/announcement-bar-settings.php:633
 msgid "Right"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:914
+msgid "Right (Right of Message)"
 msgstr ""
 
 #: inc/metabox.php:9 inc/metabox.php:150 inc/metabox.php:159
 msgid "Right Wall"
 msgstr ""
 
-#: inc/class-hashbar-vue-builder.php:91
-#: admin/settings-panel/api/admin-settings.php:459
+#: inc/functions.php:199
+msgid "Russia"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-api.php:493
+#: admin/settings-panel/api/announcement-bar-settings.php:1320
+msgid "Sale Alert"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1663
+msgid "Same Window"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1181
+msgid "Saturday"
+msgstr ""
+
+#: inc/functions.php:209
+msgid "Saudi Arabia"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:479
+#: admin/settings-panel/api/announcement-bar-settings.php:1507
 msgid "Save"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:399
+#: admin/settings-panel/api/announcement-bar-settings.php:1537
+msgid "Save as Draft"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1580
+msgid "Save Changes"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:418
 msgid "Save Settings"
 msgstr ""
 
-#: inc/class-hashbar-vue-builder.php:93
-msgid "Saved successfully!"
+#: admin/settings-panel/api/announcement-bar-settings.php:107
+#: admin/settings-panel/api/announcement-bar-settings.php:1117
+msgid "Schedule"
 msgstr ""
 
-#: inc/class-hashbar-vue-builder.php:92
-msgid "Saving..."
-msgstr ""
-
-#: admin/settings-panel/templates/sidebar-banner.php:18
-msgid "Schedule Notification Expiry Date/Time"
+#: inc/announcement-bar-cpt.php:668
+msgid "Schedule end datetime"
 msgstr ""
 
 #: inc/metabox.php:558
 msgid "Schedule notification expiry date/time"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:416
+#: inc/announcement-bar-cpt.php:661
+msgid "Schedule start datetime"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:675
+msgid "Schedule timezone"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:435
 msgid "Scheduled At:"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:302
+#: admin/settings-panel/api/admin-settings.php:322
 msgid "Scheduled Notifications"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:782
+msgid "Scroll percentage"
 msgstr ""
 
 #: inc/metabox.php:541
@@ -1440,61 +3551,109 @@ msgstr ""
 msgid "Scroll position to show"
 msgstr ""
 
+#: admin/settings-panel/api/announcement-bar-settings.php:1599
+msgid "Search"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:30
+msgid "Search Announcement"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1528
+msgid "Search announcement bars..."
+msgstr ""
+
 #: inc/custom-posts.php:23
 msgid "Search Notification"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:412
+#: admin/settings-panel/api/admin-settings.php:431
 msgid "Search Notifications..."
 msgstr ""
 
-#: inc/metabox.php:893 inc/shortcode.php:118
+#: inc/popup-campaign-cpt.php:43
+msgid "Search Popup"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:344
+msgid "Secondary button action"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:336
+msgid "Secondary button text"
+msgstr ""
+
+#: inc/metabox.php:893 inc/popup-campaign-frontend.php:1032
+#: inc/shortcode.php:118
+#: admin/settings-panel/api/announcement-bar-settings.php:1555
 msgid "Seconds"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:158
-#: admin/settings-panel/api/admin-settings.php:274
+#: admin/settings-panel/api/announcement-bar-settings.php:1605
+msgid "Select All"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1598
+msgid "Select an option"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1571
+msgid "Select Bar"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:178
+#: admin/settings-panel/api/admin-settings.php:294
 msgid "Select Categories"
 msgstr ""
 
-#: inc/metabox.php:211 admin/settings-panel/api/admin-settings.php:190
+#: inc/metabox.php:211 admin/settings-panel/api/admin-settings.php:210
 msgid "Select Pages"
 msgstr ""
 
-#: inc/metabox.php:195 admin/settings-panel/api/admin-settings.php:143
+#: admin/settings-panel/api/announcement-bar-settings.php:714
+msgid "Select Pages/Posts"
+msgstr ""
+
+#: inc/metabox.php:195 admin/settings-panel/api/admin-settings.php:163
 msgid "Select Posts"
 msgstr ""
 
 #: inc/metabox.php:228 inc/metabox.php:247
-#: admin/settings-panel/api/admin-settings.php:258
+#: admin/settings-panel/api/admin-settings.php:278
 msgid "Select Products"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:156
+#: admin/settings-panel/api/admin-settings.php:176
 msgid "Select specific categories where this notification will appear"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:231
+#: admin/settings-panel/api/announcement-bar-settings.php:753
+msgid ""
+"Select specific countries to target (PRO) or leave empty to display "
+"worldwide (Free)."
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:251
 msgid "Select specific locations where this notification will appear"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:188
+#: admin/settings-panel/api/admin-settings.php:208
 msgid "Select specific pages where this notification will appear"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:141
+#: admin/settings-panel/api/admin-settings.php:161
 msgid "Select specific posts where this notification will appear"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:256
+#: admin/settings-panel/api/admin-settings.php:276
 msgid "Select specific products where this notification will appear"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:172
+#: admin/settings-panel/api/admin-settings.php:192
 msgid "Select specific tags where this notification will appear"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:174
+#: admin/settings-panel/api/admin-settings.php:194
 msgid "Select Tags"
 msgstr ""
 
@@ -1508,12 +3667,18 @@ msgid ""
 "transparent or sticky, make sure to specify the CSS selector of your header."
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:107
+#: admin/settings-panel/api/admin-settings.php:127
 msgid "Select Where to Show"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:363
+#: admin/settings-panel/api/admin-settings.php:382
 msgid "Select which users to track for analytics."
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:319
+#: admin/settings-panel/api/announcement-bar-settings.php:437
+#: admin/settings-panel/api/announcement-bar-settings.php:532
+msgid "Semibold (600)"
 msgstr ""
 
 #. %1$s: a tag start
@@ -1525,6 +3690,10 @@ msgid ""
 "information, site name, site URL, number of plugins, number of users, your "
 "name, and email address. You can rest assured that no sensitive data will be "
 "collected or tracked. %1$sLearn more%2$s."
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:675
+msgid "Session only (closes when browser closes)"
 msgstr ""
 
 #: inc/metabox.php:798
@@ -1547,15 +3716,20 @@ msgid ""
 "here</a>"
 msgstr ""
 
-#: inc/custom-posts.php:27
+#: admin/settings-panel/api/announcement-bar-settings.php:1118
+msgid "Set a simple date range for your announcement"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:34 inc/custom-posts.php:27
+#: inc/popup-campaign-cpt.php:47
 msgid "Set featured image"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:372
+#: admin/settings-panel/api/admin-settings.php:391
 msgid "Set the breakpoint for mobile devices in pixels."
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:340
+#: admin/settings-panel/api/admin-settings.php:359
 msgid "Set the unit of time for cookies expiration."
 msgstr ""
 
@@ -1565,41 +3739,194 @@ msgid ""
 "and promo banners. Leave empty to use the default width. Example: 350px"
 msgstr ""
 
-#: init.php:260 admin/plugin-options.php:9 admin/plugin-options.php:9
-#: admin/settings-panel/api/admin-settings.php:49
+#: admin/settings-panel/api/announcement-bar-settings.php:822
+msgid "Set up a countdown timer for your announcement"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:671
+msgid "Set when this announcement bar should reappear after being closed"
+msgstr ""
+
+#: init.php:285 admin/plugin-options.php:9 admin/plugin-options.php:9
+#: admin/settings-panel/settings-panel.php:70
+#: admin/settings-panel/api/admin-settings.php:67
 msgid "Settings"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:404
+#: admin/settings-panel/api/admin-settings.php:423
 msgid "Settings have been reset successfully"
 msgstr ""
 
-#: admin/settings-panel/api/admin-dashboard-api.php:329
+#: admin/settings-panel/api/admin-dashboard-api.php:332
 msgid "Settings updated successfully"
 msgstr ""
 
-#: inc/metabox.php:442
+#: admin/settings-panel/api/announcement-bar-settings.php:655
+msgid "Show"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:793
+msgid "Show after time on site"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:138
+msgid "Show background overlay"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:564
+msgid "Show bar after time on site"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:343 inc/metabox.php:442
+#: inc/popup-campaign-cpt.php:154
+#: admin/settings-panel/api/announcement-bar-settings.php:612
 msgid "Show close button"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:414
+#: admin/settings-panel/api/announcement-bar-settings.php:1044
+msgid "Show Copy Button"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:118 inc/popup-campaign-cpt.php:287
+msgid "Show CTA button"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:955
+msgid "Show Days"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:965
+msgid "Show Hours"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:433
 msgid "Show in:"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:975
+msgid "Show Minutes"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:702
+msgid "Show On"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:738
+msgid "Show On Devices"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:674
+msgid "Show on each page reload (no cookie)"
 msgstr ""
 
 #: inc/metabox.php:455
 msgid "Show open button"
 msgstr ""
 
+#: inc/announcement-bar-cpt.php:359
+msgid "Show reopen button"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:328
+msgid "Show secondary button"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:985
+msgid "Show Seconds"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:779
+msgid "Show to Guest Visitors"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:769
+msgid "Show to Logged In Customers"
+msgstr ""
+
 #: inc/metabox.php:521
 msgid "Show/Hide notification based on scroll position"
 msgstr ""
 
-#: admin/settings-panel/api/admin-dashboard-api.php:273
+#: admin/settings-panel/api/announcement-bar-settings.php:1357
+msgid "Showcase and distribute coupon codes"
+msgstr ""
+
+#: admin/settings-panel/api/admin-dashboard-api.php:272
 msgid "Sidebar template file not found."
 msgstr ""
 
+#: admin/settings-panel/api/announcement-bar-settings.php:895
+msgid "Simple"
+msgstr ""
+
+#: admin/settings-panel/api/popup-campaign-api.php:536
+msgid "Simple and clean email capture popup"
+msgstr ""
+
+#: inc/functions.php:190
+msgid "Singapore"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:999
+#: admin/settings-panel/api/announcement-bar-settings.php:1155
+msgid "Site Timezone"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1243
+msgid "Slide Down"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1257
+msgid "Slide Out Down"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1255
+msgid "Slide Out Up"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1244
+msgid "Slide Up"
+msgstr ""
+
+#: admin/settings-panel/api/popup-campaign-api.php:606
+msgid "Slide-In Notification"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1440
+msgid "Social Media"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:233
+msgid "Solid Color"
+msgstr ""
+
+#: inc/functions.php:198
+msgid "South Africa"
+msgstr ""
+
+#: inc/functions.php:189
+msgid "South Korea"
+msgstr ""
+
 #: inc/metabox.php:761 inc/metabox.php:975
+#: admin/settings-panel/api/announcement-bar-settings.php:343
 msgid "Spacing"
+msgstr ""
+
+#: inc/functions.php:171
+msgid "Spain"
+msgstr ""
+
+#: admin/settings-panel/api/popup-campaign-api.php:578
+msgid "Special Offer!"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:501 inc/popup-campaign-cpt.php:857
+msgid "Specific page IDs to target"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:708
+msgid "Specific Pages/Posts"
 msgstr ""
 
 #: inc/metabox.php:551
@@ -1608,64 +3935,207 @@ msgid ""
 "load counts as one view. Example: 10"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:329
+#: admin/settings-panel/api/admin-settings.php:348
 msgid ""
 "Specify the duration of the expiration time for the cookie when a user "
 "closes the notification bar. After the expiration time has passed, the "
 "notification will reappear for that user. (Default: 7 Days)."
 msgstr ""
 
+#: inc/popup-campaign-cpt.php:1047
+msgid "Spin wheel segments"
+msgstr ""
+
+#: inc/functions.php:213
+msgid "Sri Lanka"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1129
+msgid "Start Date & Time"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1203
+msgid "Start Time"
+msgstr ""
+
+#: admin/settings-panel/settings-panel.php:200
+msgid "Start your A/B test to see statistics here."
+msgstr ""
+
+#: inc/ab-test-winner.php:178
+#, php-format
+msgid "Statistically significant (p=%.4f, %.1f%% confidence)"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1608
+msgid "Status"
+msgstr ""
+
 #: inc/metabox.php:926
 msgid "Style"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:480
+#: inc/popup-campaign-cpt.php:386
+msgid "Submit button text"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:394
+msgid "Submitting text"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:500
 msgid "Subscribe Now"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:478
+#: admin/settings-panel/api/admin-settings.php:498
 msgid "Subscribe Our Newsletter"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:479
+#: admin/settings-panel/api/popup-campaign-api.php:544
+msgid "Subscribe to our Newsletter"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:499
 msgid ""
 "Subscribe to receive discount, offer, plugin updates and news in your inbox."
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:498
+#: admin/settings-panel/api/popup-campaign-api.php:607
+msgid "Subtle slide-in from bottom right"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:518
+#: admin/settings-panel/api/announcement-bar-settings.php:1592
 msgid "Success"
 msgstr ""
 
-#: admin/settings-panel/settings-panel.php:153
+#: inc/popup-campaign-cpt.php:402
+msgid "Success action (message, redirect, close)"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:410
+msgid "Success message"
+msgstr ""
+
+#: inc/popup-campaign-form-handler.php:587
+msgid "Successfully subscribed"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1428
+msgid "Summer Vibes"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1182
+msgid "Sunday"
+msgstr ""
+
+#: admin/settings-panel/settings-panel.php:226
 msgid "Support"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:465
+#: admin/settings-panel/api/admin-settings.php:485
 msgid "Support & Feedback"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:556
-#: admin/settings-panel/api/admin-settings.php:662
+#: admin/settings-panel/api/admin-settings.php:576
+#: admin/settings-panel/api/admin-settings.php:682
 msgid "Support Genix is a support ticket system for WordPress and WooCommerce."
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:555
-#: admin/settings-panel/api/admin-settings.php:661
+#: admin/settings-panel/api/admin-settings.php:575
+#: admin/settings-panel/api/admin-settings.php:681
 msgid "Support Genix Lite – Support Tickets Managing System"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:636
+#: admin/settings-panel/api/admin-settings.php:656
 msgid "Swatchly"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:637
+#: admin/settings-panel/api/admin-settings.php:657
 msgid ""
 "Swatchly – WooCommerce Variation Swatches for Products (product attributes: "
 "Image swatch, Color swatches, Label swatches...)"
 msgstr ""
 
-#: inc/metabox.php:670 inc/metabox.php:700 inc/metabox.php:1004
-#: inc/metabox.php:1070
+#: inc/functions.php:177
+msgid "Sweden"
+msgstr ""
+
+#: inc/functions.php:175
+msgid "Switzerland"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:742
+msgid "Tablet"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1548
+msgid "Tablet Preview"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:752
+msgid "Target Countries"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:525 inc/popup-campaign-cpt.php:881
+msgid "Target devices"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:555
+msgid "Target guest visitors"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:547
+msgid "Target logged in customers"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:902
+msgid "Target new visitors only"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:910
+msgid "Target returning visitors only"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:91
+msgid "Targeting"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:81 inc/popup-campaign-cpt.php:111
+msgid "Template ID"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:76
+msgid "Templates"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1295
+msgid "Test Variants"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:936
+msgid "Text After Timer"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:333
+msgid "Text Alignment"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:250 inc/popup-campaign-cpt.php:606
+msgid "Text alignment"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:925
+msgid "Text Before Timer"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:224
+#: admin/settings-panel/api/announcement-bar-settings.php:1672
+msgid "Text Color"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:218 inc/metabox.php:670 inc/metabox.php:700
+#: inc/metabox.php:1004 inc/metabox.php:1070 inc/popup-campaign-cpt.php:558
 msgid "Text color"
 msgstr ""
 
@@ -1673,15 +4143,23 @@ msgstr ""
 msgid "Text hover color"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:432
+#: inc/popup-campaign-cpt.php:598
+msgid "Text size in pixels"
+msgstr ""
+
+#: inc/functions.php:192
+msgid "Thailand"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:452
 msgid "Thank you for choosing Hashbar Notification Bar! 🚀"
 msgstr ""
 
-#: init.php:77
+#: init.php:103
 msgid "Thank you for choosing HashBar to show notifications to your audience!"
 msgstr ""
 
-#: admin/settings-panel/templates/sidebar-banner.php:39
+#: admin/settings-panel/templates/sidebar-banner.php:40
 msgid ""
 "Thank you for choosing our plugin! If it makes your work easier, please "
 "share your happiness with a 5-star rating on WordPress. It’ll take just 2 "
@@ -1696,15 +4174,27 @@ msgstr ""
 msgid "Thank you very much for supporting %2$s%1$s%3$s."
 msgstr ""
 
+#: inc/popup-campaign-form-handler.php:191
+msgid "Thank you! You have successfully subscribed."
+msgstr ""
+
+#: admin/settings-panel/api/popup-campaign-api.php:562
+msgid "Thanks for visiting our site. We're glad you're here!"
+msgstr ""
+
 #: inc/metabox.php:343
 msgid "Theme's header type"
 msgstr ""
 
-#: init.php:985
+#: init.php:1020
 msgid "This feature is available in the pro version."
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:272
+#: inc/popup-campaign-frontend.php:261
+msgid "This field is required."
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:292
 msgid ""
 "This notification will appear in all product details/archive pages of "
 "selected categories"
@@ -1716,19 +4206,73 @@ msgid ""
 "of the selected categories above."
 msgstr ""
 
-#: admin/plugin-options.php:294 admin/settings-panel/api/admin-settings.php:447
+#: inc/popup-campaign-frontend.php:1036
+msgid "This offer has expired!"
+msgstr ""
+
+#: inc/popup-campaign-form-handler.php:76
+msgid "This popup is not active"
+msgstr ""
+
+#: admin/plugin-options.php:294 admin/settings-panel/api/admin-settings.php:467
 msgid "Through Rate"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1179
+msgid "Thursday"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:192
+msgid "Time between each message when rotating (5-60 seconds)"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:191
+msgid "Time Between Messages"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:774
+msgid "Time delay in seconds"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:909
+msgid "Timer Position"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:892
+msgid "Timer Style"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:995
+#: admin/settings-panel/api/announcement-bar-settings.php:1151
+msgid "Timezone"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:604
+msgid "Timezone for countdown"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1607
+msgid "Title"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-api.php:232
+msgid "Title is required"
 msgstr ""
 
 #: inc/metabox.php:6 inc/metabox.php:78 inc/metabox.php:147 inc/metabox.php:156
 msgid "Top"
 msgstr ""
 
+#: admin/settings-panel/api/announcement-bar-settings.php:912
+msgid "Top (Above Message)"
+msgstr ""
+
 #: admin/plugin-options.php:322
 msgid "Top 10 Countries"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:448
+#: admin/settings-panel/api/admin-settings.php:468
+#: admin/settings-panel/api/announcement-bar-settings.php:1635
 msgid "Top Countries"
 msgstr ""
 
@@ -1736,24 +4280,68 @@ msgstr ""
 msgid "Top Left"
 msgstr ""
 
+#: admin/settings-panel/api/announcement-bar-settings.php:589
+msgid "Top of page"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1563
+msgid "Top Performing Bars"
+msgstr ""
+
 #: inc/metabox.php:374
 msgid "Top Rignt"
 msgstr ""
 
+#: admin/settings-panel/api/announcement-bar-settings.php:244
+msgid "Top to Bottom"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:246
+msgid "Top-Left to Bottom-Right"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:247
+msgid "Top-Right to Bottom-Left"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1540
+msgid "Total"
+msgstr ""
+
 #: admin/plugin-options.php:234 admin/plugin-options.php:291
-#: admin/settings-panel/api/admin-settings.php:440
-#: admin/settings-panel/api/admin-settings.php:446
+#: admin/settings-panel/api/admin-settings.php:460
+#: admin/settings-panel/api/admin-settings.php:466
+#: admin/settings-panel/api/announcement-bar-settings.php:1573
+#: admin/settings-panel/api/announcement-bar-settings.php:1654
 msgid "Total Clicks"
 msgstr ""
 
+#: admin/settings-panel/api/announcement-bar-settings.php:1576
+#: admin/settings-panel/api/announcement-bar-settings.php:1655
+msgid "Total Conversions"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1572
+#: admin/settings-panel/api/announcement-bar-settings.php:1653
+msgid "Total Impressions"
+msgstr ""
+
 #: admin/plugin-options.php:248 admin/plugin-options.php:288
-#: admin/settings-panel/api/admin-settings.php:441
-#: admin/settings-panel/api/admin-settings.php:445
+#: admin/settings-panel/api/admin-settings.php:461
+#: admin/settings-panel/api/admin-settings.php:465
 msgid "Total Views"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:443
+#: admin/settings-panel/api/announcement-bar-settings.php:1652
+msgid "Total Visitors"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:463
 msgid "Tracking By Notification Bars"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1520
+msgid "Traffic Split: {value}%"
 msgstr ""
 
 #: admin/plugin-options.php:280
@@ -1764,89 +4352,235 @@ msgstr ""
 msgid "Transparent / Sticky"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:423
+#: inc/popup-campaign-cpt.php:766
+msgid "Trigger type"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1383
+msgid "Trust Builder"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:442
 msgid "Try adjusting your search or filter criteria"
 msgstr ""
 
-#: inc/class-hashbar-vue-builder.php:180 inc/class-hashbar-vue-builder.php:242
-msgid "Unauthorized access"
+#: admin/settings-panel/api/announcement-bar-settings.php:1177
+msgid "Tuesday"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:451
+#: inc/functions.php:207
+msgid "Turkey"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1638
+msgid "Type"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:297
+msgid "Typography"
+msgstr ""
+
+#: inc/functions.php:200
+msgid "Ukraine"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1575
+msgid "Unique Visitors"
+msgstr ""
+
+#: inc/functions.php:208
+msgid "United Arab Emirates"
+msgstr ""
+
+#: inc/functions.php:166
+msgid "United Kingdom"
+msgstr ""
+
+#: inc/functions.php:165
+msgid "United States"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:471
 msgid "Unlock this feature and more by upgrading to HashBar Pro"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1534
+msgid "Untitled"
+msgstr ""
+
+#: admin/settings-panel/api/popup-campaign-api.php:256
+msgid "Untitled Popup"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:28
+msgid "Update Announcement"
 msgstr ""
 
 #: inc/custom-posts.php:21
 msgid "Update Notification"
 msgstr ""
 
-#: admin/settings-panel/templates/sidebar-banner.php:27
+#: inc/popup-campaign-cpt.php:41
+msgid "Update Popup"
+msgstr ""
+
+#: admin/settings-panel/templates/sidebar-banner.php:28
 msgid "Upgrade To PRO"
 msgstr ""
 
 #: admin/plugin-options.php:19 admin/plugin-options.php:20
-#: admin/settings-panel/settings-panel.php:61
-#: admin/settings-panel/settings-panel.php:62
-#: admin/settings-panel/api/admin-settings.php:392
+#: admin/settings-panel/settings-panel.php:78
+#: admin/settings-panel/settings-panel.php:79
+#: admin/settings-panel/api/admin-settings.php:411
 msgid "Upgrade to Pro"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:38
+msgid "Uploaded to this announcement"
 msgstr ""
 
 #: inc/custom-posts.php:31
 msgid "Uploaded to this item"
 msgstr ""
 
+#: inc/popup-campaign-cpt.php:51
+msgid "Uploaded to this popup"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1374
+msgid "Urgent Alert"
+msgstr ""
+
 #: inc/metabox.php:288
 msgid "URL paramenter value"
 msgstr ""
 
-#: inc/metabox.php:131 admin/settings-panel/api/admin-settings.php:118
+#: inc/metabox.php:131 admin/settings-panel/api/admin-settings.php:138
 msgid "URL Parameter"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:217
+#: admin/settings-panel/api/admin-settings.php:237
 msgid "URL Parameter Value"
 msgstr ""
 
-#: inc/custom-posts.php:29
+#: inc/announcement-bar-cpt.php:36 inc/custom-posts.php:29
+#: inc/popup-campaign-cpt.php:49
 msgid "Use as featured image"
 msgstr ""
 
-#: admin/plugin-options.php:93 admin/settings-panel/api/admin-settings.php:355
+#: inc/announcement-bar-cpt.php:376
+msgid "Use custom cookie duration"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:161
+msgid "User has edited the content"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:894
+msgid "User status targeting"
+msgstr ""
+
+#: admin/plugin-options.php:93 admin/settings-panel/api/admin-settings.php:374
 msgid "User Tracking Options"
 msgstr ""
 
-#: init.php:425
+#: admin/settings-panel/api/announcement-bar-settings.php:1644
+msgid "Variant"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1642
+msgid "Variant Performance"
+msgstr ""
+
+#: init.php:460
 msgid "version to unlock this feature!"
 msgstr ""
 
-#: admin/settings-panel/settings-panel.php:152
+#: admin/settings-panel/api/announcement-bar-settings.php:1703
+msgid "Video Guide"
+msgstr ""
+
+#: admin/settings-panel/settings-panel.php:225
 msgid "Video Tutorial"
 msgstr ""
 
-#: inc/custom-posts.php:22 admin/settings-panel/api/admin-settings.php:418
+#: inc/functions.php:196
+msgid "Vietnam"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:29
+msgid "View Announcement"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1604
+msgid "View Details"
+msgstr ""
+
+#: inc/custom-posts.php:22 admin/settings-panel/api/admin-settings.php:437
 msgid "View Notification"
+msgstr ""
+
+#: inc/popup-campaign-cpt.php:42
+msgid "View Popup"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1629
+msgid "Views"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1464
+msgid "VIP Exclusive"
 msgstr ""
 
 #: inc/metabox.php:591
 msgid "Visibility Options"
 msgstr ""
 
-#: inc/class-hashbar-vue-builder.php:33 inc/class-hashbar-vue-builder.php:34
-msgid "Vue Builder"
+#: admin/settings-panel/api/announcement-bar-settings.php:1557
+msgid "Visible"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:472
+#: admin/settings-panel/api/announcement-bar-settings.php:1000
+#: admin/settings-panel/api/announcement-bar-settings.php:1156
+msgid "Visitor Timezone"
+msgstr ""
+
+#: admin/settings-panel/api/popup-campaign-api.php:600
+msgid "Wait! Don't Leave Yet!"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1594
+msgid "Warning"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:492
 msgid ""
 "We've regularly updated the documentation to help you use the plugin "
 "effectively."
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:434
+#: admin/settings-panel/api/announcement-bar-settings.php:1178
+msgid "Wednesday"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1619
+msgid "Weekly"
+msgstr ""
+
+#: admin/settings-panel/api/popup-campaign-api.php:552
+msgid "Welcome Popup"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:454
 msgid "Welcome to Hashbar Notification"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:431
+#: admin/settings-panel/api/admin-settings.php:451
 msgid "Welcome to Hashbar Notification!"
+msgstr ""
+
+#: admin/settings-panel/api/popup-campaign-api.php:561
+msgid "Welcome!"
 msgstr ""
 
 #: admin/settings-panel/templates/sidebar-banner.php:15
@@ -1859,7 +4593,7 @@ msgid ""
 "</br> for the same duration as originally set once the countdown period ends."
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:320
+#: admin/settings-panel/api/admin-settings.php:339
 msgid ""
 "When you close the notification bar once then it will always keep closed in "
 "all pages of your site. This option will be effective for the notifications "
@@ -1875,16 +4609,16 @@ msgid ""
 "notification metabox options."
 msgstr ""
 
-#: init.php:923 inc/metabox.php:183
+#: init.php:958 inc/metabox.php:183
 msgid "Where to show"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:105
+#: admin/settings-panel/api/admin-settings.php:125
 msgid "Where to Show: "
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:564
-#: admin/settings-panel/api/admin-settings.php:618
+#: admin/settings-panel/api/admin-settings.php:584
+#: admin/settings-panel/api/admin-settings.php:638
 msgid "Whols – Wholesale Prices and B2B Store"
 msgstr ""
 
@@ -1892,31 +4626,43 @@ msgstr ""
 msgid "Width"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:613
+#: admin/settings-panel/api/announcement-bar-settings.php:1651
+msgid "Winner"
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:633
 msgid "WooCommerce"
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:565
-#: admin/settings-panel/api/admin-settings.php:619
+#: admin/settings-panel/api/popup-campaign-api.php:1151
+msgid "WooCommerce is not installed or active."
+msgstr ""
+
+#: admin/settings-panel/api/admin-settings.php:585
+#: admin/settings-panel/api/admin-settings.php:639
 msgid "WooCommerce Wholesale plugin for B2B store management."
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:534
-#: admin/settings-panel/api/admin-settings.php:627
+#: admin/settings-panel/api/admin-settings.php:554
+#: admin/settings-panel/api/admin-settings.php:647
 msgid "WooLentor"
 msgstr ""
 
-#: init.php:78
+#: init.php:104
 msgid ""
 "Would you mind doing us a huge favor by providing your feedback on WordPress?"
 " Your support helps us spread the word and greatly boosts our motivation."
 msgstr ""
 
-#: admin/settings-panel/api/admin-settings.php:574
+#: admin/settings-panel/api/admin-settings.php:594
 msgid "WP Plugin Manager"
 msgstr ""
 
-#: inc/metabox.php:272 admin/settings-panel/api/admin-settings.php:127
+#: inc/popup-campaign-cpt.php:198
+msgid "WPForms form ID"
+msgstr ""
+
+#: inc/metabox.php:272 admin/settings-panel/api/admin-settings.php:147
 msgid ""
 "Write any Page/Post/Custom Post ids here separated by comma. Example: 4,32,"
 "17."
@@ -1924,6 +4670,7 @@ msgstr ""
 
 #: inc/metabox.php:419 inc/metabox.php:445 inc/metabox.php:458
 #: inc/metabox.php:504 inc/metabox.php:514 inc/metabox.php:786
+#: admin/settings-panel/api/announcement-bar-settings.php:1596
 msgid "Yes"
 msgstr ""
 
@@ -1941,8 +4688,78 @@ msgid ""
 "editor for the \"Promo Banner\" position."
 msgstr ""
 
+#. %s: field label
+#: inc/popup-campaign-form-handler.php:286
+#, php-format
+msgid "You must agree to %s"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:600
+msgid "Z-Index"
+msgstr ""
+
+#: inc/announcement-bar-cpt.php:335
+msgid "Z-index stacking order"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1246
+msgid "Zoom In"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1259
+msgid "Zoom Out"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1429
+msgid "☀️ SUMMER SALE: Up to 60% Off Everything!"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1477
+msgid "⚠️ ALMOST GONE! Only few items left - Order before they're gone!"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1366
+msgid "✨ Quality products, exceptional service. Shop now."
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1408
+msgid "⭐ VIP Members: Exclusive 40% Off Luxury Collection"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1486
+msgid "🌅 Early Bird Special: Get First Access + Extra 15% Off Pre-Orders!"
+msgstr ""
+
 #. %1$s: project name
 #: admin/class-diagnostic-data.php:584
 #, php-format
 msgid "🌟 Enhance Your %1$s Experience as a Valued Contributor!"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1453
+msgid "🎁 Buy 2 Get 1 Free on All Items - Limited Time!"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1420
+msgid "🎄 Holiday Sale: Up to 70% Off + Free Gift Wrapping!"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1465
+msgid "👑 Members Only: Early Access to New Collection + Extra 25% Off"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1441
+msgid "📱 Follow us on social media for exclusive updates & special offers!"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1384
+msgid "🔒 Secure Checkout | 30-Day Returns | Free Shipping Over $50"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1375
+msgid "🔥 HURRY! Sale ends in 2 hours - Don't miss out!"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:1396
+msgid "🚀 NEW ARRIVALS: Check out our latest collection!"
 msgstr ""

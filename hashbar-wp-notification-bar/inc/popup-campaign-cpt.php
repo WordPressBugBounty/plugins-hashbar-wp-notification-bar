@@ -723,6 +723,41 @@ function hashbar_register_popup_campaign_meta() {
 		'default'           => '',
 	) );
 
+	// Content order
+	register_post_meta( 'wphash_popup', '_wphash_popup_content_order', array(
+		'type'              => 'array',
+		'description'       => __( 'Content element order', 'hashbar' ),
+		'single'            => true,
+		'show_in_rest'      => array(
+			'schema' => array(
+				'type'  => 'array',
+				'items' => array( 'type' => 'string' ),
+			),
+		),
+		'default'           => array( 'heading', 'subheading', 'description', 'countdown', 'coupon', 'form_or_buttons' ),
+	) );
+
+	// Element spacing
+	register_post_meta( 'wphash_popup', '_wphash_popup_element_spacing', array(
+		'type'              => 'object',
+		'description'       => __( 'Per-element spacing (margin-bottom)', 'hashbar' ),
+		'single'            => true,
+		'show_in_rest'      => array(
+			'schema' => array(
+				'type'                 => 'object',
+				'additionalProperties' => array( 'type' => 'number' ),
+			),
+		),
+		'default'           => array(
+			'heading'         => 6,
+			'subheading'      => 8,
+			'description'     => 16,
+			'countdown'       => 16,
+			'coupon'          => 16,
+			'form_or_buttons' => 0,
+		),
+	) );
+
 	// ===========================================
 	// Triggers Tab
 	// ===========================================

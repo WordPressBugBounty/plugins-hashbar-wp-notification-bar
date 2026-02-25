@@ -39,8 +39,28 @@ class Hashbar_Popup_Campaign_Settings {
 		if ( empty( $filename ) ) {
 			return '';
 		}
-		// Go up one level from /api/ to /settings-panel/ then into assets/images/templates/
-		return plugins_url( 'assets/images/templates/' . $filename, dirname( __FILE__ ) );
+		if ( defined( 'HASHBAR_TEMPLATE_IMG_SOURCE' ) && 'external' === HASHBAR_TEMPLATE_IMG_SOURCE ) {
+			$base = defined( 'HASHBAR_TEMPLATE_IMG_URL' ) ? HASHBAR_TEMPLATE_IMG_URL : '';
+			return trailingslashit( $base ) . 'popup/preview/' . $filename;
+		}
+		return plugins_url( 'hashbar-templates-library-src/popup/preview/' . $filename, dirname( dirname( dirname( __FILE__ ) ) ) );
+	}
+
+	/**
+	 * Get full URL for a template content image (e.g., product images used in template configs)
+	 *
+	 * @param string $filename The image filename
+	 * @return string Full URL to the template image
+	 */
+	public static function get_template_image_url( $filename ) {
+		if ( empty( $filename ) ) {
+			return '';
+		}
+		if ( defined( 'HASHBAR_TEMPLATE_IMG_SOURCE' ) && 'external' === HASHBAR_TEMPLATE_IMG_SOURCE ) {
+			$base = defined( 'HASHBAR_TEMPLATE_IMG_URL' ) ? HASHBAR_TEMPLATE_IMG_URL : '';
+			return trailingslashit( $base ) . 'popup/images/' . $filename;
+		}
+		return plugins_url( 'hashbar-templates-library-src/popup/images/' . $filename, dirname( dirname( dirname( __FILE__ ) ) ) );
 	}
 
 	/**
@@ -361,6 +381,65 @@ class Hashbar_Popup_Campaign_Settings {
 					'background' => esc_html__( 'Background', 'hashbar' ),
 				),
 				'isPro'     => array( 'left', 'right', 'background' ),
+				'condition' => array(
+					'key'      => '_wphash_popup_content_type',
+					'operator' => '==',
+					'value'    => 'custom',
+				),
+			),
+			'_wphash_popup_image_width' => array(
+				'type'    => 'number',
+				'label'   => esc_html__( 'Image Width', 'hashbar' ),
+				'default' => 100,
+				'min'     => 10,
+				'max'     => 1000,
+				'condition' => array(
+					'key'      => '_wphash_popup_content_type',
+					'operator' => '==',
+					'value'    => 'custom',
+				),
+			),
+			'_wphash_popup_image_width_unit' => array(
+				'type'    => 'select',
+				'label'   => esc_html__( 'Image Width Unit', 'hashbar' ),
+				'default' => '%',
+				'options' => array(
+					'%'  => '%',
+					'px' => 'px',
+				),
+				'condition' => array(
+					'key'      => '_wphash_popup_content_type',
+					'operator' => '==',
+					'value'    => 'custom',
+				),
+			),
+			'_wphash_popup_image_alignment' => array(
+				'type'    => 'select',
+				'label'   => esc_html__( 'Image Alignment', 'hashbar' ),
+				'default' => 'center',
+				'options' => array(
+					'left'   => esc_html__( 'Left', 'hashbar' ),
+					'center' => esc_html__( 'Center', 'hashbar' ),
+					'right'  => esc_html__( 'Right', 'hashbar' ),
+					'top'    => esc_html__( 'Top', 'hashbar' ),
+					'bottom' => esc_html__( 'Bottom', 'hashbar' ),
+				),
+				'condition' => array(
+					'key'      => '_wphash_popup_content_type',
+					'operator' => '==',
+					'value'    => 'custom',
+				),
+			),
+			'_wphash_popup_image_border_radius' => array(
+				'type'    => 'spacing',
+				'label'   => esc_html__( 'Image Border Radius', 'hashbar' ),
+				'default' => array(
+					'top'    => 0,
+					'right'  => 0,
+					'bottom' => 0,
+					'left'   => 0,
+				),
+				'unit'    => 'px',
 				'condition' => array(
 					'key'      => '_wphash_popup_content_type',
 					'operator' => '==',
@@ -797,7 +876,7 @@ class Hashbar_Popup_Campaign_Settings {
 			'_wphash_popup_max_width' => array(
 				'type'    => 'slider',
 				'label'   => esc_html__( 'Max Width', 'hashbar' ),
-				'default' => 90,
+				'default' => 98,
 				'min'     => 50,
 				'max'     => 100,
 				'unit'    => '%',
@@ -811,6 +890,54 @@ class Hashbar_Popup_Campaign_Settings {
 					'bottom' => 30,
 					'left'   => 30,
 				),
+				'unit'    => 'px',
+			),
+			'section_content_wrapper' => array(
+				'type'  => 'section',
+				'label' => esc_html__( 'Content Wrapper', 'hashbar' ),
+			),
+			'_wphash_popup_content_padding' => array(
+				'type'    => 'padding',
+				'label'   => esc_html__( 'Inner Spacing', 'hashbar' ),
+				'default' => array(
+					'top'    => 0,
+					'right'  => 0,
+					'bottom' => 0,
+					'left'   => 0,
+				),
+				'unit'    => 'px',
+			),
+			'_wphash_popup_content_border_radius' => array(
+				'type'    => 'padding',
+				'label'   => esc_html__( 'Rounded Corners', 'hashbar' ),
+				'default' => array(
+					'top'    => 0,
+					'right'  => 0,
+					'bottom' => 0,
+					'left'   => 0,
+				),
+				'unit'    => 'px',
+			),
+			'_wphash_popup_content_bg_color' => array(
+				'type'    => 'color',
+				'label'   => esc_html__( 'Background', 'hashbar' ),
+				'default' => 'transparent',
+				'presets' => array( 'transparent', '#ffffff', '#f8f9fa', '#f0f0f0', '#1a1a1a', '#000000' ),
+			),
+			'_wphash_popup_content_valign' => array(
+				'type'    => 'select',
+				'label'   => esc_html__( 'Vertical Align', 'hashbar' ),
+				'default' => 'middle',
+				'options' => array(
+					'top'    => esc_html__( 'Top', 'hashbar' ),
+					'middle' => esc_html__( 'Middle', 'hashbar' ),
+					'bottom' => esc_html__( 'Bottom', 'hashbar' ),
+				),
+			),
+			'_wphash_popup_content_gap' => array(
+				'type'    => 'number',
+				'label'   => esc_html__( 'Image Spacing', 'hashbar' ),
+				'default' => 0,
 				'unit'    => 'px',
 			),
 			'section_colors' => array(
@@ -1354,6 +1481,35 @@ class Hashbar_Popup_Campaign_Settings {
 					'value'    => true,
 				),
 			),
+			'section_content_order' => array(
+				'type'  => 'section',
+				'label' => esc_html__( 'Content Order', 'hashbar' ),
+			),
+			'_wphash_popup_content_order' => array(
+				'type'    => 'content_order',
+				'label'   => esc_html__( 'Content Order', 'hashbar' ),
+				'default' => array( 'heading', 'subheading', 'description', 'countdown', 'coupon', 'form_or_buttons' ),
+				'element_labels' => array(
+					'heading'         => esc_html__( 'Heading', 'hashbar' ),
+					'subheading'      => esc_html__( 'Subheading', 'hashbar' ),
+					'description'     => esc_html__( 'Description', 'hashbar' ),
+					'countdown'       => esc_html__( 'Countdown Timer', 'hashbar' ),
+					'coupon'          => esc_html__( 'Coupon Code', 'hashbar' ),
+					'form_or_buttons' => esc_html__( 'Form / Buttons', 'hashbar' ),
+				),
+			),
+			'_wphash_popup_element_spacing' => array(
+				'type'    => 'element_spacing',
+				'label'   => esc_html__( 'Element Spacing', 'hashbar' ),
+				'default' => array(
+					'heading'         => 6,
+					'subheading'      => 8,
+					'description'     => 16,
+					'countdown'       => 16,
+					'coupon'          => 16,
+					'form_or_buttons' => 0,
+				),
+			),
 			'section_custom_css' => array(
 				'type'  => 'section',
 				'label' => esc_html__( 'Custom CSS', 'hashbar' ),
@@ -1362,10 +1518,10 @@ class Hashbar_Popup_Campaign_Settings {
 			'_wphash_popup_custom_css' => array(
 				'type'        => 'textarea',
 				'label'       => esc_html__( 'Custom CSS', 'hashbar' ),
-				'description' => esc_html__( 'Add custom CSS to style your popup. Use .hashbar-popup-campaign as the main selector.', 'hashbar' ),
+				'description' => esc_html__( 'Add custom CSS to style your popup. CSS is automatically scoped to this campaign. Available selectors: .hashbar-popup-campaign, .hashbar-popup-container, .hashbar-popup-body, .hashbar-popup-heading, .hashbar-popup-subheading, .hashbar-popup-description, .hashbar-popup-image, .hashbar-popup-close, .hashbar-popup-countdown, .hashbar-popup-coupon, .hashbar-popup-coupon-code, .hashbar-popup-coupon-copy, .hashbar-popup-form, .hashbar-popup-submit, .hashbar-popup-buttons, .hashbar-popup-cta, .hashbar-popup-overlay', 'hashbar' ),
 				'default'     => '',
 				'rows'        => 6,
-				'placeholder' => ".hashbar-popup-campaign { }\n.hashbar-popup-container { }\n.hashbar-popup-form { }\n.hashbar-popup-countdown { }\n.hashbar-popup-coupon { }",
+				'placeholder' => ".hashbar-popup-campaign { }\n.hashbar-popup-container { }\n.hashbar-popup-body { }\n.hashbar-popup-heading { }\n.hashbar-popup-subheading { }\n.hashbar-popup-description { }\n.hashbar-popup-image { }\n.hashbar-popup-countdown { }\n.hashbar-popup-coupon { }\n.hashbar-popup-coupon-code { }\n.hashbar-popup-form { }\n.hashbar-popup-buttons { }\n.hashbar-popup-close { }",
 				'isPro'       => true,
 			),
 		);
@@ -2820,6 +2976,18 @@ class Hashbar_Popup_Campaign_Settings {
 	 *
 	 * @return array
 	 */
+	/**
+	 * Get video guide config for popup campaigns
+	 *
+	 * @return array
+	 */
+	public static function get_video_guide() {
+		return array(
+			'label' => esc_html__( 'Video Guide', 'hashbar' ),
+			'url'   => 'https://www.youtube.com/watch?v=2sfpzqQ7OUU',
+		);
+	}
+
 	public static function get_all_settings() {
 		return array(
 			'isPro'      => self::is_pro(),
@@ -2892,10 +3060,77 @@ class Hashbar_Popup_Campaign_Settings {
 					'_wphash_popup_description'      => __( 'Subscribe to get special offers, free giveaways, and updates', 'hashbar' ),
 					'_wphash_popup_form_submit_text' => __( 'Subscribe', 'hashbar' ),
 					'_wphash_popup_form_enabled'     => true,
+					'_wphash_popup_text_align'       => 'center',
+					'_wphash_popup_form_alignment'   => 'left',
 					'_wphash_popup_bg_color'         => '#ffffff',
 					'_wphash_popup_btn_bg_color'     => '#1a1a1a',
 					'_wphash_popup_btn_text_color'   => '#ffffff',
 					'_wphash_popup_btn_width_type'   => 'full_width',
+				),
+			),
+			// Split E-commerce Template
+			array(
+				'id'          => 'split_ecommerce',
+				'name'        => __( 'Split E-commerce', 'hashbar' ),
+				'description' => __( 'E-commerce popup with split image layout and newsletter signup', 'hashbar' ),
+				'category'    => 'pro',
+				'tags'        => array( 'E-commerce', 'Lead Capture', 'Center' ),
+				'preview'     => self::get_template_preview_url( 'split-e-commerce.png' ),
+				'config'      => array(
+					// Position & Type
+					'_wphash_popup_position'              => 'center',
+					'_wphash_popup_campaign_type'         => 'welcome',
+					// Content
+					'_wphash_popup_heading'               => 'Unlock <br><span style="color:#ff4757">20% OFF</span>',
+					'_wphash_popup_description'           => __( 'Sign up to our newsletter and get a discount code instantly in your inbox.', 'hashbar' ),
+					// Image
+					'_wphash_popup_image'                 => array(
+						'url' => self::get_template_image_url( 'split-ecommerce-left-side.png' ),
+						'id'  => 0,
+					),
+					'_wphash_popup_image_position'        => 'left',
+					'_wphash_popup_image_width'           => 40,
+					'_wphash_popup_image_width_unit'      => '%',
+					'_wphash_popup_image_alignment'       => 'center',
+					// Form
+					'_wphash_popup_form_enabled'          => true,
+					'_wphash_popup_form_submit_text'      => __( 'Subscribe', 'hashbar' ),
+					'_wphash_popup_form_alignment'        => 'left',
+					'_wphash_popup_form_fields'           => array(
+						array(
+							'id'          => 'email_1',
+							'type'        => 'email',
+							'label'       => '',
+							'placeholder' => __( 'Email Address', 'hashbar' ),
+							'required'    => true,
+						),
+					),
+					// Design
+					'_wphash_popup_width'                 => 763,
+					'_wphash_popup_padding'               => array( 'top' => 0, 'right' => 0, 'bottom' => 0, 'left' => 0 ),
+					'_wphash_popup_bg_color'              => '#ffffff',
+					'_wphash_popup_text_color'            => 'rgb(0,0,0)',
+					'_wphash_popup_heading_color'         => 'rgb(0,0,0)',
+					'_wphash_popup_subheading_color'      => 'rgb(255,71,87)',
+					'_wphash_popup_btn_bg_color'          => 'rgb(255,71,87)',
+					'_wphash_popup_btn_text_color'        => '#ffffff',
+					'_wphash_popup_btn_width_type'        => 'full_width',
+					'_wphash_popup_border_radius'         => 20,
+					'_wphash_popup_shadow'                => 'large',
+					'_wphash_popup_heading_size'          => 48,
+					'_wphash_popup_heading_weight'        => '800',
+					'_wphash_popup_text_size'             => 16,
+					'_wphash_popup_text_align'            => 'left',
+					'_wphash_popup_font_family'           => 'Arial',
+					// Content Wrapper
+					'_wphash_popup_content_bg_color'      => 'rgb(255,255,255)',
+					'_wphash_popup_content_padding'       => array( 'top' => 30, 'right' => 30, 'bottom' => 30, 'left' => 30 ),
+					'_wphash_popup_content_valign'        => 'middle',
+					'_wphash_popup_content_gap'           => 5,
+					// Animation
+					'_wphash_popup_animation_entry'       => 'fadeIn',
+					// CTA disabled
+					'_wphash_popup_cta_enabled'           => false,
 				),
 			),
 			array(
@@ -2912,6 +3147,8 @@ class Hashbar_Popup_Campaign_Settings {
 					'_wphash_popup_description'      => __( 'Join our mailing list and unlock your exclusive discount code', 'hashbar' ),
 					'_wphash_popup_form_submit_text' => __( 'Get My Discount', 'hashbar' ),
 					'_wphash_popup_form_enabled'     => true,
+					'_wphash_popup_text_align'       => 'center',
+					'_wphash_popup_form_alignment'   => 'left',
 					'_wphash_popup_bg_color'         => '#fff5f5',
 					'_wphash_popup_heading_color'    => '#ff4d4f',
 					'_wphash_popup_btn_bg_color'     => '#ff4d4f',
@@ -2919,25 +3156,49 @@ class Hashbar_Popup_Campaign_Settings {
 					'_wphash_popup_btn_width_type'   => 'full_width',
 				),
 			),
+			// Discount Coupon Template
 			array(
-				'id'          => 'exit_intent',
-				'name'        => __( 'Exit Intent', 'hashbar' ),
-				'description' => __( 'Catch visitors before they leave with a compelling offer', 'hashbar' ),
-				'category'    => 'free',
-				'tags'        => array( 'Exit Intent', 'Center' ),
-				'preview'     => '',
+				'id'          => 'discount_coupon',
+				'name'        => __( 'Discount Coupon', 'hashbar' ),
+				'description' => __( 'Eye-catching coupon design with bold discount display', 'hashbar' ),
+				'category'    => 'pro',
+				'tags'        => array( 'Coupon', 'Discount', 'E-commerce' ),
+				'preview'     => self::get_template_preview_url( 'discount-coupon.png' ),
 				'config'      => array(
-					'_wphash_popup_position'         => 'center',
-					'_wphash_popup_campaign_type'    => 'exit_intent',
-					'_wphash_popup_heading'          => __( "Wait! Don't Go Yet!", 'hashbar' ),
-					'_wphash_popup_description'      => __( 'Get 20% off your first order. Limited time offer!', 'hashbar' ),
-					'_wphash_popup_form_submit_text' => __( 'Claim My Offer', 'hashbar' ),
-					'_wphash_popup_form_enabled'     => true,
-					'_wphash_popup_trigger_type'     => 'exit_intent',
-					'_wphash_popup_bg_color'         => '#fff7e6',
-					'_wphash_popup_btn_bg_color'     => '#fa8c16',
-					'_wphash_popup_btn_text_color'   => '#ffffff',
-					'_wphash_popup_btn_width_type'   => 'full_width',
+					'_wphash_popup_position'            => 'center',
+					'_wphash_popup_content_type'        => 'custom',
+					'_wphash_popup_campaign_type'       => 'promotion',
+					'_wphash_popup_heading'             => __( "Don't miss out on savings!", 'hashbar' ),
+					'_wphash_popup_description'         => __( "Grab this coupon before it's gone.", 'hashbar' ),
+					// Coupon settings
+					'_wphash_popup_coupon_enabled'      => true,
+					'_wphash_popup_coupon_code'         => 'SAVE50',
+					'_wphash_popup_coupon_style'        => 'dashed',
+					'_wphash_popup_coupon_bg_color'     => '#3d3d3d',
+					'_wphash_popup_coupon_text_color'   => '#ffffff',
+					'_wphash_popup_coupon_border_color' => '#555555',
+					'_wphash_popup_coupon_copy_button'  => true,
+					'_wphash_popup_coupon_copy_text'    => __( 'Copy', 'hashbar' ),
+					'_wphash_popup_coupon_button_bg_color'   => '#ff4444',
+					'_wphash_popup_coupon_button_text_color' => '#ffffff',
+					// CTA Button
+					'_wphash_popup_cta_enabled'         => true,
+					'_wphash_popup_cta_text'            => __( 'CLAIM MY DISCOUNT', 'hashbar' ),
+					'_wphash_popup_close_text'          => __( "No thanks, I don't want a discount", 'hashbar' ),
+					// Colors - dark theme
+					'_wphash_popup_bg_color'            => '#2d2d2d',
+					'_wphash_popup_heading_color'       => '#ff4444',
+					'_wphash_popup_text_color'          => '#cccccc',
+					'_wphash_popup_btn_bg_color'        => '#ff4444',
+					'_wphash_popup_btn_text_color'      => '#ffffff',
+					'_wphash_popup_btn_border_radius'   => 4,
+					// Design
+					'_wphash_popup_border_radius'       => 12,
+					'_wphash_popup_shadow'              => 'large',
+					'_wphash_popup_padding'             => array( 'top' => 24, 'right' => 24, 'bottom' => 24, 'left' => 24 ),
+					'_wphash_popup_animation_entry'     => 'zoomIn',
+					'_wphash_popup_form_enabled'        => false,
+					'_wphash_popup_btn_width_type'      => 'full_width',
 				),
 			),
 			array(
@@ -2960,6 +3221,159 @@ class Hashbar_Popup_Campaign_Settings {
 					'_wphash_popup_btn_bg_color'   => '#597ef7',
 					'_wphash_popup_btn_text_color' => '#ffffff',
 					'_wphash_popup_btn_width_type' => 'full_width',
+				),
+			),
+			// Flash Sale Template
+			array(
+				'id'          => 'flash_sale',
+				'name'        => __( 'Flash Sale', 'hashbar' ),
+				'description' => __( 'Urgent flash sale popup with countdown timer and coupon code', 'hashbar' ),
+				'category'    => 'pro',
+				'tags'        => array( 'Countdown', 'Coupon', 'Promotional' ),
+				'preview'     => self::get_template_preview_url( 'flash-sale.png' ),
+				'config'      => array(
+					// Position & Type
+					'_wphash_popup_position'              => 'center',
+					'_wphash_popup_campaign_type'         => 'promotion',
+					// Content
+					'_wphash_popup_subheading'            => __( 'LIMITED TIME OFFER', 'hashbar' ),
+					'_wphash_popup_heading'               => __( 'FLASH SALE', 'hashbar' ),
+					'_wphash_popup_description'           => __( 'Get an extra 10% off using the code below', 'hashbar' ),
+					// Countdown Timer
+					'_wphash_popup_countdown_enabled'     => true,
+					'_wphash_popup_countdown_type'        => 'evergreen',
+					'_wphash_popup_countdown_show_days'   => false,
+					'_wphash_popup_countdown_hours'       => 2,
+					'_wphash_popup_countdown_minutes'     => 45,
+					'_wphash_popup_countdown_seconds'     => 12,
+					'_wphash_popup_countdown_style'       => 'boxes',
+					'_wphash_popup_countdown_bg_color'    => 'rgba(0,0,0,0.2)',
+					'_wphash_popup_countdown_text_color'  => '#ffffff',
+					'_wphash_popup_countdown_label_color' => '#ffffff',
+					// Coupon
+					'_wphash_popup_coupon_enabled'        => true,
+					'_wphash_popup_coupon_code'           => 'SUMMER24',
+					'_wphash_popup_coupon_style'          => 'dashed',
+					'_wphash_popup_coupon_bg_color'       => '#ffffff',
+					'_wphash_popup_coupon_text_color'     => '#4a1d8e',
+					'_wphash_popup_coupon_border_color'   => '#6c5ce7',
+					'_wphash_popup_coupon_copy_button'    => false,
+					'_wphash_popup_coupon_autocopy_on_click' => true,
+					'_wphash_popup_coupon_label'          => '',
+					'_wphash_popup_coupon_font_size'      => 20,
+					// Design
+					'_wphash_popup_bg_type'               => 'gradient',
+					'_wphash_popup_bg_color'              => '#6c5ce7',
+					'_wphash_popup_gradient_color'        => '#a29bfe',
+					'_wphash_popup_gradient_direction'    => 'to_bottom_right',
+					'_wphash_popup_heading_color'         => '#ffffff',
+					'_wphash_popup_subheading_color'      => '#ffffff',
+					'_wphash_popup_text_color'            => '#ffffff',
+					'_wphash_popup_text_align'            => 'center',
+					'_wphash_popup_heading_size'          => 42,
+					'_wphash_popup_heading_weight'        => '900',
+					'_wphash_popup_width'                 => 550,
+					'_wphash_popup_max_width'             => 98,
+					'_wphash_popup_border_radius'         => 16,
+					'_wphash_popup_shadow'                => 'large',
+					'_wphash_popup_padding'               => array( 'top' => 30, 'right' => 30, 'bottom' => 30, 'left' => 30 ),
+					'_wphash_popup_animation_entry'       => 'zoomIn',
+					// Close button
+					'_wphash_popup_close_color'           => '#ffffff',
+					'_wphash_popup_close_bg_color'        => 'rgba(255,255,255,0.2)',
+					'_wphash_popup_close_hover_color'     => '#ffffff',
+					// Form & CTA disabled
+					'_wphash_popup_form_enabled'          => false,
+					'_wphash_popup_cta_enabled'           => false,
+					// Content order
+					'_wphash_popup_content_order'         => array( 'subheading', 'heading', 'countdown', 'description', 'coupon', 'form_or_buttons' ),
+					// Custom CSS for styling
+					'_wphash_popup_custom_css'            => '.hashbar-popup-body { display: flex; flex-direction: column; gap: 0; }
+.hashbar-popup-body .hashbar-popup-subheading { display: inline-block; background: rgba(255,255,255,0.2); padding: 6px 20px; border-radius: 20px; font-size: 12px; letter-spacing: 2px; margin: 0 auto 16px; width: auto; align-self: center; }
+.hashbar-popup-body .hashbar-popup-heading { margin-bottom: 20px; }
+.hashbar-popup-body .hashbar-popup-countdown { margin-bottom: 20px; }
+.hashbar-popup-body .hashbar-popup-description { margin-bottom: 24px; }
+.hashbar-popup-body .hashbar-popup-coupon { width: 100%; }
+.hashbar-popup-body .hashbar-popup-coupon-code { display: flex; width: 100%; box-sizing: border-box; font-weight: 700; }',
+				),
+			),
+			// Cyber Monday Template
+			array(
+				'id'          => 'cyber_monday',
+				'name'        => __( 'Cyber Monday', 'hashbar' ),
+				'description' => __( 'Cyber Monday deal popup with side image and coupon code', 'hashbar' ),
+				'category'    => 'pro',
+				'tags'        => array( 'Coupon', 'Promotional', 'Center' ),
+				'preview'     => self::get_template_preview_url( 'cyber-moday.png' ),
+				'config'      => array(
+					// Position & Type
+					'_wphash_popup_position'              => 'center',
+					'_wphash_popup_campaign_type'         => 'promotion',
+					// Content
+					'_wphash_popup_heading'               => 'CYBER <br>MONDAY',
+					'_wphash_popup_subheading'            => __( '*Valid for the next 24 hours only.', 'hashbar' ),
+					'_wphash_popup_description'           => __( 'Upgrade your tech game with exclusive deals on all electronics.', 'hashbar' ),
+					// Image
+					'_wphash_popup_image'                 => array(
+						'url' => self::get_template_image_url( 'cyber-monday-lef-side.png' ),
+						'id'  => 0,
+					),
+					'_wphash_popup_image_position'        => 'left',
+					'_wphash_popup_image_width'           => 300,
+					'_wphash_popup_image_width_unit'      => 'px',
+					'_wphash_popup_image_alignment'       => 'center',
+					// Coupon
+					'_wphash_popup_coupon_enabled'            => true,
+					'_wphash_popup_coupon_code'               => 'CYBER24',
+					'_wphash_popup_coupon_style'              => 'dashed',
+					'_wphash_popup_coupon_bg_color'           => 'rgba(0,242,255,0.05)',
+					'_wphash_popup_coupon_text_color'         => '#ffffff',
+					'_wphash_popup_coupon_border_color'       => '#00f2ff',
+					'_wphash_popup_coupon_copy_button'        => true,
+					'_wphash_popup_coupon_autocopy_on_click'  => true,
+					'_wphash_popup_coupon_label'              => '',
+					'_wphash_popup_coupon_font_size'          => 24,
+					'_wphash_popup_coupon_copy_text'          => __( 'COPY', 'hashbar' ),
+					'_wphash_popup_coupon_button_bg_color'    => '#00f2ff',
+					'_wphash_popup_coupon_button_text_color'  => '#000000',
+					// Design
+					'_wphash_popup_width'                 => 820,
+					'_wphash_popup_max_width'             => 98,
+					'_wphash_popup_padding'               => array( 'top' => 0, 'right' => 0, 'bottom' => 0, 'left' => 0 ),
+					'_wphash_popup_bg_color'              => '#000000',
+					'_wphash_popup_heading_color'         => '#00f2ff',
+					'_wphash_popup_subheading_color'      => 'rgba(255,255,255,0.5)',
+					'_wphash_popup_text_color'            => '#ffffff',
+					'_wphash_popup_text_align'            => 'left',
+					'_wphash_popup_heading_size'          => 42,
+					'_wphash_popup_heading_weight'        => '900',
+					'_wphash_popup_text_size'             => 14,
+					'_wphash_popup_border_radius'         => 24,
+					'_wphash_popup_shadow'                => 'large',
+					'_wphash_popup_font_family'           => 'Arial',
+					// Content Wrapper
+					'_wphash_popup_content_bg_color'      => '#000000',
+					'_wphash_popup_content_padding'       => array( 'top' => 40, 'right' => 40, 'bottom' => 40, 'left' => 40 ),
+					'_wphash_popup_content_valign'        => 'middle',
+					'_wphash_popup_content_gap'           => 5,
+					// Animation
+					'_wphash_popup_animation_entry'       => 'fadeIn',
+					// Close button
+					'_wphash_popup_close_color'           => '#ffffff',
+					'_wphash_popup_close_bg_color'        => 'rgba(255,255,255,0.1)',
+					'_wphash_popup_close_hover_color'     => '#00f2ff',
+					// Form & CTA disabled
+					'_wphash_popup_form_enabled'          => false,
+					'_wphash_popup_cta_enabled'           => false,
+					// Content order
+					'_wphash_popup_content_order'         => array( 'heading', 'description', 'coupon', 'subheading', 'form_or_buttons' ),
+					// Custom CSS for neon glow and styling
+					'_wphash_popup_custom_css'            => '.hashbar-popup-heading { text-shadow: 0 0 10px rgba(0,242,255,0.5); margin-bottom: 16px; }
+.hashbar-popup-body { display: flex; flex-direction: column; }
+.hashbar-popup-body .hashbar-popup-description { margin-bottom: 24px; }
+.hashbar-popup-body .hashbar-popup-coupon { width: 100%; }
+.hashbar-popup-body .hashbar-popup-coupon-code { display: flex; width: 100%; box-sizing: border-box; justify-content: space-between; align-items: center; font-weight: 900; }
+.hashbar-popup-body .hashbar-popup-subheading { font-size: 13px; font-style: italic; margin-top: 20px; opacity: 0.6; }',
 				),
 			),
 			// Countdown Promotion Template
@@ -3007,59 +3421,7 @@ class Hashbar_Popup_Campaign_Settings {
 					'_wphash_popup_form_enabled'       => false,
 				),
 			),
-			// Exit Survey Template
-			array(
-				'id'          => 'exit_survey',
-				'name'        => __( 'Exit Survey', 'hashbar' ),
-				'description' => __( 'Collect feedback when visitors are leaving your site', 'hashbar' ),
-				'category'    => 'free',
-				'tags'        => array( 'Survey', 'Feedback', 'Exit Intent' ),
-				'preview'     => '',
-				'config'      => array(
-					'_wphash_popup_position'           => 'center',
-					'_wphash_popup_campaign_type'      => 'feedback',
-					'_wphash_popup_heading'            => __( "We're sorry to see you go. What's your reason for leaving?", 'hashbar' ),
-					'_wphash_popup_description'        => __( 'Your feedback helps us improve.', 'hashbar' ),
-					'_wphash_popup_form_enabled'       => true,
-					'_wphash_popup_form_submit_text'   => __( 'Send Your Thoughts', 'hashbar' ),
-					'_wphash_popup_form_alignment'     => 'left',
-					'_wphash_popup_bg_color'           => '#ffffff',
-					'_wphash_popup_heading_color'      => '#1a1a1a',
-					'_wphash_popup_text_color'         => '#666666',
-					'_wphash_popup_btn_bg_color'       => '#1a9e7a',
-					'_wphash_popup_btn_text_color'     => '#ffffff',
-					'_wphash_popup_btn_width_type'     => 'full_width',
-					'_wphash_popup_animation_entry'    => 'fadeIn',
-					'_wphash_popup_cta_enabled'        => false,
-				),
-			),
-			// Feedback Form Template
-			array(
-				'id'          => 'feedback_form',
-				'name'        => __( 'Feedback Form', 'hashbar' ),
-				'description' => __( 'Gather user feedback with a friendly form', 'hashbar' ),
-				'category'    => 'free',
-				'tags'        => array( 'Feedback', 'Form', 'Center' ),
-				'preview'     => '',
-				'config'      => array(
-					'_wphash_popup_position'           => 'center',
-					'_wphash_popup_campaign_type'      => 'feedback',
-					'_wphash_popup_heading'            => __( 'What could we do to improve?', 'hashbar' ),
-					'_wphash_popup_description'        => __( 'We value your opinion and would love to hear your thoughts.', 'hashbar' ),
-					'_wphash_popup_form_enabled'       => true,
-					'_wphash_popup_form_submit_text'   => __( 'Submit Feedback', 'hashbar' ),
-					'_wphash_popup_form_alignment'     => 'left',
-					'_wphash_popup_bg_color'           => '#fffbeb',
-					'_wphash_popup_heading_color'      => '#1a1a1a',
-					'_wphash_popup_text_color'         => '#666666',
-					'_wphash_popup_btn_bg_color'       => '#f59e0b',
-					'_wphash_popup_btn_text_color'     => '#ffffff',
-					'_wphash_popup_btn_width_type'     => 'full_width',
-					'_wphash_popup_animation_entry'    => 'fadeIn',
-					'_wphash_popup_cta_enabled'        => false,
-				),
-			),
-			// Spooky Savings Template (Pro)
+			// Spooky Savings Template
 			array(
 				'id'          => 'spooky_savings',
 				'name'        => __( 'Spooky Savings', 'hashbar' ),
@@ -3120,51 +3482,6 @@ class Hashbar_Popup_Campaign_Settings {
 					'_wphash_popup_btn_width_type'     => 'full_width',
 				),
 			),
-			// Discount Coupon Template
-			array(
-				'id'          => 'discount_coupon',
-				'name'        => __( 'Discount Coupon', 'hashbar' ),
-				'description' => __( 'Eye-catching coupon design with bold discount display', 'hashbar' ),
-				'category'    => 'pro',
-				'tags'        => array( 'Coupon', 'Discount', 'E-commerce' ),
-				'preview'     => self::get_template_preview_url( 'discount-coupon.png' ),
-				'config'      => array(
-					'_wphash_popup_position'            => 'center',
-					'_wphash_popup_content_type'        => 'custom',
-					'_wphash_popup_campaign_type'       => 'promotion',
-					'_wphash_popup_heading'             => __( "Don't miss out on savings!", 'hashbar' ),
-					'_wphash_popup_description'         => __( "Grab this coupon before it's gone.", 'hashbar' ),
-					// Coupon settings
-					'_wphash_popup_coupon_enabled'      => true,
-					'_wphash_popup_coupon_code'         => 'SAVE50',
-					'_wphash_popup_coupon_style'        => 'dashed',
-					'_wphash_popup_coupon_bg_color'     => '#3d3d3d',
-					'_wphash_popup_coupon_text_color'   => '#ffffff',
-					'_wphash_popup_coupon_border_color' => '#555555',
-					'_wphash_popup_coupon_copy_button'  => true,
-					'_wphash_popup_coupon_copy_text'    => __( 'Copy', 'hashbar' ),
-					'_wphash_popup_coupon_button_bg_color'   => '#ff4444',
-					'_wphash_popup_coupon_button_text_color' => '#ffffff',
-					// CTA Button
-					'_wphash_popup_cta_enabled'         => true,
-					'_wphash_popup_cta_text'            => __( 'CLAIM MY DISCOUNT', 'hashbar' ),
-					'_wphash_popup_close_text'          => __( "No thanks, I don't want a discount", 'hashbar' ),
-					// Colors - dark theme
-					'_wphash_popup_bg_color'            => '#2d2d2d',
-					'_wphash_popup_heading_color'       => '#ff4444',
-					'_wphash_popup_text_color'          => '#cccccc',
-					'_wphash_popup_btn_bg_color'        => '#ff4444',
-					'_wphash_popup_btn_text_color'      => '#ffffff',
-					'_wphash_popup_btn_border_radius'   => 4,
-					// Design
-					'_wphash_popup_border_radius'       => 12,
-					'_wphash_popup_shadow'              => 'large',
-					'_wphash_popup_padding'             => array( 'top' => 24, 'right' => 24, 'bottom' => 24, 'left' => 24 ),
-					'_wphash_popup_animation_entry'     => 'zoomIn',
-					'_wphash_popup_form_enabled'        => false,
-					'_wphash_popup_btn_width_type'      => 'full_width',
-				),
-			),
 			// Newsletter Signup Template
 			array(
 				'id'          => 'newsletter_signup',
@@ -3190,6 +3507,29 @@ class Hashbar_Popup_Campaign_Settings {
 					'_wphash_popup_animation_entry'    => 'fadeIn',
 					'_wphash_popup_form_enabled'       => false,
 					'_wphash_popup_btn_width_type'     => 'full_width',
+				),
+			),
+			array(
+				'id'          => 'exit_intent',
+				'name'        => __( 'Exit Intent', 'hashbar' ),
+				'description' => __( 'Catch visitors before they leave with a compelling offer', 'hashbar' ),
+				'category'    => 'free',
+				'tags'        => array( 'Exit Intent', 'Center' ),
+				'preview'     => '',
+				'config'      => array(
+					'_wphash_popup_position'         => 'center',
+					'_wphash_popup_campaign_type'    => 'exit_intent',
+					'_wphash_popup_heading'          => __( "Wait! Don't Go Yet!", 'hashbar' ),
+					'_wphash_popup_description'      => __( 'Get 20% off your first order. Limited time offer!', 'hashbar' ),
+					'_wphash_popup_form_submit_text' => __( 'Claim My Offer', 'hashbar' ),
+					'_wphash_popup_form_enabled'     => true,
+					'_wphash_popup_text_align'       => 'center',
+					'_wphash_popup_form_alignment'   => 'left',
+					'_wphash_popup_trigger_type'     => 'exit_intent',
+					'_wphash_popup_bg_color'         => '#fff7e6',
+					'_wphash_popup_btn_bg_color'     => '#fa8c16',
+					'_wphash_popup_btn_text_color'   => '#ffffff',
+					'_wphash_popup_btn_width_type'   => 'full_width',
 				),
 			),
 			array(
@@ -3258,6 +3598,58 @@ class Hashbar_Popup_Campaign_Settings {
 					'_wphash_popup_btn_text_color'  => '#ffffff',
 					'_wphash_popup_animation_entry' => 'slideInRight',
 					'_wphash_popup_btn_width_type'  => 'full_width',
+				),
+			),
+			// Exit Survey Template
+			array(
+				'id'          => 'exit_survey',
+				'name'        => __( 'Exit Survey', 'hashbar' ),
+				'description' => __( 'Collect feedback when visitors are leaving your site', 'hashbar' ),
+				'category'    => 'free',
+				'tags'        => array( 'Survey', 'Feedback', 'Exit Intent' ),
+				'preview'     => '',
+				'config'      => array(
+					'_wphash_popup_position'           => 'center',
+					'_wphash_popup_campaign_type'      => 'feedback',
+					'_wphash_popup_heading'            => __( "We're sorry to see you go. What's your reason for leaving?", 'hashbar' ),
+					'_wphash_popup_description'        => __( 'Your feedback helps us improve.', 'hashbar' ),
+					'_wphash_popup_form_enabled'       => true,
+					'_wphash_popup_form_submit_text'   => __( 'Send Your Thoughts', 'hashbar' ),
+					'_wphash_popup_form_alignment'     => 'left',
+					'_wphash_popup_bg_color'           => '#ffffff',
+					'_wphash_popup_heading_color'      => '#1a1a1a',
+					'_wphash_popup_text_color'         => '#666666',
+					'_wphash_popup_btn_bg_color'       => '#1a9e7a',
+					'_wphash_popup_btn_text_color'     => '#ffffff',
+					'_wphash_popup_btn_width_type'     => 'full_width',
+					'_wphash_popup_animation_entry'    => 'fadeIn',
+					'_wphash_popup_cta_enabled'        => false,
+				),
+			),
+			// Feedback Form Template
+			array(
+				'id'          => 'feedback_form',
+				'name'        => __( 'Feedback Form', 'hashbar' ),
+				'description' => __( 'Gather user feedback with a friendly form', 'hashbar' ),
+				'category'    => 'free',
+				'tags'        => array( 'Feedback', 'Form', 'Center' ),
+				'preview'     => '',
+				'config'      => array(
+					'_wphash_popup_position'           => 'center',
+					'_wphash_popup_campaign_type'      => 'feedback',
+					'_wphash_popup_heading'            => __( 'What could we do to improve?', 'hashbar' ),
+					'_wphash_popup_description'        => __( 'We value your opinion and would love to hear your thoughts.', 'hashbar' ),
+					'_wphash_popup_form_enabled'       => true,
+					'_wphash_popup_form_submit_text'   => __( 'Submit Feedback', 'hashbar' ),
+					'_wphash_popup_form_alignment'     => 'left',
+					'_wphash_popup_bg_color'           => '#fffbeb',
+					'_wphash_popup_heading_color'      => '#1a1a1a',
+					'_wphash_popup_text_color'         => '#666666',
+					'_wphash_popup_btn_bg_color'       => '#f59e0b',
+					'_wphash_popup_btn_text_color'     => '#ffffff',
+					'_wphash_popup_btn_width_type'     => 'full_width',
+					'_wphash_popup_animation_entry'    => 'fadeIn',
+					'_wphash_popup_cta_enabled'        => false,
 				),
 			),
 		);

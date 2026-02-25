@@ -30,6 +30,40 @@ class Hashbar_Announcement_Bar_Settings {
 	}
 
 	/**
+	 * Get full URL for a template preview image
+	 *
+	 * @param string $filename The image filename
+	 * @return string Full URL to the template preview image
+	 */
+	public static function get_template_preview_url( $filename ) {
+		if ( empty( $filename ) ) {
+			return '';
+		}
+		if ( defined( 'HASHBAR_TEMPLATE_IMG_SOURCE' ) && 'external' === HASHBAR_TEMPLATE_IMG_SOURCE ) {
+			$base = defined( 'HASHBAR_TEMPLATE_IMG_URL' ) ? HASHBAR_TEMPLATE_IMG_URL : '';
+			return trailingslashit( $base ) . 'announcement/preview/' . $filename;
+		}
+		return plugins_url( 'hashbar-templates-library-src/announcement/preview/' . $filename, dirname( dirname( dirname( __FILE__ ) ) ) );
+	}
+
+	/**
+	 * Get full URL for a template content image
+	 *
+	 * @param string $filename The image filename
+	 * @return string Full URL to the template image
+	 */
+	public static function get_template_image_url( $filename ) {
+		if ( empty( $filename ) ) {
+			return '';
+		}
+		if ( defined( 'HASHBAR_TEMPLATE_IMG_SOURCE' ) && 'external' === HASHBAR_TEMPLATE_IMG_SOURCE ) {
+			$base = defined( 'HASHBAR_TEMPLATE_IMG_URL' ) ? HASHBAR_TEMPLATE_IMG_URL : '';
+			return trailingslashit( $base ) . 'announcement/images/' . $filename;
+		}
+		return plugins_url( 'hashbar-templates-library-src/announcement/images/' . $filename, dirname( dirname( dirname( __FILE__ ) ) ) );
+	}
+
+	/**
 	 * Get editor tab definitions
 	 *
 	 * @return array
@@ -1248,19 +1282,19 @@ class Hashbar_Announcement_Bar_Settings {
 			'section_abtest' => array(
 				'type'  => 'section',
 				'label' => esc_html__( 'A/B Testing', 'hashbar' ),
-				'isPro' => false,
+				'isPro' => true,
 			),
 			'_wphash_ab_test_enabled' => array(
 				'type'    => 'switch',
 				'label' => esc_html__( 'Enable A/B Testing', 'hashbar' ),
 				'default' => false,
-				'isPro'   => false,
+				'isPro'   => true,
 			),
 			'_wphash_ab_test_variants' => array(
 				'type'    => 'variants-array',
 				'label' => esc_html__( 'Test Variants', 'hashbar' ),
 				'default' => array(),
-				'isPro'   => false,
+				'isPro'   => true,
 			),
 		);
 	}
@@ -1659,6 +1693,18 @@ class Hashbar_Announcement_Bar_Settings {
 	 *
 	 * @return array
 	 */
+	/**
+	 * Get video guide config for announcement bars
+	 *
+	 * @return array
+	 */
+	public static function get_video_guide() {
+		return array(
+			'label' => esc_html__( 'Video Guide', 'hashbar' ),
+			'url'   => 'https://www.youtube.com/watch?v=9VUc5Is-9Uw',
+		);
+	}
+
 	public static function get_timezone_options() {
 		return array(
 			'UTC'      => 'UTC (Coordinated Universal Time)',

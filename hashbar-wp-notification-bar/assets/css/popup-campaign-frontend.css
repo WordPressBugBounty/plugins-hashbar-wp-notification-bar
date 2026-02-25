@@ -183,7 +183,7 @@
   position: relative;
   padding: 24px;
   /* background color is set via inline styles */
-  overflow: visible;
+  /* overflow is set conditionally via inline styles - hidden by default, visible when close button is outside */
 }
 
 /* Prevent scroll/overflow issues - but allow close button to overflow */
@@ -1795,26 +1795,61 @@
   .hashbar-popup-countdown-label {
     font-size: 9px;
   }
+
+  /* Stack split image layouts vertically on mobile */
+  .hashbar-popup-split {
+    flex-direction: column;
+  }
+
+  .hashbar-popup-split .hashbar-popup-image--left,
+  .hashbar-popup-split .hashbar-popup-image--right {
+    width: 100% !important;
+    max-height: var(--popup-image-width, 250px);
+    overflow: hidden;
+  }
+
+  .hashbar-popup-split .hashbar-popup-body {
+    width: 100%;
+  }
+
+  /* Right image moves to top when stacked */
+  .hashbar-popup-split .hashbar-popup-image--right {
+    order: -1;
+  }
+
+  /* Coupon box wrapping */
+  .hashbar-popup-coupon-code {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
 }
 
 @media (max-width: 480px) {
-  .hashbar-popup-container {
-    padding: 20px 16px;
+  /* Scale down all popup text proportionally (85% of user-set values) */
+  .hashbar-popup-heading {
+    font-size: calc(var(--heading-size, 28px) * 0.85) !important;
   }
 
-  .hashbar-popup-heading {
-    font-size: 20px !important;
+  .hashbar-popup-subheading {
+    font-size: calc(var(--subheading-size, 16px) * 0.85) !important;
+  }
+
+  .hashbar-popup-description {
+    font-size: calc(var(--text-size, 14px) * 0.85) !important;
+  }
+
+  .hashbar-popup-container {
+    padding: 20px 16px;
   }
 
   .hashbar-popup-countdown-number {
     padding: 6px 8px;
     min-width: 40px;
-    font-size: 16px;
   }
 
   .hashbar-popup-coupon-code {
     padding: 10px 14px;
-    font-size: 16px !important;
   }
 }
 

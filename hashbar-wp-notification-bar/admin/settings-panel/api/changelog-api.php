@@ -182,6 +182,32 @@ class ChangeLog extends WP_REST_Controller {
     private function get_changelog_data() {
         return [
             [
+                'version' => '1.9.2',
+                'date'    => '2026-02-25',
+                'changes' => [
+                    'Added' => [
+                        'Content element drag-and-drop ordering in Design tab for Popup Campaigns.',
+                        'Image Width control with px/% unit toggle for Popup Campaigns.',
+                        'Image Alignment option based on image position for Popup Campaigns.',
+                        'Image Border Radius control with individual corner inputs for Popup Campaigns.',
+                        'Flash Sale, Cyber Monday, and Split E-commerce templates for Popup Campaigns (Pro).',
+                        'Content Wrapper Styles section for Popup Campaigns.',
+                    ],
+                    'Improved' => [
+                        'Popup Campaign editor tabs now use responsive overflow menu instead of horizontal scroll.',
+                        'Collapsible sections in Popup Campaign Design tab for better navigation.',
+                        'Announcement Bar editor header restyled with inline title input.',
+                    ],
+                    'Fixed' => [
+                        'Cookie interfering with server-side caching.',
+                        'User Targeting "Show To" option not working for Popup Campaigns (Guests Only setting was ignored).',
+                        'HTML rendering in heading, subheading, and description fields for Popup Campaigns.',
+                        'CTA Button Styling section not showing intermittently in Announcement Bar Design tab.',
+                        'Publish/Update button text now correctly shows "Update" when editing existing items.',
+                    ],
+                ],
+            ],
+            [
                 'version' => '1.9.1',
                 'date'    => '2026-02-08',
                 'changes' => [

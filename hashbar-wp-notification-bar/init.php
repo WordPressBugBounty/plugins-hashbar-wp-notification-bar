@@ -3,7 +3,7 @@
  * Plugin Name: HashBar - Announcement, Notification Bar & Popup Campaign
  * Plugin URI:  https://theplugindemo.com/hashbar/
  * Description: Announcement, Notification & Popup Campaign plugin for WordPress
- * Version:     1.9.1
+ * Version:     1.9.2
  * Author:      HasThemes
  * Author URI:  https://hasthemes.com
  * Text Domain: hashbar
@@ -15,7 +15,12 @@
 define( 'HASHBAR_WPNB_ROOT', __FILE__ );
 define( 'HASHBAR_WPNB_URI', plugins_url('',HASHBAR_WPNB_ROOT) );
 define( 'HASHBAR_WPNB_DIR', dirname(HASHBAR_WPNB_ROOT ) );
-define( 'HASHBAR_WPNB_VERSION', '1.9.1');
+define( 'HASHBAR_WPNB_VERSION', '1.9.2');
+
+// Template library image source: 'local' for dev, 'external' for production
+define( 'HASHBAR_TEMPLATE_IMG_SOURCE', 'local' );
+// External base URL (update when hosting is ready)
+define( 'HASHBAR_TEMPLATE_IMG_URL', 'https://example.com/hashbar-templates/' );
 
 $wordpress_version = (int)get_bloginfo( 'version' );
 $hashbar_gutenberg_enable = $wordpress_version < 5 ? false : true;
@@ -1020,13 +1025,24 @@ function pro_version_notice(){
 }
 
 /**
- * Initialize A/B test visitor ID early in WordPress lifecycle
- * This prevents "headers already sent" warnings by setting cookies before output
+ * Clean up legacy hashbar_visitor_id cookie
+ * This cookie was previously set for all visitors for A/B testing.
+ * Since A/B testing is now a Pro-only feature, expire the old cookie
+ * so it doesn't interfere with server-side caching (SiteGround, Varnish, etc.)
+ * Skip cleanup if Pro is active (Pro uses this cookie for A/B testing)
  */
-add_action( 'wp_loaded', 'hashbar_initialize_ab_test_visitor' );
-function hashbar_initialize_ab_test_visitor() {
-	if ( ! is_admin() && ! wp_doing_ajax() ) {
-		// Initialize visitor ID for A/B testing (this sets cookie before any output)
-		\HashbarFree\ABTest\AB_Test_Assignment::get_visitor_id();
+add_action( 'wp_loaded', 'hashbar_cleanup_legacy_visitor_cookie' );
+function hashbar_cleanup_legacy_visitor_cookie() {
+	// Don't clean up if Pro is active — Pro needs this cookie for A/B testing
+	if ( is_plugin_active( 'hashbar-pro/init.php' ) ) {
+		return;
+	}
+
+	if ( ! is_admin() && ! wp_doing_ajax() && isset( $_COOKIE['hashbar_visitor_id'] ) ) {
+		if ( ! headers_sent() ) {
+			setcookie( 'hashbar_visitor_id', '', time() - 3600, '/', '', is_ssl(), true );
+		}
+		unset( $_COOKIE['hashbar_visitor_id'] );
 	}
 }
+

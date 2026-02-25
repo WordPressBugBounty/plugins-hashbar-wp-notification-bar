@@ -963,6 +963,9 @@ class PopupCampaign {
 			'_wphash_popup_image',
 			'_wphash_popup_bg_image',
 			'_wphash_popup_padding',
+			'_wphash_popup_image_border_radius',
+			'_wphash_popup_content_padding',
+			'_wphash_popup_content_border_radius',
 			'_wphash_popup_schedule_days',
 			'_wphash_popup_ab_variants',
 		);
@@ -1030,6 +1033,8 @@ class PopupCampaign {
 			'_wphash_popup_target_devices',
 			'_wphash_popup_form_fields',
 			'_wphash_popup_spinwheel_segments',
+			'_wphash_popup_content_padding',
+			'_wphash_popup_content_border_radius',
 			'_wphash_popup_schedule_days',
 			'_wphash_popup_ab_variants',
 		);
@@ -1039,6 +1044,9 @@ class PopupCampaign {
 			'_wphash_popup_image',
 			'_wphash_popup_bg_image',
 			'_wphash_popup_padding',
+			'_wphash_popup_image_border_radius',
+			'_wphash_popup_content_padding',
+			'_wphash_popup_content_border_radius',
 		);
 
 		// Integer fields
@@ -1050,6 +1058,8 @@ class PopupCampaign {
 			'_wphash_popup_fluent_form_id',
 			'_wphash_popup_width',
 			'_wphash_popup_max_width',
+			'_wphash_popup_image_width',
+			'_wphash_popup_content_gap',
 			'_wphash_popup_heading_size',
 			'_wphash_popup_text_size',
 			'_wphash_popup_border_radius',
