@@ -240,10 +240,16 @@ if ( ! function_exists( 'hashbar_get_pro_countries' ) ) {
 }
 
 if ( !function_exists( 'hashbar_post_list' ) ){
-  function hashbar_post_list( $post_type = 'post', $limit = -1 ){
+  function hashbar_post_list( $post_type = 'post', $limit = 20 ){
+    static $cache = array();
+    $cache_key = $post_type . '_' . $limit;
+    if ( isset( $cache[$cache_key] ) ) {
+        return $cache[$cache_key];
+    }
+
     $options = array();
     if ( 'product_cat' == $post_type ){
- 
+
       $categories = get_terms( array(
           'taxonomy' => 'product_cat',
           'hide_empty' => false,
@@ -252,6 +258,7 @@ if ( !function_exists( 'hashbar_post_list' ) ){
           foreach ( $categories as $term ) {
               $options[ $term->term_id ] = $term->name;
           }
+          $cache[$cache_key] = $options;
           return $options;
       }
     }
@@ -261,6 +268,7 @@ if ( !function_exists( 'hashbar_post_list' ) ){
         foreach ( $post_terms as $term ) {
             $options[ $term->ID ] = $term->post_title;
         }
+        $cache[$cache_key] = $options;
         return $options;
     }
   }

@@ -20,11 +20,11 @@ class Hashbar_Settings_Panel_Settings {
 
     public function get_help_section() {
         return [
-            'docLink' => 'https://hasthemes.com/docs/hashbar/',
-            'supportLink' => 'https://hasthemes.com/contact-us/',
+            'docLink' => 'https://wphashbar.com/docs/',
+            'supportLink' => 'https://wphashbar.com/contact/',
             'licenseLink' => admin_url('admin.php?page=hashbar-license'),
             'recommendedPluginsLink' => admin_url('admin.php?page=hashbar_recommendations'),
-            'upgradeLink' => 'https://hasthemes.com/plugins/wordpress-notification-bar-plugin/'
+            'upgradeLink' => 'https://wphashbar.com/pricing/'
         ];
     }
 
@@ -114,10 +114,11 @@ class Hashbar_Settings_Panel_Settings {
     public function get_notification_enable_fields() {
         $prefix = '_wphash_';
         $enable_ajax_select = true;
+        $hashbar_options = get_option('hashbar_wpnb_opt', array());
         $limit = array(
-            'post' => -1,
-            'page' => -1,
-            'product' => -1
+            'post'    => isset($hashbar_options['posts_limit']) && $hashbar_options['posts_limit'] !== '' ? intval($hashbar_options['posts_limit']) : 20,
+            'page'    => isset($hashbar_options['pages_limit']) && $hashbar_options['pages_limit'] !== '' ? intval($hashbar_options['pages_limit']) : 20,
+            'product' => isset($hashbar_options['product_limit']) && $hashbar_options['product_limit'] !== '' ? intval($hashbar_options['product_limit']) : 20,
         );
 
         $fields = [
@@ -161,7 +162,7 @@ class Hashbar_Settings_Panel_Settings {
                 'description' => __('Select specific posts where this notification will appear', 'hashbar'),
                 'type' => 'select',
                 'placeholder' => esc_html__('Select Posts', 'hashbar'),
-                'options' => hashbar_post_list(),
+                'options' => hashbar_post_list('post', $limit['post']),
                 'multiple' => true,
                 'condition' => [
                     'key' => $prefix.'notification_where_to_show',
@@ -208,7 +209,7 @@ class Hashbar_Settings_Panel_Settings {
                 'description' => __('Select specific pages where this notification will appear', 'hashbar'),
                 'type' => 'select',
                 'placeholder' => esc_html__('Select Pages', 'hashbar'),
-                'options' => hashbar_post_list('page'),
+                'options' => hashbar_post_list('page', $limit['page']),
                 'multiple' => true,
                 'condition' => [
                     'key' => $prefix.'notification_where_to_show',
@@ -276,7 +277,7 @@ class Hashbar_Settings_Panel_Settings {
                 'description' => __('Select specific products where this notification will appear', 'hashbar'),
                 'type' => 'select',
                 'placeholder' => esc_html__('Select Products', 'hashbar'),
-                'options' => hashbar_post_list('product'),
+                'options' => hashbar_post_list('product', $limit['product']),
                 'multiple' => true,
                 'condition' => [
                     'key' => $prefix.'notification_where_to_show',
@@ -310,7 +311,7 @@ class Hashbar_Settings_Panel_Settings {
     }
 
     public function get_dashboard_settings(){
-        return [
+        $dashboard_settings = [
             'manage_notifications' => [
                 'plugin_filter_options' => [
                     'label' => __('Filter Nofitications', 'hashbar'),
@@ -401,8 +402,44 @@ class Hashbar_Settings_Panel_Settings {
                     'isPro' => false,
                     'proBadge' => false,
                 ],
+                'posts_limit' => [
+                    'label' => __('Limit Posts List', 'hashbar'),
+                    'default' => 20,
+                    'desc' => __('Leave it empty for default. Default = 20. Use -1 to load all posts into the dropdown options', 'hashbar'),
+                    'type' => 'number',
+                    'min' => -1,
+                    'max' => 100000,
+                    'step' => 1,
+                    'isPro' => false,
+                    'proBadge' => false,
+                ],
+                'pages_limit' => [
+                    'label' => __('Limit Pages List', 'hashbar'),
+                    'default' => 20,
+                    'desc' => __('Leave it empty for default. Default = 20. Use -1 to load all posts into the dropdown options.', 'hashbar'),
+                    'type' => 'number',
+                    'min' => -1,
+                    'max' => 100000,
+                    'step' => 1,
+                    'isPro' => false,
+                    'proBadge' => false,
+                ],
             ],
         ];
+        if (is_plugin_active('woocommerce/woocommerce.php')) {
+            $dashboard_settings['general_settings']['product_limit'] = [
+                'label' => __('Limit Products List', 'hashbar'),
+                'default' => 20,
+                'desc' => __('Leave it empty for default. Default = 20. Use -1 to load all products into the dropdown options.', 'hashbar'),
+                'type' => 'number',
+                'min' => -1,
+                'max' => 100000,
+                'step' => 1,
+                'isPro' => false,
+                'proBadge' => false,
+            ];
+        }
+        return $dashboard_settings;
     }
 
     public function get_labels_texts() {

@@ -11,6 +11,7 @@ class PagesPostsAJAX {
 
     /**
      * Handler for gathering pages and posts
+     * Supports optional 'search' and 'post_type' parameters for server-side search
      */
     public static function get_pages_posts() {
         // Check permissions
@@ -19,45 +20,61 @@ class PagesPostsAJAX {
             wp_die();
         }
 
-        $pages_args = [
-            'post_type'      => 'page',
-            'posts_per_page' => 100,
-            'post_status'    => 'publish',
-            'orderby'        => 'title',
-            'order'          => 'ASC',
-        ];
+        $search = isset($_POST['search']) ? sanitize_text_field($_POST['search']) : '';
+        $post_type = isset($_POST['post_type']) ? sanitize_text_field($_POST['post_type']) : '';
 
-        $posts_args = [
-            'post_type'      => 'post',
-            'posts_per_page' => 100,
-            'post_status'    => 'publish',
-            'orderby'        => 'title',
-            'order'          => 'ASC',
-        ];
+        // Read saved limits from settings
+        $hashbar_options = get_option('hashbar_wpnb_opt', array());
+        $limits = array(
+            'post'    => isset($hashbar_options['posts_limit']) && $hashbar_options['posts_limit'] !== '' ? intval($hashbar_options['posts_limit']) : 20,
+            'page'    => isset($hashbar_options['pages_limit']) && $hashbar_options['pages_limit'] !== '' ? intval($hashbar_options['pages_limit']) : 20,
+            'product' => isset($hashbar_options['product_limit']) && $hashbar_options['product_limit'] !== '' ? intval($hashbar_options['product_limit']) : 20,
+        );
+
+        // When searching, use a higher limit to find matches beyond the initial load
+        $is_searching = !empty($search);
+
+        // Determine which post types to query
+        $allowed_types = ['post', 'page', 'product'];
+        if ($post_type && in_array($post_type, $allowed_types)) {
+            $types_to_query = [$post_type];
+        } else {
+            $types_to_query = ['page', 'post'];
+        }
 
         try {
-            $pages_query = new WP_Query($pages_args);
-            $posts_query = new WP_Query($posts_args);
-
             $items = [];
+            $show_type_prefix = count($types_to_query) > 1;
 
-            // Add pages
-            if ($pages_query->have_posts()) {
-                foreach ($pages_query->posts as $post) {
-                    $items[] = [
-                        'value' => (int)$post->ID,
-                        'label' => '[Page] ' . sanitize_text_field($post->post_title),
-                    ];
+            foreach ($types_to_query as $type) {
+                // Use saved limit for initial load, 100 for search
+                $per_page = $is_searching ? 100 : $limits[$type];
+
+                $args = [
+                    'post_type'      => $type,
+                    'posts_per_page' => $per_page,
+                    'post_status'    => 'publish',
+                    'orderby'        => 'title',
+                    'order'          => 'ASC',
+                ];
+
+                if ($search) {
+                    $args['s'] = $search;
                 }
-            }
 
-            // Add posts
-            if ($posts_query->have_posts()) {
-                foreach ($posts_query->posts as $post) {
-                    $items[] = [
-                        'value' => (int)$post->ID,
-                        'label' => '[Post] ' . sanitize_text_field($post->post_title),
-                    ];
+                $query = new WP_Query($args);
+
+                if ($query->have_posts()) {
+                    foreach ($query->posts as $post) {
+                        $label = $show_type_prefix
+                            ? '[' . ucfirst($type) . '] ' . sanitize_text_field($post->post_title)
+                            : sanitize_text_field($post->post_title);
+
+                        $items[] = [
+                            'value' => (string)$post->ID,
+                            'label' => $label,
+                        ];
+                    }
                 }
             }
 

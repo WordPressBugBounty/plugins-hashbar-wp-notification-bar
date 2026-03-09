@@ -3,7 +3,7 @@ Contributors: devitemsllc, htplugins, hasthemes, zenaulislam, aslamhasib, yeasin
 Tags: notification bar, popup, announcement bar, lead capture, countdown timer
 Requires at least: 5.0
 Tested up to: 6.9
-Stable tag: 1.9.2
+Stable tag: 1.9.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,11 +12,11 @@ Create Announcement Bars, Notification Bars & Popup Campaigns with countdown tim
 == Description ==
 = 🔔 The Most Powerful WordPress Announcement Bar, Notification Bar & Popup Campaign Plugin =
 
-[**HashBar**](https://hasthemes.com/plugins/wordpress-notification-bar-plugin/) is a powerful all-in-one WordPress plugin for **Announcement Bars**, **Notification Bars**, and **Popup Campaigns** that will take your WordPress site to the next level. Create unlimited **Announcement Bars** with countdown timers and coupons, embed **Notification Bars** with page builders, and build **high-converting Popup Campaigns** with smart triggers and lead capture forms. Advanced customization options, professional design controls, intelligent targeting, and advanced scheduling maximize your engagement and conversions.
+[**HashBar**](https://wphashbar.com/) is a powerful all-in-one WordPress plugin for **Announcement Bars**, **Notification Bars**, and **Popup Campaigns** that will take your WordPress site to the next level. Create unlimited **Announcement Bars** with countdown timers and coupons, embed **Notification Bars** with page builders, and build **high-converting Popup Campaigns** with smart triggers and lead capture forms. Advanced customization options, professional design controls, intelligent targeting, and advanced scheduling maximize your engagement and conversions.
 
 **Sometimes notification bars and popups can increase up to 500% of subscribers or conversions!**
 
-👉 [**Plugin Landing Page**](https://hasthemes.com/plugins/wordpress-notification-bar-plugin/) | [**Live Demo**](https://theplugindemo.com/hashbar/) | [**Purchase Pro**](https://hasthemes.com/plugins/wordpress-notification-bar-plugin/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=purchasepro/#hasbar-price) | [**Documentation**](https://hasthemes.com/docs/hashbar/) | [**Support**](https://hasthemes.com/contact-us/) 👈
+👉 [**Plugin Landing Page**](https://wphashbar.com/) | [**Purchase Pro**](https://wphashbar.com/pricing/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=purchasepro) | [**Documentation**](https://wphashbar.com/docs/) | [**Support**](https://wphashbar.com/contact/) 👈
 
 = 🎬 Video Tutorial =
 
@@ -463,16 +463,16 @@ HashBar offers seamless integration with WPML, the leading multilingual translat
 
 * [**HT Contact Form**](https://wordpress.org/plugins/ht-contactform/) – Elementor addon for Contact Form 7 with drag-and-drop and custom styling options.
 
-Wanna see the pro version? [**Check it out now!**](https://hasthemes.com/plugins/wordpress-notification-bar-plugin/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=purchasepro/#hasbar-price)
+Wanna see the pro version? [**Check it out now!**](https://wphashbar.com/pricing/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=purchasepro)
 
 = 💬 Need Help? =
 
 Is there any feature that you want to get in this plugin?
 Needs assistance to use this plugin?
 
-* 🎫 [**Create a Support Ticket**](https://hasthemes.com/contact-us/)
-* 💡 [**Feature Request / Bug Report**](https://hasthemes.com/wishform/)
-* 📚 [**Documentation**](https://hasthemes.com/docs/hashbar/)
+* 🎫 [**Create a Support Ticket**](https://wphashbar.com/contact/)
+* 💡 [**Feature Request / Bug Report**](https://wphashbar.com/contact/)
+* 📚 [**Documentation**](https://wphashbar.com/docs/)
 
 == Installation ==
 
@@ -577,6 +577,13 @@ Yes! 30-day money-back guarantee on Pro purchases.
 11. **A/B Testing & Analytics** - Compare variants, split traffic, and pick a winner automatically
 
 == Changelog ==
+
+= Version: 1.9.3 - Date: 09 Mar 2026 =
+* Added: Configurable limits for Posts, Pages, and Products list loading in Settings.
+* Added: Server-side search for page/post selection in Announcement Bar, Popup Campaign, and Notification targeting.
+* Improved: Eliminated duplicate database queries on admin settings page load.
+* Improved: Popup Campaign targeting tab no longer re-fetches data when switching tabs.
+* Fixed: Admin settings page timeout on WooCommerce sites with large product catalogs.
 
 = Version: 1.9.2 - Date: 25 Feb 2026 =
 * Added: Content element drag-and-drop ordering in Design tab for Popup Campaigns.

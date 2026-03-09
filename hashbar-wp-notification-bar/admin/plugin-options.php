@@ -19,7 +19,7 @@ function hashbar_wpnb_upgrade_menu_tweaks() {
             __('Upgrade to Pro', 'hashbar'),
             __('Upgrade to Pro', 'hashbar'), 
             'manage_options', 
-            'https://hasthemes.com/wordpress-notification-bar-plugin/?utm_source=admin&utm_medium=mainmenu&utm_campaign=free#hasbar-price'
+            'https://wphashbar.com/pricing/?utm_source=admin&utm_medium=mainmenu&utm_campaign=free'
         );
 	}
 }
@@ -29,7 +29,7 @@ function hashbar_wpnb_enqueue_admin_head_scripts() {
 	printf( '<style>%s</style>', '#adminmenu #menu-posts-wphash_ntf_bar a.hashbar-upgrade-pro { font-weight: 600; background-color: #ff6e30; color: #ffffff; text-align: center; margin-top: 3px; }' );
 	printf( '<script>%s</script>', '(function ($) {
 		$("#menu-posts-wphash_ntf_bar .wp-submenu a").each(function() {
-			if($(this)[0].href === "https://hasthemes.com/wordpress-notification-bar-plugin/?utm_source=admin&utm_medium=mainmenu&utm_campaign=free#hasbar-price") {
+			if($(this)[0].href === "https://wphashbar.com/pricing/?utm_source=admin&utm_medium=mainmenu&utm_campaign=free") {
 				$(this).addClass("hashbar-upgrade-pro").attr("target", "_blank");
 			}
 		})

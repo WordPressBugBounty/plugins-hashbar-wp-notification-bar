@@ -182,6 +182,23 @@ class ChangeLog extends WP_REST_Controller {
     private function get_changelog_data() {
         return [
             [
+                'version' => '1.9.3',
+                'date'    => '2026-03-09',
+                'changes' => [
+                    'Added' => [
+                        'Configurable limits for Posts, Pages, and Products list loading in Settings.',
+                        'Server-side search for page/post selection in Announcement Bar, Popup Campaign, and Notification targeting.',
+                    ],
+                    'Improved' => [
+                        'Eliminated duplicate database queries on admin settings page load.',
+                        'Popup Campaign targeting tab no longer re-fetches data when switching tabs.',
+                    ],
+                    'Fixed' => [
+                        'Admin settings page timeout on WooCommerce sites with large product catalogs.',
+                    ],
+                ],
+            ],
+            [
                 'version' => '1.9.2',
                 'date'    => '2026-02-25',
                 'changes' => [

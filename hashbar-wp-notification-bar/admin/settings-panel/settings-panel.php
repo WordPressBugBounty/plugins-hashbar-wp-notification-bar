@@ -78,7 +78,7 @@ class Hashbar_Settiigs_Panel {
                 __('Upgrade to Pro', 'hashbar'),
                 __('Upgrade to Pro', 'hashbar'), 
                 'manage_options', 
-                'https://hasthemes.com/wordpress-notification-bar-plugin/?utm_source=admin&utm_medium=mainmenu&utm_campaign=free#hasbar-price'
+                'https://wphashbar.com/pricing/?utm_source=admin&utm_medium=mainmenu&utm_campaign=free'
             );
         }
     }
@@ -87,7 +87,7 @@ class Hashbar_Settiigs_Panel {
         printf( '<style>%s</style>', '#adminmenu #toplevel_page_hashbar a.hashbar-upgrade-pro { font-weight: 600; background-color: #ff6e30; color: #ffffff; text-align: left; margin-top: 3px; }' );
         printf( '<script>%s</script>', '(function ($) {
             $("#toplevel_page_hashbar .wp-submenu a").each(function() {
-                if($(this)[0].href === "https://hasthemes.com/wordpress-notification-bar-plugin/?utm_source=admin&utm_medium=mainmenu&utm_campaign=free#hasbar-price") {
+                if($(this)[0].href === "https://wphashbar.com/pricing/?utm_source=admin&utm_medium=mainmenu&utm_campaign=free") {
                     $(this).addClass("hashbar-upgrade-pro").attr("target", "_blank");
                 }
             })
@@ -167,6 +167,7 @@ class Hashbar_Settiigs_Panel {
         }, 10, 3);
 
         $admin_settings = Hashbar_Settings_Panel_Settings::get_instance();
+        $notification_enable_fields = $admin_settings->get_notification_enable_fields();
 
         // Load announcement bar settings
         require_once dirname( __FILE__ ) . '/api/announcement-bar-settings.php';
@@ -204,7 +205,7 @@ class Hashbar_Settiigs_Panel {
                 'tmppage'    => esc_html__( 'Import to Page', 'hashbar' ),
                 'import'     => esc_html__( 'Import', 'hashbar' ),
                 'buynow'     => esc_html__( 'Buy Now', 'hashbar' ),
-                'buynow_link' => 'https://hasthemes.com/plugins/hashbar-pro/?utm_source=admin&utm_medium=mainmenu&utm_campaign=free#pricing',
+                'buynow_link' => 'https://wphashbar.com/pricing/?utm_source=admin&utm_medium=mainmenu&utm_campaign=free',
                 'preview'    => esc_html__( 'Preview', 'hashbar' ),
                 'installing' => esc_html__( 'Installing..', 'hashbar' ),
                 'activating' => esc_html__( 'Activating..', 'hashbar' ),
@@ -224,21 +225,21 @@ class Hashbar_Settiigs_Panel {
                 'documentation' => esc_html__('Documentation', 'hashbar'),
                 'videoTutorial' => esc_html__('Video Tutorial', 'hashbar'),
                 'support' => esc_html__('Support', 'hashbar'),
-                'docLink' => 'https://hasthemes.com/docs/hashbar/',
+                'docLink' => 'https://wphashbar.com/docs/',
                 'videoLink' => 'https://www.youtube.com/watch?v=9VUc5Is-9Uw',
-                'supportLink' => 'https://hasthemes.com/contact-us/',
-                'upgradeLink' => 'https://hasthemes.com/plugins/wordpress-notification-bar-plugin/?utm_source=admin&utm_medium=mainmenu&utm_campaign=free#pricing',
-                'licenseLink' => 'https://hasthemes.com/plugins/wordpress-notification-bar-plugin/?utm_source=admin&utm_medium=mainmenu&utm_campaign=free#pricing',
+                'supportLink' => 'https://wphashbar.com/contact/',
+                'upgradeLink' => 'https://wphashbar.com/pricing/?utm_source=admin&utm_medium=mainmenu&utm_campaign=free',
+                'licenseLink' => 'https://wphashbar.com/pricing/?utm_source=admin&utm_medium=mainmenu&utm_campaign=free',
                 'recommendedPluginsLink' => 'https://hasthemes.com/plugins/',
             ],
             'adminSettings' => [
-                'modal_settings_fields' => $admin_settings->get_modal_settings_fields(),
+                'modal_settings_fields' => $notification_enable_fields,
                 'is_pro' => Hashbar_Popup_Campaign_Settings::is_pro(),
                 'labels_texts' => $admin_settings->get_labels_texts(),
                 'dashboard_settings' => $admin_settings->get_dashboard_settings(),
                 'menu_settings' => $admin_settings->get_menu_settings(),
                 'recommendations_plugins' => $admin_settings->get_recommendations_plugins(),
-                'notification_enable_fields' => $admin_settings->get_notification_enable_fields(),
+                'notification_enable_fields' => $notification_enable_fields,
                 'hashbar_wpnb_opt' => get_option('hashbar_wpnb_opt') ? get_option('hashbar_wpnb_opt') : [],
             ],
             'announcementBarSettings' => [

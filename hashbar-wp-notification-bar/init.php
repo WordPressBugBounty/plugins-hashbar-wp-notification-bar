@@ -3,7 +3,7 @@
  * Plugin Name: HashBar - Announcement, Notification Bar & Popup Campaign
  * Plugin URI:  https://theplugindemo.com/hashbar/
  * Description: Announcement, Notification & Popup Campaign plugin for WordPress
- * Version:     1.9.2
+ * Version:     1.9.3
  * Author:      HasThemes
  * Author URI:  https://hasthemes.com
  * Text Domain: hashbar
@@ -15,7 +15,7 @@
 define( 'HASHBAR_WPNB_ROOT', __FILE__ );
 define( 'HASHBAR_WPNB_URI', plugins_url('',HASHBAR_WPNB_ROOT) );
 define( 'HASHBAR_WPNB_DIR', dirname(HASHBAR_WPNB_ROOT ) );
-define( 'HASHBAR_WPNB_VERSION', '1.9.2');
+define( 'HASHBAR_WPNB_VERSION', '1.9.3');
 
 // Template library image source: 'local' for dev, 'external' for production
 define( 'HASHBAR_TEMPLATE_IMG_SOURCE', 'local' );
@@ -128,6 +128,10 @@ add_action('admin_init', 'hashbar_show_rating_notice');
 
 function hashbar_show_diagnostic_notice() {
     $notice_instance = Hashbar_Diagnostic_Data::get_instance();
+    
+    if ( ! $notice_instance->should_show_notice() ) {
+        return;
+    }
     ob_start();
     $notice_instance->show_notices();
     $message = ob_get_clean();
@@ -457,7 +461,7 @@ function hashbar_wpnb_upgrade_popup(){
 	?>
 	<div id="ht_dialog" title="<?php echo esc_attr__( 'Go Premium!', 'hashbar' ); ?>" class="ht_dialog" style="display: none;">
 		<div class="dashicons-before dashicons-warning"></div>
-		<h3><?php esc_html_e( 'Purchase our', 'hashbar' ); ?> <a target="_blank" href="https://hasthemes.com/0lx0"><?php esc_html_e( 'Premium', 'hashbar' ); ?></a> <?php esc_html_e( 'version to unlock this feature!', 'hashbar' ); ?></h3>
+		<h3><?php esc_html_e( 'Purchase our', 'hashbar' ); ?> <a target="_blank" href="https://wphashbar.com/pricing/"><?php esc_html_e( 'Premium', 'hashbar' ); ?></a> <?php esc_html_e( 'version to unlock this feature!', 'hashbar' ); ?></h3>
 	</div>
 	<?php
 }
@@ -1018,7 +1022,7 @@ function pro_version_notice(){
             <div class="hashbar_pro_notice_wrapper">
                 <h3><?php echo esc_html__('Pro Version is Required!', 'hashbar') ?></h3>
                 <p><?php echo esc_html__('This feature is available in the pro version.', 'hashbar') ?></p>
-                <a target="_blank" href="<?php echo esc_url('https://hasthemes.com/plugins/wordpress-notification-bar-plugin/') ?>"><?php echo esc_html__('Buy Now', 'hashbar') ?></a>
+                <a target="_blank" href="<?php echo esc_url('https://wphashbar.com/pricing/') ?>"><?php echo esc_html__('Buy Now', 'hashbar') ?></a>
             </div>
         </div>
     <?php
