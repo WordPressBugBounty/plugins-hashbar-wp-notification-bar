@@ -617,7 +617,55 @@ function hashbar_is_private_ip( $ip ) {
 function hashbar_is_bar_closed( $bar_id ) {
 	$cookie_name = 'hashbar_announcement_closed_' . $bar_id;
 
-	return isset( $_COOKIE[ $cookie_name ] );
+	if ( ! isset( $_COOKIE[ $cookie_name ] ) ) {
+		return false;
+	}
+
+	// Get current duration setting
+	$cookie_preset = get_post_meta( $bar_id, '_wphash_ab_cookie_expire_after_close', true ) ?: 'show_on_reload';
+
+	// If set to "show on reload", ignore any existing cookie
+	if ( $cookie_preset === 'show_on_reload' ) {
+		return false;
+	}
+
+	// If set to "never", always stay closed
+	if ( $cookie_preset === 'never' ) {
+		return true;
+	}
+
+	// "session only" - cookie exists means bar was closed in this session
+	if ( $cookie_preset === 'session_only' ) {
+		return true;
+	}
+
+	// For time-based durations, compare close timestamp against setting
+	$closed_time = intval( $_COOKIE[ $cookie_name ] );
+
+	// Legacy cookies stored '1' - treat as closed (browser expiry will handle cleanup)
+	if ( $closed_time <= 1 ) {
+		return true;
+	}
+
+	// Convert preset to seconds and check if enough time has passed
+	$durations_in_seconds = array(
+		'1_hour'  => 3600,
+		'6_hours' => 21600,
+		'1_day'   => 86400,
+		'7_days'  => 604800,
+		'2_weeks' => 1209600,
+		'1_month' => 2592000,
+	);
+
+	if ( ! isset( $durations_in_seconds[ $cookie_preset ] ) ) {
+		return true;
+	}
+
+	// Cookie stores JS Date.now() in milliseconds - convert to seconds
+	$closed_timestamp = $closed_time / 1000;
+	$elapsed = time() - $closed_timestamp;
+
+	return $elapsed < $durations_in_seconds[ $cookie_preset ];
 }
 
 /**
@@ -1083,8 +1131,15 @@ function hashbar_render_single_bar( $bar ) {
 	$close_hover_bg_val = ! empty( $close_hover_bg ) ? $close_hover_bg : $close_btn_bg_color;
 	$close_button_styles = "display: inline-block; background: {$close_btn_bg_color}; color: {$close_btn_color}; padding: 8px 16px; border-radius: {$close_border_radius}px; border: none; cursor: pointer; font-size: {$close_font_size}px; font-weight: {$close_font_weight}; text-decoration: none; white-space: nowrap; transition: all 0.2s ease; flex-shrink: 0; --close-hover-color: {$close_hover_text}; --close-hover-bg: {$close_hover_bg_val};";
 
-	// Fallback generic button styles (for reopen button and compatibility)
-	$button_styles = "background: {$button_bg_color}; color: {$button_color}; padding: 8px 16px; border-radius: 4px; border: none; cursor: pointer; font-size: 14px; font-weight: 500; text-decoration: none; transition: opacity 0.2s ease;";
+	// Reopen button styles
+	$reopen_color = get_post_meta( $bar_id, '_wphash_ab_reopen_color', true ) ?: '#ffffff';
+	$reopen_bg_color = get_post_meta( $bar_id, '_wphash_ab_reopen_bg_color', true ) ?: '#667eea';
+	$reopen_hover_color = get_post_meta( $bar_id, '_wphash_ab_reopen_hover_color', true ) ?: '#ffffff';
+	$reopen_hover_bg = get_post_meta( $bar_id, '_wphash_ab_reopen_hover_bg_color', true ) ?: '#764ba2';
+	$reopen_font_size = (int) ( get_post_meta( $bar_id, '_wphash_ab_reopen_font_size', true ) ?: 14 );
+	$reopen_font_weight = (int) ( get_post_meta( $bar_id, '_wphash_ab_reopen_font_weight', true ) ?: 500 );
+	$reopen_border_radius = (int) ( get_post_meta( $bar_id, '_wphash_ab_reopen_border_radius', true ) ?: 4 );
+	$reopen_button_styles = "background: {$reopen_bg_color}; color: {$reopen_color}; padding: 12px 20px; border-radius: {$reopen_border_radius}px; border: none; cursor: pointer; font-size: {$reopen_font_size}px; font-weight: {$reopen_font_weight}; text-decoration: none; white-space: nowrap; transition: all 0.2s ease; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); --reopen-hover-color: {$reopen_hover_color}; --reopen-hover-bg: {$reopen_hover_bg};";
 
 	// Get behavioral targeting settings
 	$time_on_site_enabled = get_post_meta( $bar_id, '_wphash_ab_show_after_time_on_site', true );
@@ -1172,7 +1227,7 @@ function hashbar_render_single_bar( $bar ) {
 	?>
 
 
-	<div class="hashbar-announcement-bar-wrapper">
+	<div class="hashbar-announcement-bar-wrapper" data-bar-id="<?php echo esc_attr( $bar_id ); ?>"<?php echo ! $is_sticky ? ' style="overflow:hidden;height:0"' : ''; ?>>
 		<?php if ( ! empty( $custom_css ) ) : ?>
 			<style>
 				<?php echo wp_strip_all_tags( $custom_css ); ?>
@@ -1330,10 +1385,13 @@ function hashbar_render_single_bar( $bar ) {
 		<?php endif; ?>
 	</div>
 	</div>
+	<?php if ( ! $is_sticky ) : ?>
+	<script>(function(){var w=document.currentScript.previousElementSibling;w.style.height='auto';var h=w.offsetHeight;w.style.height='0px';w.offsetHeight;w.style.transition='height <?php echo esc_js( $animation_duration / 1000 ); ?>s ease';w.style.height=h+'px';setTimeout(function(){w.style.overflow='';w.style.height='';w.style.transition='';},<?php echo esc_js( $animation_duration ); ?>);})();</script>
+	<?php endif; ?>
 
 	<?php if ( $reopen_enabled && defined( 'HASHBAR_WPNBP_VERSION' ) ) : ?>
 		<div class="hashbar-reopen-button" data-bar-id="<?php echo esc_attr( $bar_id ); ?>" style="position: fixed; bottom: 20px; right: 20px; z-index: 99999; display: none;">
-			<button class="hashbar-reopen-btn" style="<?php echo esc_attr( $button_styles ); ?>">
+			<button class="hashbar-reopen-btn" style="<?php echo esc_attr( $reopen_button_styles ); ?>">
 				<?php echo esc_html( $reopen_text ); ?>
 			</button>
 		</div>

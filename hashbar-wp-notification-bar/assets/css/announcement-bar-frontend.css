@@ -83,6 +83,8 @@
 }
 
 .hashbar-reopen-btn:hover {
+  background-color: var(--reopen-hover-bg) !important;
+  color: var(--reopen-hover-color) !important;
   opacity: 0.8;
   transform: scale(1.02);
 }
@@ -109,11 +111,7 @@
 }
 
 .hashbar-reopen-btn {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white !important;
   text-decoration: none !important;
-  padding: 12px 20px;
 }
 
 .hashbar-reopen-btn:hover {

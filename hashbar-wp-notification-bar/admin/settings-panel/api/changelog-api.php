@@ -182,6 +182,22 @@ class ChangeLog extends WP_REST_Controller {
     private function get_changelog_data() {
         return [
             [
+                'version' => '1.9.4',
+                'date'    => '2026-04-07',
+                'changes' => [
+                    'Added' => [
+                        'Reopen Button Styling section in Design tab with color, font, and border radius controls (Pro).',
+                    ],
+                    'Improved' => [
+                        'Smooth height transition when Announcement Bar opens and closes (no more content jumping).',
+                        'Cookie duration changes now take effect immediately without needing to clear browser cookies.',
+                    ],
+                    'Fixed' => [
+                        'Reopen button not appearing when "Show on each page reload" cookie option is selected.',
+                    ],
+                ],
+            ],
+            [
                 'version' => '1.9.3',
                 'date'    => '2026-03-09',
                 'changes' => [

@@ -190,7 +190,7 @@
         initializeTimeOnSiteTargeting(bar, barId);
       } else {
         // If time-on-site targeting is not enabled, show bar immediately
-        bar.style.display = 'flex';
+        showBar(bar);
       }
 
       // Initialize close button
@@ -236,7 +236,7 @@
 
     // If minimum time is 0 or not set, show immediately
     if (minimumTimeSeconds <= 0) {
-      bar.style.display = 'flex';
+      showBar(bar);
       return;
     }
 
@@ -256,7 +256,7 @@
 
     if (barAlreadyShown === 'true') {
       // Bar was already shown in this session, show it immediately
-      bar.style.display = 'flex';
+      showBar(bar);
       return;
     }
 
@@ -267,7 +267,7 @@
 
     if (elapsedSeconds >= minimumTimeSeconds) {
       // Minimum time has been reached, show the bar
-      bar.style.display = 'flex';
+      showBar(bar);
       sessionStorage.setItem(barShownKey, 'true');
     } else {
       // Hide the bar initially, will show when time threshold is reached
@@ -278,18 +278,8 @@
 
       // Set timeout to show bar after remaining time elapses
       setTimeout(function() {
-        bar.style.display = 'flex';
+        showBar(bar);
         sessionStorage.setItem(barShownKey, 'true');
-
-        // Apply entry animation if configured
-        const entryAnimation = bar.getAttribute('data-animation-entry');
-        const animationDuration = parseInt(bar.getAttribute('data-animation-duration'), 10) || 500;
-
-        if (entryAnimation && entryAnimation !== 'none') {
-          bar.style.animation = entryAnimation + ' ' + (animationDuration / 1000) + 's ease-out forwards';
-        } else {
-          bar.style.opacity = '1';
-        }
       }, timeRemaining * 1000);
     }
   }
@@ -309,56 +299,73 @@
   }
 
   /**
-   * Close announcement bar with animation and set cookie
+   * Close announcement bar with animation and smooth height collapse
    */
   function closeAnnouncement(bar, barId) {
-    const exitAnimation = bar.getAttribute('data-animation-exit');
-    const animationDuration = parseInt(bar.getAttribute('data-animation-duration'), 10) || 500;
+    var exitAnimation = bar.getAttribute('data-animation-exit');
+    var animationDuration = parseInt(bar.getAttribute('data-animation-duration'), 10) || 500;
+    var wrapper = bar.closest('.hashbar-announcement-bar-wrapper') || bar;
 
-    // Apply exit animation
+    // Collapse wrapper height in sync with exit animation
+    wrapper.style.overflow = 'hidden';
+    wrapper.style.height = wrapper.offsetHeight + 'px';
+    wrapper.offsetHeight; // force reflow
+    wrapper.style.transition = 'height ' + (animationDuration / 1000) + 's ease';
+    wrapper.style.height = '0px';
+
+    // Apply exit animation on the bar
     if (exitAnimation && exitAnimation !== 'none') {
       bar.style.animation = exitAnimation + ' ' + (animationDuration / 1000) + 's ease-in forwards';
     } else {
+      bar.style.transition = 'opacity ' + (animationDuration / 1000) + 's ease';
       bar.style.opacity = '0';
     }
 
-    // Set cookie after animation completes
+    // After animation completes, hide bar and set cookie
     setTimeout(function() {
+      bar.style.display = 'none';
+
       // Get cookie duration from data attributes (already in days, converted from preset on backend)
-      let cookieDays = parseFloat(bar.getAttribute('data-cookie-duration'));
+      var cookieDays = parseFloat(bar.getAttribute('data-cookie-duration'));
 
       // -1 means "show on reload" - don't set any cookie, just hide the bar
       if (cookieDays === -1) {
-        bar.style.display = 'none';
-        return;
-      }
-
-      // 0 means "session only" - set cookie with no expiration (browser session only)
-      if (cookieDays === 0) {
-        setCookie('hashbar_announcement_closed_' + barId, '1', null);
-        bar.style.display = 'none';
-        const reopenButton = document.querySelector('.hashbar-reopen-button[data-bar-id="' + barId + '"]');
-        if (reopenButton) {
-          reopenButton.style.display = 'block';
+        var reopenBtnReload = document.querySelector('.hashbar-reopen-button[data-bar-id="' + barId + '"]');
+        if (reopenBtnReload) {
+          reopenBtnReload.style.display = 'block';
         }
         return;
       }
 
-      // Fallback to 7 days if conversion fails or no duration set
-      if (isNaN(cookieDays) || cookieDays < 0) {
-        cookieDays = 7;
+      // Store close timestamp so PHP can compare against current setting
+      var closeTimestamp = Date.now().toString();
+
+      // 0 means "session only" - set session cookie (no expiration)
+      if (cookieDays === 0) {
+        setCookie('hashbar_announcement_closed_' + barId, closeTimestamp, null);
+        var reopenBtn0 = document.querySelector('.hashbar-reopen-button[data-bar-id="' + barId + '"]');
+        if (reopenBtn0) {
+          reopenBtn0.style.display = 'block';
+        }
+        return;
       }
 
-      // Set cookie with calculated duration
-      setCookie('hashbar_announcement_closed_' + barId, '1', cookieDays);
-      bar.style.display = 'none';
+      // Set cookie with 1-year expiry - PHP handles the real duration check
+      setCookie('hashbar_announcement_closed_' + barId, closeTimestamp, 365);
 
       // Show reopen button if enabled
-      const reopenButton = document.querySelector('.hashbar-reopen-button[data-bar-id="' + barId + '"]');
+      var reopenButton = document.querySelector('.hashbar-reopen-button[data-bar-id="' + barId + '"]');
       if (reopenButton) {
         reopenButton.style.display = 'block';
       }
     }, animationDuration);
+  }
+
+  /**
+   * Show bar - entry animation is handled by PHP inline styles
+   */
+  function showBar(bar) {
+    bar.style.display = 'flex';
   }
 
   /**
@@ -388,16 +395,17 @@
     // Clear the closed cookie
     setCookie('hashbar_announcement_closed_' + barId, '', -1);
 
-    // Show the bar with animation
+    // Reset bar and wrapper for re-display
+    var wrapper = bar.closest('.hashbar-announcement-bar-wrapper') || bar;
+    wrapper.style.overflow = '';
+    wrapper.style.height = '';
+    wrapper.style.transition = '';
     bar.style.display = 'flex';
-    const entryAnimation = bar.getAttribute('data-animation-entry');
-    const animationDuration = parseInt(bar.getAttribute('data-animation-duration'), 10) || 500;
+    bar.style.opacity = '1';
+    bar.style.animation = 'none';
 
-    if (entryAnimation && entryAnimation !== 'none') {
-      bar.style.animation = entryAnimation + ' ' + (animationDuration / 1000) + 's ease-out forwards';
-    } else {
-      bar.style.opacity = '1';
-    }
+    // Show bar with entry animation
+    showBar(bar);
 
     // Hide reopen button
     reopenButton.style.display = 'none';

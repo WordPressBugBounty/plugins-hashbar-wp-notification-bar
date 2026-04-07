@@ -3,7 +3,7 @@ Contributors: devitemsllc, htplugins, hasthemes, zenaulislam, aslamhasib, yeasin
 Tags: notification bar, popup, announcement bar, lead capture, countdown timer
 Requires at least: 5.0
 Tested up to: 6.9
-Stable tag: 1.9.3
+Stable tag: 1.9.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -443,6 +443,12 @@ HashBar offers seamless integration with WPML, the leading multilingual translat
 * ⏰ Urgency campaigns with countdown timers
 * 💰 Promotional offers with coupon codes
 
+== 🎬 Community Tutorials ==
+Tutorials created by our amazing community members:
+ 
+[youtube https://www.youtube.com/watch?v=hdRVYTMd5OA]
+[youtube https://www.youtube.com/watch?v=h01pQn6q-HM]
+
 = 🔥 Other Popular Plugins by HasThemes =
 
 * [**ShopLentor (formerly WooLentor)**](https://wordpress.org/plugins/woolentor-addons/) – WooCommerce page builder plugin with 120+ free Elementor widgets, 110+ WooCommerce templates, and Gutenberg Blocks. Best alternative for ShopReady, Kadence, JetWidgets, ShopEngine, and CoDesigner.
@@ -577,6 +583,12 @@ Yes! 30-day money-back guarantee on Pro purchases.
 11. **A/B Testing & Analytics** - Compare variants, split traffic, and pick a winner automatically
 
 == Changelog ==
+
+= Version: 1.9.4 - Date: 07 Apr 2026 =
+* Added: Reopen Button Styling section in Design tab with color, font, and border radius controls (Pro).
+* Improved: Smooth height transition when Announcement Bar opens and closes (no more content jumping).
+* Improved: Cookie duration changes now take effect immediately without needing to clear browser cookies.
+* Fixed: Reopen button not appearing when "Show on each page reload" cookie option is selected.
 
 = Version: 1.9.3 - Date: 09 Mar 2026 =
 * Added: Configurable limits for Posts, Pages, and Products list loading in Settings.

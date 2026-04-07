@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: HashBar - Announcement, Notification Bar & Popup "
 "Campaign\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-09 08:06+0000\n"
+"POT-Creation-Date: 2026-04-07 06:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.8.1; wp-6.9.1; php-8.2.26\n"
+"X-Loco-Version: 2.8.3; wp-6.9.4; php-8.4.18\n"
 "X-Domain: hashbar"
 
 #: inc/metabox.php:260
@@ -36,12 +36,12 @@ msgstr ""
 msgid "%s is the winner with %.2f%% improvement (%.1f%% confidence)"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-api.php:433
 #: admin/settings-panel/api/popup-campaign-api.php:472
+#: admin/settings-panel/api/announcement-bar-api.php:433
 msgid "(Copy)"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1667
+#: admin/settings-panel/api/announcement-bar-settings.php:1762
 msgid "+ Add Another Message"
 msgstr ""
 
@@ -50,19 +50,19 @@ msgstr ""
 msgid "00"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:678
+#: admin/settings-panel/api/announcement-bar-settings.php:773
 msgid "1 Day"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:676
+#: admin/settings-panel/api/announcement-bar-settings.php:771
 msgid "1 Hour"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:681
+#: admin/settings-panel/api/announcement-bar-settings.php:776
 msgid "1 Month"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:680
+#: admin/settings-panel/api/announcement-bar-settings.php:775
 msgid "2 Weeks"
 msgstr ""
 
@@ -74,11 +74,11 @@ msgstr ""
 msgid "50,60,54"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:677
+#: admin/settings-panel/api/announcement-bar-settings.php:772
 msgid "6 Hours"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:679
+#: admin/settings-panel/api/announcement-bar-settings.php:774
 msgid "7 Days"
 msgstr ""
 
@@ -97,7 +97,7 @@ msgid ""
 "the page."
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1312
+#: admin/settings-panel/api/announcement-bar-settings.php:1407
 msgid "A simple and clean notification banner"
 msgstr ""
 
@@ -109,16 +109,16 @@ msgstr ""
 msgid "A/B test variants"
 msgstr ""
 
+#: admin/settings-panel/api/announcement-bar-settings.php:1379
 #: admin/settings-panel/api/admin-settings.php:83
-#: admin/settings-panel/api/announcement-bar-settings.php:1284
 msgid "A/B Testing"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1643
+#: admin/settings-panel/api/announcement-bar-settings.php:1738
 msgid "AB Testing Results"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1610
+#: admin/settings-panel/api/announcement-bar-settings.php:1705
 msgid "Actions"
 msgstr ""
 
@@ -130,7 +130,7 @@ msgstr ""
 msgid "Active"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1172
+#: admin/settings-panel/api/announcement-bar-settings.php:1267
 msgid "Active Days"
 msgstr ""
 
@@ -142,11 +142,11 @@ msgstr ""
 msgid "Active Notifications"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1512
+#: admin/settings-panel/api/announcement-bar-settings.php:1607
 msgid "Add Another Message"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:562
+#: admin/settings-panel/api/announcement-bar-settings.php:657
 msgid ""
 "Add custom CSS to style your announcement bar. Use .hashbar-announcement-bar,"
 " .hashbar-announcement-cta, .hashbar-coupon-display, or .hashbar-"
@@ -169,7 +169,7 @@ msgstr ""
 msgid "Add New Popup"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1513
+#: admin/settings-panel/api/announcement-bar-settings.php:1608
 msgid "Add Variant"
 msgstr ""
 
@@ -177,7 +177,7 @@ msgstr ""
 msgid "Additional features for Contact Form 7"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1101
+#: admin/settings-panel/api/announcement-bar-settings.php:1196
 msgid "Advanced Coupon Options"
 msgstr ""
 
@@ -205,7 +205,7 @@ msgstr ""
 msgid "All Announcements"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1539
+#: admin/settings-panel/api/announcement-bar-settings.php:1634
 msgid "All Bars"
 msgstr ""
 
@@ -213,7 +213,7 @@ msgstr ""
 msgid "All Countries (Worldwide)"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:709
+#: admin/settings-panel/api/announcement-bar-settings.php:804
 msgid "All Except Excluded"
 msgstr ""
 
@@ -225,8 +225,9 @@ msgstr ""
 msgid "All Notifications"
 msgstr ""
 
-#: inc/metabox.php:296 admin/settings-panel/api/admin-settings.php:257
-#: admin/settings-panel/api/announcement-bar-settings.php:706
+#: inc/metabox.php:296
+#: admin/settings-panel/api/announcement-bar-settings.php:801
+#: admin/settings-panel/api/admin-settings.php:257
 msgid "All Pages"
 msgstr ""
 
@@ -261,7 +262,7 @@ msgstr ""
 msgid "Analytics"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1613
+#: admin/settings-panel/api/announcement-bar-settings.php:1708
 msgid "Analytics Data"
 msgstr ""
 
@@ -274,7 +275,7 @@ msgid "And So Much More!"
 msgstr ""
 
 #: admin/settings-panel/api/announcement-bar-settings.php:118
-#: admin/settings-panel/api/announcement-bar-settings.php:1235
+#: admin/settings-panel/api/announcement-bar-settings.php:1330
 msgid "Animation"
 msgstr ""
 
@@ -282,7 +283,7 @@ msgstr ""
 msgid "Animation delay in ms"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1265
+#: admin/settings-panel/api/announcement-bar-settings.php:1360
 msgid "Animation Duration"
 msgstr ""
 
@@ -290,7 +291,7 @@ msgstr ""
 msgid "Animation duration in ms"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1330
+#: admin/settings-panel/api/announcement-bar-settings.php:1425
 msgid "Announce free shipping offers"
 msgstr ""
 
@@ -304,8 +305,8 @@ msgstr ""
 
 #: inc/announcement-bar-cpt.php:20 inc/announcement-bar-cpt.php:45
 #: admin/settings-panel/settings-panel.php:67
+#: admin/settings-panel/api/announcement-bar-settings.php:1710
 #: admin/settings-panel/api/admin-settings.php:42
-#: admin/settings-panel/api/announcement-bar-settings.php:1615
 msgid "Announcement Bar"
 msgstr ""
 
@@ -336,7 +337,7 @@ msgid "Announcement bar updated successfully"
 msgstr ""
 
 #: inc/announcement-bar-cpt.php:19
-#: admin/settings-panel/api/announcement-bar-settings.php:1526
+#: admin/settings-panel/api/announcement-bar-settings.php:1621
 msgid "Announcement Bars"
 msgstr ""
 
@@ -368,7 +369,7 @@ msgstr ""
 msgid "Are you cheating?"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1533
+#: admin/settings-panel/api/announcement-bar-settings.php:1628
 msgid "Are you sure you want to delete this announcement bar?"
 msgstr ""
 
@@ -396,7 +397,7 @@ msgstr ""
 msgid "Auto"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1090
+#: admin/settings-panel/api/announcement-bar-settings.php:1185
 msgid "Auto-apply to Cart"
 msgstr ""
 
@@ -404,7 +405,7 @@ msgstr ""
 msgid "Auto-apply to cart"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1079
+#: admin/settings-panel/api/announcement-bar-settings.php:1174
 msgid "Auto-copy on click"
 msgstr ""
 
@@ -416,19 +417,19 @@ msgstr ""
 msgid "Automatically rotate between multiple messages"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1574
+#: admin/settings-panel/api/announcement-bar-settings.php:1669
 msgid "Average CTR"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1577
+#: admin/settings-panel/api/announcement-bar-settings.php:1672
 msgid "Average Position"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1509
+#: admin/settings-panel/api/announcement-bar-settings.php:1604
 msgid "Back"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1584
+#: admin/settings-panel/api/announcement-bar-settings.php:1679
 msgid "Back to List"
 msgstr ""
 
@@ -437,11 +438,11 @@ msgid "Background"
 msgstr ""
 
 #: admin/settings-panel/api/announcement-bar-settings.php:218
-#: admin/settings-panel/api/announcement-bar-settings.php:1671
+#: admin/settings-panel/api/announcement-bar-settings.php:1766
 msgid "Background Color"
 msgstr ""
 
-#: inc/announcement-bar-cpt.php:170 inc/metabox.php:682 inc/metabox.php:713
+#: inc/metabox.php:682 inc/metabox.php:713 inc/announcement-bar-cpt.php:170
 #: inc/popup-campaign-cpt.php:519
 msgid "Background color"
 msgstr ""
@@ -490,11 +491,11 @@ msgstr ""
 msgid "Bar height in pixels"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:585
+#: admin/settings-panel/api/announcement-bar-settings.php:680
 msgid "Bar Position"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:580
+#: admin/settings-panel/api/announcement-bar-settings.php:675
 msgid "Bar Position & Display"
 msgstr ""
 
@@ -502,7 +503,7 @@ msgstr ""
 msgid "Bar position (top/bottom)"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1541
+#: admin/settings-panel/api/announcement-bar-settings.php:1636
 msgid "bars"
 msgstr ""
 
@@ -514,7 +515,7 @@ msgstr ""
 msgid "Before You Go, Can We Have a Moment?"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:789
+#: admin/settings-panel/api/announcement-bar-settings.php:884
 msgid "Behavioral Targeting"
 msgstr ""
 
@@ -522,7 +523,7 @@ msgstr ""
 msgid "Belgium"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:915
+#: admin/settings-panel/api/announcement-bar-settings.php:1010
 msgid "Below (Underneath Message)"
 msgstr ""
 
@@ -552,12 +553,12 @@ msgctxt "block keyword"
 msgid "countdown"
 msgstr ""
 
-#: build/blocks/hashbar-countdown/block.json:1
 #: build/blocks/hashbar-notification/block.json:1
+#: build/blocks/hashbar-countdown/block.json:1
 #: build/blocks/hashbar-promobanner/block.json:1
 #: build/blocks/promo-banner-img/block.json:1
-#: src/blocks/hashbar-countdown/block.json:1
 #: src/blocks/hashbar-notification/block.json:1
+#: src/blocks/hashbar-countdown/block.json:1
 #: src/blocks/hashbar-promobanner/block.json:1
 #: src/blocks/promo-banner-img/block.json:1
 msgctxt "block keyword"
@@ -611,11 +612,16 @@ msgstr ""
 #: admin/settings-panel/api/announcement-bar-settings.php:320
 #: admin/settings-panel/api/announcement-bar-settings.php:438
 #: admin/settings-panel/api/announcement-bar-settings.php:533
+#: admin/settings-panel/api/announcement-bar-settings.php:628
 msgid "Bold (700)"
 msgstr ""
 
 #: inc/popup-campaign-cpt.php:630
 msgid "Border color"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:638
+msgid "Border Radius"
 msgstr ""
 
 #: inc/metabox.php:954 inc/metabox.php:1033 inc/metabox.php:1099
@@ -642,7 +648,7 @@ msgstr ""
 msgid "Bottom Left"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:590
+#: admin/settings-panel/api/announcement-bar-settings.php:685
 msgid "Bottom of page"
 msgstr ""
 
@@ -650,15 +656,15 @@ msgstr ""
 msgid "Bottom Right"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1245
+#: admin/settings-panel/api/announcement-bar-settings.php:1340
 msgid "Bounce In"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1258
+#: admin/settings-panel/api/announcement-bar-settings.php:1353
 msgid "Bounce Out"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:897
+#: admin/settings-panel/api/announcement-bar-settings.php:992
 msgid "Box"
 msgstr ""
 
@@ -674,16 +680,17 @@ msgstr ""
 msgid "Brazil"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1606
+#: admin/settings-panel/api/announcement-bar-settings.php:1701
 msgid "Bulk Delete"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1452
+#: admin/settings-panel/api/announcement-bar-settings.php:1547
 msgid "Bundle Deal"
 msgstr ""
 
 #: admin/settings-panel/api/announcement-bar-settings.php:386
 #: admin/settings-panel/api/announcement-bar-settings.php:481
+#: admin/settings-panel/api/announcement-bar-settings.php:576
 msgid "Button Background Color"
 msgstr ""
 
@@ -713,6 +720,7 @@ msgstr ""
 
 #: admin/settings-panel/api/announcement-bar-settings.php:375
 #: admin/settings-panel/api/announcement-bar-settings.php:470
+#: admin/settings-panel/api/announcement-bar-settings.php:565
 msgid "Button Text Color"
 msgstr ""
 
@@ -754,9 +762,9 @@ msgstr ""
 msgid "Canada"
 msgstr ""
 
+#: admin/settings-panel/api/announcement-bar-settings.php:1603
 #: admin/settings-panel/api/admin-settings.php:459
 #: admin/settings-panel/api/admin-settings.php:515
-#: admin/settings-panel/api/announcement-bar-settings.php:1508
 msgid "Cancel"
 msgstr ""
 
@@ -817,7 +825,7 @@ msgid ""
 "Choose the area of your site, where the notification should be displayed."
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:586
+#: admin/settings-panel/api/announcement-bar-settings.php:681
 msgid "Choose the position where your bar will be displayed"
 msgstr ""
 
@@ -825,16 +833,16 @@ msgstr ""
 msgid "Choose where to show the notification."
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:703
+#: admin/settings-panel/api/announcement-bar-settings.php:798
 msgid "Choose where your announcement bar will be displayed"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:898
+#: admin/settings-panel/api/announcement-bar-settings.php:993
 msgid "Circular"
 msgstr ""
 
+#: admin/settings-panel/api/announcement-bar-settings.php:1406
 #: admin/settings-panel/api/announcement-bar-api.php:481
-#: admin/settings-panel/api/announcement-bar-settings.php:1311
 msgid "Classic"
 msgstr ""
 
@@ -850,25 +858,25 @@ msgstr ""
 msgid "Click trigger CSS selector"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1625
+#: admin/settings-panel/api/announcement-bar-settings.php:1720
 msgid "Click-Through Rate"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1624
-#: admin/settings-panel/api/announcement-bar-settings.php:1630
-#: admin/settings-panel/api/announcement-bar-settings.php:1646
+#: admin/settings-panel/api/announcement-bar-settings.php:1719
+#: admin/settings-panel/api/announcement-bar-settings.php:1725
+#: admin/settings-panel/api/announcement-bar-settings.php:1741
 msgid "Clicks"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1561
+#: admin/settings-panel/api/announcement-bar-settings.php:1656
 msgid "Clicks Over Time"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1589
+#: admin/settings-panel/api/announcement-bar-settings.php:1684
 msgid "Clone"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1590
+#: admin/settings-panel/api/announcement-bar-settings.php:1685
 msgid "Close"
 msgstr ""
 
@@ -877,7 +885,7 @@ msgid "Close Border Radius"
 msgstr ""
 
 #: inc/metabox.php:664
-#: admin/settings-panel/api/announcement-bar-settings.php:608
+#: admin/settings-panel/api/announcement-bar-settings.php:703
 msgid "Close Button"
 msgstr ""
 
@@ -913,7 +921,7 @@ msgstr ""
 msgid "Close button hover text color"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:629
+#: admin/settings-panel/api/announcement-bar-settings.php:724
 msgid "Close Button Position"
 msgstr ""
 
@@ -929,11 +937,11 @@ msgstr ""
 msgid "Close Button Styling"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:617
+#: admin/settings-panel/api/announcement-bar-settings.php:712
 msgid "Close Button Text"
 msgstr ""
 
-#: inc/announcement-bar-cpt.php:351 inc/metabox.php:466
+#: inc/metabox.php:466 inc/announcement-bar-cpt.php:351
 msgid "Close button text"
 msgstr ""
 
@@ -970,15 +978,15 @@ msgid "Colombia"
 msgstr ""
 
 #: admin/settings-panel/api/announcement-bar-settings.php:214
-#: admin/settings-panel/api/announcement-bar-settings.php:1670
+#: admin/settings-panel/api/announcement-bar-settings.php:1765
 msgid "Colors"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1570
+#: admin/settings-panel/api/announcement-bar-settings.php:1665
 msgid "Compare with"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1102
+#: admin/settings-panel/api/announcement-bar-settings.php:1197
 msgid ""
 "Configure advanced coupon features including auto-copy and auto-apply "
 "functionality"
@@ -992,7 +1000,7 @@ msgstr ""
 msgid "Configure the messages and call-to-action for your announcement bar"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1595
+#: admin/settings-panel/api/announcement-bar-settings.php:1690
 msgid "Confirm"
 msgstr ""
 
@@ -1005,7 +1013,7 @@ msgid "Contain"
 msgstr ""
 
 #: admin/settings-panel/api/announcement-bar-settings.php:81
-#: admin/settings-panel/api/announcement-bar-settings.php:1682
+#: admin/settings-panel/api/announcement-bar-settings.php:1777
 msgid "Content"
 msgstr ""
 
@@ -1049,7 +1057,7 @@ msgstr ""
 msgid "Content width"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1650
+#: admin/settings-panel/api/announcement-bar-settings.php:1745
 msgid "Control"
 msgstr ""
 
@@ -1057,7 +1065,7 @@ msgstr ""
 msgid "Control (Original)"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1519
+#: admin/settings-panel/api/announcement-bar-settings.php:1614
 msgid "Control Variant (Original)"
 msgstr ""
 
@@ -1069,29 +1077,29 @@ msgstr ""
 msgid "Control visibility of the open arrow icon/button."
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:581
+#: admin/settings-panel/api/announcement-bar-settings.php:676
 msgid "Control where and how your announcement bar appears"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:604
+#: admin/settings-panel/api/announcement-bar-settings.php:699
 msgid "Controls stacking order (higher values appear on top)"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1649
+#: admin/settings-panel/api/announcement-bar-settings.php:1744
 msgid "Conversion Rate"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1562
+#: admin/settings-panel/api/announcement-bar-settings.php:1657
 msgid "Conversion Rate Over Time"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1626
-#: admin/settings-panel/api/announcement-bar-settings.php:1632
-#: admin/settings-panel/api/announcement-bar-settings.php:1647
+#: admin/settings-panel/api/announcement-bar-settings.php:1721
+#: admin/settings-panel/api/announcement-bar-settings.php:1727
+#: admin/settings-panel/api/announcement-bar-settings.php:1742
 msgid "Conversions"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:665
+#: admin/settings-panel/api/announcement-bar-settings.php:760
 msgid "Cookie Duration"
 msgstr ""
 
@@ -1113,25 +1121,25 @@ msgstr ""
 msgid "Cookies expire time."
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1067
+#: admin/settings-panel/api/announcement-bar-settings.php:1162
 msgid "Copied Button Text"
 msgstr ""
 
-#: inc/announcement-bar-frontend.php:897
-#: admin/settings-panel/api/announcement-bar-settings.php:1069
+#: inc/announcement-bar-frontend.php:945
+#: admin/settings-panel/api/announcement-bar-settings.php:1164
 msgid "Copied!"
 msgstr ""
 
-#: inc/announcement-bar-frontend.php:896
-#: admin/settings-panel/api/announcement-bar-settings.php:1057
+#: inc/announcement-bar-frontend.php:944
+#: admin/settings-panel/api/announcement-bar-settings.php:1152
 msgid "Copy"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1055
+#: admin/settings-panel/api/announcement-bar-settings.php:1150
 msgid "Copy Button Text"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1550
+#: admin/settings-panel/api/announcement-bar-settings.php:1645
 msgid "Copy Coupon Code"
 msgstr ""
 
@@ -1156,16 +1164,16 @@ msgstr ""
 msgid "Countdown display format"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1549
+#: admin/settings-panel/api/announcement-bar-settings.php:1644
 msgid "Countdown Ends"
 msgstr ""
 
+#: admin/settings-panel/api/announcement-bar-settings.php:1442
 #: admin/settings-panel/api/announcement-bar-api.php:530
-#: admin/settings-panel/api/announcement-bar-settings.php:1347
 msgid "Countdown Sale"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1677
+#: admin/settings-panel/api/announcement-bar-settings.php:1772
 msgid "Countdown Style"
 msgstr ""
 
@@ -1173,12 +1181,12 @@ msgstr ""
 msgid "Countdown target date/time"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:821
-#: admin/settings-panel/api/announcement-bar-settings.php:1675
+#: admin/settings-panel/api/announcement-bar-settings.php:916
+#: admin/settings-panel/api/announcement-bar-settings.php:1770
 msgid "Countdown Timer"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:831
+#: admin/settings-panel/api/announcement-bar-settings.php:926
 msgid "Countdown Type"
 msgstr ""
 
@@ -1190,9 +1198,9 @@ msgstr ""
 msgid "Coupon"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1020
-#: admin/settings-panel/api/announcement-bar-settings.php:1032
-#: admin/settings-panel/api/announcement-bar-settings.php:1679
+#: admin/settings-panel/api/announcement-bar-settings.php:1115
+#: admin/settings-panel/api/announcement-bar-settings.php:1127
+#: admin/settings-panel/api/announcement-bar-settings.php:1774
 msgid "Coupon Code"
 msgstr ""
 
@@ -1200,12 +1208,12 @@ msgstr ""
 msgid "Coupon code"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1551
+#: admin/settings-panel/api/announcement-bar-settings.php:1646
 msgid "Coupon Copied!"
 msgstr ""
 
+#: admin/settings-panel/api/announcement-bar-settings.php:1451
 #: admin/settings-panel/api/announcement-bar-api.php:542
-#: admin/settings-panel/api/announcement-bar-settings.php:1356
 msgid "Coupon Display"
 msgstr ""
 
@@ -1223,19 +1231,19 @@ msgid ""
 "and inform visitors easily."
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1527
+#: admin/settings-panel/api/announcement-bar-settings.php:1622
 msgid "Create New"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1506
+#: admin/settings-panel/api/announcement-bar-settings.php:1601
 msgid "Create New Announcement Bar"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1348
+#: admin/settings-panel/api/announcement-bar-settings.php:1443
 msgid "Create urgency with countdown timer"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1609
+#: admin/settings-panel/api/announcement-bar-settings.php:1704
 msgid "Created"
 msgstr ""
 
@@ -1271,7 +1279,7 @@ msgstr ""
 msgid "CTA Button Styling"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1660
+#: admin/settings-panel/api/announcement-bar-settings.php:1755
 msgid "CTA Button Text"
 msgstr ""
 
@@ -1299,16 +1307,16 @@ msgstr ""
 msgid "CTA link target"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1662
+#: admin/settings-panel/api/announcement-bar-settings.php:1757
 msgid "CTA Target"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1661
+#: admin/settings-panel/api/announcement-bar-settings.php:1756
 msgid "CTA URL"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1631
-#: admin/settings-panel/api/announcement-bar-settings.php:1648
+#: admin/settings-panel/api/announcement-bar-settings.php:1726
+#: admin/settings-panel/api/announcement-bar-settings.php:1743
 msgid "CTR"
 msgstr ""
 
@@ -1317,7 +1325,7 @@ msgid "Custom"
 msgstr ""
 
 #: inc/announcement-bar-cpt.php:144 inc/popup-campaign-cpt.php:720
-#: admin/settings-panel/api/announcement-bar-settings.php:556
+#: admin/settings-panel/api/announcement-bar-settings.php:651
 msgid "Custom CSS"
 msgstr ""
 
@@ -1333,7 +1341,7 @@ msgstr ""
 msgid "Custom options where to show"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1569
+#: admin/settings-panel/api/announcement-bar-settings.php:1664
 msgid "Custom Range"
 msgstr ""
 
@@ -1341,7 +1349,7 @@ msgstr ""
 msgid "Custom shortcode"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:760
+#: admin/settings-panel/api/announcement-bar-settings.php:855
 msgid "Customer Segmentation"
 msgstr ""
 
@@ -1349,7 +1357,7 @@ msgstr ""
 msgid "Czech Republic"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1618
+#: admin/settings-panel/api/announcement-bar-settings.php:1713
 msgid "Daily"
 msgstr ""
 
@@ -1358,22 +1366,23 @@ msgstr ""
 msgid "Dashboard"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1628
+#: admin/settings-panel/api/announcement-bar-settings.php:1723
 msgid "Date"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1522
+#: admin/settings-panel/api/announcement-bar-settings.php:1617
 msgid "Date and time are required"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1565
-#: admin/settings-panel/api/announcement-bar-settings.php:1616
+#: admin/settings-panel/api/announcement-bar-settings.php:1660
+#: admin/settings-panel/api/announcement-bar-settings.php:1711
 msgid "Date Range"
 msgstr ""
 
-#: inc/metabox.php:869 inc/popup-campaign-frontend.php:1029
-#: inc/shortcode.php:106 admin/settings-panel/api/admin-settings.php:356
-#: admin/settings-panel/api/announcement-bar-settings.php:1552
+#: inc/shortcode.php:106 inc/metabox.php:869
+#: inc/popup-campaign-frontend.php:1029
+#: admin/settings-panel/api/announcement-bar-settings.php:1647
+#: admin/settings-panel/api/admin-settings.php:356
 msgid "Days"
 msgstr ""
 
@@ -1402,12 +1411,12 @@ msgstr ""
 msgid "Delay in seconds after click before showing popup"
 msgstr ""
 
+#: admin/settings-panel/api/announcement-bar-settings.php:1605
 #: admin/settings-panel/api/admin-settings.php:476
-#: admin/settings-panel/api/announcement-bar-settings.php:1510
 msgid "Delete"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1532
+#: admin/settings-panel/api/announcement-bar-settings.php:1627
 msgid "Delete Announcement Bar"
 msgstr ""
 
@@ -1417,31 +1426,31 @@ msgstr ""
 
 #: inc/metabox.php:773
 #: admin/settings-panel/api/announcement-bar-settings.php:113
-#: admin/settings-panel/api/announcement-bar-settings.php:1683
+#: admin/settings-panel/api/announcement-bar-settings.php:1778
 msgid "Design"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:741
+#: admin/settings-panel/api/announcement-bar-settings.php:836
 msgid "Desktop"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1547
+#: admin/settings-panel/api/announcement-bar-settings.php:1642
 msgid "Desktop Preview"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1634
+#: admin/settings-panel/api/announcement-bar-settings.php:1729
 msgid "Device"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1633
+#: admin/settings-panel/api/announcement-bar-settings.php:1728
 msgid "Device Distribution"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:734
+#: admin/settings-panel/api/announcement-bar-settings.php:829
 msgid "Device Targeting"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:896
+#: admin/settings-panel/api/announcement-bar-settings.php:991
 msgid "Digital"
 msgstr ""
 
@@ -1453,11 +1462,11 @@ msgstr ""
 msgid "Disable for Archives"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1687
+#: admin/settings-panel/api/announcement-bar-settings.php:1782
 msgid "Disabled"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1581
+#: admin/settings-panel/api/announcement-bar-settings.php:1676
 msgid "Discard Changes"
 msgstr ""
 
@@ -1465,7 +1474,7 @@ msgstr ""
 msgid "Dismiss this notice."
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1021
+#: admin/settings-panel/api/announcement-bar-settings.php:1116
 msgid "Display a coupon code for your visitors"
 msgstr ""
 
@@ -1473,11 +1482,11 @@ msgstr ""
 msgid "Display Google Reviews on your site."
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1339
+#: admin/settings-panel/api/announcement-bar-settings.php:1434
 msgid "Display important information or updates"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:946
+#: admin/settings-panel/api/announcement-bar-settings.php:1041
 msgid "Display Options"
 msgstr ""
 
@@ -1501,8 +1510,8 @@ msgstr ""
 msgid "Don't Show Again"
 msgstr ""
 
+#: admin/settings-panel/api/announcement-bar-settings.php:1631
 #: admin/settings-panel/api/admin-settings.php:471
-#: admin/settings-panel/api/announcement-bar-settings.php:1536
 msgid "Draft"
 msgstr ""
 
@@ -1510,13 +1519,13 @@ msgstr ""
 msgid "Draft Notifications"
 msgstr ""
 
+#: admin/settings-panel/api/announcement-bar-settings.php:1626
+#: admin/settings-panel/api/announcement-bar-settings.php:1683
 #: admin/settings-panel/api/admin-settings.php:475
-#: admin/settings-panel/api/announcement-bar-settings.php:1531
-#: admin/settings-panel/api/announcement-bar-settings.php:1588
 msgid "Duplicate"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:869
+#: admin/settings-panel/api/announcement-bar-settings.php:964
 msgid "Duration (hours)"
 msgstr ""
 
@@ -1524,11 +1533,11 @@ msgstr ""
 msgid "Dynamic Countdown & Coupon System"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1068
+#: admin/settings-panel/api/announcement-bar-settings.php:1163
 msgid "e.g., Copied!"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1056
+#: admin/settings-panel/api/announcement-bar-settings.php:1151
 msgid "e.g., Copy"
 msgstr ""
 
@@ -1536,7 +1545,7 @@ msgstr ""
 msgid "e.g., Shop Now, Learn More"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1485
+#: admin/settings-panel/api/announcement-bar-settings.php:1580
 msgid "Early Bird"
 msgstr ""
 
@@ -1545,7 +1554,7 @@ msgstr ""
 msgid "Easy connection of Facebook pixel to your online store."
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1587
+#: admin/settings-panel/api/announcement-bar-settings.php:1682
 msgid "Edit"
 msgstr ""
 
@@ -1553,7 +1562,7 @@ msgstr ""
 msgid "Edit Announcement"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1505
+#: admin/settings-panel/api/announcement-bar-settings.php:1600
 msgid "Edit Announcement Bar"
 msgstr ""
 
@@ -1577,7 +1586,7 @@ msgstr ""
 msgid "Enable"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1289
+#: admin/settings-panel/api/announcement-bar-settings.php:1384
 msgid "Enable A/B Testing"
 msgstr ""
 
@@ -1597,19 +1606,19 @@ msgstr ""
 msgid "Enable built-in form"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1676
+#: admin/settings-panel/api/announcement-bar-settings.php:1771
 msgid "Enable Countdown"
 msgstr ""
 
-#: inc/announcement-bar-cpt.php:581 inc/metabox.php:784
+#: inc/metabox.php:784 inc/announcement-bar-cpt.php:581
 msgid "Enable countdown"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:826
+#: admin/settings-panel/api/announcement-bar-settings.php:921
 msgid "Enable Countdown Timer"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1680
+#: admin/settings-panel/api/announcement-bar-settings.php:1775
 msgid "Enable Coupon"
 msgstr ""
 
@@ -1617,15 +1626,15 @@ msgstr ""
 msgid "Enable coupon"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1026
+#: admin/settings-panel/api/announcement-bar-settings.php:1121
 msgid "Enable Coupon Display"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1659
+#: admin/settings-panel/api/announcement-bar-settings.php:1754
 msgid "Enable CTA Button"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:764
+#: admin/settings-panel/api/announcement-bar-settings.php:859
 msgid "Enable Customer Segmentation"
 msgstr ""
 
@@ -1653,7 +1662,7 @@ msgstr ""
 msgid "Enable message rotation"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1161
+#: admin/settings-panel/api/announcement-bar-settings.php:1256
 msgid "Enable Recurring Schedule"
 msgstr ""
 
@@ -1661,15 +1670,15 @@ msgstr ""
 msgid "Enable referrer targeting"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:648
+#: admin/settings-panel/api/announcement-bar-settings.php:743
 msgid "Enable reopen button"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1516
+#: admin/settings-panel/api/announcement-bar-settings.php:1611
 msgid "Enable reopen button is a Pro feature"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1123
+#: admin/settings-panel/api/announcement-bar-settings.php:1218
 msgid "Enable Schedule"
 msgstr ""
 
@@ -1691,7 +1700,7 @@ msgid ""
 "After the assigned time, the notification will no longer appear."
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1192
+#: admin/settings-panel/api/announcement-bar-settings.php:1287
 msgid "Enable Time Targeting"
 msgstr ""
 
@@ -1699,20 +1708,20 @@ msgstr ""
 msgid "Enable to count the views and clicks only once from each IP-address."
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1686
+#: admin/settings-panel/api/announcement-bar-settings.php:1781
 msgid "Enabled"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:882
-#: admin/settings-panel/api/announcement-bar-settings.php:1140
+#: admin/settings-panel/api/announcement-bar-settings.php:977
+#: admin/settings-panel/api/announcement-bar-settings.php:1235
 msgid "End Date & Time"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1523
+#: admin/settings-panel/api/announcement-bar-settings.php:1618
 msgid "End date must be after start date"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1214
+#: admin/settings-panel/api/announcement-bar-settings.php:1309
 msgid "End Time"
 msgstr ""
 
@@ -1722,7 +1731,7 @@ msgid ""
 "where collaboration and growth thrive!"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1033
+#: admin/settings-panel/api/announcement-bar-settings.php:1128
 msgid "Enter coupon code (e.g., SAVE20)"
 msgstr ""
 
@@ -1755,7 +1764,7 @@ msgstr ""
 msgid "Enter your announcement message (max 500 characters)"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:561
+#: admin/settings-panel/api/announcement-bar-settings.php:656
 msgid "Enter your custom CSS here"
 msgstr ""
 
@@ -1763,7 +1772,7 @@ msgstr ""
 msgid "Entire Site"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1239
+#: admin/settings-panel/api/announcement-bar-settings.php:1334
 msgid "Entry Animation"
 msgstr ""
 
@@ -1771,8 +1780,8 @@ msgstr ""
 msgid "Entry animation"
 msgstr ""
 
+#: admin/settings-panel/api/announcement-bar-settings.php:1688
 #: admin/settings-panel/api/admin-settings.php:556
-#: admin/settings-panel/api/announcement-bar-settings.php:1593
 msgid "Error"
 msgstr ""
 
@@ -1784,7 +1793,7 @@ msgstr ""
 msgid "Event tracked successfully"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:836
+#: admin/settings-panel/api/announcement-bar-settings.php:931
 msgid "Evergreen"
 msgstr ""
 
@@ -1800,11 +1809,11 @@ msgstr ""
 msgid "Exclude pages for notification"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:724
+#: admin/settings-panel/api/announcement-bar-settings.php:819
 msgid "Exclude Pages/Posts"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1252
+#: admin/settings-panel/api/announcement-bar-settings.php:1347
 msgid "Exit Animation"
 msgstr ""
 
@@ -1820,11 +1829,11 @@ msgstr ""
 msgid "Exit intent sensitivity"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1545
+#: admin/settings-panel/api/announcement-bar-settings.php:1640
 msgid "Exit Preview"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:670
+#: admin/settings-panel/api/announcement-bar-settings.php:765
 msgid "Expire After Close"
 msgstr ""
 
@@ -1832,7 +1841,7 @@ msgstr ""
 msgid "Expiry date/time"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1622
+#: admin/settings-panel/api/announcement-bar-settings.php:1717
 msgid "Export"
 msgstr ""
 
@@ -1840,11 +1849,11 @@ msgstr ""
 msgid "Extensions For CF7"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1242
+#: admin/settings-panel/api/announcement-bar-settings.php:1337
 msgid "Fade In"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1256
+#: admin/settings-panel/api/announcement-bar-settings.php:1351
 msgid "Fade Out"
 msgstr ""
 
@@ -1896,12 +1905,12 @@ msgstr ""
 msgid "Failed to update notification settings"
 msgstr ""
 
-#: inc/announcement-bar-cpt.php:33 inc/custom-posts.php:26
+#: inc/custom-posts.php:26 inc/announcement-bar-cpt.php:33
 #: inc/popup-campaign-cpt.php:46
 msgid "Featured Image"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1600
+#: admin/settings-panel/api/announcement-bar-settings.php:1695
 msgid "Filter"
 msgstr ""
 
@@ -1929,7 +1938,7 @@ msgstr ""
 msgid "Finland"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:834
+#: admin/settings-panel/api/announcement-bar-settings.php:929
 msgid "Fixed End Date"
 msgstr ""
 
@@ -1950,6 +1959,7 @@ msgid "Font family"
 msgstr ""
 
 #: admin/settings-panel/api/announcement-bar-settings.php:325
+#: admin/settings-panel/api/announcement-bar-settings.php:609
 msgid "Font Size"
 msgstr ""
 
@@ -1958,6 +1968,7 @@ msgid "Font size in pixels"
 msgstr ""
 
 #: admin/settings-panel/api/announcement-bar-settings.php:314
+#: admin/settings-panel/api/announcement-bar-settings.php:622
 msgid "Font Weight"
 msgstr ""
 
@@ -1973,8 +1984,8 @@ msgstr ""
 msgid "France"
 msgstr ""
 
+#: admin/settings-panel/api/announcement-bar-settings.php:1424
 #: admin/settings-panel/api/announcement-bar-api.php:506
-#: admin/settings-panel/api/announcement-bar-settings.php:1329
 msgid "Free Shipping"
 msgstr ""
 
@@ -1982,7 +1993,7 @@ msgstr ""
 msgid "Frequency type"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1180
+#: admin/settings-panel/api/announcement-bar-settings.php:1275
 msgid "Friday"
 msgstr ""
 
@@ -2002,7 +2013,7 @@ msgstr ""
 msgid "General Options"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:748
+#: admin/settings-panel/api/announcement-bar-settings.php:843
 msgid "Geographic Targeting"
 msgstr ""
 
@@ -2072,7 +2083,7 @@ msgstr ""
 msgid "Gradient settings"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1617
+#: admin/settings-panel/api/announcement-bar-settings.php:1712
 msgid "Granularity"
 msgstr ""
 
@@ -2167,7 +2178,7 @@ msgstr ""
 msgid "Height"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1556
+#: admin/settings-panel/api/announcement-bar-settings.php:1651
 msgid "Hidden"
 msgstr ""
 
@@ -2179,7 +2190,7 @@ msgstr ""
 msgid "Hide on mobile device"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1419
+#: admin/settings-panel/api/announcement-bar-settings.php:1514
 msgid "Holiday Special"
 msgstr ""
 
@@ -2187,8 +2198,9 @@ msgstr ""
 msgid "Homepage"
 msgstr ""
 
-#: inc/metabox.php:114 admin/settings-panel/api/admin-settings.php:133
-#: admin/settings-panel/api/announcement-bar-settings.php:707
+#: inc/metabox.php:114
+#: admin/settings-panel/api/announcement-bar-settings.php:802
+#: admin/settings-panel/api/admin-settings.php:133
 msgid "Homepage Only"
 msgstr ""
 
@@ -2196,19 +2208,22 @@ msgstr ""
 msgid "Hong Kong"
 msgstr ""
 
-#: inc/metabox.php:877 inc/popup-campaign-frontend.php:1030
-#: inc/shortcode.php:110 admin/settings-panel/api/admin-settings.php:357
-#: admin/settings-panel/api/announcement-bar-settings.php:1553
+#: inc/shortcode.php:110 inc/metabox.php:877
+#: inc/popup-campaign-frontend.php:1030
+#: admin/settings-panel/api/announcement-bar-settings.php:1648
+#: admin/settings-panel/api/admin-settings.php:357
 msgid "Hours"
 msgstr ""
 
 #: admin/settings-panel/api/announcement-bar-settings.php:408
 #: admin/settings-panel/api/announcement-bar-settings.php:503
+#: admin/settings-panel/api/announcement-bar-settings.php:598
 msgid "Hover Background Color"
 msgstr ""
 
 #: admin/settings-panel/api/announcement-bar-settings.php:397
 #: admin/settings-panel/api/announcement-bar-settings.php:492
+#: admin/settings-panel/api/announcement-bar-settings.php:587
 msgid "Hover Text Color"
 msgstr ""
 
@@ -2315,12 +2330,12 @@ msgstr ""
 msgid "Import to Page"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1623
-#: admin/settings-panel/api/announcement-bar-settings.php:1645
+#: admin/settings-panel/api/announcement-bar-settings.php:1718
+#: admin/settings-panel/api/announcement-bar-settings.php:1740
 msgid "Impressions"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1560
+#: admin/settings-panel/api/announcement-bar-settings.php:1655
 msgid "Impressions Over Time"
 msgstr ""
 
@@ -2352,12 +2367,12 @@ msgstr ""
 msgid "Indonesia"
 msgstr ""
 
+#: admin/settings-panel/api/announcement-bar-settings.php:1433
 #: admin/settings-panel/api/announcement-bar-api.php:518
-#: admin/settings-panel/api/announcement-bar-settings.php:1338
 msgid "Info Banner"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1684
+#: admin/settings-panel/api/announcement-bar-settings.php:1779
 msgid "Inherited"
 msgstr ""
 
@@ -2475,15 +2490,15 @@ msgstr ""
 msgid "Kenya"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1567
+#: admin/settings-panel/api/announcement-bar-settings.php:1662
 msgid "Last 30 Days"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1566
+#: admin/settings-panel/api/announcement-bar-settings.php:1661
 msgid "Last 7 Days"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1568
+#: admin/settings-panel/api/announcement-bar-settings.php:1663
 msgid "Last 90 Days"
 msgstr ""
 
@@ -2515,11 +2530,11 @@ msgstr ""
 
 #: inc/metabox.php:90
 #: admin/settings-panel/api/announcement-bar-settings.php:336
-#: admin/settings-panel/api/announcement-bar-settings.php:632
+#: admin/settings-panel/api/announcement-bar-settings.php:727
 msgid "Left"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:913
+#: admin/settings-panel/api/announcement-bar-settings.php:1008
 msgid "Left (Left of Message)"
 msgstr ""
 
@@ -2538,6 +2553,7 @@ msgstr ""
 #: admin/settings-panel/api/announcement-bar-settings.php:317
 #: admin/settings-panel/api/announcement-bar-settings.php:435
 #: admin/settings-panel/api/announcement-bar-settings.php:530
+#: admin/settings-panel/api/announcement-bar-settings.php:625
 msgid "Light (300)"
 msgstr ""
 
@@ -2553,7 +2569,7 @@ msgstr ""
 msgid "Limit Products List"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1476
+#: admin/settings-panel/api/announcement-bar-settings.php:1571
 msgid "Limited Stock"
 msgstr ""
 
@@ -2561,7 +2577,7 @@ msgstr ""
 msgid "Link Target"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1583
+#: admin/settings-panel/api/announcement-bar-settings.php:1678
 msgid "Live Preview"
 msgstr ""
 
@@ -2569,8 +2585,8 @@ msgstr ""
 msgid "Load as minimized"
 msgstr ""
 
+#: admin/settings-panel/api/announcement-bar-settings.php:1686
 #: admin/settings-panel/api/admin-settings.php:557
-#: admin/settings-panel/api/announcement-bar-settings.php:1591
 msgid "Loading..."
 msgstr ""
 
@@ -2598,7 +2614,7 @@ msgstr ""
 msgid "Main message text"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:595
+#: admin/settings-panel/api/announcement-bar-settings.php:690
 msgid "Make bar sticky (stays visible when scrolling)"
 msgstr ""
 
@@ -2634,7 +2650,7 @@ msgstr ""
 msgid "Maybe Later"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1518
+#: admin/settings-panel/api/announcement-bar-settings.php:1613
 msgid "Message #{count}"
 msgstr ""
 
@@ -2647,7 +2663,7 @@ msgid "Message rotation interval in seconds"
 msgstr ""
 
 #: admin/settings-panel/api/announcement-bar-settings.php:151
-#: admin/settings-panel/api/announcement-bar-settings.php:1658
+#: admin/settings-panel/api/announcement-bar-settings.php:1753
 msgid "Message Text"
 msgstr ""
 
@@ -2655,7 +2671,7 @@ msgstr ""
 msgid "Messages"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1665
+#: admin/settings-panel/api/announcement-bar-settings.php:1760
 msgid "Messages & CTA"
 msgstr ""
 
@@ -2667,11 +2683,11 @@ msgstr ""
 msgid "Min Width"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1365
+#: admin/settings-panel/api/announcement-bar-settings.php:1460
 msgid "Minimal Elegant"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:798
+#: admin/settings-panel/api/announcement-bar-settings.php:893
 msgid "Minimum Time on Site"
 msgstr ""
 
@@ -2679,9 +2695,10 @@ msgstr ""
 msgid "Minimum time on site in seconds"
 msgstr ""
 
-#: inc/metabox.php:885 inc/popup-campaign-frontend.php:1031
-#: inc/shortcode.php:114 admin/settings-panel/api/admin-settings.php:358
-#: admin/settings-panel/api/announcement-bar-settings.php:1554
+#: inc/shortcode.php:114 inc/metabox.php:885
+#: inc/popup-campaign-frontend.php:1031
+#: admin/settings-panel/api/announcement-bar-settings.php:1649
+#: admin/settings-panel/api/admin-settings.php:358
 msgid "Minutes"
 msgstr ""
 
@@ -2689,7 +2706,7 @@ msgstr ""
 msgid "Missing Any Feature?"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:743
+#: admin/settings-panel/api/announcement-bar-settings.php:838
 msgid "Mobile"
 msgstr ""
 
@@ -2697,15 +2714,15 @@ msgstr ""
 msgid "Mobile device breakpoint (px)"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1546
+#: admin/settings-panel/api/announcement-bar-settings.php:1641
 msgid "Mobile Preview"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1176
+#: admin/settings-panel/api/announcement-bar-settings.php:1271
 msgid "Monday"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1620
+#: admin/settings-panel/api/announcement-bar-settings.php:1715
 msgid "Monthly"
 msgstr ""
 
@@ -2735,7 +2752,7 @@ msgstr ""
 msgid "Netherlands"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:682
+#: admin/settings-panel/api/announcement-bar-settings.php:777
 msgid "Never (persistent)"
 msgstr ""
 
@@ -2747,7 +2764,7 @@ msgstr ""
 msgid "New Feature!"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1395
+#: admin/settings-panel/api/announcement-bar-settings.php:1490
 msgid "New Launch"
 msgstr ""
 
@@ -2759,7 +2776,7 @@ msgstr ""
 msgid "New Popup"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1664
+#: admin/settings-panel/api/announcement-bar-settings.php:1759
 msgid "New Tab"
 msgstr ""
 
@@ -2781,21 +2798,21 @@ msgstr ""
 
 #: inc/metabox.php:420 inc/metabox.php:446 inc/metabox.php:459
 #: inc/metabox.php:503 inc/metabox.php:513 inc/metabox.php:787
-#: admin/settings-panel/api/announcement-bar-settings.php:1597
+#: admin/settings-panel/api/announcement-bar-settings.php:1692
 msgid "No"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1639
+#: admin/settings-panel/api/announcement-bar-settings.php:1734
 msgid ""
 "No analytics data available yet. Views and clicks will appear here as "
 "visitors interact with your announcement bars."
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1529
+#: admin/settings-panel/api/announcement-bar-settings.php:1624
 msgid "No announcement bars found"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1530
+#: admin/settings-panel/api/announcement-bar-settings.php:1625
 msgid "No announcement bars yet"
 msgstr ""
 
@@ -2807,7 +2824,7 @@ msgstr ""
 msgid "No form data provided"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1666
+#: admin/settings-panel/api/announcement-bar-settings.php:1761
 msgid "No messages configured"
 msgstr ""
 
@@ -2827,7 +2844,7 @@ msgstr ""
 msgid "No post ID provided"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1603
+#: admin/settings-panel/api/announcement-bar-settings.php:1698
 msgid "No results found"
 msgstr ""
 
@@ -2839,7 +2856,7 @@ msgstr ""
 msgid "No Statistics Available"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1521
+#: admin/settings-panel/api/announcement-bar-settings.php:1616
 msgid "No variants yet"
 msgstr ""
 
@@ -2850,6 +2867,7 @@ msgstr ""
 #: admin/settings-panel/api/announcement-bar-settings.php:318
 #: admin/settings-panel/api/announcement-bar-settings.php:436
 #: admin/settings-panel/api/announcement-bar-settings.php:531
+#: admin/settings-panel/api/announcement-bar-settings.php:626
 msgid "Normal (400)"
 msgstr ""
 
@@ -2865,12 +2883,12 @@ msgstr ""
 msgid "Not enough variants or data to determine winner"
 msgstr ""
 
-#: inc/announcement-bar-cpt.php:31 inc/custom-posts.php:24
+#: inc/custom-posts.php:24 inc/announcement-bar-cpt.php:31
 #: inc/popup-campaign-cpt.php:44
 msgid "Not found"
 msgstr ""
 
-#: inc/announcement-bar-cpt.php:32 inc/custom-posts.php:25
+#: inc/custom-posts.php:25 inc/announcement-bar-cpt.php:32
 #: inc/popup-campaign-cpt.php:45
 msgid "Not found in Trash"
 msgstr ""
@@ -2965,8 +2983,8 @@ msgstr ""
 msgid "off product"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:926
-#: admin/settings-panel/api/announcement-bar-settings.php:927
+#: admin/settings-panel/api/announcement-bar-settings.php:1021
+#: admin/settings-panel/api/announcement-bar-settings.php:1022
 msgid "Offer ends in:"
 msgstr ""
 
@@ -3028,11 +3046,11 @@ msgstr ""
 msgid "Page IDs to exclude"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1636
+#: admin/settings-panel/api/announcement-bar-settings.php:1731
 msgid "Page Performance"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:698
+#: admin/settings-panel/api/announcement-bar-settings.php:793
 msgid "Page Targeting"
 msgstr ""
 
@@ -3040,7 +3058,7 @@ msgstr ""
 msgid "Page targeting mode"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1637
+#: admin/settings-panel/api/announcement-bar-settings.php:1732
 msgid "Page URL"
 msgstr ""
 
@@ -3078,15 +3096,15 @@ msgstr ""
 msgid "Per-element spacing (margin-bottom)"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1321
+#: admin/settings-panel/api/announcement-bar-settings.php:1416
 msgid "Perfect for promoting limited-time sales"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1564
+#: admin/settings-panel/api/announcement-bar-settings.php:1659
 msgid "Performance Comparison"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1627
+#: admin/settings-panel/api/announcement-bar-settings.php:1722
 msgid "Performance Over Time"
 msgstr ""
 
@@ -3296,20 +3314,20 @@ msgstr ""
 msgid "Premium Announcement Bar Templates"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1407
+#: admin/settings-panel/api/announcement-bar-settings.php:1502
 msgid "Premium Gold"
 msgstr ""
 
 #: admin/settings-panel/settings-panel.php:209
-#: admin/settings-panel/api/announcement-bar-settings.php:1582
+#: admin/settings-panel/api/announcement-bar-settings.php:1677
 msgid "Preview"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1544
+#: admin/settings-panel/api/announcement-bar-settings.php:1639
 msgid "Preview Mode"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1515
+#: admin/settings-panel/api/announcement-bar-settings.php:1610
 #: admin/settings-panel/templates/sidebar-banner.php:11
 msgid "PRO"
 msgstr ""
@@ -3318,7 +3336,7 @@ msgstr ""
 msgid "Pro"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1514
+#: admin/settings-panel/api/announcement-bar-settings.php:1609
 msgid "Pro Feature"
 msgstr ""
 
@@ -3378,11 +3396,11 @@ msgstr ""
 msgid "Provide Your Feedback"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1538
+#: admin/settings-panel/api/announcement-bar-settings.php:1633
 msgid "Publish"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1535
+#: admin/settings-panel/api/announcement-bar-settings.php:1630
 msgid "Published"
 msgstr ""
 
@@ -3400,15 +3418,15 @@ msgstr ""
 msgid "Rating icon"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1614
+#: admin/settings-panel/api/announcement-bar-settings.php:1709
 msgid ""
 "Real-time analytics for this announcement bar. Data is collected from page "
 "views, button clicks, and user interactions."
 msgstr ""
 
 #: admin/settings-panel/settings-panel.php:72
+#: admin/settings-panel/api/announcement-bar-settings.php:1612
 #: admin/settings-panel/api/admin-settings.php:585
-#: admin/settings-panel/api/announcement-bar-settings.php:1517
 msgid "Recommended"
 msgstr ""
 
@@ -3416,7 +3434,7 @@ msgstr ""
 msgid "Recommended Plugins"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:835
+#: admin/settings-panel/api/announcement-bar-settings.php:930
 msgid "Recurring"
 msgstr ""
 
@@ -3441,25 +3459,29 @@ msgid "Referrer URLs"
 msgstr ""
 
 #: admin/settings-panel/settings-panel.php:214
-#: admin/settings-panel/api/announcement-bar-settings.php:1601
-#: admin/settings-panel/api/announcement-bar-settings.php:1621
+#: admin/settings-panel/api/announcement-bar-settings.php:1696
+#: admin/settings-panel/api/announcement-bar-settings.php:1716
 msgid "Refresh"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1511
+#: admin/settings-panel/api/announcement-bar-settings.php:1606
 msgid "Remove"
 msgstr ""
 
-#: inc/announcement-bar-cpt.php:35 inc/custom-posts.php:28
+#: inc/custom-posts.php:28 inc/announcement-bar-cpt.php:35
 #: inc/popup-campaign-cpt.php:48
 msgid "Remove featured image"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:643
+#: admin/settings-panel/api/announcement-bar-settings.php:738
 msgid "Reopen Button"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:654
+#: admin/settings-panel/api/announcement-bar-settings.php:556
+msgid "Reopen Button Styling"
+msgstr ""
+
+#: admin/settings-panel/api/announcement-bar-settings.php:749
 msgid "Reopen Button Text"
 msgstr ""
 
@@ -3471,8 +3493,8 @@ msgstr ""
 msgid "Request Feature"
 msgstr ""
 
+#: admin/settings-panel/api/announcement-bar-settings.php:1780
 #: admin/settings-panel/api/admin-settings.php:458
-#: admin/settings-panel/api/announcement-bar-settings.php:1685
 msgid "Reset"
 msgstr ""
 
@@ -3480,15 +3502,15 @@ msgstr ""
 msgid "Reset All Settings"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1678
+#: admin/settings-panel/api/announcement-bar-settings.php:1773
 msgid "Reset Countdown Settings"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1681
+#: admin/settings-panel/api/announcement-bar-settings.php:1776
 msgid "Reset Coupon Settings"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:858
+#: admin/settings-panel/api/announcement-bar-settings.php:953
 msgid "Reset Days"
 msgstr ""
 
@@ -3496,12 +3518,12 @@ msgstr ""
 msgid "Reset Settings"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:847
+#: admin/settings-panel/api/announcement-bar-settings.php:942
 msgid "Reset Time"
 msgstr ""
 
 #: admin/settings-panel/settings-panel.php:215
-#: admin/settings-panel/api/announcement-bar-settings.php:1602
+#: admin/settings-panel/api/announcement-bar-settings.php:1697
 msgid "Retry"
 msgstr ""
 
@@ -3511,11 +3533,11 @@ msgstr ""
 
 #: inc/metabox.php:82
 #: admin/settings-panel/api/announcement-bar-settings.php:338
-#: admin/settings-panel/api/announcement-bar-settings.php:633
+#: admin/settings-panel/api/announcement-bar-settings.php:728
 msgid "Right"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:914
+#: admin/settings-panel/api/announcement-bar-settings.php:1009
 msgid "Right (Right of Message)"
 msgstr ""
 
@@ -3527,16 +3549,16 @@ msgstr ""
 msgid "Russia"
 msgstr ""
 
+#: admin/settings-panel/api/announcement-bar-settings.php:1415
 #: admin/settings-panel/api/announcement-bar-api.php:493
-#: admin/settings-panel/api/announcement-bar-settings.php:1320
 msgid "Sale Alert"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1663
+#: admin/settings-panel/api/announcement-bar-settings.php:1758
 msgid "Same Window"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1181
+#: admin/settings-panel/api/announcement-bar-settings.php:1276
 msgid "Saturday"
 msgstr ""
 
@@ -3544,16 +3566,16 @@ msgstr ""
 msgid "Saudi Arabia"
 msgstr ""
 
+#: admin/settings-panel/api/announcement-bar-settings.php:1602
 #: admin/settings-panel/api/admin-settings.php:516
-#: admin/settings-panel/api/announcement-bar-settings.php:1507
 msgid "Save"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1537
+#: admin/settings-panel/api/announcement-bar-settings.php:1632
 msgid "Save as Draft"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1580
+#: admin/settings-panel/api/announcement-bar-settings.php:1675
 msgid "Save Changes"
 msgstr ""
 
@@ -3562,7 +3584,7 @@ msgid "Save Settings"
 msgstr ""
 
 #: admin/settings-panel/api/announcement-bar-settings.php:107
-#: admin/settings-panel/api/announcement-bar-settings.php:1117
+#: admin/settings-panel/api/announcement-bar-settings.php:1212
 msgid "Schedule"
 msgstr ""
 
@@ -3602,7 +3624,7 @@ msgstr ""
 msgid "Scroll position to show"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1599
+#: admin/settings-panel/api/announcement-bar-settings.php:1694
 msgid "Search"
 msgstr ""
 
@@ -3610,7 +3632,7 @@ msgstr ""
 msgid "Search Announcement"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1528
+#: admin/settings-panel/api/announcement-bar-settings.php:1623
 msgid "Search announcement bars..."
 msgstr ""
 
@@ -3634,21 +3656,21 @@ msgstr ""
 msgid "Secondary button text"
 msgstr ""
 
-#: inc/metabox.php:893 inc/popup-campaign-frontend.php:1032
-#: inc/shortcode.php:118
-#: admin/settings-panel/api/announcement-bar-settings.php:1555
+#: inc/shortcode.php:118 inc/metabox.php:893
+#: inc/popup-campaign-frontend.php:1032
+#: admin/settings-panel/api/announcement-bar-settings.php:1650
 msgid "Seconds"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1605
+#: admin/settings-panel/api/announcement-bar-settings.php:1700
 msgid "Select All"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1598
+#: admin/settings-panel/api/announcement-bar-settings.php:1693
 msgid "Select an option"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1571
+#: admin/settings-panel/api/announcement-bar-settings.php:1666
 msgid "Select Bar"
 msgstr ""
 
@@ -3661,7 +3683,7 @@ msgstr ""
 msgid "Select Pages"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:714
+#: admin/settings-panel/api/announcement-bar-settings.php:809
 msgid "Select Pages/Posts"
 msgstr ""
 
@@ -3678,7 +3700,7 @@ msgstr ""
 msgid "Select specific categories where this notification will appear"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:753
+#: admin/settings-panel/api/announcement-bar-settings.php:848
 msgid ""
 "Select specific countries to target (PRO) or leave empty to display "
 "worldwide (Free)."
@@ -3729,6 +3751,7 @@ msgstr ""
 #: admin/settings-panel/api/announcement-bar-settings.php:319
 #: admin/settings-panel/api/announcement-bar-settings.php:437
 #: admin/settings-panel/api/announcement-bar-settings.php:532
+#: admin/settings-panel/api/announcement-bar-settings.php:627
 msgid "Semibold (600)"
 msgstr ""
 
@@ -3745,7 +3768,7 @@ msgid ""
 "collected or tracked. %1$sPrivacy Policy%2$s"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:675
+#: admin/settings-panel/api/announcement-bar-settings.php:770
 msgid "Session only (closes when browser closes)"
 msgstr ""
 
@@ -3769,11 +3792,11 @@ msgid ""
 "here</a>"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1118
+#: admin/settings-panel/api/announcement-bar-settings.php:1213
 msgid "Set a simple date range for your announcement"
 msgstr ""
 
-#: inc/announcement-bar-cpt.php:34 inc/custom-posts.php:27
+#: inc/custom-posts.php:27 inc/announcement-bar-cpt.php:34
 #: inc/popup-campaign-cpt.php:47
 msgid "Set featured image"
 msgstr ""
@@ -3792,11 +3815,11 @@ msgid ""
 "and promo banners. Leave empty to use the default width. Example: 350px"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:822
+#: admin/settings-panel/api/announcement-bar-settings.php:917
 msgid "Set up a countdown timer for your announcement"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:671
+#: admin/settings-panel/api/announcement-bar-settings.php:766
 msgid "Set when this announcement bar should reappear after being closed"
 msgstr ""
 
@@ -3814,11 +3837,11 @@ msgstr ""
 msgid "Settings updated successfully"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:655
+#: admin/settings-panel/api/announcement-bar-settings.php:750
 msgid "Show"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:793
+#: admin/settings-panel/api/announcement-bar-settings.php:888
 msgid "Show after time on site"
 msgstr ""
 
@@ -3830,13 +3853,13 @@ msgstr ""
 msgid "Show bar after time on site"
 msgstr ""
 
-#: inc/announcement-bar-cpt.php:343 inc/metabox.php:442
+#: inc/metabox.php:442 inc/announcement-bar-cpt.php:343
 #: inc/popup-campaign-cpt.php:154
-#: admin/settings-panel/api/announcement-bar-settings.php:612
+#: admin/settings-panel/api/announcement-bar-settings.php:707
 msgid "Show close button"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1044
+#: admin/settings-panel/api/announcement-bar-settings.php:1139
 msgid "Show Copy Button"
 msgstr ""
 
@@ -3844,11 +3867,11 @@ msgstr ""
 msgid "Show CTA button"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:955
+#: admin/settings-panel/api/announcement-bar-settings.php:1050
 msgid "Show Days"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:965
+#: admin/settings-panel/api/announcement-bar-settings.php:1060
 msgid "Show Hours"
 msgstr ""
 
@@ -3856,19 +3879,19 @@ msgstr ""
 msgid "Show in:"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:975
+#: admin/settings-panel/api/announcement-bar-settings.php:1070
 msgid "Show Minutes"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:702
+#: admin/settings-panel/api/announcement-bar-settings.php:797
 msgid "Show On"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:738
+#: admin/settings-panel/api/announcement-bar-settings.php:833
 msgid "Show On Devices"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:674
+#: admin/settings-panel/api/announcement-bar-settings.php:769
 msgid "Show on each page reload (no cookie)"
 msgstr ""
 
@@ -3884,15 +3907,15 @@ msgstr ""
 msgid "Show secondary button"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:985
+#: admin/settings-panel/api/announcement-bar-settings.php:1080
 msgid "Show Seconds"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:779
+#: admin/settings-panel/api/announcement-bar-settings.php:874
 msgid "Show to Guest Visitors"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:769
+#: admin/settings-panel/api/announcement-bar-settings.php:864
 msgid "Show to Logged In Customers"
 msgstr ""
 
@@ -3900,7 +3923,7 @@ msgstr ""
 msgid "Show/Hide notification based on scroll position"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1357
+#: admin/settings-panel/api/announcement-bar-settings.php:1452
 msgid "Showcase and distribute coupon codes"
 msgstr ""
 
@@ -3908,7 +3931,7 @@ msgstr ""
 msgid "Sidebar template file not found."
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:895
+#: admin/settings-panel/api/announcement-bar-settings.php:990
 msgid "Simple"
 msgstr ""
 
@@ -3920,8 +3943,8 @@ msgstr ""
 msgid "Singapore"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:999
-#: admin/settings-panel/api/announcement-bar-settings.php:1155
+#: admin/settings-panel/api/announcement-bar-settings.php:1094
+#: admin/settings-panel/api/announcement-bar-settings.php:1250
 msgid "Site Timezone"
 msgstr ""
 
@@ -3929,19 +3952,19 @@ msgstr ""
 msgid "Skip & Deactivate"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1243
+#: admin/settings-panel/api/announcement-bar-settings.php:1338
 msgid "Slide Down"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1257
+#: admin/settings-panel/api/announcement-bar-settings.php:1352
 msgid "Slide Out Down"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1255
+#: admin/settings-panel/api/announcement-bar-settings.php:1350
 msgid "Slide Out Up"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1244
+#: admin/settings-panel/api/announcement-bar-settings.php:1339
 msgid "Slide Up"
 msgstr ""
 
@@ -3949,7 +3972,7 @@ msgstr ""
 msgid "Slide-In Notification"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1440
+#: admin/settings-panel/api/announcement-bar-settings.php:1535
 msgid "Social Media"
 msgstr ""
 
@@ -3982,7 +4005,7 @@ msgstr ""
 msgid "Specific page IDs to target"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:708
+#: admin/settings-panel/api/announcement-bar-settings.php:803
 msgid "Specific Pages/Posts"
 msgstr ""
 
@@ -4007,11 +4030,11 @@ msgstr ""
 msgid "Sri Lanka"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1129
+#: admin/settings-panel/api/announcement-bar-settings.php:1224
 msgid "Start Date & Time"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1203
+#: admin/settings-panel/api/announcement-bar-settings.php:1298
 msgid "Start Time"
 msgstr ""
 
@@ -4024,7 +4047,7 @@ msgstr ""
 msgid "Statistically significant (p=%.4f, %.1f%% confidence)"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1608
+#: admin/settings-panel/api/announcement-bar-settings.php:1703
 msgid "Status"
 msgstr ""
 
@@ -4069,8 +4092,8 @@ msgstr ""
 msgid "Subtle slide-in from bottom right"
 msgstr ""
 
+#: admin/settings-panel/api/announcement-bar-settings.php:1687
 #: admin/settings-panel/api/admin-settings.php:555
-#: admin/settings-panel/api/announcement-bar-settings.php:1592
 msgid "Success"
 msgstr ""
 
@@ -4086,11 +4109,11 @@ msgstr ""
 msgid "Successfully subscribed"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1428
+#: admin/settings-panel/api/announcement-bar-settings.php:1523
 msgid "Summer Vibes"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1182
+#: admin/settings-panel/api/announcement-bar-settings.php:1277
 msgid "Sunday"
 msgstr ""
 
@@ -4130,15 +4153,15 @@ msgstr ""
 msgid "Switzerland"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:742
+#: admin/settings-panel/api/announcement-bar-settings.php:837
 msgid "Tablet"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1548
+#: admin/settings-panel/api/announcement-bar-settings.php:1643
 msgid "Tablet Preview"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:752
+#: admin/settings-panel/api/announcement-bar-settings.php:847
 msgid "Target Countries"
 msgstr ""
 
@@ -4174,11 +4197,11 @@ msgstr ""
 msgid "Templates"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1295
+#: admin/settings-panel/api/announcement-bar-settings.php:1390
 msgid "Test Variants"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:936
+#: admin/settings-panel/api/announcement-bar-settings.php:1031
 msgid "Text After Timer"
 msgstr ""
 
@@ -4190,17 +4213,18 @@ msgstr ""
 msgid "Text alignment"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:925
+#: admin/settings-panel/api/announcement-bar-settings.php:1020
 msgid "Text Before Timer"
 msgstr ""
 
 #: admin/settings-panel/api/announcement-bar-settings.php:224
-#: admin/settings-panel/api/announcement-bar-settings.php:1672
+#: admin/settings-panel/api/announcement-bar-settings.php:1767
 msgid "Text Color"
 msgstr ""
 
-#: inc/announcement-bar-cpt.php:218 inc/metabox.php:670 inc/metabox.php:700
-#: inc/metabox.php:1004 inc/metabox.php:1070 inc/popup-campaign-cpt.php:558
+#: inc/metabox.php:670 inc/metabox.php:700 inc/metabox.php:1004
+#: inc/metabox.php:1070 inc/announcement-bar-cpt.php:218
+#: inc/popup-campaign-cpt.php:558
 msgid "Text color"
 msgstr ""
 
@@ -4287,7 +4311,7 @@ msgstr ""
 msgid "Through Rate"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1179
+#: admin/settings-panel/api/announcement-bar-settings.php:1274
 msgid "Thursday"
 msgstr ""
 
@@ -4303,16 +4327,16 @@ msgstr ""
 msgid "Time delay in seconds"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:909
+#: admin/settings-panel/api/announcement-bar-settings.php:1004
 msgid "Timer Position"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:892
+#: admin/settings-panel/api/announcement-bar-settings.php:987
 msgid "Timer Style"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:995
-#: admin/settings-panel/api/announcement-bar-settings.php:1151
+#: admin/settings-panel/api/announcement-bar-settings.php:1090
+#: admin/settings-panel/api/announcement-bar-settings.php:1246
 msgid "Timezone"
 msgstr ""
 
@@ -4320,7 +4344,7 @@ msgstr ""
 msgid "Timezone for countdown"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1607
+#: admin/settings-panel/api/announcement-bar-settings.php:1702
 msgid "Title"
 msgstr ""
 
@@ -4332,7 +4356,7 @@ msgstr ""
 msgid "Top"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:912
+#: admin/settings-panel/api/announcement-bar-settings.php:1007
 msgid "Top (Above Message)"
 msgstr ""
 
@@ -4340,8 +4364,8 @@ msgstr ""
 msgid "Top 10 Countries"
 msgstr ""
 
+#: admin/settings-panel/api/announcement-bar-settings.php:1730
 #: admin/settings-panel/api/admin-settings.php:505
-#: admin/settings-panel/api/announcement-bar-settings.php:1635
 msgid "Top Countries"
 msgstr ""
 
@@ -4349,11 +4373,11 @@ msgstr ""
 msgid "Top Left"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:589
+#: admin/settings-panel/api/announcement-bar-settings.php:684
 msgid "Top of page"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1563
+#: admin/settings-panel/api/announcement-bar-settings.php:1658
 msgid "Top Performing Bars"
 msgstr ""
 
@@ -4373,25 +4397,25 @@ msgstr ""
 msgid "Top-Right to Bottom-Left"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1540
+#: admin/settings-panel/api/announcement-bar-settings.php:1635
 msgid "Total"
 msgstr ""
 
 #: admin/plugin-options.php:234 admin/plugin-options.php:291
+#: admin/settings-panel/api/announcement-bar-settings.php:1668
+#: admin/settings-panel/api/announcement-bar-settings.php:1749
 #: admin/settings-panel/api/admin-settings.php:497
 #: admin/settings-panel/api/admin-settings.php:503
-#: admin/settings-panel/api/announcement-bar-settings.php:1573
-#: admin/settings-panel/api/announcement-bar-settings.php:1654
 msgid "Total Clicks"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1576
-#: admin/settings-panel/api/announcement-bar-settings.php:1655
+#: admin/settings-panel/api/announcement-bar-settings.php:1671
+#: admin/settings-panel/api/announcement-bar-settings.php:1750
 msgid "Total Conversions"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1572
-#: admin/settings-panel/api/announcement-bar-settings.php:1653
+#: admin/settings-panel/api/announcement-bar-settings.php:1667
+#: admin/settings-panel/api/announcement-bar-settings.php:1748
 msgid "Total Impressions"
 msgstr ""
 
@@ -4401,7 +4425,7 @@ msgstr ""
 msgid "Total Views"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1652
+#: admin/settings-panel/api/announcement-bar-settings.php:1747
 msgid "Total Visitors"
 msgstr ""
 
@@ -4409,7 +4433,7 @@ msgstr ""
 msgid "Tracking By Notification Bars"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1520
+#: admin/settings-panel/api/announcement-bar-settings.php:1615
 msgid "Traffic Split: {value}%"
 msgstr ""
 
@@ -4425,7 +4449,7 @@ msgstr ""
 msgid "Trigger type"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1383
+#: admin/settings-panel/api/announcement-bar-settings.php:1478
 msgid "Trust Builder"
 msgstr ""
 
@@ -4433,7 +4457,7 @@ msgstr ""
 msgid "Try adjusting your search or filter criteria"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1177
+#: admin/settings-panel/api/announcement-bar-settings.php:1272
 msgid "Tuesday"
 msgstr ""
 
@@ -4441,7 +4465,7 @@ msgstr ""
 msgid "Turkey"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1638
+#: admin/settings-panel/api/announcement-bar-settings.php:1733
 msgid "Type"
 msgstr ""
 
@@ -4453,7 +4477,7 @@ msgstr ""
 msgid "Ukraine"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1575
+#: admin/settings-panel/api/announcement-bar-settings.php:1670
 msgid "Unique Visitors"
 msgstr ""
 
@@ -4473,7 +4497,7 @@ msgstr ""
 msgid "Unlock this feature and more by upgrading to HashBar Pro"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1534
+#: admin/settings-panel/api/announcement-bar-settings.php:1629
 msgid "Untitled"
 msgstr ""
 
@@ -4516,7 +4540,7 @@ msgstr ""
 msgid "Uploaded to this popup"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1374
+#: admin/settings-panel/api/announcement-bar-settings.php:1469
 msgid "Urgent Alert"
 msgstr ""
 
@@ -4532,7 +4556,7 @@ msgstr ""
 msgid "URL Parameter Value"
 msgstr ""
 
-#: inc/announcement-bar-cpt.php:36 inc/custom-posts.php:29
+#: inc/custom-posts.php:29 inc/announcement-bar-cpt.php:36
 #: inc/popup-campaign-cpt.php:49
 msgid "Use as featured image"
 msgstr ""
@@ -4553,11 +4577,11 @@ msgstr ""
 msgid "User Tracking Options"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1644
+#: admin/settings-panel/api/announcement-bar-settings.php:1739
 msgid "Variant"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1642
+#: admin/settings-panel/api/announcement-bar-settings.php:1737
 msgid "Variant Performance"
 msgstr ""
 
@@ -4565,7 +4589,7 @@ msgstr ""
 msgid "version to unlock this feature!"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1703
+#: admin/settings-panel/api/announcement-bar-settings.php:1798
 msgid "Video Guide"
 msgstr ""
 
@@ -4581,7 +4605,7 @@ msgstr ""
 msgid "View Announcement"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1604
+#: admin/settings-panel/api/announcement-bar-settings.php:1699
 msgid "View Details"
 msgstr ""
 
@@ -4593,11 +4617,11 @@ msgstr ""
 msgid "View Popup"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1629
+#: admin/settings-panel/api/announcement-bar-settings.php:1724
 msgid "Views"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1464
+#: admin/settings-panel/api/announcement-bar-settings.php:1559
 msgid "VIP Exclusive"
 msgstr ""
 
@@ -4605,12 +4629,12 @@ msgstr ""
 msgid "Visibility Options"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1557
+#: admin/settings-panel/api/announcement-bar-settings.php:1652
 msgid "Visible"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1000
-#: admin/settings-panel/api/announcement-bar-settings.php:1156
+#: admin/settings-panel/api/announcement-bar-settings.php:1095
+#: admin/settings-panel/api/announcement-bar-settings.php:1251
 msgid "Visitor Timezone"
 msgstr ""
 
@@ -4625,7 +4649,7 @@ msgid ""
 "diagnostic data and usage information. (%4$swhat we collect%5$s)"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1594
+#: admin/settings-panel/api/announcement-bar-settings.php:1689
 msgid "Warning"
 msgstr ""
 
@@ -4640,11 +4664,11 @@ msgid ""
 "effectively."
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1178
+#: admin/settings-panel/api/announcement-bar-settings.php:1273
 msgid "Wednesday"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1619
+#: admin/settings-panel/api/announcement-bar-settings.php:1714
 msgid "Weekly"
 msgstr ""
 
@@ -4711,7 +4735,7 @@ msgstr ""
 msgid "Width"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1651
+#: admin/settings-panel/api/announcement-bar-settings.php:1746
 msgid "Winner"
 msgstr ""
 
@@ -4755,7 +4779,7 @@ msgstr ""
 
 #: inc/metabox.php:419 inc/metabox.php:445 inc/metabox.php:458
 #: inc/metabox.php:504 inc/metabox.php:514 inc/metabox.php:786
-#: admin/settings-panel/api/announcement-bar-settings.php:1596
+#: admin/settings-panel/api/announcement-bar-settings.php:1691
 msgid "Yes"
 msgstr ""
 
@@ -4779,7 +4803,7 @@ msgstr ""
 msgid "You must agree to %s"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:600
+#: admin/settings-panel/api/announcement-bar-settings.php:695
 msgid "Z-Index"
 msgstr ""
 
@@ -4787,58 +4811,58 @@ msgstr ""
 msgid "Z-index stacking order"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1246
+#: admin/settings-panel/api/announcement-bar-settings.php:1341
 msgid "Zoom In"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1259
+#: admin/settings-panel/api/announcement-bar-settings.php:1354
 msgid "Zoom Out"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1429
+#: admin/settings-panel/api/announcement-bar-settings.php:1524
 msgid "☀️ SUMMER SALE: Up to 60% Off Everything!"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1477
+#: admin/settings-panel/api/announcement-bar-settings.php:1572
 msgid "⚠️ ALMOST GONE! Only few items left - Order before they're gone!"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1366
+#: admin/settings-panel/api/announcement-bar-settings.php:1461
 msgid "✨ Quality products, exceptional service. Shop now."
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1408
+#: admin/settings-panel/api/announcement-bar-settings.php:1503
 msgid "⭐ VIP Members: Exclusive 40% Off Luxury Collection"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1486
+#: admin/settings-panel/api/announcement-bar-settings.php:1581
 msgid "🌅 Early Bird Special: Get First Access + Extra 15% Off Pre-Orders!"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1453
+#: admin/settings-panel/api/announcement-bar-settings.php:1548
 msgid "🎁 Buy 2 Get 1 Free on All Items - Limited Time!"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1420
+#: admin/settings-panel/api/announcement-bar-settings.php:1515
 msgid "🎄 Holiday Sale: Up to 70% Off + Free Gift Wrapping!"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1465
+#: admin/settings-panel/api/announcement-bar-settings.php:1560
 msgid "👑 Members Only: Early Access to New Collection + Extra 25% Off"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1441
+#: admin/settings-panel/api/announcement-bar-settings.php:1536
 msgid "📱 Follow us on social media for exclusive updates & special offers!"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1384
+#: admin/settings-panel/api/announcement-bar-settings.php:1479
 msgid "🔒 Secure Checkout | 30-Day Returns | Free Shipping Over $50"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1375
+#: admin/settings-panel/api/announcement-bar-settings.php:1470
 msgid "🔥 HURRY! Sale ends in 2 hours - Don't miss out!"
 msgstr ""
 
-#: admin/settings-panel/api/announcement-bar-settings.php:1396
+#: admin/settings-panel/api/announcement-bar-settings.php:1491
 msgid "🚀 NEW ARRIVALS: Check out our latest collection!"
 msgstr ""
