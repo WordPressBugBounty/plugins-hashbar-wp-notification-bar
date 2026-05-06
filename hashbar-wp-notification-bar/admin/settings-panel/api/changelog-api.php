@@ -182,6 +182,21 @@ class ChangeLog extends WP_REST_Controller {
     private function get_changelog_data() {
         return [
             [
+                'version' => '1.9.5',
+                'date'    => '2026-05-06',
+                'changes' => [
+                    'Fixed' => [
+                        'Announcement Bar page targeting ("Specific pages/posts" and "All except") on the frontend.',
+                        'Announcement Bar fixed-date countdown closing too soon in the last minute (frontend + Live Preview).',
+                        'Notification Bar accessibility (region, keyboard, close markup).',
+                        'Announcement message keeps Design typography when themes style paragraphs or links.',
+                    ],
+                    'Improved' => [
+                        'Frontend accessibility for Announcement Bars and Popup Campaigns (landmarks, dialog labeling, focus).',
+                    ],
+                ],
+            ],
+            [
                 'version' => '1.9.4',
                 'date'    => '2026-04-07',
                 'changes' => [

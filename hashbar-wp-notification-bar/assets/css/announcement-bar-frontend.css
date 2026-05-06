@@ -40,10 +40,37 @@
   justify-content: inherit;
 }
 
-.hashbar-announcement-content p {
-  margin: 0;
+/*
+ * Message rich text: `.hashbar-announcement-bar` sets --hashbar-announcement-* via inline styles.
+ * Many themes target `p`, `a`, lists with higher specificity than inherited values from the bar.
+ * Scope typography to `.hashbar-announcement-message` so Design-tab settings apply to nested tags.
+ * User/admin inline styles inside the message still override these rules normally.
+ */
+div.hashbar-announcement-bar .hashbar-announcement-content .hashbar-announcement-message {
+  color: var(--hashbar-announcement-color, inherit);
+  font-family: var(--hashbar-announcement-font-family, inherit);
+  font-size: var(--hashbar-announcement-font-size, inherit);
+  font-weight: var(--hashbar-announcement-font-weight, inherit);
+  line-height: normal;
+  text-align: inherit;
+}
+
+div.hashbar-announcement-bar .hashbar-announcement-content .hashbar-announcement-message :is(p, li, ul, ol, blockquote) {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  text-align: inherit;
   word-break: break-word;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+div.hashbar-announcement-bar .hashbar-announcement-content .hashbar-announcement-message a:not(.hashbar-announcement-cta) {
+  color: inherit;
+}
+
+div.hashbar-announcement-bar .hashbar-announcement-content .hashbar-announcement-message :is(ul, ol) {
+  padding-inline-start: 1.25em;
 }
 
 /* Buttons */

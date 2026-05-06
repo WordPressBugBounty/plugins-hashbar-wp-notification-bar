@@ -1204,6 +1204,12 @@ class Frontend {
 			$initial_hidden = true;
 		}
 		$hidden_style = $initial_hidden ? 'visibility: hidden; opacity: 0;' : '';
+
+		$popup_dialog_label = trim( wp_strip_all_tags( $popup->post_title ) );
+		if ( '' === $popup_dialog_label ) {
+			$popup_dialog_label = __( 'Promotion', 'hashbar' );
+		}
+		$popup_aria_modal = ! empty( $settings['overlay_enabled'] ) ? 'true' : 'false';
 		?>
 
 		<?php if ( ! empty( $settings['custom_css'] ) ) : ?>
@@ -1265,7 +1271,7 @@ class Frontend {
 		<?php endif; ?>
 
 		<!-- Popup: <?php echo esc_html( $popup->post_title ); ?> -->
-		<div class="hashbar-popup-campaign <?php echo esc_attr( $position_class ); ?><?php echo $initial_hidden ? ' hashbar-popup-countdown-hidden' : ''; ?>" id="hashbar-popup-<?php echo esc_attr( $popup_id ); ?>" data-popup-id="<?php echo esc_attr( $popup_id ); ?>" <?php echo $data_attrs; // phpcs:ignore ?> style="<?php echo esc_attr( $hidden_style ); ?>">
+		<div class="hashbar-popup-campaign <?php echo esc_attr( $position_class ); ?><?php echo $initial_hidden ? ' hashbar-popup-countdown-hidden' : ''; ?>" id="hashbar-popup-<?php echo esc_attr( $popup_id ); ?>" role="dialog" aria-modal="<?php echo esc_attr( $popup_aria_modal ); ?>" aria-label="<?php echo esc_attr( $popup_dialog_label ); ?>" data-popup-id="<?php echo esc_attr( $popup_id ); ?>" <?php echo $data_attrs; // phpcs:ignore ?> style="<?php echo esc_attr( $hidden_style ); ?>">
 
 			<div class="hashbar-popup-container" style="
 				<?php echo $settings['close_position'] !== 'outside' ? 'overflow: hidden;' : ''; ?>
@@ -1370,7 +1376,7 @@ class Frontend {
 	protected function render_close_button( $settings, $close_position_class ) {
 		$icon_size = max( 12, intval( $settings['close_size'] ) - 8 );
 		?>
-		<button class="hashbar-popup-close <?php echo esc_attr( $close_position_class ); ?>" data-popup-close aria-label="Close popup" style="
+		<button type="button" class="hashbar-popup-close <?php echo esc_attr( $close_position_class ); ?>" data-popup-close aria-label="<?php echo esc_attr__( 'Close popup', 'hashbar' ); ?>" style="
 			color: <?php echo esc_attr( $settings['close_color'] ); ?>;
 			background-color: <?php echo esc_attr( $settings['close_bg_color'] ); ?>;
 			--close-hover-color: <?php echo esc_attr( $settings['close_hover_color'] ); ?>;

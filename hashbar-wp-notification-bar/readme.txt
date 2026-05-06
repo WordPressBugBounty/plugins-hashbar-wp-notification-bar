@@ -3,7 +3,7 @@ Contributors: devitemsllc, htplugins, hasthemes, zenaulislam, aslamhasib, yeasin
 Tags: notification bar, popup, announcement bar, lead capture, countdown timer
 Requires at least: 5.0
 Tested up to: 6.9
-Stable tag: 1.9.4
+Stable tag: 1.9.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -583,6 +583,13 @@ Yes! 30-day money-back guarantee on Pro purchases.
 11. **A/B Testing & Analytics** - Compare variants, split traffic, and pick a winner automatically
 
 == Changelog ==
+
+= Version: 1.9.5 - Date: 06 May 2026 =
+* Fixed: Announcement Bar page targeting ("Specific pages/posts" and "All except") on the frontend.
+* Fixed: Announcement Bar fixed-date countdown closing too soon in the last minute (frontend + Live Preview).
+* Fixed: Notification Bar accessibility (region, keyboard, close markup).
+* Fixed: Announcement message keeps Design typography when themes style paragraphs or links.
+* Improved: Frontend accessibility for Announcement Bars and Popup Campaigns (landmarks, dialog labeling, focus).
 
 = Version: 1.9.4 - Date: 07 Apr 2026 =
 * Added: Reopen Button Styling section in Design tab with color, font, and border radius controls (Pro).

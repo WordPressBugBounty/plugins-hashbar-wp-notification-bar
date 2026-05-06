@@ -193,6 +193,13 @@ body {
     display: none;
 }
 
+/* Keyboard focus for open/close controls (spans with role="button") */
+.hthb-notification .hthb-open-toggle:focus-visible,
+.hthb-notification .hthb-close-toggle:focus-visible {
+    outline: 2px solid;
+    outline-offset: 3px;
+}
+
 /*.hthb-row*/
 .hthb-row {
     width: 100%;    

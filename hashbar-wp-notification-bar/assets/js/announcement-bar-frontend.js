@@ -305,25 +305,51 @@
     var exitAnimation = bar.getAttribute('data-animation-exit');
     var animationDuration = parseInt(bar.getAttribute('data-animation-duration'), 10) || 500;
     var wrapper = bar.closest('.hashbar-announcement-bar-wrapper') || bar;
+    var sticky = isBarSticky(bar);
+    var durSec = animationDuration / 1000;
 
-    // Collapse wrapper height in sync with exit animation
-    wrapper.style.overflow = 'hidden';
-    wrapper.style.height = wrapper.offsetHeight + 'px';
-    wrapper.offsetHeight; // force reflow
-    wrapper.style.transition = 'height ' + (animationDuration / 1000) + 's ease';
-    wrapper.style.height = '0px';
-
-    // Apply exit animation on the bar
-    if (exitAnimation && exitAnimation !== 'none') {
-      bar.style.animation = exitAnimation + ' ' + (animationDuration / 1000) + 's ease-in forwards';
-    } else {
-      bar.style.transition = 'opacity ' + (animationDuration / 1000) + 's ease';
+    if (sticky) {
+      // For top-sticky (position:sticky in PHP) the bar is in document flow, so shrinking its
+      // own height reflows the page and the header rises in perfect lockstep — a single
+      // browser-driven motion. For bottom-sticky (position:fixed) we additionally shrink the
+      // body padding-bottom spacer with matching duration + easing.
+      // PHP renders inline min-height + padding; both must be overridden so height:0 actually
+      // takes effect, otherwise the bar stays visible while everything around it animates.
+      beginStickySpacerCollapse(bar, animationDuration, 'ease-in');
+      var currentHeight = bar.offsetHeight;
+      bar.style.overflow = 'hidden';
+      bar.style.minHeight = '0';
+      bar.style.height = currentHeight + 'px';
+      bar.offsetHeight; // force reflow
+      bar.style.transition = 'height ' + durSec + 's ease-in, opacity ' + durSec + 's ease-in, padding ' + durSec + 's ease-in';
+      bar.style.height = '0px';
+      bar.style.paddingTop = '0';
+      bar.style.paddingBottom = '0';
       bar.style.opacity = '0';
+      if (exitAnimation && exitAnimation !== 'none') {
+        // Layered visual effect (e.g. slideUp) on top of the height collapse.
+        bar.style.animation = exitAnimation + ' ' + durSec + 's ease-in forwards';
+      }
+    } else {
+      // Non-sticky: bar is in flow inside the wrapper, so collapse wrapper height as before.
+      wrapper.style.overflow = 'hidden';
+      wrapper.style.height = wrapper.offsetHeight + 'px';
+      wrapper.offsetHeight; // force reflow
+      wrapper.style.transition = 'height ' + durSec + 's ease';
+      wrapper.style.height = '0px';
+
+      if (exitAnimation && exitAnimation !== 'none') {
+        bar.style.animation = exitAnimation + ' ' + durSec + 's ease-in forwards';
+      } else {
+        bar.style.transition = 'opacity ' + durSec + 's ease';
+        bar.style.opacity = '0';
+      }
     }
 
     // After animation completes, hide bar and set cookie
     setTimeout(function() {
       bar.style.display = 'none';
+      removeStickySpacer(bar);
 
       // Get cookie duration from data attributes (already in days, converted from preset on backend)
       var cookieDays = parseFloat(bar.getAttribute('data-cookie-duration'));
@@ -366,7 +392,118 @@
    */
   function showBar(bar) {
     bar.style.display = 'flex';
+    applyStickySpacer(bar);
   }
+
+  // Registry of sticky bar heights by position, keyed by bar id.
+  // Lets us push body content down by the combined sticky-bar height,
+  // so a position:fixed bar never overlaps the site header on first paint.
+  var hashbarStickyRegistry = { top: {}, bottom: {} };
+  var hashbarStickyObservers = {};
+
+  function isBarSticky(bar) {
+    var v = bar.getAttribute('data-sticky');
+    return v === '1' || v === 'true';
+  }
+
+  function getBarPosition(bar) {
+    return bar.getAttribute('data-position') === 'bottom' ? 'bottom' : 'top';
+  }
+
+  // Body-padding spacer is only needed for bottom-sticky bars (position:fixed, out of flow).
+  // Top-sticky bars use position:sticky in PHP, which keeps them in flow — the document layout
+  // already reserves their space, so no manual spacer is required.
+  function needsBodySpacer(bar) {
+    return isBarSticky(bar) && getBarPosition(bar) === 'bottom';
+  }
+
+  function applyStickySpacer(bar) {
+    if (!bar || !needsBodySpacer(bar)) return;
+    var barId = bar.getAttribute('data-bar-id');
+    if (!barId) return;
+    var position = getBarPosition(bar);
+    var height = bar.offsetHeight;
+    if (!height) return;
+    hashbarStickyRegistry[position][barId] = height;
+    updateBodySpacer(position);
+
+    if (!hashbarStickyObservers[barId] && typeof ResizeObserver !== 'undefined') {
+      var ro = new ResizeObserver(function() {
+        if (bar.style.display === 'none') return;
+        hashbarStickyRegistry[position][barId] = bar.offsetHeight;
+        updateBodySpacer(position);
+      });
+      ro.observe(bar);
+      hashbarStickyObservers[barId] = ro;
+    }
+  }
+
+  // Called the moment the close button is clicked. Mirrors the non-sticky wrapper-collapse
+  // pattern: pin the current computed padding inline, force a reflow, then transition to the
+  // new (post-removal) total. The PHP-emitted pre-paint <style> is dropped first so it can't
+  // override the inline transition target back up to its baked-in value. Easing must match the
+  // bar's own collapse easing or the two motions visually finish at different times.
+  function beginStickySpacerCollapse(bar, durationMs, easing) {
+    if (!bar || !needsBodySpacer(bar)) return;
+    var barId = bar.getAttribute('data-bar-id');
+    if (!barId) return;
+    var position = getBarPosition(bar);
+    if (!(barId in hashbarStickyRegistry[position])) return;
+    delete hashbarStickyRegistry[position][barId];
+    if (hashbarStickyObservers[barId]) {
+      hashbarStickyObservers[barId].disconnect();
+      delete hashbarStickyObservers[barId];
+    }
+    var preStyle = document.getElementById('hashbar-pre-spacer-' + barId);
+    if (preStyle && preStyle.parentNode) preStyle.parentNode.removeChild(preStyle);
+    var prop = position === 'bottom' ? 'paddingBottom' : 'paddingTop';
+    var transProp = position === 'bottom' ? 'padding-bottom' : 'padding-top';
+    var total = 0, reg = hashbarStickyRegistry[position];
+    for (var k in reg) total += reg[k];
+    var current = parseFloat(window.getComputedStyle(document.body)[prop]) || 0;
+    document.body.style.transition = '';
+    document.body.style[prop] = current + 'px';
+    document.body.offsetHeight; // force reflow before applying transition
+    document.body.style.transition = transProp + ' ' + (durationMs / 1000) + 's ' + (easing || 'ease');
+    document.body.style[prop] = total + 'px';
+  }
+
+  function removeStickySpacer(bar) {
+    if (!bar) return;
+    var barId = bar.getAttribute('data-bar-id');
+    if (!barId) return;
+    var position = getBarPosition(bar);
+    delete hashbarStickyRegistry[position][barId];
+    if (hashbarStickyObservers[barId]) {
+      hashbarStickyObservers[barId].disconnect();
+      delete hashbarStickyObservers[barId];
+    }
+    var preStyle = document.getElementById('hashbar-pre-spacer-' + barId);
+    if (preStyle && preStyle.parentNode) preStyle.parentNode.removeChild(preStyle);
+    document.body.style.transition = '';
+    updateBodySpacer(position);
+  }
+
+  function updateBodySpacer(position) {
+    var prop = position === 'bottom' ? 'paddingBottom' : 'paddingTop';
+    var total = 0;
+    var heights = hashbarStickyRegistry[position];
+    for (var k in heights) {
+      if (Object.prototype.hasOwnProperty.call(heights, k)) total += heights[k];
+    }
+    if (total > 0) {
+      document.body.style[prop] = total + 'px';
+    } else {
+      document.body.style[prop] = '';
+    }
+  }
+
+  window.addEventListener('resize', function() {
+    document.querySelectorAll('.hashbar-announcement-bar').forEach(function(bar) {
+      if (bar.style.display === 'none') return;
+      applyStickySpacer(bar);
+    });
+  });
 
   /**
    * Initialize reopen button functionality
@@ -479,13 +616,13 @@
         let remaining;
 
         if (timezone === 'visitor') {
-          // For visitor timezone, interpret the end time as local time directly
-          const endTimeLocal = new Date(endYear, endMonth, endDate, endHours, endMinutes, 0, 0);
+          // Selected end time only has minute resolution; expire at end of that minute (HH:MM:59.999).
+          const endTimeLocal = new Date(endYear, endMonth, endDate, endHours, endMinutes, 59, 999);
           remaining = endTimeLocal.getTime() - utcMs;
         } else {
           // For site timezone or other timezones, calculate with offset
           const targetOffsetMs = timezoneOffset * 60 * 60 * 1000;
-          const endTimeUtc = new Date(Date.UTC(endYear, endMonth, endDate, endHours, endMinutes, 0, 0));
+          const endTimeUtc = new Date(Date.UTC(endYear, endMonth, endDate, endHours, endMinutes, 59, 999));
           // The actual UTC time is: input time minus the timezone offset
           const actualEndTimeUtc = endTimeUtc.getTime() - targetOffsetMs;
           remaining = actualEndTimeUtc - utcMs;

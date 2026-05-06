@@ -60,6 +60,7 @@
         overlay: document.querySelector('.hashbar-popup-overlay[data-popup-id="' + popupId + '"]'),
         isVisible: false,
         hasTriggered: false,
+        previousFocus: null,
         config: this.parsePopupConfig(element)
       };
     },
@@ -728,9 +729,22 @@
         element.classList.add('hashbar-popup-visible');
         element.classList.add('hashbar-popup-anim-' + popup.config.animationEntry);
 
-        // Set focus to popup for accessibility
-        element.setAttribute('tabindex', '-1');
-        element.focus();
+        popup.previousFocus = document.activeElement;
+
+        var closeBtn = element.querySelector('[data-popup-close]');
+        var focusTarget = closeBtn && typeof closeBtn.focus === 'function' ? closeBtn : null;
+        if (!focusTarget) {
+          var focusables = element.querySelectorAll('a[href]:not([tabindex="-1"]), button:not([disabled]):not([tabindex="-1"]), textarea:not([disabled]), input:not([disabled]):not([type="hidden"]), select:not([disabled])');
+          focusTarget = focusables.length ? focusables[0] : element;
+        }
+
+        if (focusTarget === element) {
+          element.setAttribute('tabindex', '-1');
+        }
+
+        if (focusTarget && typeof focusTarget.focus === 'function') {
+          focusTarget.focus();
+        }
 
         // Record that popup was shown
         self.recordPopupShown(popup);
@@ -782,6 +796,16 @@
 
         popup.isVisible = false;
         self.activePopup = null;
+
+        element.removeAttribute('tabindex');
+
+        var prev = popup.previousFocus;
+        if (prev && typeof prev.focus === 'function') {
+          try {
+            prev.focus();
+          } catch (err) {}
+        }
+        popup.previousFocus = null;
 
         // Handle after close behavior
         if (reason === 'close') {

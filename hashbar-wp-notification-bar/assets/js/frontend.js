@@ -150,6 +150,15 @@
             $(this).showNotification( top_notification_height, bottom_notification_height, left_wall_notification_width, right_wall_notification_width );
         });
 
+        // Enter / Space on custom controls (role="button" on <span>)
+        $('.hthb-close-toggle, .hthb-open-toggle').on('keydown', function (e) {
+            if (e.key !== 'Enter' && e.key !== ' ') {
+                return;
+            }
+            e.preventDefault();
+            $(this).trigger('click');
+        });
+
         // When scroll position matched with a notification
         // Show the notifications
         var window_inner_height             = $(window).height(),

@@ -140,7 +140,10 @@ function hashbar_render_announcement_bars() {
 		return;
 	}
 
-	echo '<div class="hashbar-announcement-bars-container">';
+	// display:contents removes the container from the layout tree so its children resolve
+	// their containing block to <body>. This is required for top-sticky bars (position:sticky)
+	// to stick across the full page scroll instead of only while this small container is in view.
+	echo '<div class="hashbar-announcement-bars-container" style="display:contents">';
 
 	foreach ( $active_bars as $bar ) {
 		// Check if bar should be displayed based on targeting rules
@@ -362,6 +365,20 @@ function hashbar_detect_device() {
 }
 
 /**
+ * Normalize page/post IDs from meta (JSON arrays often contain string IDs).
+ *
+ * @param mixed $ids Raw array after JSON decode or legacy formats.
+ * @return int[] Unique positive integers.
+ */
+function hashbar_normalize_target_page_ids( $ids ) {
+	if ( empty( $ids ) || ! is_array( $ids ) ) {
+		return array();
+	}
+	$normalized = array_map( 'absint', $ids );
+	return array_values( array_unique( array_filter( $normalized ) ) );
+}
+
+/**
  * Check page targeting
  *
  * @param int $bar_id The announcement bar post ID.
@@ -398,9 +415,10 @@ function hashbar_check_page_targeting( $bar_id ) {
 			return false;
 		}
 
-		$current_page_id = get_queried_object_id();
+		$page_ids        = hashbar_normalize_target_page_ids( $page_ids );
+		$current_page_id = absint( get_queried_object_id() );
 
-		return in_array( $current_page_id, $page_ids, true );
+		return $current_page_id > 0 && in_array( $current_page_id, $page_ids, true );
 	}
 
 	if ( $targeting_type === 'exclude' ) {
@@ -422,9 +440,10 @@ function hashbar_check_page_targeting( $bar_id ) {
 			return true;
 		}
 
-		$current_page_id = get_queried_object_id();
+		$excluded_ids    = hashbar_normalize_target_page_ids( $excluded_ids );
+		$current_page_id = absint( get_queried_object_id() );
 
-		return ! in_array( $current_page_id, $excluded_ids, true );
+		return ! ( $current_page_id > 0 && in_array( $current_page_id, $excluded_ids, true ) );
 	}
 
 	return true;
@@ -1053,12 +1072,17 @@ function hashbar_render_single_bar( $bar ) {
 		}
 	}
 
+	// Top sticky uses position:sticky so the bar stays in document flow — closing it
+	// shrinks layout naturally and the header rises in lockstep with the bar (no separate
+	// body-padding animation needed). Bottom sticky stays position:fixed because sticky
+	// would render off-screen on initial load when body is taller than viewport.
+	$sticky_position = $is_sticky ? ( $position === 'top' ? 'sticky' : 'fixed' ) : 'static';
 	$bar_styles = array(
-		'position'       => $is_sticky ? 'fixed' : 'static',
+		'position'       => $sticky_position,
 		'top'            => $is_sticky && $position === 'top' ? '0' : 'auto',
 		'bottom'         => $is_sticky && $position === 'bottom' ? '0' : 'auto',
-		'left'           => $is_sticky ? '0' : 'auto',
-		'right'          => $is_sticky ? '0' : 'auto',
+		'left'           => $sticky_position === 'fixed' ? '0' : 'auto',
+		'right'          => $sticky_position === 'fixed' ? '0' : 'auto',
 		'background'     => $background_css,
 		'color'          => $text_color,
 		'font-family'    => $font_family,
@@ -1082,6 +1106,18 @@ function hashbar_render_single_bar( $bar ) {
 		$bar_styles['animation'] = $animation_entry . ' ' . ( $animation_duration / 1000 ) . 's ease-out forwards';
 	}
 
+	// For top-sticky bars, the CSS translate-style entry animation only moves the bar
+	// visually — layout space is reserved upfront, so a blank strip appears before the
+	// bar arrives. Override to a height-grow entry instead: bar is rendered collapsed,
+	// inline script grows it to its natural height. Layout space and bar appear together.
+	if ( $is_sticky && $position === 'top' ) {
+		$bar_styles['animation']   = 'none';
+		$bar_styles['height']      = '0';
+		$bar_styles['min-height']  = '0';
+		$bar_styles['overflow']    = 'hidden';
+		$bar_styles['opacity']     = '0';
+	}
+
 	// Add image background properties if image background is used
 	if ( $bg_type === 'image' && is_array( $bg_image ) && ! empty( $bg_image['url'] ) ) {
 		$bar_styles['background-size'] = $image_size;
@@ -1102,6 +1138,14 @@ function hashbar_render_single_bar( $bar ) {
 	$schedule_recurring_raw = get_post_meta( $bar_id, '_wphash_ab_schedule_recurring', true );
 	$schedule_recurring = ! empty( $schedule_recurring_raw ) && $schedule_recurring_raw !== '0' && $schedule_recurring_raw !== 'false';
 	$schedule_recurring_days = get_post_meta( $bar_id, '_wphash_ab_schedule_recurring_days', true ) ?: array();
+
+	// Typographic tokens for rich message HTML — nested `p`, lists, links inherit these so
+	// theme stylesheet rules do not override the bar's Design settings. Inline styles in user
+	// content still win (normal cascade). See announcement-bar-frontend.css.
+	$bar_styles['--hashbar-announcement-color']       = $text_color;
+	$bar_styles['--hashbar-announcement-font-family'] = $font_family;
+	$bar_styles['--hashbar-announcement-font-size']   = is_numeric( $font_size ) ? ( (string) (int) $font_size ) . 'px' : $font_size;
+	$bar_styles['--hashbar-announcement-font-weight'] = is_numeric( $font_weight ) ? (string) (int) $font_weight : $font_weight;
 
 	// Build style string
 	$style_string = '';
@@ -1222,21 +1266,46 @@ function hashbar_render_single_bar( $bar ) {
 	// Get close button position (left or right)
 	$close_position = get_post_meta( $bar_id, '_wphash_ab_close_position', true ) ?: 'right';
 
+	// Landmark label for assistive tech (does not affect layout). Avoid aria-live on the whole bar — countdown updates would be noisy.
+	$announcement_region_label = trim( wp_strip_all_tags( $bar->post_title ) );
+	if ( '' === $announcement_region_label ) {
+		$announcement_region_label = __( 'Site announcement', 'hashbar' );
+	}
+
 	// Get Custom CSS
 	$custom_css = get_post_meta( $bar_id, '_wphash_ab_custom_css', true );
+
+	// Pre-paint body spacer only needed for bottom-sticky (position:fixed, out of flow).
+	// Top-sticky uses position:sticky which is in flow, so layout already reserves space.
+	$needs_body_spacer = $is_sticky && $position === 'bottom';
+	$pre_spacer_dur    = ( $needs_body_spacer && $animation_entry && $animation_entry !== 'none' ) ? max( 0, (int) $animation_duration ) : 0;
 	?>
 
 
-	<div class="hashbar-announcement-bar-wrapper" data-bar-id="<?php echo esc_attr( $bar_id ); ?>"<?php echo ! $is_sticky ? ' style="overflow:hidden;height:0"' : ''; ?>>
+	<?php
+	// Wrapper styling:
+	// - non-sticky: needs box for the entry-animation height transition (overflow:hidden;height:0).
+	// - top-sticky: display:contents so the bar's containing block escapes to <body>; otherwise
+	//   position:sticky would only stick within this short wrapper's bounds.
+	// - bottom-sticky: position:fixed bar, wrapper inert, no special styling.
+	if ( ! $is_sticky ) {
+		$wrapper_inline_style = ' style="overflow:hidden;height:0"';
+	} elseif ( $is_sticky && $position === 'top' ) {
+		$wrapper_inline_style = ' style="display:contents"';
+	} else {
+		$wrapper_inline_style = '';
+	}
+	?>
+	<div class="hashbar-announcement-bar-wrapper" data-bar-id="<?php echo esc_attr( $bar_id ); ?>"<?php echo $wrapper_inline_style; // phpcs:ignore ?>>
 		<?php if ( ! empty( $custom_css ) ) : ?>
 			<style>
 				<?php echo wp_strip_all_tags( $custom_css ); ?>
 			</style>
 		<?php endif; ?>
 
-	<div class="hashbar-announcement-bar" id="hashbar-bar-<?php echo esc_attr( $bar_id ); ?>" style="<?php echo esc_attr( $style_string ); ?>" data-hashbar-announcement="<?php echo esc_attr( $bar_id ); ?>" <?php echo $data_attr_string; // phpcs:ignore ?>>
+	<div class="hashbar-announcement-bar" id="hashbar-bar-<?php echo esc_attr( $bar_id ); ?>" role="region" aria-label="<?php echo esc_attr( $announcement_region_label ); ?>" style="<?php echo esc_attr( $style_string ); ?>" data-hashbar-announcement="<?php echo esc_attr( $bar_id ); ?>" <?php echo $data_attr_string; // phpcs:ignore ?>>
 		<?php if ( $close_enabled && $close_position === 'left' ) : ?>
-			<button class="hashbar-announcement-close" style="<?php echo esc_attr( $close_button_styles ); ?>" aria-label="Close announcement" title="Close" data-hashbar-close="true">
+			<button type="button" class="hashbar-announcement-close" style="<?php echo esc_attr( $close_button_styles ); ?>" aria-label="<?php echo esc_attr__( 'Close announcement', 'hashbar' ); ?>" title="<?php echo esc_attr__( 'Close', 'hashbar' ); ?>" data-hashbar-close="true">
 				<?php echo esc_html( $close_text ); ?>
 			</button>
 		<?php endif; ?>
@@ -1273,7 +1342,7 @@ function hashbar_render_single_bar( $bar ) {
 			<?php endif; ?>
 
 			<!-- Left/Right/Inline Wrapper - Contains left countdown + message + right countdown on same line -->
-			<div style="display: flex; align-items: <?php echo esc_attr( $countdown_align ); ?>; justify-content: center; gap: 8px; flex-wrap: wrap;">
+				<div class="hashbar-announcement-message" style="display: flex; align-items: <?php echo esc_attr( $countdown_align ); ?>; justify-content: center; gap: 8px; flex-wrap: wrap;">
 				<!-- Left Countdown -->
 				<?php if ( $countdown_enabled && $countdown_position === 'left' ) : ?>
 					<div style="display: flex; align-items: <?php echo esc_attr( $countdown_align ); ?>; gap: 4px; white-space: nowrap; flex-shrink: 0;">
@@ -1290,7 +1359,7 @@ function hashbar_render_single_bar( $bar ) {
 				<!-- Message Container -->
 				<div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
 					<?php if ( ! empty( $message ) ) : ?>
-						<p style="margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';" class="hashbar-no-emoji-convert" data-no-emoji="true">
+						<p style="margin: 0;" class="hashbar-no-emoji-convert" data-no-emoji="true">
 							<?php
 							// Allow inline styles and classes for custom design
 							$allowed_html = wp_kses_allowed_html( 'post' );
@@ -1379,19 +1448,63 @@ function hashbar_render_single_bar( $bar ) {
 
 		<?php if ( $close_enabled && $close_position === 'right' ) : ?>
 			<!-- Debug: Close Button Styles: <?php echo esc_attr( $close_button_styles ); ?> -->
-			<button class="hashbar-announcement-close" style="<?php echo esc_attr( $close_button_styles ); ?>" aria-label="Close announcement" title="Close" data-hashbar-close="true">
+			<button type="button" class="hashbar-announcement-close" style="<?php echo esc_attr( $close_button_styles ); ?>" aria-label="<?php echo esc_attr__( 'Close announcement', 'hashbar' ); ?>" title="<?php echo esc_attr__( 'Close', 'hashbar' ); ?>" data-hashbar-close="true">
 				<?php echo esc_html( $close_text ); ?>
 			</button>
 		<?php endif; ?>
 	</div>
 	</div>
-	<?php if ( ! $is_sticky ) : ?>
+	<?php if ( $needs_body_spacer ) : ?>
+	<style id="hashbar-pre-spacer-<?php echo esc_attr( $bar_id ); ?>"></style>
+	<script>(function(){
+		var dur = <?php echo (int) $pre_spacer_dur; ?>;
+		var bar = document.getElementById('hashbar-bar-<?php echo esc_js( $bar_id ); ?>');
+		if (!bar) return;
+		var h = bar.offsetHeight;
+		if (!h) return;
+		window.hashbarPreSpacers = window.hashbarPreSpacers || { bottom: {} };
+		window.hashbarPreSpacers.bottom['<?php echo esc_js( $bar_id ); ?>'] = h;
+		var total = 0, reg = window.hashbarPreSpacers.bottom;
+		for (var k in reg) total += reg[k];
+		var style = document.getElementById('hashbar-pre-spacer-<?php echo esc_js( $bar_id ); ?>');
+		var css;
+		if (dur > 0) {
+			css = '@keyframes hashbar-pre-spacer-bottom{from{padding-bottom:0}to{padding-bottom:' + total + 'px}}body{padding-bottom:' + total + 'px;animation:hashbar-pre-spacer-bottom ' + dur + 'ms ease-out}';
+		} else {
+			css = 'body{padding-bottom:' + total + 'px}';
+		}
+		style.textContent = css;
+	})();</script>
+	<?php elseif ( ! $is_sticky ) : ?>
 	<script>(function(){var w=document.currentScript.previousElementSibling;w.style.height='auto';var h=w.offsetHeight;w.style.height='0px';w.offsetHeight;w.style.transition='height <?php echo esc_js( $animation_duration / 1000 ); ?>s ease';w.style.height=h+'px';setTimeout(function(){w.style.overflow='';w.style.height='';w.style.transition='';},<?php echo esc_js( $animation_duration ); ?>);})();</script>
+	<?php elseif ( $is_sticky && $position === 'top' ) : ?>
+	<script>(function(){
+		var bar = document.getElementById('hashbar-bar-<?php echo esc_js( $bar_id ); ?>');
+		if (!bar) return;
+		// Measure target height by temporarily restoring min-height + auto height, then snap back to 0.
+		bar.style.height = 'auto';
+		bar.style.minHeight = '<?php echo (int) $height; ?>px';
+		var h = bar.offsetHeight;
+		bar.style.height = '0px';
+		bar.style.minHeight = '0';
+		bar.offsetHeight; // force reflow before applying transition
+		var dur = <?php echo (int) $animation_duration; ?>;
+		var durSec = dur / 1000;
+		bar.style.transition = 'height ' + durSec + 's ease-out, opacity ' + durSec + 's ease-out';
+		bar.style.height = h + 'px';
+		bar.style.opacity = '1';
+		setTimeout(function(){
+			bar.style.transition = '';
+			bar.style.height = '';
+			bar.style.minHeight = '<?php echo (int) $height; ?>px';
+			bar.style.overflow = '';
+		}, dur);
+	})();</script>
 	<?php endif; ?>
 
 	<?php if ( $reopen_enabled && defined( 'HASHBAR_WPNBP_VERSION' ) ) : ?>
 		<div class="hashbar-reopen-button" data-bar-id="<?php echo esc_attr( $bar_id ); ?>" style="position: fixed; bottom: 20px; right: 20px; z-index: 99999; display: none;">
-			<button class="hashbar-reopen-btn" style="<?php echo esc_attr( $reopen_button_styles ); ?>">
+			<button type="button" class="hashbar-reopen-btn" style="<?php echo esc_attr( $reopen_button_styles ); ?>">
 				<?php echo esc_html( $reopen_text ); ?>
 			</button>
 		</div>

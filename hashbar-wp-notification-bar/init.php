@@ -3,7 +3,7 @@
  * Plugin Name: HashBar - Announcement, Notification Bar & Popup Campaign
  * Plugin URI:  https://theplugindemo.com/hashbar/
  * Description: Announcement, Notification & Popup Campaign plugin for WordPress
- * Version:     1.9.4
+ * Version:     1.9.5
  * Author:      HasThemes
  * Author URI:  https://hasthemes.com
  * Text Domain: hashbar
@@ -15,7 +15,7 @@
 define( 'HASHBAR_WPNB_ROOT', __FILE__ );
 define( 'HASHBAR_WPNB_URI', plugins_url('',HASHBAR_WPNB_ROOT) );
 define( 'HASHBAR_WPNB_DIR', dirname(HASHBAR_WPNB_ROOT ) );
-define( 'HASHBAR_WPNB_VERSION', '1.9.4');
+define( 'HASHBAR_WPNB_VERSION', '1.9.5');
 
 // Template library image source: 'local' for dev, 'external' for production
 define( 'HASHBAR_TEMPLATE_IMG_SOURCE', 'local' );
@@ -893,9 +893,16 @@ function hashbar_wpnb_output($post_id){
             $notification_bar_classes_arr[] = $positon == 'hthb-pos--top' && $notification_sticky == '0' ? 'hthb-absolute' : '';
 
             $notification_bar_classes = implode(' ', $notification_bar_classes_arr);
+
+            $notification_region_label = trim( wp_strip_all_tags( get_the_title( $post_id ) ) );
+            if ( '' === $notification_region_label ) {
+                $notification_region_label = __( 'Site notification', 'hashbar' );
+            }
         ?>
         <div id="notification-<?php echo esc_attr( $post_id ); ?>"
-            style="visibility: hidden;" 
+            style="visibility: hidden;"
+            role="region"
+            aria-label="<?php echo esc_attr( $notification_region_label ); ?>"
             <?php hashbar_wpnb_render_html_attr('data-id', $post_id); ?>
             <?php hashbar_wpnb_render_html_attr('data-transparent_header_selector', $transparent_selector); ?>
             <?php hashbar_wpnb_render_html_attr('data-scroll_to_show', $scroll_to_show); ?>
@@ -905,12 +912,12 @@ function hashbar_wpnb_output($post_id){
             class="<?php echo esc_attr($notification_bar_classes); ?>">
 
             <!--Notification Open Buttons-->
-            <?php if(empty($open_button_text)): ?>
-                <span class="hthb-open-toggle">
-                    <svg id="Layer" enable-background="new 0 0 64 64" height="25" viewBox="0 0 64 64"  xmlns="http://www.w3.org/2000/svg"><path d="m37.379 12.552c-.799-.761-2.066-.731-2.827.069-.762.8-.73 2.066.069 2.828l15.342 14.551h-39.963c-1.104 0-2 .896-2 2s.896 2 2 2h39.899l-15.278 14.552c-.8.762-.831 2.028-.069 2.828.393.412.92.62 1.448.62.496 0 .992-.183 1.379-.552l17.449-16.62c.756-.755 1.172-1.759 1.172-2.828s-.416-2.073-1.207-2.862z" fill="#ffffff"/></svg>
+            <?php if ( empty( $open_button_text ) ) : ?>
+                <span class="hthb-open-toggle" role="button" tabindex="0" aria-label="<?php echo esc_attr__( 'Show notification', 'hashbar' ); ?>">
+                    <svg aria-hidden="true" focusable="false" enable-background="new 0 0 64 64" height="25" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="m37.379 12.552c-.799-.761-2.066-.731-2.827.069-.762.8-.73 2.066.069 2.828l15.342 14.551h-39.963c-1.104 0-2 .896-2 2s.896 2 2 2h39.899l-15.278 14.552c-.8.762-.831 2.028-.069 2.828.393.412.92.62 1.448.62.496 0 .992-.183 1.379-.552l17.449-16.62c.756-.755 1.172-1.759 1.172-2.828s-.416-2.073-1.207-2.862z" fill="#ffffff"/></svg>
                 </span>
-            <?php else: ?>
-                 <span class="hthb-open-toggle"><span><?php echo esc_html($open_button_text); ?></span></span>
+            <?php else : ?>
+                <span class="hthb-open-toggle" role="button" tabindex="0"><span><?php echo esc_html( $open_button_text ); ?></span></span>
             <?php endif; ?>
 
             <div class="hthb-row">
@@ -918,8 +925,8 @@ function hashbar_wpnb_output($post_id){
 
                     <!--Notification Buttons-->
                     <div class="hthb-close-toggle-wrapper">
-                        <span  class="hthb-close-toggle" data-text="<?php echo esc_html( $close_button_text ); ?>">
-                            <svg version="1.1" width="15" height="25" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        <span class="hthb-close-toggle" role="button" tabindex="0" data-text="<?php echo esc_attr( $close_button_text ); ?>"<?php echo empty( $close_button_text ) ? ' aria-label="' . esc_attr__( 'Close notification', 'hashbar' ) . '"' : ''; ?>>
+                            <svg aria-hidden="true" focusable="false" version="1.1" width="15" height="25" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                  viewBox="0 0 496.096 496.096" style="enable-background:new 0 0 496.096 496.096;" xml:space="preserve">
                                 <path d="M259.41,247.998L493.754,13.654c3.123-3.124,3.123-8.188,0-11.312c-3.124-3.123-8.188-3.123-11.312,0L248.098,236.686
                                         L13.754,2.342C10.576-0.727,5.512-0.639,2.442,2.539c-2.994,3.1-2.994,8.015,0,11.115l234.344,234.344L2.442,482.342
@@ -927,7 +934,7 @@ function hashbar_wpnb_output($post_id){
                                         l234.344,234.344c3.178,3.07,8.242,2.982,11.312-0.196c2.995-3.1,2.995-8.016,0-11.116L259.41,247.998z" fill="#ffffff" data-original="#000000"/>
                             </svg>
                             <span class="hthb-close-text"><?php echo esc_html( $close_button_text ); ?></span>
-                        </sapn>
+                        </span>
                     </div>
 
                     <!--Notification Text-->
