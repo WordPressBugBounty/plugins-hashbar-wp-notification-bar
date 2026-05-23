@@ -2,8 +2,8 @@
 Contributors: devitemsllc, htplugins, hasthemes, zenaulislam, aslamhasib, yeasinrony, madhusudandev
 Tags: notification bar, popup, announcement bar, lead capture, countdown timer
 Requires at least: 5.0
-Tested up to: 6.9
-Stable tag: 1.9.5
+Tested up to: 7.0
+Stable tag: 1.9.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -583,6 +583,10 @@ Yes! 30-day money-back guarantee on Pro purchases.
 11. **A/B Testing & Analytics** - Compare variants, split traffic, and pick a winner automatically
 
 == Changelog ==
+
+= Version: 1.9.6 - Date: 23 May 2026 =
+* Fixed: Close button keyboard accessibility for Notification Bar.
+* Tested: Compatibility with the latest version of WordPress.
 
 = Version: 1.9.5 - Date: 06 May 2026 =
 * Fixed: Announcement Bar page targeting ("Specific pages/posts" and "All except") on the frontend.

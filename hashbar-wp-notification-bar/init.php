@@ -3,7 +3,7 @@
  * Plugin Name: HashBar - Announcement, Notification Bar & Popup Campaign
  * Plugin URI:  https://theplugindemo.com/hashbar/
  * Description: Announcement, Notification & Popup Campaign plugin for WordPress
- * Version:     1.9.5
+ * Version:     1.9.6
  * Author:      HasThemes
  * Author URI:  https://hasthemes.com
  * Text Domain: hashbar
@@ -15,7 +15,7 @@
 define( 'HASHBAR_WPNB_ROOT', __FILE__ );
 define( 'HASHBAR_WPNB_URI', plugins_url('',HASHBAR_WPNB_ROOT) );
 define( 'HASHBAR_WPNB_DIR', dirname(HASHBAR_WPNB_ROOT ) );
-define( 'HASHBAR_WPNB_VERSION', '1.9.5');
+define( 'HASHBAR_WPNB_VERSION', '1.9.6');
 
 // Template library image source: 'local' for dev, 'external' for production
 define( 'HASHBAR_TEMPLATE_IMG_SOURCE', 'local' );
@@ -466,8 +466,12 @@ function hashbar_wpnb_upgrade_popup(){
 	<?php
 }
 
-add_action( 'wp_footer', 'hashbar_wpnb_load_notification_to_footer' );
+add_action( 'wp_body_open', 'hashbar_wpnb_load_notification_to_footer' );
+add_action( 'wp_footer', 'hashbar_wpnb_load_notification_to_footer', 999 );
 function hashbar_wpnb_load_notification_to_footer(){
+    static $rendered = false;
+    if ( $rendered ) return;
+    $rendered = true;
 
     $current_page_id = get_the_ID();
 

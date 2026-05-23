@@ -182,6 +182,18 @@ class ChangeLog extends WP_REST_Controller {
     private function get_changelog_data() {
         return [
             [
+                'version' => '1.9.6',
+                'date'    => '2026-05-23',
+                'changes' => [
+                    'Fixed' => [
+                        'Close button keyboard accessibility for Notification Bar.',
+                    ],
+                    'Improved' => [
+                        'Compatibility with the latest version of WordPress.',
+                    ],
+                ],
+            ],
+            [
                 'version' => '1.9.5',
                 'date'    => '2026-05-06',
                 'changes' => [
