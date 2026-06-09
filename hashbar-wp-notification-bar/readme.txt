@@ -3,7 +3,7 @@ Contributors: devitemsllc, htplugins, hasthemes, zenaulislam, aslamhasib, yeasin
 Tags: notification bar, popup, announcement bar, lead capture, countdown timer
 Requires at least: 5.0
 Tested up to: 7.0
-Stable tag: 1.9.6
+Stable tag: 1.9.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,9 +18,8 @@ Create Announcement Bars, Notification Bars & Popup Campaigns with countdown tim
 
 👉 [**Plugin Landing Page**](https://wphashbar.com/) | [**Purchase Pro**](https://wphashbar.com/pricing/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=purchasepro) | [**Documentation**](https://wphashbar.com/docs/) | [**Support**](https://wphashbar.com/contact/) 👈
 
-= 🎬 Video Tutorial =
 
-https://www.youtube.com/watch?v=9VUc5Is-9Uw
+https://www.youtube.com/watch?v=wLIydNL3Ei4
 
 = 🎯 Key Highlights =
 
@@ -39,6 +38,8 @@ https://www.youtube.com/watch?v=9VUc5Is-9Uw
 HashBar is an easy-to-install plugin for WordPress, allowing you to easily create notification bars and popup campaigns that work perfectly on all devices. With options for custom backgrounds, beautiful gradients, professional CSS styling, stunning animations, and smart triggers, there's no way your notifications and popups won't be noticed!
 
 = 🎨 Announcement Bar Features =
+
+https://www.youtube.com/watch?v=9VUc5Is-9Uw
 
 = 📚 18 Pre-built Templates =
 
@@ -583,6 +584,13 @@ Yes! 30-day money-back guarantee on Pro purchases.
 11. **A/B Testing & Analytics** - Compare variants, split traffic, and pick a winner automatically
 
 == Changelog ==
+
+= Version: 1.9.7 - Date: 09 Jun 2026 =
+* Added: Countdown timer custom labels (days/hours/minutes/seconds) in Announcement Bar.
+* Added: Countdown timer style options for announcement bar.
+* Added: Countdown expiry action option "Hide Bar/Show Message".
+* Fixed: Countdown date picker issue.
+* Tested: Compatibility with the latest version of WordPress.
 
 = Version: 1.9.6 - Date: 23 May 2026 =
 * Fixed: Close button keyboard accessibility for Notification Bar.

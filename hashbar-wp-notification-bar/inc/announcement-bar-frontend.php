@@ -167,6 +167,11 @@ function hashbar_should_display_bar( $bar_id ) {
 		return false;
 	}
 
+	// Check countdown expiry — hide bar server-side to avoid client-side flash
+	if ( ! hashbar_check_countdown_expiry( $bar_id ) ) {
+		return false;
+	}
+
 	// Check device targeting
 	if ( ! hashbar_check_device_targeting( $bar_id ) ) {
 		return false;
@@ -294,6 +299,55 @@ function hashbar_check_schedule( $bar_id ) {
 	}
 
 	return true;
+}
+
+/**
+ * Check whether a fixed countdown has passed its end date server-side.
+ * Only evaluates for fixed type + non-visitor timezone (where server can determine truth).
+ * Returns true (expired) only when certain; returns false when uncertain or not applicable.
+ *
+ * @param int    $bar_id           The announcement bar post ID.
+ * @param string $countdown_type   Already-loaded countdown type (optional, fetched if empty).
+ * @param string $timezone_setting Already-loaded timezone setting (optional, fetched if empty).
+ * @param string $countdown_date   Already-loaded end date string (optional, fetched if empty).
+ * @return bool True if the countdown has definitely expired server-side, false otherwise.
+ */
+function hashbar_is_countdown_server_expired( $bar_id, $countdown_type = '', $timezone_setting = '', $countdown_date = '' ) {
+	if ( ! $countdown_type )   $countdown_type   = get_post_meta( $bar_id, '_wphash_ab_countdown_type', true ) ?: 'fixed';
+	if ( ! $timezone_setting ) $timezone_setting = get_post_meta( $bar_id, '_wphash_ab_countdown_timezone', true ) ?: 'site';
+	if ( ! $countdown_date )   $countdown_date   = get_post_meta( $bar_id, '_wphash_ab_countdown_date', true );
+
+	if ( $countdown_type !== 'fixed' )    return false; // Recurring/evergreen have no fixed expiry
+	if ( $timezone_setting === 'visitor' ) return false; // Can't evaluate visitor timezone server-side
+	if ( empty( $countdown_date ) )        return false;
+
+	$end_datetime = DateTime::createFromFormat( 'Y-m-d\TH:i', substr( $countdown_date, 0, 16 ) );
+	if ( ! $end_datetime ) return false;
+
+	$gmt_offset  = (float) get_option( 'gmt_offset', 0 );
+	$offset_secs = (int) ( $gmt_offset * 3600 );
+	$end_utc     = $end_datetime->getTimestamp() - $offset_secs;
+
+	return time() > $end_utc;
+}
+
+/**
+ * Check if countdown expiry requires hiding the bar (hide_bar action, server-side detectable).
+ * Returns false (= don't display bar) only when expiry is confirmed and action is hide_bar.
+ *
+ * @param int $bar_id The announcement bar post ID.
+ * @return bool False if bar should be hidden due to expired countdown, true otherwise.
+ */
+function hashbar_check_countdown_expiry( $bar_id ) {
+	$countdown_enabled_raw = get_post_meta( $bar_id, '_wphash_ab_countdown_enabled', true );
+	$countdown_enabled     = ! empty( $countdown_enabled_raw ) && $countdown_enabled_raw !== '0' && $countdown_enabled_raw !== 'false';
+
+	if ( ! $countdown_enabled ) return true;
+
+	$expired_action = get_post_meta( $bar_id, '_wphash_ab_countdown_expired_action', true ) ?: 'show_message';
+	if ( $expired_action !== 'hide_bar' ) return true;
+
+	return ! hashbar_is_countdown_server_expired( $bar_id );
 }
 
 /**
@@ -947,6 +1001,44 @@ function hashbar_render_single_bar( $bar ) {
 	$countdown_timezone = get_post_meta( $bar_id, '_wphash_ab_countdown_timezone', true ) ?: 'site';
 	$countdown_duration = get_post_meta( $bar_id, '_wphash_ab_countdown_duration', true ) ?: 24;
 
+	// Countdown style colors and labels
+	$countdown_bg_color       = get_post_meta( $bar_id, '_wphash_ab_countdown_bg_color', true ) ?: '';
+	$countdown_text_color     = get_post_meta( $bar_id, '_wphash_ab_countdown_text_color', true ) ?: '';
+	$countdown_label_color    = get_post_meta( $bar_id, '_wphash_ab_countdown_label_color', true ) ?: '';
+	// Style-specific label defaults — only applied when meta was never saved (new bar).
+	// metadata_exists() returns false for keys never written, true for keys saved (even as '').
+	// This lets users clear a label to hide it while new bars still show style-appropriate defaults.
+	if ( $countdown_style === 'simple' ) {
+		$def_label_days = 'd'; $def_label_hours = 'h'; $def_label_mins = 'm'; $def_label_secs = 's';
+	} elseif ( in_array( $countdown_style, array( 'box', 'circular' ), true ) ) {
+		$def_label_days = 'Day'; $def_label_hours = 'Hour'; $def_label_mins = 'Minute'; $def_label_secs = 'Second';
+	} else {
+		$def_label_days = 'Days'; $def_label_hours = 'Hours'; $def_label_mins = 'Minutes'; $def_label_secs = 'Seconds';
+	}
+	$countdown_label_days    = metadata_exists( 'post', $bar_id, '_wphash_ab_countdown_label_days' )
+		? get_post_meta( $bar_id, '_wphash_ab_countdown_label_days', true )
+		: $def_label_days;
+	$countdown_label_hours   = metadata_exists( 'post', $bar_id, '_wphash_ab_countdown_label_hours' )
+		? get_post_meta( $bar_id, '_wphash_ab_countdown_label_hours', true )
+		: $def_label_hours;
+	$countdown_label_minutes = metadata_exists( 'post', $bar_id, '_wphash_ab_countdown_label_minutes' )
+		? get_post_meta( $bar_id, '_wphash_ab_countdown_label_minutes', true )
+		: $def_label_mins;
+	$countdown_label_seconds = metadata_exists( 'post', $bar_id, '_wphash_ab_countdown_label_seconds' )
+		? get_post_meta( $bar_id, '_wphash_ab_countdown_label_seconds', true )
+		: $def_label_secs;
+	$countdown_expired_action  = get_post_meta( $bar_id, '_wphash_ab_countdown_expired_action', true ) ?: 'show_message';
+	$countdown_expired_message = get_post_meta( $bar_id, '_wphash_ab_countdown_expired_message', true ) ?: 'This offer has expired!';
+
+	// Server-side expiry flag — used in template to skip timer HTML and output message directly.
+	// Only true for fixed type + non-visitor timezone where server can evaluate the date.
+	$countdown_is_expired = $countdown_enabled && hashbar_is_countdown_server_expired(
+		$bar_id,
+		$countdown_type,
+		$countdown_timezone,
+		$countdown_date
+	);
+
 	// Pro features
 	// Handle both string ('1', 'true') and boolean values from React
 	// When saved from React, true becomes '1', false becomes empty string
@@ -1233,8 +1325,17 @@ function hashbar_render_single_bar( $bar ) {
 		'data-show-seconds'        => $countdown_show_seconds ? 'true' : 'false',
 		'data-countdown-reset-time' => $countdown_reset_time,
 		'data-countdown-reset-days' => wp_json_encode( $countdown_reset_days ),
-		'data-countdown-timezone'  => $countdown_timezone,
-		'data-countdown-duration'  => (int) $countdown_duration,
+		'data-countdown-timezone'        => $countdown_timezone,
+		'data-countdown-duration'        => (int) $countdown_duration,
+		'data-countdown-bg-color'        => $countdown_bg_color,
+		'data-countdown-text-color'      => $countdown_text_color,
+		'data-countdown-label-color'     => $countdown_label_color,
+		'data-countdown-label-days'      => $countdown_label_days,
+		'data-countdown-label-hours'     => $countdown_label_hours,
+		'data-countdown-label-minutes'   => $countdown_label_minutes,
+		'data-countdown-label-seconds'   => $countdown_label_seconds,
+		'data-countdown-expired-action'  => $countdown_expired_action,
+		'data-countdown-expired-message' => $countdown_expired_message,
 		'data-coupon-enabled'      => $coupon_enabled ? 'true' : 'false',
 		'data-coupon-code'         => $coupon_code ?: '',
 		'data-coupon-show-button'  => $coupon_show_button ? 'true' : 'false',
@@ -1334,7 +1435,7 @@ function hashbar_render_single_bar( $bar ) {
 					<?php if ( ! empty( $countdown_text_before ) ) : ?>
 						<span style="font-size: 0.9em;"><?php echo esc_html( $countdown_text_before ); ?></span>
 					<?php endif; ?>
-					<?php echo hashbar_generate_countdown_timer( $countdown_style, $countdown_show_days, $countdown_show_hours, $countdown_show_minutes, $countdown_show_seconds ); // phpcs:ignore ?>
+					<?php echo hashbar_render_countdown_or_expired( $countdown_is_expired, $countdown_expired_action, $countdown_expired_message, $countdown_style, $countdown_show_days, $countdown_show_hours, $countdown_show_minutes, $countdown_show_seconds ); // phpcs:ignore ?>
 					<?php if ( ! empty( $countdown_text_after ) ) : ?>
 						<span style="font-size: 0.9em;"><?php echo esc_html( $countdown_text_after ); ?></span>
 					<?php endif; ?>
@@ -1349,7 +1450,7 @@ function hashbar_render_single_bar( $bar ) {
 						<?php if ( ! empty( $countdown_text_before ) ) : ?>
 							<span style="font-size: 0.9em; white-space: nowrap;"><?php echo esc_html( $countdown_text_before ); ?></span>
 						<?php endif; ?>
-						<?php echo hashbar_generate_countdown_timer( $countdown_style, $countdown_show_days, $countdown_show_hours, $countdown_show_minutes, $countdown_show_seconds ); // phpcs:ignore ?>
+						<?php echo hashbar_render_countdown_or_expired( $countdown_is_expired, $countdown_expired_action, $countdown_expired_message, $countdown_style, $countdown_show_days, $countdown_show_hours, $countdown_show_minutes, $countdown_show_seconds ); // phpcs:ignore ?>
 						<?php if ( ! empty( $countdown_text_after ) ) : ?>
 							<span style="font-size: 0.9em; white-space: nowrap;"><?php echo esc_html( $countdown_text_after ); ?></span>
 						<?php endif; ?>
@@ -1371,7 +1472,7 @@ function hashbar_render_single_bar( $bar ) {
 							?>
 
 							<?php if ( $countdown_enabled && $countdown_position === 'inline' ) : ?>
-								<?php echo hashbar_generate_countdown_timer( $countdown_style, $countdown_show_days, $countdown_show_hours, $countdown_show_minutes, $countdown_show_seconds, 'margin-left: 12px;' ); // phpcs:ignore ?>
+								<?php echo hashbar_render_countdown_or_expired( $countdown_is_expired, $countdown_expired_action, $countdown_expired_message, $countdown_style, $countdown_show_days, $countdown_show_hours, $countdown_show_minutes, $countdown_show_seconds, 'margin-left: 12px;' ); // phpcs:ignore ?>
 							<?php endif; ?>
 							<?php if ( $coupon_enabled && ! empty( $coupon_code ) && $countdown_position === 'inline' ) : ?>
 								<span style="margin-left: 12px; padding: 8px 16px; background: rgba(255,255,255,0.2); border: 2px dashed rgba(255,255,255,0.5); border-radius: 6px; cursor: pointer; font-family: 'Courier New', monospace; font-weight: bold; font-size: 14px; display: inline-flex; align-items: center; gap: 12px; transition: all 0.2s ease; color: inherit;" class="hashbar-coupon-inline" data-coupon-code="<?php echo esc_attr( $coupon_code ); ?>" data-coupon-show-button="<?php echo $coupon_show_button ? 'true' : 'false'; ?>" data-copy-text="<?php echo esc_attr( $coupon_copy_button_text ); ?>" data-copied-text="<?php echo esc_attr( $coupon_copied_button_text ); ?>" data-autocopy-on-click="<?php echo $coupon_autocopy_on_click ? 'true' : 'false'; ?>" title="Click to copy" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'"><?php echo esc_html( $coupon_code ); ?><?php if ( $coupon_show_button ) : ?><span style="display: inline-flex; align-items: center; gap: 4px; font-family: system-ui, -apple-system, sans-serif; font-size: 12px; font-weight: normal;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline-block; vertical-align: middle; opacity: 0.8; transition: opacity 0.2s ease; flex-shrink: 0;">
@@ -1389,7 +1490,7 @@ function hashbar_render_single_bar( $bar ) {
 						<?php if ( ! empty( $countdown_text_before ) ) : ?>
 							<span style="font-size: 0.9em; white-space: nowrap;"><?php echo esc_html( $countdown_text_before ); ?></span>
 						<?php endif; ?>
-						<?php echo hashbar_generate_countdown_timer( $countdown_style, $countdown_show_days, $countdown_show_hours, $countdown_show_minutes, $countdown_show_seconds ); // phpcs:ignore ?>
+						<?php echo hashbar_render_countdown_or_expired( $countdown_is_expired, $countdown_expired_action, $countdown_expired_message, $countdown_style, $countdown_show_days, $countdown_show_hours, $countdown_show_minutes, $countdown_show_seconds ); // phpcs:ignore ?>
 						<?php if ( ! empty( $countdown_text_after ) ) : ?>
 							<span style="font-size: 0.9em; white-space: nowrap;"><?php echo esc_html( $countdown_text_after ); ?></span>
 						<?php endif; ?>
@@ -1403,7 +1504,7 @@ function hashbar_render_single_bar( $bar ) {
 				<?php if ( ! empty( $countdown_text_before ) ) : ?>
 					<span style="font-size: 0.9em;"><?php echo esc_html( $countdown_text_before ); ?></span>
 				<?php endif; ?>
-				<?php echo hashbar_generate_countdown_timer( $countdown_style, $countdown_show_days, $countdown_show_hours, $countdown_show_minutes, $countdown_show_seconds ); // phpcs:ignore ?>
+				<?php echo hashbar_render_countdown_or_expired( $countdown_is_expired, $countdown_expired_action, $countdown_expired_message, $countdown_style, $countdown_show_days, $countdown_show_hours, $countdown_show_minutes, $countdown_show_seconds ); // phpcs:ignore ?>
 				<?php if ( ! empty( $countdown_text_after ) ) : ?>
 					<span style="font-size: 0.9em;"><?php echo esc_html( $countdown_text_after ); ?></span>
 				<?php endif; ?>
@@ -1416,7 +1517,7 @@ function hashbar_render_single_bar( $bar ) {
 				<?php if ( ! empty( $countdown_text_before ) ) : ?>
 					<span style="font-size: 0.9em;"><?php echo esc_html( $countdown_text_before ); ?></span>
 				<?php endif; ?>
-				<?php echo hashbar_generate_countdown_timer( $countdown_style, $countdown_show_days, $countdown_show_hours, $countdown_show_minutes, $countdown_show_seconds ); // phpcs:ignore ?>
+				<?php echo hashbar_render_countdown_or_expired( $countdown_is_expired, $countdown_expired_action, $countdown_expired_message, $countdown_style, $countdown_show_days, $countdown_show_hours, $countdown_show_minutes, $countdown_show_seconds ); // phpcs:ignore ?>
 				<?php if ( ! empty( $countdown_text_after ) ) : ?>
 					<span style="font-size: 0.9em;"><?php echo esc_html( $countdown_text_after ); ?></span>
 				<?php endif; ?>
@@ -1510,6 +1611,28 @@ function hashbar_render_single_bar( $bar ) {
 		</div>
 	<?php endif; ?>
 	<?php
+}
+
+/**
+ * Output countdown timer or, if already expired server-side, the expired message.
+ * Prevents the flash of zeroed timer HTML before JS can replace it.
+ *
+ * @param bool   $is_expired         Whether the countdown has expired server-side.
+ * @param string $expired_action     'hide_bar' or 'show_message'.
+ * @param string $expired_message    Text to show when action is show_message.
+ * @param string $style              Countdown style.
+ * @param bool   $show_days          Show days unit.
+ * @param bool   $show_hours         Show hours unit.
+ * @param bool   $show_minutes       Show minutes unit.
+ * @param bool   $show_seconds       Show seconds unit.
+ * @param string $extra_style        Optional extra inline styles for the timer element.
+ * @return string HTML markup.
+ */
+function hashbar_render_countdown_or_expired( $is_expired, $expired_action, $expired_message, $style, $show_days, $show_hours, $show_minutes, $show_seconds, $extra_style = '' ) {
+	if ( $is_expired && $expired_action === 'show_message' ) {
+		return '<span class="hashbar-countdown-expired-message" style="font-style:italic;">' . esc_html( $expired_message ) . '</span>';
+	}
+	return hashbar_generate_countdown_timer( $style, $show_days, $show_hours, $show_minutes, $show_seconds, $extra_style );
 }
 
 /**

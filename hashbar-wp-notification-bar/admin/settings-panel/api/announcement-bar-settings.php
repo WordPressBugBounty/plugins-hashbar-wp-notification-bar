@@ -1100,6 +1100,118 @@ class Hashbar_Announcement_Bar_Settings {
 					'value'    => true,
 				),
 			),
+			'_wphash_ab_countdown_label_days' => array(
+				'type'    => 'text',
+				'label'   => esc_html__( 'Days Label', 'hashbar' ),
+				'default' => esc_html__( 'Days', 'hashbar' ),
+				'condition' => array(
+					'key'      => '_wphash_ab_countdown_enabled',
+					'operator' => '==',
+					'value'    => true,
+				),
+			),
+			'_wphash_ab_countdown_label_hours' => array(
+				'type'    => 'text',
+				'label'   => esc_html__( 'Hours Label', 'hashbar' ),
+				'default' => esc_html__( 'Hours', 'hashbar' ),
+				'condition' => array(
+					'key'      => '_wphash_ab_countdown_enabled',
+					'operator' => '==',
+					'value'    => true,
+				),
+			),
+			'_wphash_ab_countdown_label_minutes' => array(
+				'type'    => 'text',
+				'label'   => esc_html__( 'Minutes Label', 'hashbar' ),
+				'default' => esc_html__( 'Minutes', 'hashbar' ),
+				'condition' => array(
+					'key'      => '_wphash_ab_countdown_enabled',
+					'operator' => '==',
+					'value'    => true,
+				),
+			),
+			'_wphash_ab_countdown_label_seconds' => array(
+				'type'    => 'text',
+				'label'   => esc_html__( 'Seconds Label', 'hashbar' ),
+				'default' => esc_html__( 'Seconds', 'hashbar' ),
+				'condition' => array(
+					'key'      => '_wphash_ab_countdown_enabled',
+					'operator' => '==',
+					'value'    => true,
+				),
+			),
+			'section_countdown_style' => array(
+				'type'  => 'section',
+				'label' => esc_html__( 'Style', 'hashbar' ),
+				'condition' => array(
+					'key'      => '_wphash_ab_countdown_enabled',
+					'operator' => '==',
+					'value'    => true,
+				),
+			),
+			'_wphash_ab_countdown_bg_color' => array(
+				'type'    => 'color',
+				'label'   => esc_html__( 'Background Color', 'hashbar' ),
+				'default' => '#1890ff',
+				'condition' => array(
+					'key'      => '_wphash_ab_countdown_enabled',
+					'operator' => '==',
+					'value'    => true,
+				),
+			),
+			'_wphash_ab_countdown_text_color' => array(
+				'type'    => 'color',
+				'label'   => esc_html__( 'Number Color', 'hashbar' ),
+				'default' => '#ffffff',
+				'condition' => array(
+					'key'      => '_wphash_ab_countdown_enabled',
+					'operator' => '==',
+					'value'    => true,
+				),
+			),
+			'_wphash_ab_countdown_label_color' => array(
+				'type'    => 'color',
+				'label'   => esc_html__( 'Label Color', 'hashbar' ),
+				'default' => '#666666',
+				'condition' => array(
+					'key'      => '_wphash_ab_countdown_enabled',
+					'operator' => '==',
+					'value'    => true,
+				),
+			),
+			'section_countdown_expiry' => array(
+				'type'  => 'section',
+				'label' => esc_html__( 'When Countdown Expires', 'hashbar' ),
+				'condition' => array(
+					'key'      => '_wphash_ab_countdown_enabled',
+					'operator' => '==',
+					'value'    => true,
+				),
+			),
+			'_wphash_ab_countdown_expired_action' => array(
+				'type'    => 'select',
+				'label'   => esc_html__( 'Expiry Action', 'hashbar' ),
+				'default' => 'show_message',
+				'options' => array(
+					'hide_bar'     => esc_html__( 'Hide Bar', 'hashbar' ),
+					'show_message' => esc_html__( 'Show Message', 'hashbar' ),
+				),
+				'condition' => array(
+					'key'      => '_wphash_ab_countdown_enabled',
+					'operator' => '==',
+					'value'    => true,
+				),
+			),
+			'_wphash_ab_countdown_expired_message' => array(
+				'type'        => 'textarea',
+				'label'       => esc_html__( 'Expired Message', 'hashbar' ),
+				'default'     => esc_html__( 'This offer has expired!', 'hashbar' ),
+				'condition'   => array(
+					'key'      => '_wphash_ab_countdown_enabled',
+					'operator' => '==',
+					'value'    => true,
+				),
+			),
 		);
 	}
 

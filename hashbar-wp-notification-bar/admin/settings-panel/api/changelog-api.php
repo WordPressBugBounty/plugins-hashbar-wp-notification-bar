@@ -182,6 +182,20 @@ class ChangeLog extends WP_REST_Controller {
     private function get_changelog_data() {
         return [
             [
+                'version' => '1.9.7',
+                'date'    => '2026-06-09',
+                'changes' => [
+                    'Added' => [
+                        'Countdown timer custom labels (days/hours/minutes/seconds) in Announcement Bar.',
+                        'Countdown timer style options for announcement bar.',
+                        'Countdown expiry action option "Hide Bar/Show Message".',
+                    ],
+                    'Fixed' => [
+                        'Countdown date picker issue.',
+                    ],
+                ],
+            ],
+            [
                 'version' => '1.9.6',
                 'date'    => '2026-05-23',
                 'changes' => [

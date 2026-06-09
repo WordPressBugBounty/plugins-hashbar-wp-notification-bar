@@ -580,6 +580,64 @@
       return;
     }
 
+    // Copy color/label settings from bar to each timer element for use during rendering
+    var cdBgColor      = bar.getAttribute('data-countdown-bg-color') || '';
+    var cdTextColor    = bar.getAttribute('data-countdown-text-color') || '';
+    var cdLabelColor   = bar.getAttribute('data-countdown-label-color') || '';
+    var rawLabelDays    = bar.getAttribute('data-countdown-label-days');
+    var rawLabelHours   = bar.getAttribute('data-countdown-label-hours');
+    var rawLabelMinutes = bar.getAttribute('data-countdown-label-minutes');
+    var rawLabelSeconds = bar.getAttribute('data-countdown-label-seconds');
+    timerElements.forEach(function(timerEl) {
+      if (cdBgColor)    timerEl.setAttribute('data-countdown-bg-color', cdBgColor);
+      if (cdTextColor)  timerEl.setAttribute('data-countdown-text-color', cdTextColor);
+      if (cdLabelColor) timerEl.setAttribute('data-countdown-label-color', cdLabelColor);
+      // PHP sets style-specific defaults for new bars; '' means user explicitly cleared the label.
+      // Use !== null so '' (cleared) passes through rather than falling back to JS defaults.
+      var elStyle = timerEl.getAttribute('data-countdown-style') || 'simple';
+      var defDays, defHours, defMins, defSecs;
+      if (elStyle === 'box' || elStyle === 'circular') {
+        defDays = 'Day'; defHours = 'Hour'; defMins = 'Minute'; defSecs = 'Second';
+      } else if (elStyle === 'simple') {
+        defDays = 'd'; defHours = 'h'; defMins = 'm'; defSecs = 's';
+      } else {
+        defDays = 'Days'; defHours = 'Hours'; defMins = 'Minutes'; defSecs = 'Seconds';
+      }
+      timerEl.setAttribute('data-countdown-label-days',    rawLabelDays    !== null ? rawLabelDays    : defDays);
+      timerEl.setAttribute('data-countdown-label-hours',   rawLabelHours   !== null ? rawLabelHours   : defHours);
+      timerEl.setAttribute('data-countdown-label-minutes', rawLabelMinutes !== null ? rawLabelMinutes : defMins);
+      timerEl.setAttribute('data-countdown-label-seconds', rawLabelSeconds !== null ? rawLabelSeconds : defSecs);
+      if ((elStyle === 'simple' || elStyle === 'digital') && cdTextColor) {
+        timerEl.style.color = cdTextColor;
+      }
+      if (elStyle === 'digital' && cdBgColor) {
+        timerEl.style.backgroundColor = cdBgColor;
+        timerEl.style.padding = '4px 8px';
+        timerEl.style.borderRadius = '4px';
+      }
+    });
+
+    // Expired action handler — runs once when the countdown reaches zero.
+    var expiredAction  = bar.getAttribute('data-countdown-expired-action')  || 'show_message';
+    var expiredMessage = bar.getAttribute('data-countdown-expired-message') || '';
+    var expiryHandled  = false;
+
+    function handleExpiry() {
+      if (expiryHandled) return;
+      expiryHandled = true;
+      if (expiredAction === 'hide_bar') {
+        barWrapper.style.display = 'none';
+      } else if (expiredAction === 'show_message') {
+        var safeMsg = expiredMessage
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;');
+        timerElements.forEach(function(el) {
+          el.innerHTML = '<span class="hashbar-countdown-expired-message">' + safeMsg + '</span>';
+        });
+      }
+    }
+
     // Handle FIXED type - same strategy as pro.js
     if (countdownType === 'fixed') {
       if (!countdownDate) return;
@@ -628,18 +686,27 @@
           remaining = actualEndTimeUtc - utcMs;
         }
 
+        // Handle expiry before any DOM update — prevents flash of 00:00 for already-expired bars
+        if (remaining < 0) {
+          handleExpiry();
+          return;
+        }
+
         // Update each timer element with its own display options
         timerConfigs.forEach(function(config) {
           updateCountdownOptimized(config, remaining, countdownType);
         });
       }
 
-      // Delay first update by 100ms to ensure all data is fully initialized
-      // This prevents flash of wrong values (like "Expired") on initial load
-      setTimeout(function() {
-        updateFixedIfChanged();
-        setInterval(updateFixedIfChanged, 1000);
-      }, 100);
+      // Call synchronously on load so expired bars are hidden before first paint
+      updateFixedIfChanged();
+      var fixedInterval;
+      if (!expiryHandled) {
+        fixedInterval = setInterval(function() {
+          updateFixedIfChanged();
+          if (expiryHandled) clearInterval(fixedInterval);
+        }, 1000);
+      }
     } else if (countdownType === 'recurring') {
       // Recurring countdown - resets at specific time each day
       const resetTime = bar.getAttribute('data-countdown-reset-time') || '00:00';
@@ -772,6 +839,7 @@
       function updateEvergreenTimers() {
         const now = new Date().getTime();
         const durationMs = duration * 60 * 60 * 1000;
+        var allExpired = true;
 
         timerConfigs.forEach(function(config) {
           // Initialize session start time on first call
@@ -783,15 +851,30 @@
           const elapsed = now - config.sessionStartTime;
           const distance = durationMs - elapsed;
 
+          if (distance >= 0) allExpired = false;
+        });
+
+        if (allExpired) {
+          handleExpiry();
+          return;
+        }
+
+        timerConfigs.forEach(function(config) {
+          const elapsed = now - config.sessionStartTime;
+          const distance = durationMs - elapsed;
           updateCountdownOptimized(config, distance, countdownType);
         });
       }
 
-      // Delay first update by 100ms to ensure all data is fully initialized
-      setTimeout(function() {
-        updateEvergreenTimers();
-        setInterval(updateEvergreenTimers, 1000);
-      }, 100);
+      // Call synchronously on load so expired bars are hidden before first paint
+      updateEvergreenTimers();
+      var evergreenInterval;
+      if (!expiryHandled) {
+        evergreenInterval = setInterval(function() {
+          updateEvergreenTimers();
+          if (expiryHandled) clearInterval(evergreenInterval);
+        }, 1000);
+      }
     }
   }
 
@@ -874,14 +957,22 @@
     }
 
     if (style === 'simple') {
-      // Simple text format: "5d 3h 45m 30s"
+      // Simple text format using custom labels (no space — label acts as suffix)
+      const _lDays    = timerElement.getAttribute('data-countdown-label-days');
+      const _lHours   = timerElement.getAttribute('data-countdown-label-hours');
+      const _lMinutes = timerElement.getAttribute('data-countdown-label-minutes');
+      const _lSeconds = timerElement.getAttribute('data-countdown-label-seconds');
+      const lDays    = _lDays    !== null ? _lDays    : 'd';
+      const lHours   = _lHours   !== null ? _lHours   : 'h';
+      const lMinutes = _lMinutes !== null ? _lMinutes : 'm';
+      const lSeconds = _lSeconds !== null ? _lSeconds : 's';
       const parts = [];
-      if (showDays && days > 0) parts.push(days + 'd');
-      if (showHours && hours > 0) parts.push(hours + 'h');
-      if (showMinutes && minutes > 0) parts.push(minutes + 'm');
-      if (showSeconds) parts.push(seconds + 's');
+      if (showDays && days > 0) parts.push(days + lDays);
+      if (showHours && hours > 0) parts.push(hours + lHours);
+      if (showMinutes && minutes > 0) parts.push(minutes + lMinutes);
+      if (showSeconds) parts.push(seconds + lSeconds);
 
-      timerElement.textContent = parts.length > 0 ? parts.join(' ') : '0s';
+      timerElement.textContent = parts.length > 0 ? parts.join(' ') : '0' + lSeconds;
     } else if (style === 'digital') {
       // Digital format: "05:03:45:30"
       let displayText = '';
@@ -955,107 +1046,128 @@
    * Update box-style or circular countdown display
    */
   function updateBoxCountdown(timerElement, days, hours, minutes, seconds, showDays, showHours, showMinutes, showSeconds) {
-    // Determine if this is circular or box style
-    const isCircular = timerElement.querySelector('.hb-countdown-circular') !== null;
+    const isCircular  = timerElement.querySelector('.hb-countdown-circular') !== null;
+    const bgColor     = timerElement.getAttribute('data-countdown-bg-color') || '';
+    const textColor   = timerElement.getAttribute('data-countdown-text-color') || '';
+    const labelColor  = timerElement.getAttribute('data-countdown-label-color') || '';
+    const _rawDays  = timerElement.getAttribute('data-countdown-label-days');
+    const _rawHours = timerElement.getAttribute('data-countdown-label-hours');
+    const _rawMins  = timerElement.getAttribute('data-countdown-label-minutes');
+    const _rawSecs  = timerElement.getAttribute('data-countdown-label-seconds');
+    const labelDays  = _rawDays  !== null ? _rawDays  : 'Day';
+    const labelHours = _rawHours !== null ? _rawHours : 'Hour';
+    const labelMins  = _rawMins  !== null ? _rawMins  : 'Minute';
+    const labelSecs  = _rawSecs  !== null ? _rawSecs  : 'Second';
+
+    function applyColors(wrapper) {
+      if (bgColor) {
+        wrapper.style.backgroundColor = bgColor;
+        wrapper.style.borderColor = bgColor;
+      }
+      if (textColor) {
+        const num = wrapper.querySelector('.countdown-number');
+        if (num) num.style.color = textColor;
+      }
+      if (labelColor) {
+        const lbl = wrapper.querySelector('.countdown-label');
+        if (lbl) lbl.style.color = labelColor;
+      }
+    }
 
     // Update days
     if (showDays) {
       let daysWrapper = timerElement.querySelector('.hb-countdown-days');
-
       if (!daysWrapper) {
         daysWrapper = document.createElement('div');
         if (isCircular) {
           daysWrapper.className = 'hb-countdown-unit hb-countdown-days hb-countdown-circular';
-          daysWrapper.innerHTML = '<div class="countdown-number">00</div><div class="countdown-label">D</div>';
+          daysWrapper.innerHTML = '<div class="countdown-number">00</div><div class="countdown-label">' + labelDays + '</div>';
         } else {
           daysWrapper.className = 'hb-countdown-unit hb-countdown-days';
-          daysWrapper.innerHTML = '<div class="hb-countdown-box"><div class="countdown-number">00</div></div><div class="countdown-label">Day</div>';
+          daysWrapper.innerHTML = '<div class="hb-countdown-box"><div class="countdown-number">00</div></div><div class="countdown-label">' + labelDays + '</div>';
         }
         timerElement.appendChild(daysWrapper);
       }
-
       const numberDiv = daysWrapper.querySelector('.countdown-number');
       if (numberDiv) {
         const newText = String(days).padStart(2, '0');
-        if (numberDiv.textContent !== newText) {
-          numberDiv.textContent = newText;
-        }
+        if (numberDiv.textContent !== newText) numberDiv.textContent = newText;
       }
+      const lblDiv = daysWrapper.querySelector('.countdown-label');
+      if (lblDiv && lblDiv.textContent !== labelDays) lblDiv.textContent = labelDays;
+      applyColors(daysWrapper);
     }
 
     // Update hours
     if (showHours) {
       let hoursWrapper = timerElement.querySelector('.hb-countdown-hours');
-
       if (!hoursWrapper) {
         hoursWrapper = document.createElement('div');
         if (isCircular) {
           hoursWrapper.className = 'hb-countdown-unit hb-countdown-hours hb-countdown-circular';
-          hoursWrapper.innerHTML = '<div class="countdown-number">00</div><div class="countdown-label">H</div>';
+          hoursWrapper.innerHTML = '<div class="countdown-number">00</div><div class="countdown-label">' + labelHours + '</div>';
         } else {
           hoursWrapper.className = 'hb-countdown-unit hb-countdown-hours';
-          hoursWrapper.innerHTML = '<div class="hb-countdown-box"><div class="countdown-number">00</div></div><div class="countdown-label">Hour</div>';
+          hoursWrapper.innerHTML = '<div class="hb-countdown-box"><div class="countdown-number">00</div></div><div class="countdown-label">' + labelHours + '</div>';
         }
         timerElement.appendChild(hoursWrapper);
       }
-
       const numberDiv = hoursWrapper.querySelector('.countdown-number');
       if (numberDiv) {
         const newText = String(hours).padStart(2, '0');
-        if (numberDiv.textContent !== newText) {
-          numberDiv.textContent = newText;
-        }
+        if (numberDiv.textContent !== newText) numberDiv.textContent = newText;
       }
+      const lblDiv = hoursWrapper.querySelector('.countdown-label');
+      if (lblDiv && lblDiv.textContent !== labelHours) lblDiv.textContent = labelHours;
+      applyColors(hoursWrapper);
     }
 
     // Update minutes
     if (showMinutes) {
       let minutesWrapper = timerElement.querySelector('.hb-countdown-minutes');
-
       if (!minutesWrapper) {
         minutesWrapper = document.createElement('div');
         if (isCircular) {
           minutesWrapper.className = 'hb-countdown-unit hb-countdown-minutes hb-countdown-circular';
-          minutesWrapper.innerHTML = '<div class="countdown-number">00</div><div class="countdown-label">M</div>';
+          minutesWrapper.innerHTML = '<div class="countdown-number">00</div><div class="countdown-label">' + labelMins + '</div>';
         } else {
           minutesWrapper.className = 'hb-countdown-unit hb-countdown-minutes';
-          minutesWrapper.innerHTML = '<div class="hb-countdown-box"><div class="countdown-number">00</div></div><div class="countdown-label">Minute</div>';
+          minutesWrapper.innerHTML = '<div class="hb-countdown-box"><div class="countdown-number">00</div></div><div class="countdown-label">' + labelMins + '</div>';
         }
         timerElement.appendChild(minutesWrapper);
       }
-
       const numberDiv = minutesWrapper.querySelector('.countdown-number');
       if (numberDiv) {
         const newText = String(minutes).padStart(2, '0');
-        if (numberDiv.textContent !== newText) {
-          numberDiv.textContent = newText;
-        }
+        if (numberDiv.textContent !== newText) numberDiv.textContent = newText;
       }
+      const lblDiv = minutesWrapper.querySelector('.countdown-label');
+      if (lblDiv && lblDiv.textContent !== labelMins) lblDiv.textContent = labelMins;
+      applyColors(minutesWrapper);
     }
 
     // Update seconds
     if (showSeconds) {
       let secondsWrapper = timerElement.querySelector('.hb-countdown-seconds');
-
       if (!secondsWrapper) {
         secondsWrapper = document.createElement('div');
         if (isCircular) {
           secondsWrapper.className = 'hb-countdown-unit hb-countdown-seconds hb-countdown-circular';
-          secondsWrapper.innerHTML = '<div class="countdown-number">00</div><div class="countdown-label">S</div>';
+          secondsWrapper.innerHTML = '<div class="countdown-number">00</div><div class="countdown-label">' + labelSecs + '</div>';
         } else {
           secondsWrapper.className = 'hb-countdown-unit hb-countdown-seconds';
-          secondsWrapper.innerHTML = '<div class="hb-countdown-box"><div class="countdown-number">00</div></div><div class="countdown-label">Second</div>';
+          secondsWrapper.innerHTML = '<div class="hb-countdown-box"><div class="countdown-number">00</div></div><div class="countdown-label">' + labelSecs + '</div>';
         }
         timerElement.appendChild(secondsWrapper);
       }
-
       const numberDiv = secondsWrapper.querySelector('.countdown-number');
       if (numberDiv) {
         const newText = String(seconds).padStart(2, '0');
-        if (numberDiv.textContent !== newText) {
-          numberDiv.textContent = newText;
-        }
+        if (numberDiv.textContent !== newText) numberDiv.textContent = newText;
       }
+      const lblDiv = secondsWrapper.querySelector('.countdown-label');
+      if (lblDiv && lblDiv.textContent !== labelSecs) lblDiv.textContent = labelSecs;
+      applyColors(secondsWrapper);
     }
   }
 
