@@ -3,7 +3,7 @@ Contributors: devitemsllc, htplugins, hasthemes, zenaulislam, aslamhasib, yeasin
 Tags: notification bar, popup, announcement bar, lead capture, countdown timer
 Requires at least: 5.0
 Tested up to: 7.0
-Stable tag: 1.9.7
+Stable tag: 1.9.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -584,6 +584,10 @@ Yes! 30-day money-back guarantee on Pro purchases.
 11. **A/B Testing & Analytics** - Compare variants, split traffic, and pick a winner automatically
 
 == Changelog ==
+
+= Version: 1.9.8 - Date: 16 Jun 2026 =
+* Fixed: Conflict with The Events Calendar plugin.
+* Fixed: Keyboard tab order for Notification Bar close button.
 
 = Version: 1.9.7 - Date: 09 Jun 2026 =
 * Added: Countdown timer custom labels (days/hours/minutes/seconds) in Announcement Bar.

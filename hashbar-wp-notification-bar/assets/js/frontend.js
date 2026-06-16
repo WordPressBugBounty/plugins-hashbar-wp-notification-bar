@@ -24,6 +24,13 @@
         }
     }
 
+    // Move notification bars to start of <body> so DOM order matches visual order.
+    // Bars are injected via wp_footer (end of body) but display fixed at top/bottom.
+    // Without this, keyboard Tab reaches close button only after all page content.
+    $(document).ready(function () {
+        $('body').prepend($('.hthb-notification'));
+    });
+
     var timeout = 400;
     $(window).on('load',function(){
         var top_notification_height         = Number.parseInt($('.hthb-notification.hthb-pos--top').last().height()),

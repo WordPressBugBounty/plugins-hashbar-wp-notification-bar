@@ -182,6 +182,16 @@ class ChangeLog extends WP_REST_Controller {
     private function get_changelog_data() {
         return [
             [
+                'version' => '1.9.8',
+                'date'    => '2026-06-16',
+                'changes' => [
+                    'Fixed' => [
+                        'Conflict with The Events Calendar plugin.',
+                        'Keyboard tab order for Notification Bar close button.',
+                    ],
+                ],
+            ],
+            [
                 'version' => '1.9.7',
                 'date'    => '2026-06-09',
                 'changes' => [
