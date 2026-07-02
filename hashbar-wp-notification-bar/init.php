@@ -3,7 +3,7 @@
  * Plugin Name: HashBar - Announcement, Notification Bar & Popup Campaign
  * Plugin URI:  https://theplugindemo.com/hashbar/
  * Description: Announcement, Notification & Popup Campaign plugin for WordPress
- * Version:     1.9.8
+ * Version:     1.9.9
  * Author:      HasThemes
  * Author URI:  https://hasthemes.com
  * Text Domain: hashbar
@@ -15,7 +15,7 @@
 define( 'HASHBAR_WPNB_ROOT', __FILE__ );
 define( 'HASHBAR_WPNB_URI', plugins_url('',HASHBAR_WPNB_ROOT) );
 define( 'HASHBAR_WPNB_DIR', dirname(HASHBAR_WPNB_ROOT ) );
-define( 'HASHBAR_WPNB_VERSION', '1.9.8');
+define( 'HASHBAR_WPNB_VERSION', '1.9.9');
 
 // Template library image source: 'local' for dev, 'external' for production
 define( 'HASHBAR_TEMPLATE_IMG_SOURCE', 'local' );
@@ -396,9 +396,10 @@ function  hashbar_wpnb_enqueue_scripts(){
 
     //register script
     wp_register_script( 'jquery-countdown', HASHBAR_WPNB_URI.'/assets/js/jquery.countdown.min.js', array('jquery'), HASHBAR_WPNB_VERSION, true);
+    wp_enqueue_script( 'jquery-countdown' );
 
     // enqueue js
-    wp_enqueue_script( 'hashbar-frontend', HASHBAR_WPNB_URI.'/assets/js/frontend.js', array('jquery'), HASHBAR_WPNB_VERSION, false);
+    wp_enqueue_script( 'hashbar-frontend', HASHBAR_WPNB_URI.'/assets/js/frontend.js', array('jquery', 'jquery-countdown'), HASHBAR_WPNB_VERSION, false);
     wp_enqueue_script( 'hashbar-analytics', HASHBAR_WPNB_URI.'/assets/js/analytics.js', array('jquery'), HASHBAR_WPNB_VERSION, true );
     wp_enqueue_script( 'js-cookie', HASHBAR_WPNB_URI.'/assets/js/js.cookie.min.js',array('jquery'),HASHBAR_WPNB_VERSION, false);
 

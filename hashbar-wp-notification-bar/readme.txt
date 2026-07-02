@@ -3,7 +3,7 @@ Contributors: devitemsllc, htplugins, hasthemes, zenaulislam, aslamhasib, yeasin
 Tags: notification bar, popup, announcement bar, lead capture, countdown timer
 Requires at least: 5.0
 Tested up to: 7.0
-Stable tag: 1.9.8
+Stable tag: 1.9.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -584,6 +584,11 @@ Yes! 30-day money-back guarantee on Pro purchases.
 11. **A/B Testing & Analytics** - Compare variants, split traffic, and pick a winner automatically
 
 == Changelog ==
+
+= Version: 1.9.9 - Date: 02 Jul 2026 =
+* Fixed: Countdown timer not initializing on the frontend (missing script dependency).
+* Fixed: Countdown Block editor preview stuck at 00 (iframe editor canvas compatibility).
+* Fixed: Countdown Block editor preview not updating when the date is changed.
 
 = Version: 1.9.8 - Date: 16 Jun 2026 =
 * Fixed: Conflict with The Events Calendar plugin.

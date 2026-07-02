@@ -182,6 +182,17 @@ class ChangeLog extends WP_REST_Controller {
     private function get_changelog_data() {
         return [
             [
+                'version' => '1.9.9',
+                'date'    => '2026-07-02',
+                'changes' => [
+                    'Fixed' => [
+                        'Countdown timer not initializing on the frontend (missing script dependency).',
+                        'Countdown Block editor preview stuck at 00 (iframe editor canvas compatibility).',
+                        'Countdown Block editor preview not updating when the date is changed.',
+                    ],
+                ],
+            ],
+            [
                 'version' => '1.9.8',
                 'date'    => '2026-06-16',
                 'changes' => [
