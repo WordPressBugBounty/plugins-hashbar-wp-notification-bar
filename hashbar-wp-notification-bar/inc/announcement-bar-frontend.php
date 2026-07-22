@@ -958,6 +958,13 @@ function hashbar_render_single_bar( $bar ) {
 	$close_font_weight = get_post_meta( $bar_id, '_wphash_ab_close_font_weight', true ) ?: 500;
 	$close_border_radius = get_post_meta( $bar_id, '_wphash_ab_close_border_radius', true ) ?: 4;
 
+	// Content container width - boxes message/countdown/coupon, Close button stays outside
+	$container_width_type = get_post_meta( $bar_id, '_wphash_ab_container_width_type', true ) ?: 'full';
+	$container_width      = get_post_meta( $bar_id, '_wphash_ab_container_width', true ) ?: 800;
+	$container_style      = ( $container_width_type === 'custom' )
+		? sprintf( 'max-width: %dpx; margin: 0 auto; width: 100%%;', intval( $container_width ) )
+		: '';
+
 	// Countdown features (Free + Pro)
 	// Handle both string ('1', 'true') and boolean values from React
 	// When saved from React, true becomes '1', false becomes empty string
@@ -970,7 +977,7 @@ function hashbar_render_single_bar( $bar ) {
 	$countdown_position = get_post_meta( $bar_id, '_wphash_ab_countdown_position', true ) ?: 'inline';
 	// Use center alignment for box/circular styles, baseline for simple/digital
 	$countdown_align   = in_array( $countdown_style, array( 'box', 'circular' ), true ) ? 'center' : 'baseline';
-	$countdown_text_before = get_post_meta( $bar_id, '_wphash_ab_countdown_text_before', true ) ?: 'Offer ends in:';
+	$countdown_text_before = get_post_meta( $bar_id, '_wphash_ab_countdown_text_before', true );
 	$countdown_text_after = get_post_meta( $bar_id, '_wphash_ab_countdown_text_after', true ) ?: '';
 
 	// Handle both string ('1', 'true') and boolean values from React
@@ -1164,11 +1171,20 @@ function hashbar_render_single_bar( $bar ) {
 		}
 	}
 
+	// Get close button position (left/right = center-aligned flex item; top_left/top_right = pinned to top corner)
+	$close_position = get_post_meta( $bar_id, '_wphash_ab_close_position', true ) ?: 'right';
+	$close_position_is_corner = in_array( $close_position, array( 'top_left', 'top_right' ), true );
+
 	// Top sticky uses position:sticky so the bar stays in document flow — closing it
 	// shrinks layout naturally and the header rises in lockstep with the bar (no separate
 	// body-padding animation needed). Bottom sticky stays position:fixed because sticky
 	// would render off-screen on initial load when body is taller than viewport.
 	$sticky_position = $is_sticky ? ( $position === 'top' ? 'sticky' : 'fixed' ) : 'static';
+	// Custom container width, or a top-corner close position, both need the bar to be a
+	// positioning context so the absolutely-positioned Close button anchors to it (see $close_button_styles below).
+	if ( ( $container_width_type === 'custom' || $close_position_is_corner ) && $sticky_position === 'static' ) {
+		$sticky_position = 'relative';
+	}
 	$bar_styles = array(
 		'position'       => $sticky_position,
 		'top'            => $is_sticky && $position === 'top' ? '0' : 'auto',
@@ -1364,8 +1380,18 @@ function hashbar_render_single_bar( $bar ) {
 		$data_attr_string .= ' ' . $attr . '="' . esc_attr( $value ) . '"';
 	}
 
-	// Get close button position (left or right)
-	$close_position = get_post_meta( $bar_id, '_wphash_ab_close_position', true ) ?: 'right';
+	// Top-corner positions are always pinned out of the flex row.
+	// Custom container width also takes center-left/center-right Close out of the flex row so the
+	// container can truly center across the full bar width; pin Close to the bar edge instead.
+	if ( $close_position_is_corner ) {
+		$close_button_styles .= $close_position === 'top_left'
+			? ' position: absolute; left: 0; top: 0;'
+			: ' position: absolute; right: 0; top: 0;';
+	} elseif ( $container_width_type === 'custom' ) {
+		$close_button_styles .= $close_position === 'left'
+			? " position: absolute; left: {$padding_left}px; top: 50%; transform: translateY(-50%);"
+			: " position: absolute; right: {$padding_right}px; top: 50%; transform: translateY(-50%);";
+	}
 
 	// Landmark label for assistive tech (does not affect layout). Avoid aria-live on the whole bar — countdown updates would be noisy.
 	$announcement_region_label = trim( wp_strip_all_tags( $bar->post_title ) );
@@ -1405,7 +1431,7 @@ function hashbar_render_single_bar( $bar ) {
 		<?php endif; ?>
 
 	<div class="hashbar-announcement-bar" id="hashbar-bar-<?php echo esc_attr( $bar_id ); ?>" role="region" aria-label="<?php echo esc_attr( $announcement_region_label ); ?>" style="<?php echo esc_attr( $style_string ); ?>" data-hashbar-announcement="<?php echo esc_attr( $bar_id ); ?>" <?php echo $data_attr_string; // phpcs:ignore ?>>
-		<?php if ( $close_enabled && $close_position === 'left' ) : ?>
+		<?php if ( $close_enabled && ( $close_position === 'left' || $close_position === 'top_left' ) ) : ?>
 			<button type="button" class="hashbar-announcement-close" style="<?php echo esc_attr( $close_button_styles ); ?>" aria-label="<?php echo esc_attr__( 'Close announcement', 'hashbar' ); ?>" title="<?php echo esc_attr__( 'Close', 'hashbar' ); ?>" data-hashbar-close="true">
 				<?php echo esc_html( $close_text ); ?>
 			</button>
@@ -1428,6 +1454,9 @@ function hashbar_render_single_bar( $bar ) {
 			}
 		}
 		?>
+		<?php if ( $container_width_type === 'custom' ) : ?>
+		<div class="hashbar-announcement-container" style="flex: 1; display: flex; align-items: center; gap: 16px; <?php echo esc_attr( $container_style ); ?>">
+		<?php endif; ?>
 		<div class="hashbar-announcement-content" style="flex: 1; display: flex; flex-direction: <?php echo ( ( $countdown_enabled && ( $countdown_position === 'left' || $countdown_position === 'right' ) ) && !( $countdown_position === 'top' || $countdown_position === 'below' ) ) || ( $coupon_enabled && $countdown_position !== 'inline' && !( $countdown_position === 'top' || $countdown_position === 'below' ) ) ? 'row' : 'column'; ?>; align-items: center; justify-content: <?php echo esc_attr( $content_justify ); ?>; gap: 8px; flex-wrap: wrap;">
 			<!-- Before/Top Countdown (above message) -->
 			<?php if ( $countdown_enabled && ( $countdown_position === 'before' || $countdown_position === 'top' ) ) : ?>
@@ -1546,8 +1575,11 @@ function hashbar_render_single_bar( $bar ) {
 				<?php echo esc_html( $cta_text ?: 'Learn More' ); ?>
 			</a>
 		<?php endif; ?>
+		<?php if ( $container_width_type === 'custom' ) : ?>
+		</div>
+		<?php endif; ?>
 
-		<?php if ( $close_enabled && $close_position === 'right' ) : ?>
+		<?php if ( $close_enabled && ( $close_position === 'right' || $close_position === 'top_right' ) ) : ?>
 			<!-- Debug: Close Button Styles: <?php echo esc_attr( $close_button_styles ); ?> -->
 			<button type="button" class="hashbar-announcement-close" style="<?php echo esc_attr( $close_button_styles ); ?>" aria-label="<?php echo esc_attr__( 'Close announcement', 'hashbar' ); ?>" title="<?php echo esc_attr__( 'Close', 'hashbar' ); ?>" data-hashbar-close="true">
 				<?php echo esc_html( $close_text ); ?>

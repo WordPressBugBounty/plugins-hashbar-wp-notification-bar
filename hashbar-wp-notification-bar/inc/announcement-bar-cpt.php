@@ -261,6 +261,22 @@ function hashbar_register_announcement_bar_meta() {
 		'default'           => 60,
 	) );
 
+	register_post_meta( 'wphash_announcement', '_wphash_ab_container_width_type', array(
+		'type'              => 'string',
+		'description'       => __( 'Content container width type (full or custom)', 'hashbar' ),
+		'single'            => true,
+		'show_in_rest'      => true,
+		'default'           => 'full',
+	) );
+
+	register_post_meta( 'wphash_announcement', '_wphash_ab_container_width', array(
+		'type'              => 'integer',
+		'description'       => __( 'Custom content container width in pixels', 'hashbar' ),
+		'single'            => true,
+		'show_in_rest'      => true,
+		'default'           => 800,
+	) );
+
 	register_post_meta( 'wphash_announcement', '_wphash_ab_padding', array(
 		'type'              => 'object',
 		'description'       => __( 'Padding values', 'hashbar' ),

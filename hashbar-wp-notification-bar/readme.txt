@@ -3,7 +3,7 @@ Contributors: devitemsllc, htplugins, hasthemes, zenaulislam, aslamhasib, yeasin
 Tags: notification bar, popup, announcement bar, lead capture, countdown timer
 Requires at least: 5.0
 Tested up to: 7.0
-Stable tag: 1.9.9
+Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -584,6 +584,14 @@ Yes! 30-day money-back guarantee on Pro purchases.
 11. **A/B Testing & Analytics** - Compare variants, split traffic, and pick a winner automatically
 
 == Changelog ==
+
+= Version: 2.0.0 - Date: 22 Jul 2026 =
+* Added: Content Container option in Announcement Bar Design tab — full width by default, or a custom boxed/centered width.
+* Added: Close Button position options "Top Left" and "Top Right" for Announcement Bar (in addition to Center Left/Right).
+* Improved: Announcement Bar Design tab reorganized into collapsible "Bar Style" and "Content Style" sections.
+* Fixed: Countdown "Text Before Timer" showing default text on the frontend and in Live Preview when left empty.
+* Fixed: Announcement Bar Content tab sometimes showing empty for older bars.
+* Fixed: Duplicating an Announcement Bar sometimes not copying settings correctly.
 
 = Version: 1.9.9 - Date: 02 Jul 2026 =
 * Fixed: Countdown timer not initializing on the frontend (missing script dependency).

@@ -443,12 +443,28 @@ class AnnouncementBar {
 				], 500);
 			}
 
-			// Copy all post meta
-			$post_metas = get_post_meta($post_id);
-			foreach ($post_metas as $meta_key => $meta_values) {
-				foreach ($meta_values as $meta_value) {
-					add_post_meta($new_post_id, $meta_key, $meta_value);
+			// Copy all post meta as raw rows (bypass add_post_meta/maybe_serialize).
+			// get_post_meta() returns already-stored values as-is (e.g. a serialized array
+			// string), and passing that back through add_post_meta() would re-serialize it
+			// a second time (WordPress's maybe_serialize() intentionally double-serializes
+			// anything that already looks serialized), corrupting array/object meta such as
+			// messages, padding, and targeting lists on the duplicate. Copying the raw
+			// meta_value bytes directly avoids any serialize/unserialize round-trip.
+			global $wpdb;
+			$skip_meta_keys = array('_edit_lock', '_edit_last');
+			$meta_rows = $wpdb->get_results( $wpdb->prepare( "SELECT meta_key, meta_value FROM {$wpdb->postmeta} WHERE post_id = %d", $post_id ) );
+			foreach ($meta_rows as $meta_row) {
+				if (in_array($meta_row->meta_key, $skip_meta_keys, true)) {
+					continue;
 				}
+				$wpdb->insert(
+					$wpdb->postmeta,
+					array(
+						'post_id'    => $new_post_id,
+						'meta_key'   => $meta_row->meta_key,
+						'meta_value' => $meta_row->meta_value,
+					)
+				);
 			}
 
 			$new_post = get_post($new_post_id);

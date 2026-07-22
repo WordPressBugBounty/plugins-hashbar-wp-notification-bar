@@ -361,6 +361,23 @@ class Hashbar_Announcement_Bar_Settings {
 				),
 				'unit'    => 'px',
 			),
+			'_wphash_ab_container_width_type' => array(
+				'type'    => 'select',
+				'label' => esc_html__( 'Content Container', 'hashbar' ),
+				'default' => 'full',
+				'options' => array(
+					'full'   => esc_html__( 'Full Width', 'hashbar' ),
+					'custom' => esc_html__( 'Custom Width', 'hashbar' ),
+				),
+			),
+			'_wphash_ab_container_width' => array(
+				'type'    => 'slider',
+				'label' => esc_html__( 'Container Width', 'hashbar' ),
+				'default' => 800,
+				'min'     => 300,
+				'max'     => 1920,
+				'unit'    => 'px',
+			),
 			'section_cta_styling' => array(
 				'type'      => 'section',
 				'label' => esc_html__( 'CTA Button Styling', 'hashbar' ),
@@ -724,8 +741,10 @@ class Hashbar_Announcement_Bar_Settings {
 				'label' => esc_html__( 'Close Button Position', 'hashbar' ),
 				'default'   => 'right',
 				'options'   => array(
-					'left' => esc_html__( 'Left', 'hashbar' ),
-					'right' => esc_html__( 'Right', 'hashbar' ),
+					'left'      => esc_html__( 'Center Left', 'hashbar' ),
+					'right'     => esc_html__( 'Center Right', 'hashbar' ),
+					'top_left'  => esc_html__( 'Top Left', 'hashbar' ),
+					'top_right' => esc_html__( 'Top Right', 'hashbar' ),
 				),
 				'condition' => array(
 					'key'      => '_wphash_ab_close_enabled',

@@ -182,6 +182,24 @@ class ChangeLog extends WP_REST_Controller {
     private function get_changelog_data() {
         return [
             [
+                'version' => '2.0.0',
+                'date'    => '2026-07-22',
+                'changes' => [
+                    'Added' => [
+                        'Content Container option in Announcement Bar Design tab — full width by default, or a custom boxed/centered width.',
+                        'Close Button position options "Top Left" and "Top Right" for Announcement Bar.',
+                    ],
+                    'Improved' => [
+                        'Announcement Bar Design tab reorganized into collapsible "Bar Style" and "Content Style" sections.',
+                    ],
+                    'Fixed' => [
+                        'Countdown "Text Before Timer" showing default text when left empty.',
+                        'Announcement Bar Content tab sometimes showing empty for older bars.',
+                        'Duplicating an Announcement Bar sometimes not copying settings correctly.',
+                    ],
+                ],
+            ],
+            [
                 'version' => '1.9.9',
                 'date'    => '2026-07-02',
                 'changes' => [
