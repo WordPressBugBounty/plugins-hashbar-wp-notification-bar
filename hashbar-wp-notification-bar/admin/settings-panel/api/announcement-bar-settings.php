@@ -177,6 +177,12 @@ class Hashbar_Announcement_Bar_Settings {
 					),
 				),
 			),
+			'_wphash_ab_confirmation_page_id' => array(
+				'type'        => 'page-select',
+				'label'       => esc_html__( 'Confirmation Page', 'hashbar' ),
+				'description' => esc_html__( 'Select your order confirmation / thank-you page to automatically track purchases as conversions', 'hashbar' ),
+				'default'     => 0,
+			),
 			'section_message_rotation' => array(
 				'type'  => 'section',
 				'label' => esc_html__( 'Message Rotation', 'hashbar' ),

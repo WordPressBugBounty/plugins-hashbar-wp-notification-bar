@@ -548,6 +548,17 @@ class Hashbar_Popup_Campaign_Settings {
 					'value'    => true,
 				),
 			),
+			'_wphash_popup_confirmation_page_id' => array(
+				'type'        => 'page-select',
+				'label'       => esc_html__( 'Confirmation Page', 'hashbar' ),
+				'description' => esc_html__( 'Select your order confirmation / thank-you page to automatically track purchases as conversions', 'hashbar' ),
+				'default'     => 0,
+				'condition'   => array(
+					'key'      => '_wphash_popup_cta_enabled',
+					'operator' => '==',
+					'value'    => true,
+				),
+			),
 			'section_secondary_button' => array(
 				'type'      => 'section',
 				'label'     => esc_html__( 'Secondary Button', 'hashbar' ),

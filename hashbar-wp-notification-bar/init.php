@@ -3,7 +3,7 @@
  * Plugin Name: HashBar - Announcement, Notification Bar & Popup Campaign
  * Plugin URI:  https://theplugindemo.com/hashbar/
  * Description: Announcement, Notification & Popup Campaign plugin for WordPress
- * Version:     2.0.0
+ * Version:     2.0.1
  * Author:      HasThemes
  * Author URI:  https://hasthemes.com
  * Text Domain: hashbar
@@ -15,7 +15,7 @@
 define( 'HASHBAR_WPNB_ROOT', __FILE__ );
 define( 'HASHBAR_WPNB_URI', plugins_url('',HASHBAR_WPNB_ROOT) );
 define( 'HASHBAR_WPNB_DIR', dirname(HASHBAR_WPNB_ROOT ) );
-define( 'HASHBAR_WPNB_VERSION', '2.0.0');
+define( 'HASHBAR_WPNB_VERSION', '2.0.1');
 
 // Template library image source: 'local' for dev, 'external' for production
 define( 'HASHBAR_TEMPLATE_IMG_SOURCE', 'local' );
@@ -43,6 +43,7 @@ include_once( HASHBAR_WPNB_DIR. '/inc/popup-campaign-database.php');
 include_once( HASHBAR_WPNB_DIR. '/inc/popup-campaign-form-handler.php');
 include_once( HASHBAR_WPNB_DIR. '/inc/popup-campaign-frontend.php');
 include_once( HASHBAR_WPNB_DIR. '/inc/popup-analytics-processor.php');
+include_once( HASHBAR_WPNB_DIR. '/inc/popup-conversion-tracking.php');
 // settings panel files
 include_once( HASHBAR_WPNB_DIR. '/admin/settings-panel/settings-panel.php');
 
@@ -170,6 +171,7 @@ include_once( HASHBAR_WPNB_DIR. '/inc/database-installer.php');
 include_once( HASHBAR_WPNB_DIR. '/inc/manage-cash.php');
 include_once( HASHBAR_WPNB_DIR. '/inc/analytical-store.php');
 include_once( HASHBAR_WPNB_DIR. '/inc/announcement-analytics-processor.php');
+include_once( HASHBAR_WPNB_DIR. '/inc/announcement-conversion-tracking.php');
 
 if(!is_plugin_active( 'hashbar-pro/init.php' )){
     include_once( HASHBAR_WPNB_DIR. '/inc/shortcode.php');

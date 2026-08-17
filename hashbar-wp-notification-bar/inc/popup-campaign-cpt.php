@@ -322,6 +322,14 @@ function hashbar_register_popup_campaign_meta() {
 		'default'           => false,
 	) );
 
+	register_post_meta( 'wphash_popup', '_wphash_popup_confirmation_page_id', array(
+		'type'              => 'integer',
+		'description'       => __( 'Order confirmation / thank-you page to auto-track conversions on', 'hashbar' ),
+		'single'            => true,
+		'show_in_rest'      => true,
+		'default'           => 0,
+	) );
+
 	// Secondary Button
 	register_post_meta( 'wphash_popup', '_wphash_popup_secondary_enabled', array(
 		'type'              => 'boolean',

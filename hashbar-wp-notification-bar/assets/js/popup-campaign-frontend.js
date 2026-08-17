@@ -213,6 +213,9 @@
       ctaButtons.forEach(function(button) {
         button.addEventListener('click', function() {
           self.trackEvent(popup, 'click', 'cta');
+          // Set a short-lived attribution cookie so a later purchase (e.g. on
+          // WooCommerce order completion) can be logged back as a conversion.
+          document.cookie = 'hashbar_conv_ref=' + popup.id + '; path=/; max-age=1800; SameSite=Lax';
         });
       });
 

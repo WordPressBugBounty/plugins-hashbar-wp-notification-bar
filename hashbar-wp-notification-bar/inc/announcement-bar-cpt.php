@@ -338,6 +338,14 @@ function hashbar_register_announcement_bar_meta() {
 		'default'           => 'top',
 	) );
 
+	register_post_meta( 'wphash_announcement', '_wphash_ab_confirmation_page_id', array(
+		'type'              => 'integer',
+		'description'       => __( 'Order confirmation / thank-you page to auto-track conversions on', 'hashbar' ),
+		'single'            => true,
+		'show_in_rest'      => true,
+		'default'           => 0,
+	) );
+
 	register_post_meta( 'wphash_announcement', '_wphash_ab_sticky', array(
 		'type'              => 'boolean',
 		'description'       => __( 'Fixed position', 'hashbar' ),

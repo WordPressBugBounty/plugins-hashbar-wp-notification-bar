@@ -147,7 +147,7 @@ class AnnouncementAnalytics {
 
 		// Calculate rates
 		$ctr  = $views > 0 ? round( ( $clicks / $views ) * 100, 2 ) : 0;
-		$conv = $clicks > 0 ? round( ( $conversions / $clicks ) * 100, 2 ) : 0;
+		$conv = $views > 0 ? round( ( $conversions / $views ) * 100, 2 ) : 0;
 
 		// Check if bar has A/B testing enabled
 		$ab_test_enabled = get_post_meta( $bar_id, '_wphash_ab_test_enabled', true );

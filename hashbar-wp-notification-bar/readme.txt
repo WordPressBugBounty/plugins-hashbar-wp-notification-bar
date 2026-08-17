@@ -3,7 +3,7 @@ Contributors: devitemsllc, htplugins, hasthemes, zenaulislam, aslamhasib, yeasin
 Tags: notification bar, popup, announcement bar, lead capture, countdown timer
 Requires at least: 5.0
 Tested up to: 7.0
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -584,6 +584,13 @@ Yes! 30-day money-back guarantee on Pro purchases.
 11. **A/B Testing & Analytics** - Compare variants, split traffic, and pick a winner automatically
 
 == Changelog ==
+
+= Version: 2.0.1 - Date: 17 Aug 2026 =
+* Added: Purchase-conversion tracking for Announcement Bar and Popup Campaign CTA buttons — WooCommerce orders are attributed automatically; a confirmation-page picker and manual code snippet are available for other checkouts (Easy Digital Downloads, custom carts, etc).
+* Added: Message Text field now notes support for basic HTML tags (e.g. `<b>`, `<i>`, `<span>`, `<a>`).
+* Security: Hardened REST API authentication check used by analytics/tracking endpoints to prevent a request-forgery bypass.
+* Fixed: Announcement Bar Conversion Rate now calculated as a percentage of views, matching Popup Campaign and A/B Test reporting (was previously a percentage of clicks).
+* Fixed: Announcement Bar list showing unreadable gray-on-gray text in dark-mode browsers.
 
 = Version: 2.0.0 - Date: 22 Jul 2026 =
 * Added: Content Container option in Announcement Bar Design tab — full width by default, or a custom boxed/centered width.

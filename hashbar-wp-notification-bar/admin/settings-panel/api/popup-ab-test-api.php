@@ -546,12 +546,13 @@ add_action( 'rest_api_init', [ PopupABTestAPI::class, 'register_routes' ] );
  * Allow unauthenticated access to the popup A/B test tracking endpoint
  */
 add_filter( 'rest_authentication_errors', function( $result ) {
-	if ( isset( $_SERVER['REQUEST_URI'] ) ) {
-		$uri = $_SERVER['REQUEST_URI'];
-		if ( strpos( $uri, '/hashbar/v1/popup-ab-test/track' ) !== false ||
-			 strpos( $uri, '/hashbar/v1/popup-ab-test/assign' ) !== false ) {
-			return true;
-		}
+	// Only bypass the nonce check for these exact routes (matches WordPress's own
+	// resolved route, immune to query-string smuggling unlike REQUEST_URI).
+	$route = isset( $GLOBALS['wp']->query_vars['rest_route'] )
+		? untrailingslashit( $GLOBALS['wp']->query_vars['rest_route'] )
+		: '';
+	if ( in_array( $route, array( '/hashbar/v1/popup-ab-test/track', '/hashbar/v1/popup-ab-test/assign' ), true ) ) {
+		return true;
 	}
 	return $result;
 } );

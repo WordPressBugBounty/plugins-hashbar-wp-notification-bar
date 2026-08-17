@@ -182,6 +182,23 @@ class ChangeLog extends WP_REST_Controller {
     private function get_changelog_data() {
         return [
             [
+                'version' => '2.0.1',
+                'date'    => '2026-08-17',
+                'changes' => [
+                    'Added' => [
+                        'Purchase-conversion tracking for Announcement Bar and Popup Campaign CTA buttons — WooCommerce orders are attributed automatically; a confirmation-page picker and manual code snippet are available for other checkouts (Easy Digital Downloads, custom carts, etc).',
+                        'Message Text field now notes support for basic HTML tags (e.g. <b>, <i>, <span>, <a>).',
+                    ],
+                    'Security' => [
+                        'Hardened REST API authentication check used by analytics/tracking endpoints to prevent a request-forgery bypass.',
+                    ],
+                    'Fixed' => [
+                        'Announcement Bar Conversion Rate now calculated as a percentage of views, matching Popup Campaign and A/B Test reporting (was previously a percentage of clicks).',
+                        'Announcement Bar list showing unreadable gray-on-gray text in dark-mode browsers.',
+                    ],
+                ],
+            ],
+            [
                 'version' => '2.0.0',
                 'date'    => '2026-07-22',
                 'changes' => [

@@ -375,9 +375,12 @@ Analytics_Processor::instance();
  * This prevents nonce validation errors for public tracking (same as A/B test tracking)
  */
 add_filter( 'rest_authentication_errors', function( $result ) {
-	// If this is a request to our tracking endpoint, allow it without authentication
-	if ( isset( $_SERVER['REQUEST_URI'] ) && strpos( $_SERVER['REQUEST_URI'], '/hashbar/v1/announcement-analytics/batch' ) !== false ) {
-		// Allow the request to proceed without authentication
+	// Only bypass the nonce check for this exact route (matches WordPress's own
+	// resolved route, immune to query-string smuggling unlike REQUEST_URI).
+	$route = isset( $GLOBALS['wp']->query_vars['rest_route'] )
+		? untrailingslashit( $GLOBALS['wp']->query_vars['rest_route'] )
+		: '';
+	if ( '/hashbar/v1/announcement-analytics/batch' === $route ) {
 		return true;
 	}
 	return $result;
