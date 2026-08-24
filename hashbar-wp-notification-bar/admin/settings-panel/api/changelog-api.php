@@ -182,6 +182,22 @@ class ChangeLog extends WP_REST_Controller {
     private function get_changelog_data() {
         return [
             [
+                'version' => '2.0.2',
+                'date'    => '2026-08-24',
+                'changes' => [
+                    'Improved' => [
+                        'Settings page now shows only shared options; Notification Bar-only options moved to a new "Global Settings" panel on the Notification Bar page.',
+                    ],
+                    'Fixed' => [
+                        'Saving/resetting settings could overwrite unrelated saved options.',
+                        'A few minor issues.',
+                    ],
+                    'Tested' => [
+                        'Compatibility with the latest version of WordPress.',
+                    ],
+                ],
+            ],
+            [
                 'version' => '2.0.1',
                 'date'    => '2026-08-17',
                 'changes' => [

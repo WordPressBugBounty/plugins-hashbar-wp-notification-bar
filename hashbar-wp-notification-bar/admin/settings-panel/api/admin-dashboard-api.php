@@ -88,7 +88,14 @@ function hashbar_register_rest_routes() {
         'callback' => 'hashbar_reset_settings',
         'permission_callback' => function() {
             return current_user_can('manage_options');
-        }
+        },
+        'args' => [
+            'keys' => [
+                'required' => false,
+                'type' => 'array',
+                'items' => ['type' => 'string'],
+            ],
+        ],
     ]);
 
     // Duplicate post endpoint
@@ -311,10 +318,16 @@ function hashbar_update_dashboard_settings($request) {
                 'message' => 'Invalid JSON data'
             ], 400);
         }
-        // Update free version options
-        $update_result = update_option('hashbar_wpnb_opt', $settings);
+        // Merge into existing options so a partial payload from one settings
+        // surface (e.g. global Settings vs. Notification Bar drawer) never
+        // wipes fields owned by the other surface.
+        $existing = get_option('hashbar_wpnb_opt', []);
+        $merged = array_merge(is_array($existing) ? $existing : [], $settings);
 
-        if ($update_result === false && $settings !== get_option('hashbar_wpnb_opt')) {
+        // Update free version options
+        $update_result = update_option('hashbar_wpnb_opt', $merged);
+
+        if ($update_result === false && $merged !== get_option('hashbar_wpnb_opt')) {
             return new WP_REST_Response([
                 'success' => false,
                 'message' => 'Failed to update settings in database'
@@ -323,7 +336,7 @@ function hashbar_update_dashboard_settings($request) {
 
         // Sync settings to Pro version's option as well for cross-version compatibility
         if (defined('HASHBAR_WPNBP_VERSION')) {
-            update_option('hashbar_wpnbp_opt', $settings);
+            update_option('hashbar_wpnbp_opt', $merged);
         }
 
         return new WP_REST_Response([
@@ -479,18 +492,40 @@ function hashbar_get_analytics_data() {
 }
 
 // Reset settings to default values
-function hashbar_reset_settings() {
+function hashbar_reset_settings($request) {
 
-    update_option('hashbar_wpnb_opt', null);
+    $keys = $request->get_param('keys');
 
-    // Sync reset to Pro version as well
+    if (empty($keys) || !is_array($keys)) {
+        // No keys specified - reset everything (back-compat for old callers).
+        update_option('hashbar_wpnb_opt', null);
+
+        if (defined('HASHBAR_WPNBP_VERSION')) {
+            update_option('hashbar_wpnbp_opt', null);
+        }
+
+        return new WP_REST_Response([
+            'success' => true,
+            'message' => 'Settings reset successfully',
+            'settings' => null
+        ], 200);
+    }
+
+    // Strip only the requested keys so the other settings surface's
+    // fields (stored in the same option) are left untouched.
+    $existing = get_option('hashbar_wpnb_opt', []);
+    $reduced = is_array($existing) ? array_diff_key($existing, array_flip($keys)) : [];
+    update_option('hashbar_wpnb_opt', $reduced);
+
     if (defined('HASHBAR_WPNBP_VERSION')) {
-        update_option('hashbar_wpnbp_opt', null);
+        $existing_pro = get_option('hashbar_wpnbp_opt', []);
+        $reduced_pro = is_array($existing_pro) ? array_diff_key($existing_pro, array_flip($keys)) : [];
+        update_option('hashbar_wpnbp_opt', $reduced_pro);
     }
 
     return new WP_REST_Response([
         'success' => true,
         'message' => 'Settings reset successfully',
-        'settings' => null
+        'settings' => $reduced
     ], 200);
 }

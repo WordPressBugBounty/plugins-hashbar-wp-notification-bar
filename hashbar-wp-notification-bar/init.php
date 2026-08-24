@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name: HashBar - Announcement, Notification Bar & Popup Campaign
- * Plugin URI:  https://theplugindemo.com/hashbar/
+ * Plugin URI:  https://wphashbar.com/
  * Description: Announcement, Notification & Popup Campaign plugin for WordPress
- * Version:     2.0.1
+ * Version:     2.0.2
  * Author:      HasThemes
  * Author URI:  https://hasthemes.com
  * Text Domain: hashbar
@@ -15,7 +15,7 @@
 define( 'HASHBAR_WPNB_ROOT', __FILE__ );
 define( 'HASHBAR_WPNB_URI', plugins_url('',HASHBAR_WPNB_ROOT) );
 define( 'HASHBAR_WPNB_DIR', dirname(HASHBAR_WPNB_ROOT ) );
-define( 'HASHBAR_WPNB_VERSION', '2.0.1');
+define( 'HASHBAR_WPNB_VERSION', '2.0.2');
 
 // Template library image source: 'local' for dev, 'external' for production
 define( 'HASHBAR_TEMPLATE_IMG_SOURCE', 'local' );
@@ -54,6 +54,8 @@ add_action('init', function() {
         include_once( HASHBAR_WPNB_DIR. '/admin/class-notices.php');
         include_once( HASHBAR_WPNB_DIR. '/admin/class-deactivation.php');
         include_once( HASHBAR_WPNB_DIR. '/admin/class-diagnostic-data.php');
+        include_once( HASHBAR_WPNB_DIR. '/admin/class-api.php');
+        include_once( HASHBAR_WPNB_DIR. '/admin/class-dashboard-widget.php');
     }
 
     include_once( HASHBAR_WPNB_DIR. '/inc/metabox.php');

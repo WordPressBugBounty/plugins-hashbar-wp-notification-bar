@@ -327,70 +327,6 @@ class Hashbar_Settings_Panel_Settings {
                 ]
             ],
             'general_settings' => [
-                'dont_show_bar_after_close' => [
-                    'label' => __('Don\'t Show Again', 'hashbar'),
-                    'type' => 'checkbox',
-                    'default' => false,
-                    'desc' => __('If check this option. The notification will not appear again on a page, after closing the notification.', 'hashbar'),
-                ],
-                'keep_closed_bar' => [
-                    'label' => __('Keep Notification Bar Closed', 'hashbar'),
-                    'type' => 'checkbox',
-                    'default' => false,
-                    'desc' => __('When you close the notification bar once then it will always keep closed in all pages of your site. This option will be effective for the notifications which have set "Load as minimized = No" from the notification metabox options', 'hashbar'),
-                ],
-                'cookies_expire_time' => [
-                    'label' => __('Cookies expire time', 'hashbar'),
-                    'type' => 'number',
-                    'default' => 7,
-                    'min' => 1,
-                    'max' => 365,
-                    'step' => 1,
-                    'desc' => __('Specify the duration of the expiration time for the cookie when a user closes the notification bar. After the expiration time has passed, the notification will reappear for that user. (Default: 7 Days).', 'hashbar'),
-                ],
-                'cookies_expire_type' => [
-                    'label' => __('Cookies expire time unit', 'hashbar'),
-                    'type' => 'select',
-                    'default' => 'days',
-                    'options' => [
-                        'days' => __('Days', 'hashbar'),
-                        'hours' => __('Hours', 'hashbar'),
-                        'minutes' => __('Minutes', 'hashbar'),
-                    ],
-                    'desc' => __('Set the unit of time for cookies expiration.', 'hashbar'),
-                ],
-                'enable_analytics' => [
-                    'label' => __('Enable Analytics', 'hashbar'),
-                    'type' => 'checkbox',
-                    'default' => false,
-                    'desc' => __('Enable Analytics to get the analytical report about your notifications.', 'hashbar'),
-                ],
-                'count_onece_byip' => [
-                    'label' => __('Count Only 1 From Each IP', 'hashbar'),
-                    'type' => 'checkbox',
-                    'default' => false,
-                    'desc' => __('Enable to count the views and clicks only once from each IP-address.', 'hashbar'),
-                ],
-                'analytics_from' => [
-                    'label' => __('User Tracking Options', 'hashbar'),
-                    'type' => 'select',
-                    'options' => [
-                        'everyone' => __('Everyone', 'hashbar'),
-                        'guests' => __('Guest Users Only', 'hashbar'),
-                        'registered_users' => __('Rigestered Users Only', 'hashbar'),
-                    ],
-                    'default' => 'everyone',
-                    'desc' => __('Select which users to track for analytics.', 'hashbar'),
-                ],
-                'mobile_device_breakpoint' => [
-                    'label' => __('Mobile device breakpoint (px)', 'hashbar'),
-                    'type' => 'number',
-                    'default' => 991,
-                    'min' => 320,
-                    'max' => 1200,
-                    'step' => 1,
-                    'desc' => __('Set the breakpoint for mobile devices in pixels.', 'hashbar'),
-                ],
                 'items_per_page' => [
                     'label' => __('Items per Page', 'hashbar'),
                     'default' => 10,
@@ -442,6 +378,75 @@ class Hashbar_Settings_Panel_Settings {
         return $dashboard_settings;
     }
 
+    public function get_notification_bar_settings(){
+        return [
+            'dont_show_bar_after_close' => [
+                'label' => __('Don\'t Show Again', 'hashbar'),
+                'type' => 'checkbox',
+                'default' => false,
+                'desc' => __('If check this option. The notification will not appear again on a page, after closing the notification.', 'hashbar'),
+            ],
+            'keep_closed_bar' => [
+                'label' => __('Keep Notification Bar Closed', 'hashbar'),
+                'type' => 'checkbox',
+                'default' => false,
+                'desc' => __('When you close the notification bar once then it will always keep closed in all pages of your site. This option will be effective for the notifications which have set "Load as minimized = No" from the notification metabox options', 'hashbar'),
+            ],
+            'cookies_expire_time' => [
+                'label' => __('Cookies expire time', 'hashbar'),
+                'type' => 'number',
+                'default' => 7,
+                'min' => 1,
+                'max' => 365,
+                'step' => 1,
+                'desc' => __('Specify the duration of the expiration time for the cookie when a user closes the notification bar. After the expiration time has passed, the notification will reappear for that user. (Default: 7 Days).', 'hashbar'),
+            ],
+            'cookies_expire_type' => [
+                'label' => __('Cookies expire time unit', 'hashbar'),
+                'type' => 'select',
+                'default' => 'days',
+                'options' => [
+                    'days' => __('Days', 'hashbar'),
+                    'hours' => __('Hours', 'hashbar'),
+                    'minutes' => __('Minutes', 'hashbar'),
+                ],
+                'desc' => __('Set the unit of time for cookies expiration.', 'hashbar'),
+            ],
+            'enable_analytics' => [
+                'label' => __('Enable Analytics', 'hashbar'),
+                'type' => 'checkbox',
+                'default' => false,
+                'desc' => __('Enable Analytics to get the analytical report about your notifications.', 'hashbar'),
+            ],
+            'count_onece_byip' => [
+                'label' => __('Count Only 1 From Each IP', 'hashbar'),
+                'type' => 'checkbox',
+                'default' => false,
+                'desc' => __('Enable to count the views and clicks only once from each IP-address.', 'hashbar'),
+            ],
+            'analytics_from' => [
+                'label' => __('User Tracking Options', 'hashbar'),
+                'type' => 'select',
+                'options' => [
+                    'everyone' => __('Everyone', 'hashbar'),
+                    'guests' => __('Guest Users Only', 'hashbar'),
+                    'registered_users' => __('Rigestered Users Only', 'hashbar'),
+                ],
+                'default' => 'everyone',
+                'desc' => __('Select which users to track for analytics.', 'hashbar'),
+            ],
+            'mobile_device_breakpoint' => [
+                'label' => __('Mobile device breakpoint (px)', 'hashbar'),
+                'type' => 'number',
+                'default' => 991,
+                'min' => 320,
+                'max' => 1200,
+                'step' => 1,
+                'desc' => __('Set the breakpoint for mobile devices in pixels.', 'hashbar'),
+            ],
+        ];
+    }
+
     public function get_labels_texts() {
         return [
             // Existing strings
@@ -459,6 +464,13 @@ class Hashbar_Settings_Panel_Settings {
                 'reset_cancel_button' => __('Cancel', 'hashbar'),
                 'reset_success_message' => __('Settings have been reset successfully', 'hashbar'),
                 'reset_error_message' => __('Failed to reset settings', 'hashbar'),
+            ],
+
+            // Notification Bar Settings Drawer
+            'notification_bar_settings' => [
+                'title' => __('Notification Bar Settings', 'hashbar'),
+                'description' => __('These settings apply only to the Notification Bar — Announcement Bar and Popup Campaign have their own separate settings.', 'hashbar'),
+                'button_label' => __('Global Settings', 'hashbar'),
             ],
 
             // Notifications Page
@@ -697,13 +709,14 @@ class Hashbar_Settings_Panel_Settings {
                     'icon'       => null
                 ),
                 array(
-                    'slug'        => 'just-tables',
-                    'location'    => 'just-tables.php',
-                    'name'        => esc_html__( 'JustTables – WooCommerce Product Table', 'hashbar' ),
-                    'description' => esc_html__( 'JustTables is an incredible WordPress plugin that lets you showcase all your WooCommerce products in a sortable and filterable table view. It allows your customers to easily navigate through different attributes of the products and compare them on a single page...', 'hashbar' ),
+                    'slug'        => 'recurio',
+                    'location'    => 'recurio.php',
+                    'name'        => esc_html__( 'Recurio – Ultimate Subscription for WooCommerce', 'hashbar' ),
+                    'description' => esc_html__( 'Ultimate subscription plugin for WooCommerce recurring payments and memberships.', 'hashbar' ),
                     'status'     => 'inactive',
                     'isLoading'  => false,
-                    'icon'       => null
+                    'icon'       => null,
+                    'recommend' => is_plugin_active('woocommerce/woocommerce.php') ? true : false,
                 ),
             ]
         ];
@@ -758,13 +771,31 @@ class Hashbar_Settings_Panel_Settings {
                     'icon'       => null
                 ),
                 array(
-                    'slug' => 'ht-google-place-review',
-                    'location' => 'ht-google-place-review.php',
-                    'name' => esc_html__('Google Place Review', 'hashbar'),
-                    'link' => 'https://hasthemes.com/plugins/google-place-review-plugin-for-wordpress/',
-                    'author_link' => 'https://hasthemes.com/',
-                    'description' => esc_html__('Display Google Reviews on your site.', 'hashbar'),
-                    'pro' => true
+                    'slug'        => 'cookieray',
+                    'location'    => 'cookieray.php',
+                    'name'        => esc_html__( 'CookieRay – Cookie Banner for Cookie Consent (GDPR/CCPA Compliant)', 'hashbar' ),
+                    'description' => esc_html__( 'Cookie banner plugin for GDPR/CCPA compliant cookie consent management.', 'hashbar' ),
+                    'status'     => 'inactive',
+                    'isLoading'  => false,
+                    'icon'       => null
+                ),
+                array(
+                    'slug'        => 'kelune-crm',
+                    'location'    => 'kelune-crm.php',
+                    'name'        => esc_html__( 'Kelune CRM – Contact Management, Email Marketing, Newsletter & Marketing Automation', 'hashbar' ),
+                    'description' => esc_html__( 'Contact management, email marketing, newsletter & marketing automation CRM.', 'hashbar' ),
+                    'status'     => 'inactive',
+                    'isLoading'  => false,
+                    'icon'       => null
+                ),
+                array(
+                    'slug'        => 'courseglade-lms',
+                    'location'    => 'courseglade-lms.php',
+                    'name'        => esc_html__( 'CourseGlade LMS – Online Course & eLearning Platform', 'hashbar' ),
+                    'description' => esc_html__( 'Complete online course & eLearning platform for WordPress.', 'hashbar' ),
+                    'status'     => 'inactive',
+                    'isLoading'  => false,
+                    'icon'       => null
                 ),
             ]
         ];

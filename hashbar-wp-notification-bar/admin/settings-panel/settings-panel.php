@@ -237,6 +237,7 @@ class Hashbar_Settiigs_Panel {
                 'is_pro' => Hashbar_Popup_Campaign_Settings::is_pro(),
                 'labels_texts' => $admin_settings->get_labels_texts(),
                 'dashboard_settings' => $admin_settings->get_dashboard_settings(),
+                'notification_bar_settings' => $admin_settings->get_notification_bar_settings(),
                 'menu_settings' => $admin_settings->get_menu_settings(),
                 'recommendations_plugins' => $admin_settings->get_recommendations_plugins(),
                 'notification_enable_fields' => $notification_enable_fields,

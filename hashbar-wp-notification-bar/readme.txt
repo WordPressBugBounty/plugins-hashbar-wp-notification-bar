@@ -2,8 +2,8 @@
 Contributors: devitemsllc, htplugins, hasthemes, zenaulislam, aslamhasib, yeasinrony, madhusudandev
 Tags: notification bar, popup, announcement bar, lead capture, countdown timer
 Requires at least: 5.0
-Tested up to: 7.0
-Stable tag: 2.0.1
+Tested up to: 7.1
+Stable tag: 2.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -584,6 +584,12 @@ Yes! 30-day money-back guarantee on Pro purchases.
 11. **A/B Testing & Analytics** - Compare variants, split traffic, and pick a winner automatically
 
 == Changelog ==
+
+= Version: 2.0.2 - Date: 24 Aug 2026 =
+* Improved: Settings page now shows only shared options; Notification Bar-only options moved to a new "Global Settings" panel on the Notification Bar page.
+* Fixed: Saving/resetting settings could overwrite unrelated saved options.
+* Fixed: A few minor issues.
+* Tested: Compatibility with the latest version of WordPress.
 
 = Version: 2.0.1 - Date: 17 Aug 2026 =
 * Added: Purchase-conversion tracking for Announcement Bar and Popup Campaign CTA buttons — WooCommerce orders are attributed automatically; a confirmation-page picker and manual code snippet are available for other checkouts (Easy Digital Downloads, custom carts, etc).
