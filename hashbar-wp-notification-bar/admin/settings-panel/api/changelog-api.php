@@ -182,6 +182,15 @@ class ChangeLog extends WP_REST_Controller {
     private function get_changelog_data() {
         return [
             [
+                'version' => '2.0.3',
+                'date'    => '2026-09-14',
+                'changes' => [
+                    'Fixed' => [
+                        'Popup Campaign close button styles being overridden by some themes.',
+                    ],
+                ],
+            ],
+            [
                 'version' => '2.0.2',
                 'date'    => '2026-08-24',
                 'changes' => [

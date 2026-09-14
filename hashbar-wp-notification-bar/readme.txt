@@ -3,7 +3,7 @@ Contributors: devitemsllc, htplugins, hasthemes, zenaulislam, aslamhasib, yeasin
 Tags: notification bar, popup, announcement bar, lead capture, countdown timer
 Requires at least: 5.0
 Tested up to: 7.1
-Stable tag: 2.0.2
+Stable tag: 2.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -584,6 +584,9 @@ Yes! 30-day money-back guarantee on Pro purchases.
 11. **A/B Testing & Analytics** - Compare variants, split traffic, and pick a winner automatically
 
 == Changelog ==
+
+= Version: 2.0.3 - Date: 14 Sep 2026 =
+* Fixed: Popup Campaign close button styles being overridden by some themes.
 
 = Version: 2.0.2 - Date: 24 Aug 2026 =
 * Improved: Settings page now shows only shared options; Notification Bar-only options moved to a new "Global Settings" panel on the Notification Bar page.

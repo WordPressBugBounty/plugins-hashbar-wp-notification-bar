@@ -198,59 +198,83 @@
 /* ==========================================================================
    Close Button
    ========================================================================== */
-.hashbar-popup-close {
-  position: absolute;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-  z-index: 10;
-  padding: 0;
-  margin: 0;
+.hashbar-popup-container button.hashbar-popup-close {
+  box-sizing: border-box !important;
+  position: absolute !important;
+  border: none !important;
+  outline: none !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s ease !important;
+  z-index: 10 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  line-height: 1 !important;
+  font-size: 0 !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+  vertical-align: middle !important;
 }
 
-.hashbar-popup-close svg {
-  display: block;
-  flex-shrink: 0;
+.hashbar-popup-container button.hashbar-popup-close svg {
+  display: block !important;
+  flex-shrink: 0 !important;
+  margin: 0 !important;
 }
 
-.hashbar-popup-close:hover {
+.hashbar-popup-container button.hashbar-popup-close:hover {
   filter: brightness(0.9);
   color: var(--close-hover-color, #1a1a1a) !important;
 }
 
-.hashbar-popup-close:focus {
-  outline: 2px solid rgba(0, 0, 0, 0.2);
-  outline-offset: 2px;
+.hashbar-popup-container button.hashbar-popup-close:focus {
+  outline: 2px solid rgba(0, 0, 0, 0.2) !important;
+  outline-offset: 2px !important;
 }
 
 /* Close Button Positions */
-.hashbar-popup-close.hashbar-popup-close-top-right {
-  top: 8px;
-  right: 8px;
+.hashbar-popup-container button.hashbar-popup-close.hashbar-popup-close-top-right {
+  top: 8px !important;
+  right: 8px !important;
+  bottom: auto !important;
+  left: auto !important;
 }
 
-.hashbar-popup-close.hashbar-popup-close-top-left {
-  top: 8px;
-  left: 8px;
+.hashbar-popup-container button.hashbar-popup-close.hashbar-popup-close-top-left {
+  top: 8px !important;
+  left: 8px !important;
+  bottom: auto !important;
+  right: auto !important;
 }
 
-.hashbar-popup-close.hashbar-popup-close-bottom-right {
-  bottom: 8px;
-  right: 8px;
+.hashbar-popup-container button.hashbar-popup-close.hashbar-popup-close-bottom-right {
+  bottom: 8px !important;
+  right: 8px !important;
+  top: auto !important;
+  left: auto !important;
 }
 
-.hashbar-popup-close.hashbar-popup-close-bottom-left {
-  bottom: 8px;
-  left: 8px;
+.hashbar-popup-container button.hashbar-popup-close.hashbar-popup-close-bottom-left {
+  bottom: 8px !important;
+  left: 8px !important;
+  top: auto !important;
+  right: auto !important;
 }
 
-.hashbar-popup-close.hashbar-popup-close-outside {
-  top: -12px;
-  right: -12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+.hashbar-popup-container button.hashbar-popup-close.hashbar-popup-close-outside {
+  top: -12px !important;
+  right: -12px !important;
+  bottom: auto !important;
+  left: auto !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
 }
 
 /* ==========================================================================
