@@ -52,8 +52,8 @@ class Hashbar_Settiigs_Panel {
         $capability  = 'manage_options';
 
         $hook = add_menu_page(
-            esc_html__( 'HashBars', 'hashbar' ),
-            esc_html__( 'HashBar', 'hashbar' ),
+            esc_html__( 'HashBars', 'hashbar-wp-notification-bar' ),
+            esc_html__( 'HashBar', 'hashbar-wp-notification-bar' ),
             $capability,
             $slug,
             [ $this, 'settings_page_render' ],
@@ -63,20 +63,20 @@ class Hashbar_Settiigs_Panel {
 
         if ( current_user_can( $capability ) ) {
             $default_hash = '#/';
-            $submenu[ $slug ][] = array( esc_html__( 'Dashboard', 'hashbar' ), $capability, 'admin.php?page=' . $slug . $default_hash );
-            $submenu[ $slug ][] = array( esc_html__( 'Announcement Bar', 'hashbar' ), $capability, 'admin.php?page=' . $slug .'#/announcement-bar' );
-            $submenu[ $slug ][] = array( esc_html__( 'Popup Campaign', 'hashbar' ), $capability, 'admin.php?page=' . $slug .'#/popup-campaign' );
-            $submenu[ $slug ][] = array( esc_html__( 'Notification Bar', 'hashbar' ), $capability, 'admin.php?page=' . $slug .'#/notifications' );
-            $submenu[ $slug ][] = array( esc_html__( 'Settings', 'hashbar' ), $capability, 'admin.php?page=' . $slug .'#/settings' );
-            $submenu[ $slug ][] = array( esc_html__( 'Analytics', 'hashbar' ), $capability, 'admin.php?page=' . $slug . '#/analytics' );
-            $submenu[ $slug ][] = array( esc_html__( 'Recommended', 'hashbar' ), $capability, 'admin.php?page=' . $slug . '#/recommended' );
+            $submenu[ $slug ][] = array( esc_html__( 'Dashboard', 'hashbar-wp-notification-bar' ), $capability, 'admin.php?page=' . $slug . $default_hash );
+            $submenu[ $slug ][] = array( esc_html__( 'Announcement Bar', 'hashbar-wp-notification-bar' ), $capability, 'admin.php?page=' . $slug .'#/announcement-bar' );
+            $submenu[ $slug ][] = array( esc_html__( 'Popup Campaign', 'hashbar-wp-notification-bar' ), $capability, 'admin.php?page=' . $slug .'#/popup-campaign' );
+            $submenu[ $slug ][] = array( esc_html__( 'Notification Bar', 'hashbar-wp-notification-bar' ), $capability, 'admin.php?page=' . $slug .'#/notifications' );
+            $submenu[ $slug ][] = array( esc_html__( 'Settings', 'hashbar-wp-notification-bar' ), $capability, 'admin.php?page=' . $slug .'#/settings' );
+            $submenu[ $slug ][] = array( esc_html__( 'Analytics', 'hashbar-wp-notification-bar' ), $capability, 'admin.php?page=' . $slug . '#/analytics' );
+            $submenu[ $slug ][] = array( esc_html__( 'Recommended', 'hashbar-wp-notification-bar' ), $capability, 'admin.php?page=' . $slug . '#/recommended' );
         }
 
         if( !is_plugin_active('hashbar-pro/init.php') ){
             add_submenu_page(
                 'hashbar', 
-                __('Upgrade to Pro', 'hashbar'),
-                __('Upgrade to Pro', 'hashbar'), 
+                __('Upgrade to Pro', 'hashbar-wp-notification-bar'),
+                __('Upgrade to Pro', 'hashbar-wp-notification-bar'), 
                 'manage_options', 
                 'https://wphashbar.com/pricing/?utm_source=admin&utm_medium=mainmenu&utm_campaign=free'
             );
@@ -193,38 +193,38 @@ class Hashbar_Settiigs_Panel {
             'licenseNonce'  => wp_create_nonce( 'el-license' ),
             'licenseEmail'  => get_option( 'HashbarPro_lic_email', get_bloginfo( 'admin_email' ) ),
             'message'          =>[
-                'packagedesc'=> esc_html__( 'in this package', 'hashbar' ),
-                'allload'    => esc_html__( 'All Items have been Loaded', 'hashbar' ),
-                'notfound'   => esc_html__( 'Nothing Found', 'hashbar' ),
-                'errorLoadingStats' => esc_html__( 'Error Loading Statistics', 'hashbar' ),
-                'noStatsAvailable' => esc_html__( 'No Statistics Available', 'hashbar' ),
-                'startAbTest' => esc_html__( 'Start your A/B test to see statistics here.', 'hashbar' ),
+                'packagedesc'=> esc_html__( 'in this package', 'hashbar-wp-notification-bar' ),
+                'allload'    => esc_html__( 'All Items have been Loaded', 'hashbar-wp-notification-bar' ),
+                'notfound'   => esc_html__( 'Nothing Found', 'hashbar-wp-notification-bar' ),
+                'errorLoadingStats' => esc_html__( 'Error Loading Statistics', 'hashbar-wp-notification-bar' ),
+                'noStatsAvailable' => esc_html__( 'No Statistics Available', 'hashbar-wp-notification-bar' ),
+                'startAbTest' => esc_html__( 'Start your A/B test to see statistics here.', 'hashbar-wp-notification-bar' ),
             ],
             'buttontxt'      =>[
-                'tmplibrary' => esc_html__( 'Import to Library', 'hashbar' ),
-                'tmppage'    => esc_html__( 'Import to Page', 'hashbar' ),
-                'import'     => esc_html__( 'Import', 'hashbar' ),
-                'buynow'     => esc_html__( 'Buy Now', 'hashbar' ),
+                'tmplibrary' => esc_html__( 'Import to Library', 'hashbar-wp-notification-bar' ),
+                'tmppage'    => esc_html__( 'Import to Page', 'hashbar-wp-notification-bar' ),
+                'import'     => esc_html__( 'Import', 'hashbar-wp-notification-bar' ),
+                'buynow'     => esc_html__( 'Buy Now', 'hashbar-wp-notification-bar' ),
                 'buynow_link' => 'https://wphashbar.com/pricing/?utm_source=admin&utm_medium=mainmenu&utm_campaign=free',
-                'preview'    => esc_html__( 'Preview', 'hashbar' ),
-                'installing' => esc_html__( 'Installing..', 'hashbar' ),
-                'activating' => esc_html__( 'Activating..', 'hashbar' ),
-                'active'     => esc_html__( 'Active', 'hashbar' ),
-                'pro' => __( 'Pro', 'hashbar' ),
-                'refresh'    => esc_html__( 'Refresh', 'hashbar' ),
-                'retry'      => esc_html__( 'Retry', 'hashbar' ),
+                'preview'    => esc_html__( 'Preview', 'hashbar-wp-notification-bar' ),
+                'installing' => esc_html__( 'Installing..', 'hashbar-wp-notification-bar' ),
+                'activating' => esc_html__( 'Activating..', 'hashbar-wp-notification-bar' ),
+                'active'     => esc_html__( 'Active', 'hashbar-wp-notification-bar' ),
+                'pro' => __( 'Pro', 'hashbar-wp-notification-bar' ),
+                'refresh'    => esc_html__( 'Refresh', 'hashbar-wp-notification-bar' ),
+                'retry'      => esc_html__( 'Retry', 'hashbar-wp-notification-bar' ),
                 'modal' => [
-                    'title' => __( 'BUY PRO', 'hashbar' ),
-                    'desc' => __( 'Our free version is great, but it doesn\'t have all our advanced features. The best way to unlock all of the features in our plugin is by purchasing the pro version.', 'hashbar' )
+                    'title' => __( 'BUY PRO', 'hashbar-wp-notification-bar' ),
+                    'desc' => __( 'Our free version is great, but it doesn\'t have all our advanced features. The best way to unlock all of the features in our plugin is by purchasing the pro version.', 'hashbar-wp-notification-bar' )
                 ],
             ],
             'existingData' => get_option('hashbar_options'),
             'helpSection' => [
-                'title' => esc_html__('Need Help with Hashbar?', 'hashbar'),
-                'description' => esc_html__('Our comprehensive documentation provides detailed information on how to use Hashbar effectively to improve your websites performance.', 'hashbar'),
-                'documentation' => esc_html__('Documentation', 'hashbar'),
-                'videoTutorial' => esc_html__('Video Tutorial', 'hashbar'),
-                'support' => esc_html__('Support', 'hashbar'),
+                'title' => esc_html__('Need Help with Hashbar?', 'hashbar-wp-notification-bar'),
+                'description' => esc_html__('Our comprehensive documentation provides detailed information on how to use Hashbar effectively to improve your websites performance.', 'hashbar-wp-notification-bar'),
+                'documentation' => esc_html__('Documentation', 'hashbar-wp-notification-bar'),
+                'videoTutorial' => esc_html__('Video Tutorial', 'hashbar-wp-notification-bar'),
+                'support' => esc_html__('Support', 'hashbar-wp-notification-bar'),
                 'docLink' => 'https://wphashbar.com/docs/',
                 'videoLink' => 'https://www.youtube.com/watch?v=9VUc5Is-9Uw',
                 'supportLink' => 'https://wphashbar.com/contact/',

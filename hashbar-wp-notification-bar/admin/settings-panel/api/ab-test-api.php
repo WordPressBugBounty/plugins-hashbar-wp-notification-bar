@@ -131,7 +131,7 @@ class ABTestAPI {
                 return new WP_REST_Response(
                     array(
                         'success' => false,
-                        'message' => esc_html__( 'Announcement bar not found', 'hashbar' ),
+                        'message' => esc_html__( 'Announcement bar not found', 'hashbar-wp-notification-bar' ),
                     ),
                     404
                 );
@@ -142,7 +142,7 @@ class ABTestAPI {
                 return new WP_REST_Response(
                     array(
                         'success' => false,
-                        'message' => esc_html__( 'A/B test is not enabled for this bar', 'hashbar' ),
+                        'message' => esc_html__( 'A/B test is not enabled for this bar', 'hashbar-wp-notification-bar' ),
                     ),
                     400
                 );
@@ -163,7 +163,7 @@ class ABTestAPI {
                 return new WP_REST_Response(
                     array(
                         'success' => true,
-                        'message' => esc_html__( 'Event tracked successfully', 'hashbar' ),
+                        'message' => esc_html__( 'Event tracked successfully', 'hashbar-wp-notification-bar' ),
                     ),
                     200
                 );
@@ -171,7 +171,7 @@ class ABTestAPI {
                 return new WP_REST_Response(
                     array(
                         'success' => false,
-                        'message' => esc_html__( 'Failed to track event', 'hashbar' ),
+                        'message' => esc_html__( 'Failed to track event', 'hashbar-wp-notification-bar' ),
                     ),
                     500
                 );
@@ -203,7 +203,7 @@ class ABTestAPI {
                 return new WP_REST_Response(
                     array(
                         'success' => false,
-                        'message' => esc_html__( 'Announcement bar not found', 'hashbar' ),
+                        'message' => esc_html__( 'Announcement bar not found', 'hashbar-wp-notification-bar' ),
                     ),
                     404
                 );
@@ -246,7 +246,7 @@ class ABTestAPI {
                 return new WP_REST_Response(
                     array(
                         'success' => false,
-                        'message' => esc_html__( 'Announcement bar not found', 'hashbar' ),
+                        'message' => esc_html__( 'Announcement bar not found', 'hashbar-wp-notification-bar' ),
                     ),
                     404
                 );

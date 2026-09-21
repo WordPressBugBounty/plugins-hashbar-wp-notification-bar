@@ -3,6 +3,10 @@
 namespace HashbarFree\AnalyticsProcess;
 use \HashbarFree\AnalyticsCash\Cash_Data;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * analytical data store
 */
@@ -116,8 +120,8 @@ class Analytical_Process
         $post_id        = (int)$post_id;
         $table_name     = $wpdb->prefix . 'hthb_analytics';
         $sql            = "SELECT * FROM {$table_name} WHERE post_id = %d AND ip_address= %s";
-        $query          = $wpdb->prepare( $sql,$post_id,$ip);
-        $results        = $wpdb->get_results( $query,ARRAY_A);
+        $query          = $wpdb->prepare( $sql,$post_id,$ip); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- $sql above only interpolates {$table_name} ($wpdb->prefix + a hardcoded string, not user input); values are passed as prepare() args.
+        $results        = $wpdb->get_results( $query,ARRAY_A); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,PluginCheck.Security.DirectDB.UnescapedDBParameter -- $query is the result of $wpdb->prepare() above.
 
         return $results;
     }
@@ -127,8 +131,8 @@ class Analytical_Process
         $post_id        = (int)$post_id;
         $table_name     = $wpdb->prefix . 'hthb_analytics';
         $sql            = "SELECT * FROM {$table_name} WHERE post_id = %d AND country = %s AND ip_address= %s";
-        $query          = $wpdb->prepare( $sql,$post_id,$country,$ip);
-        $results        = $wpdb->get_results( $query,ARRAY_A);
+        $query          = $wpdb->prepare( $sql,$post_id,$country,$ip); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- $sql above only interpolates {$table_name} ($wpdb->prefix + a hardcoded string, not user input); values are passed as prepare() args.
+        $results        = $wpdb->get_results( $query,ARRAY_A); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,PluginCheck.Security.DirectDB.UnescapedDBParameter -- $query is the result of $wpdb->prepare() above.
 
         return $results;
     }
@@ -168,11 +172,11 @@ class Analytical_Process
         global $wpdb;
         $table_name = $wpdb->prefix . 'hthb_analytics';
 
-        $query = $wpdb->prepare( "SELECT post_id FROM $table_name WHERE post_id = %d", $pid );
-        $var = $wpdb->get_var( $query );
+        $query = $wpdb->prepare( "SELECT post_id FROM $table_name WHERE post_id = %d", $pid ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- $table_name is $wpdb->prefix + a hardcoded string, not user input.
+        $var = $wpdb->get_var( $query ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,PluginCheck.Security.DirectDB.UnescapedDBParameter -- $query is the result of $wpdb->prepare() above.
         if ( $var ) {
-            $query2 = $wpdb->prepare( "DELETE FROM $table_name WHERE post_id = %d", $pid );
-            $wpdb->query( $query2 );
+            $query2 = $wpdb->prepare( "DELETE FROM $table_name WHERE post_id = %d", $pid ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- $table_name is $wpdb->prefix + a hardcoded string, not user input.
+            $wpdb->query( $query2 ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,PluginCheck.Security.DirectDB.UnescapedDBParameter -- $query2 is the result of $wpdb->prepare() above.
             Cash_Data::delete_cache();
             Cash_Data::cached();
         }

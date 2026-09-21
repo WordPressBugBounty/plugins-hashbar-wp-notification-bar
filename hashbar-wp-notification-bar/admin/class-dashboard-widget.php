@@ -24,7 +24,7 @@ class Hashbar_Dashboard_Widget {
 
         wp_add_dashboard_widget(
             'hasthemes-dashboard-stories',
-            esc_html__( 'HasThemes Stories', 'hashbar' ),
+            esc_html__( 'HasThemes Stories', 'hashbar-wp-notification-bar' ),
             [ $this, 'dashboard_hasthemes_widget' ]
         );
 

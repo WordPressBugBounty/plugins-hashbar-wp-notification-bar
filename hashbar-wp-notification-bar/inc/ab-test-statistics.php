@@ -58,7 +58,7 @@ class Statistics {
 		$total_visitors = 0;
 
 		// Get unique visitors per variant from assignments table
-		$visitor_counts = $wpdb->get_results(
+		$visitor_counts = $wpdb->get_results( // phpcs:ignore PluginCheck.Security.DirectDB.UnescapedDBParameter -- $table_name_assignments is $wpdb->prefix + a hardcoded string, not user input; $bar_id is passed through $wpdb->prepare() below.
 			$wpdb->prepare(
 				"SELECT variant_id, COUNT(DISTINCT visitor_id) as unique_visitors
 				FROM $table_name_assignments
@@ -76,7 +76,7 @@ class Statistics {
 		}
 
 		// Get event counts per variant
-		$event_counts = $wpdb->get_results(
+		$event_counts = $wpdb->get_results( // phpcs:ignore PluginCheck.Security.DirectDB.UnescapedDBParameter -- $table_name_events is $wpdb->prefix + a hardcoded string, not user input; values are passed through $wpdb->prepare() below.
 			$wpdb->prepare(
 				"SELECT variant_id, event_type, COUNT(*) as event_count
 				FROM $table_name_events
@@ -150,7 +150,7 @@ class Statistics {
 				$stats,
 				array(
 					'variant_id'     => 'control',
-					'variant_name'   => __( 'Control (Original)', 'hashbar' ),
+					'variant_name'   => __( 'Control (Original)', 'hashbar-wp-notification-bar' ),
 					'unique_visitors' => $control_visitors,
 					'impressions'    => $control_impressions,
 					'clicks'         => $control_clicks,

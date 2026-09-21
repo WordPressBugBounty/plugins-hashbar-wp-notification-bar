@@ -9,6 +9,10 @@
 
 namespace HashbarFree\AnnouncementAnalytics;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Announcement Analytics Processor Class
  * Handles incoming analytics events and stores them in the database

@@ -1,9 +1,9 @@
 === HashBar - Announcement, Notification Bar & Popup Campaign ===
 Contributors: devitemsllc, htplugins, hasthemes, zenaulislam, aslamhasib, yeasinrony, madhusudandev
 Tags: notification bar, popup, announcement bar, lead capture, countdown timer
-Requires at least: 5.0
+Requires at least: 5.3
 Tested up to: 7.1
-Stable tag: 2.0.3
+Stable tag: 2.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -584,6 +584,12 @@ Yes! 30-day money-back guarantee on Pro purchases.
 11. **A/B Testing & Analytics** - Compare variants, split traffic, and pick a winner automatically
 
 == Changelog ==
+
+= Version: 2.0.4 - Date: 21 Sep 2026 =
+* Security: Hardened the Notification Bar duplicate action and the page/post search endpoint against malicious requests.
+* Improved: Updated the codebase to follow WordPress coding standards and best practices.
+* Fixed: Text domain corrected from `hashbar` to `hashbar-wp-notification-bar` to match the plugin slug (WordPress.org requirement).
+* Tested: Compatibility with the latest version of WordPress.
 
 = Version: 2.0.3 - Date: 14 Sep 2026 =
 * Fixed: Popup Campaign close button styles being overridden by some themes.

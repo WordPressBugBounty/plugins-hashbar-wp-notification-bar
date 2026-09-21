@@ -84,7 +84,7 @@ if ( ! class_exists( 'Hashbar_Notice' ) ){
             // User Capability check
 			if ( ! apply_filters( 'hashbar_notice_user_cap_check', current_user_can( $capability ) ) ) {
                 $error_message = [
-                    'message'  => __('You are not authorized.', 'hashbar')
+                    'message'  => __('You are not authorized.', 'hashbar-wp-notification-bar')
                 ];
                 wp_send_json_error( $error_message );
 			}
@@ -92,7 +92,7 @@ if ( ! class_exists( 'Hashbar_Notice' ) ){
             // Nonce verification check
             if( !wp_verify_nonce( $nonce, 'hashbar_notices_nonce') ) {
                 $error_message = [
-                    'message'  => __('Are you cheating?', 'hashbar')
+                    'message'  => __('Are you cheating?', 'hashbar-wp-notification-bar')
                 ];
                 wp_send_json_error( $error_message );
             }
@@ -303,7 +303,7 @@ if ( ! class_exists( 'Hashbar_Notice' ) ){
                 if( $notice['type'] !== 'custom'){
                     $classes[] = 'notice';
                 }else{
-                    $notice['dismissible_btn'] = '<button type="button" class="notice-dismiss"><span class="screen-reader-text">'.esc_html__('Dismiss this notice.','hashbar').'</span></button>';
+                    $notice['dismissible_btn'] = '<button type="button" class="notice-dismiss"><span class="screen-reader-text">'.esc_html__('Dismiss this notice.','hashbar-wp-notification-bar').'</span></button>';
                 }
             }
 

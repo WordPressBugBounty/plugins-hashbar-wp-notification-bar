@@ -651,16 +651,18 @@ if ( ! class_exists( 'Hashbar_Diagnostic_Data' ) ) {
             * translators: %3$s: a tag start (privacy policy)
             * translators: %4$s: a tag end (privacy policy)
             */
-            $message_l2 = sprintf( esc_html__( 'Server information (Web server, PHP version, MySQL version), WordPress information, site name, site URL, number of plugins, number of users, your name, and email address. You can rest assured that no sensitive data will be collected or tracked. %1$sPrivacy Policy%2$s', 'hashbar' ), '<a target="_blank" href="' . esc_url( $this->privacy_policy ) . '">', '</a>' );
+            $message_l2 = sprintf( esc_html__( 'Server information (Web server, PHP version, MySQL version), WordPress information, site name, site URL, number of plugins, number of users, your name, and email address. You can rest assured that no sensitive data will be collected or tracked. %1$sPrivacy Policy%2$s', 'hashbar-wp-notification-bar' ), '<a target="_blank" href="' . esc_url( $this->privacy_policy ) . '">', '</a>' );
 
-            $button_text_1 = esc_html__( 'Count Me In', 'hashbar' );
+            $button_text_1 = esc_html__( 'Count Me In', 'hashbar-wp-notification-bar' );
             $button_link_1 = add_query_arg( array( 'hashbar_diagnostic_data_agreed' => '1' ) );
 
-            $button_text_2 = esc_html__( 'No, Thanks', 'hashbar' );
+            $button_text_2 = esc_html__( 'No, Thanks', 'hashbar-wp-notification-bar' );
             $button_link_2 = add_query_arg( array( 'hashbar_diagnostic_data_agreed' => '0' ) );
             ?>
             <div class="hashbar-diagnostic-data-notice">
-                <p class="hashbar-diagnostic-data-message"><?php echo wp_kses_post( sprintf( esc_html__( 'Want to help make %2$s%1$s%3$s even more awesome? Allow %1$s to collect diagnostic data and usage information. (%4$swhat we collect%5$s)', 'hashbar' ), esc_html( $this->project_name ), '<strong>', '</strong>', '<a href="#" class="hashbar-diagnostic-data-list-toogle">', '</a>' ) ); ?></p>
+                <p class="hashbar-diagnostic-data-message"><?php
+                /* translators: 1: plugin name, 2: opening <strong> tag, 3: closing </strong> tag, 4: opening link tag, 5: closing </a> tag */
+                echo wp_kses_post( sprintf( esc_html__( 'Want to help make %2$s%1$s%3$s even more awesome? Allow %1$s to collect diagnostic data and usage information. (%4$swhat we collect%5$s)', 'hashbar-wp-notification-bar' ), esc_html( $this->project_name ), '<strong>', '</strong>', '<a href="#" class="hashbar-diagnostic-data-list-toogle">', '</a>' ) ); ?></p>
                 <p class="hashbar-diagnostic-data-list"><?php echo wp_kses_post( $message_l2 ); ?></p>
                 <p class="hashbar-diagnostic-data-buttons">
                     <a href="<?php echo esc_url( $button_link_1 ); ?>" class="hashbar-diagnostic-data-button hashbar-diagnostic-data-agree button button-primary"><?php echo esc_html( $button_text_1 ); ?></a>
@@ -679,7 +681,7 @@ if ( ! class_exists( 'Hashbar_Diagnostic_Data' ) ) {
             * translators: %2$s: strong start tag
             * translators: %3$s: strong end tag
             */
-            $message = sprintf( esc_html__( 'Thank you very much for supporting %2$s%1$s%3$s.', 'hashbar' ), $this->project_name, '<strong>', '</strong>' );
+            $message = sprintf( esc_html__( 'Thank you very much for supporting %2$s%1$s%3$s.', 'hashbar-wp-notification-bar' ), $this->project_name, '<strong>', '</strong>' );
             /*
             * translators: %1$s: Message content
             */

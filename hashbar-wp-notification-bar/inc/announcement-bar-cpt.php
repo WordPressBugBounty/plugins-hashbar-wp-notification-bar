@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /*=======================================================
  *    Register Announcement Bar Post Type
  * =======================================================*/
@@ -14,35 +18,35 @@
  */
 function hashbar_register_announcement_bar_cpt() {
 	$labels = array(
-		'name'                  => _x( 'Announcement Bars', 'Post Type General Name', 'hashbar' ),
-		'singular_name'         => _x( 'Announcement Bar', 'Post Type Singular Name', 'hashbar' ),
-		'menu_name'             => __( 'Announcement Bars', 'hashbar' ),
-		'name_admin_bar'        => __( 'Announcement Bar', 'hashbar' ),
-		'archives'              => __( 'Announcement Archives', 'hashbar' ),
-		'parent_item_colon'     => __( 'Parent Announcement:', 'hashbar' ),
-		'all_items'             => __( 'All Announcements', 'hashbar' ),
-		'add_new_item'          => __( 'Add New Announcement', 'hashbar' ),
-		'add_new'               => __( 'Add New Announcement', 'hashbar' ),
-		'new_item'              => __( 'New Announcement', 'hashbar' ),
-		'edit_item'             => __( 'Edit Announcement', 'hashbar' ),
-		'update_item'           => __( 'Update Announcement', 'hashbar' ),
-		'view_item'             => __( 'View Announcement', 'hashbar' ),
-		'search_items'          => __( 'Search Announcement', 'hashbar' ),
-		'not_found'             => __( 'Not found', 'hashbar' ),
-		'not_found_in_trash'    => __( 'Not found in Trash', 'hashbar' ),
-		'featured_image'        => __( 'Featured Image', 'hashbar' ),
-		'set_featured_image'    => __( 'Set featured image', 'hashbar' ),
-		'remove_featured_image' => __( 'Remove featured image', 'hashbar' ),
-		'use_featured_image'    => __( 'Use as featured image', 'hashbar' ),
-		'insert_into_item'      => __( 'Insert into announcement', 'hashbar' ),
-		'uploaded_to_this_item' => __( 'Uploaded to this announcement', 'hashbar' ),
-		'items_list'            => __( 'Announcements list', 'hashbar' ),
-		'items_list_navigation' => __( 'Announcements list navigation', 'hashbar' ),
-		'filter_items_list'     => __( 'Filter announcements list', 'hashbar' ),
+		'name'                  => _x( 'Announcement Bars', 'Post Type General Name', 'hashbar-wp-notification-bar' ),
+		'singular_name'         => _x( 'Announcement Bar', 'Post Type Singular Name', 'hashbar-wp-notification-bar' ),
+		'menu_name'             => __( 'Announcement Bars', 'hashbar-wp-notification-bar' ),
+		'name_admin_bar'        => __( 'Announcement Bar', 'hashbar-wp-notification-bar' ),
+		'archives'              => __( 'Announcement Archives', 'hashbar-wp-notification-bar' ),
+		'parent_item_colon'     => __( 'Parent Announcement:', 'hashbar-wp-notification-bar' ),
+		'all_items'             => __( 'All Announcements', 'hashbar-wp-notification-bar' ),
+		'add_new_item'          => __( 'Add New Announcement', 'hashbar-wp-notification-bar' ),
+		'add_new'               => __( 'Add New Announcement', 'hashbar-wp-notification-bar' ),
+		'new_item'              => __( 'New Announcement', 'hashbar-wp-notification-bar' ),
+		'edit_item'             => __( 'Edit Announcement', 'hashbar-wp-notification-bar' ),
+		'update_item'           => __( 'Update Announcement', 'hashbar-wp-notification-bar' ),
+		'view_item'             => __( 'View Announcement', 'hashbar-wp-notification-bar' ),
+		'search_items'          => __( 'Search Announcement', 'hashbar-wp-notification-bar' ),
+		'not_found'             => __( 'Not found', 'hashbar-wp-notification-bar' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'hashbar-wp-notification-bar' ),
+		'featured_image'        => __( 'Featured Image', 'hashbar-wp-notification-bar' ),
+		'set_featured_image'    => __( 'Set featured image', 'hashbar-wp-notification-bar' ),
+		'remove_featured_image' => __( 'Remove featured image', 'hashbar-wp-notification-bar' ),
+		'use_featured_image'    => __( 'Use as featured image', 'hashbar-wp-notification-bar' ),
+		'insert_into_item'      => __( 'Insert into announcement', 'hashbar-wp-notification-bar' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this announcement', 'hashbar-wp-notification-bar' ),
+		'items_list'            => __( 'Announcements list', 'hashbar-wp-notification-bar' ),
+		'items_list_navigation' => __( 'Announcements list navigation', 'hashbar-wp-notification-bar' ),
+		'filter_items_list'     => __( 'Filter announcements list', 'hashbar-wp-notification-bar' ),
 	);
 
 	$args = array(
-		'label'              => __( 'Announcement Bar', 'hashbar' ),
+		'label'              => __( 'Announcement Bar', 'hashbar-wp-notification-bar' ),
 		'labels'             => $labels,
 		'supports'           => array( 'title' ), // Only title, rest via meta
 		'hierarchical'       => false,
@@ -78,7 +82,7 @@ function hashbar_register_announcement_bar_meta() {
 	// Tab 0: Templates
 	register_post_meta( 'wphash_announcement', '_wphash_ab_template_id', array(
 		'type'              => 'string',
-		'description'       => __( 'Template ID', 'hashbar' ),
+		'description'       => __( 'Template ID', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 	) );
@@ -86,28 +90,28 @@ function hashbar_register_announcement_bar_meta() {
 	// Tab 1: Content
 	register_post_meta( 'wphash_announcement', '_wphash_ab_message', array(
 		'type'              => 'string',
-		'description'       => __( 'Main message text', 'hashbar' ),
+		'description'       => __( 'Main message text', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 	) );
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_cta_text', array(
 		'type'              => 'string',
-		'description'       => __( 'CTA button text', 'hashbar' ),
+		'description'       => __( 'CTA button text', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 	) );
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_cta_url', array(
 		'type'              => 'string',
-		'description'       => __( 'CTA button URL', 'hashbar' ),
+		'description'       => __( 'CTA button URL', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 	) );
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_cta_target', array(
 		'type'              => 'string',
-		'description'       => __( 'CTA link target', 'hashbar' ),
+		'description'       => __( 'CTA link target', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => '_self',
@@ -115,7 +119,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_cta_enabled', array(
 		'type'              => 'boolean',
-		'description'       => __( 'Show CTA button', 'hashbar' ),
+		'description'       => __( 'Show CTA button', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => true,
@@ -124,7 +128,7 @@ function hashbar_register_announcement_bar_meta() {
 	// Messages array (new format for message rotation)
 	register_post_meta( 'wphash_announcement', '_wphash_ab_messages', array(
 		'type'              => 'object',
-		'description'       => __( 'Multiple messages for rotation', 'hashbar' ),
+		'description'       => __( 'Multiple messages for rotation', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 	) );
@@ -132,7 +136,7 @@ function hashbar_register_announcement_bar_meta() {
 	// Message rotation
 	register_post_meta( 'wphash_announcement', '_wphash_ab_message_rotation_enabled', array(
 		'type'              => 'boolean',
-		'description'       => __( 'Enable message rotation', 'hashbar' ),
+		'description'       => __( 'Enable message rotation', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => false,
@@ -141,7 +145,7 @@ function hashbar_register_announcement_bar_meta() {
 	// Custom CSS
 	register_post_meta( 'wphash_announcement', '_wphash_ab_custom_css', array(
 		'type'              => 'string',
-		'description'       => __( 'Custom CSS', 'hashbar' ),
+		'description'       => __( 'Custom CSS', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => '',
@@ -149,7 +153,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_message_rotation_interval', array(
 		'type'              => 'integer',
-		'description'       => __( 'Message rotation interval in seconds', 'hashbar' ),
+		'description'       => __( 'Message rotation interval in seconds', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 5,
@@ -158,7 +162,7 @@ function hashbar_register_announcement_bar_meta() {
 	// Track if user has edited content (for template preservation)
 	register_post_meta( 'wphash_announcement', '_user_has_edited_content', array(
 		'type'              => 'boolean',
-		'description'       => __( 'User has edited the content', 'hashbar' ),
+		'description'       => __( 'User has edited the content', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => false,
@@ -167,7 +171,7 @@ function hashbar_register_announcement_bar_meta() {
 	// Tab 2: Design
 	register_post_meta( 'wphash_announcement', '_wphash_ab_bg_color', array(
 		'type'              => 'string',
-		'description'       => __( 'Background color', 'hashbar' ),
+		'description'       => __( 'Background color', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => '#000000',
@@ -175,7 +179,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_bg_gradient', array(
 		'type'              => 'object',
-		'description'       => __( 'Gradient settings', 'hashbar' ),
+		'description'       => __( 'Gradient settings', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => array(
 			'schema' => array(
@@ -191,7 +195,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_bg_type', array(
 		'type'              => 'string',
-		'description'       => __( 'Background type (solid/gradient/image)', 'hashbar' ),
+		'description'       => __( 'Background type (solid/gradient/image)', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'solid',
@@ -199,7 +203,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_bg_image', array(
 		'type'              => 'object',
-		'description'       => __( 'Background image settings', 'hashbar' ),
+		'description'       => __( 'Background image settings', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => array(
 			'schema' => array(
@@ -215,7 +219,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_text_color', array(
 		'type'              => 'string',
-		'description'       => __( 'Text color', 'hashbar' ),
+		'description'       => __( 'Text color', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => '#ffffff',
@@ -223,7 +227,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_font_family', array(
 		'type'              => 'string',
-		'description'       => __( 'Font family', 'hashbar' ),
+		'description'       => __( 'Font family', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'system-ui',
@@ -231,7 +235,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_font_size', array(
 		'type'              => 'integer',
-		'description'       => __( 'Font size in pixels', 'hashbar' ),
+		'description'       => __( 'Font size in pixels', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 16,
@@ -239,7 +243,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_font_weight', array(
 		'type'              => 'integer',
-		'description'       => __( 'Font weight', 'hashbar' ),
+		'description'       => __( 'Font weight', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 400,
@@ -247,7 +251,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_text_align', array(
 		'type'              => 'string',
-		'description'       => __( 'Text alignment', 'hashbar' ),
+		'description'       => __( 'Text alignment', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'center',
@@ -255,7 +259,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_height', array(
 		'type'              => 'integer',
-		'description'       => __( 'Bar height in pixels', 'hashbar' ),
+		'description'       => __( 'Bar height in pixels', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 60,
@@ -263,7 +267,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_container_width_type', array(
 		'type'              => 'string',
-		'description'       => __( 'Content container width type (full or custom)', 'hashbar' ),
+		'description'       => __( 'Content container width type (full or custom)', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'full',
@@ -271,7 +275,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_container_width', array(
 		'type'              => 'integer',
-		'description'       => __( 'Custom content container width in pixels', 'hashbar' ),
+		'description'       => __( 'Custom content container width in pixels', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 800,
@@ -279,7 +283,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_padding', array(
 		'type'              => 'object',
-		'description'       => __( 'Padding values', 'hashbar' ),
+		'description'       => __( 'Padding values', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => array(
 			'schema' => array(
@@ -296,7 +300,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_border', array(
 		'type'              => 'object',
-		'description'       => __( 'Border settings', 'hashbar' ),
+		'description'       => __( 'Border settings', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => array(
 			'schema' => array(
@@ -312,7 +316,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_shadow', array(
 		'type'              => 'object',
-		'description'       => __( 'Box shadow settings', 'hashbar' ),
+		'description'       => __( 'Box shadow settings', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => array(
 			'schema' => array(
@@ -332,7 +336,7 @@ function hashbar_register_announcement_bar_meta() {
 	// Tab 3: Position
 	register_post_meta( 'wphash_announcement', '_wphash_ab_position', array(
 		'type'              => 'string',
-		'description'       => __( 'Bar position (top/bottom)', 'hashbar' ),
+		'description'       => __( 'Bar position (top/bottom)', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'top',
@@ -340,7 +344,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_confirmation_page_id', array(
 		'type'              => 'integer',
-		'description'       => __( 'Order confirmation / thank-you page to auto-track conversions on', 'hashbar' ),
+		'description'       => __( 'Order confirmation / thank-you page to auto-track conversions on', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 0,
@@ -348,7 +352,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_sticky', array(
 		'type'              => 'boolean',
-		'description'       => __( 'Fixed position', 'hashbar' ),
+		'description'       => __( 'Fixed position', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => true,
@@ -356,7 +360,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_z_index', array(
 		'type'              => 'integer',
-		'description'       => __( 'Z-index stacking order', 'hashbar' ),
+		'description'       => __( 'Z-index stacking order', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 9999,
@@ -364,7 +368,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_close_enabled', array(
 		'type'              => 'boolean',
-		'description'       => __( 'Show close button', 'hashbar' ),
+		'description'       => __( 'Show close button', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => true,
@@ -372,7 +376,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_close_text', array(
 		'type'              => 'string',
-		'description'       => __( 'Close button text', 'hashbar' ),
+		'description'       => __( 'Close button text', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => '✕',
@@ -380,7 +384,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_reopen_enabled', array(
 		'type'              => 'boolean',
-		'description'       => __( 'Show reopen button', 'hashbar' ),
+		'description'       => __( 'Show reopen button', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => false,
@@ -388,7 +392,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_reopen_text', array(
 		'type'              => 'string',
-		'description'       => __( 'Reopen button text', 'hashbar' ),
+		'description'       => __( 'Reopen button text', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'Show',
@@ -397,7 +401,7 @@ function hashbar_register_announcement_bar_meta() {
 	// Cookie Duration Settings
 	register_post_meta( 'wphash_announcement', '_wphash_ab_cookie_use_custom', array(
 		'type'              => 'boolean',
-		'description'       => __( 'Use custom cookie duration', 'hashbar' ),
+		'description'       => __( 'Use custom cookie duration', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => false,
@@ -405,7 +409,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_cookie_expire_after_close', array(
 		'type'              => 'string',
-		'description'       => __( 'Cookie expiration preset (session_only, 1_hour, 6_hours, 1_day, 7_days, 2_weeks, 1_month, never)', 'hashbar' ),
+		'description'       => __( 'Cookie expiration preset (session_only, 1_hour, 6_hours, 1_day, 7_days, 2_weeks, 1_month, never)', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => '7_days',
@@ -414,49 +418,49 @@ function hashbar_register_announcement_bar_meta() {
 	// Button Styling: CTA Button
 	register_post_meta( 'wphash_announcement', '_wphash_ab_cta_color', array(
 		'type'              => 'string',
-		'description'       => __( 'CTA button text color', 'hashbar' ),
+		'description'       => __( 'CTA button text color', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 	) );
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_cta_bg_color', array(
 		'type'              => 'string',
-		'description'       => __( 'CTA button background color', 'hashbar' ),
+		'description'       => __( 'CTA button background color', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 	) );
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_cta_hover_color', array(
 		'type'              => 'string',
-		'description'       => __( 'CTA button hover text color', 'hashbar' ),
+		'description'       => __( 'CTA button hover text color', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 	) );
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_cta_hover_bg_color', array(
 		'type'              => 'string',
-		'description'       => __( 'CTA button hover background color', 'hashbar' ),
+		'description'       => __( 'CTA button hover background color', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 	) );
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_cta_font_size', array(
 		'type'              => 'integer',
-		'description'       => __( 'CTA button font size in pixels', 'hashbar' ),
+		'description'       => __( 'CTA button font size in pixels', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 	) );
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_cta_font_weight', array(
 		'type'              => 'integer',
-		'description'       => __( 'CTA button font weight', 'hashbar' ),
+		'description'       => __( 'CTA button font weight', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 	) );
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_cta_border_radius', array(
 		'type'              => 'integer',
-		'description'       => __( 'CTA button border radius in pixels', 'hashbar' ),
+		'description'       => __( 'CTA button border radius in pixels', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 	) );
@@ -464,49 +468,49 @@ function hashbar_register_announcement_bar_meta() {
 	// Button Styling: Close Button
 	register_post_meta( 'wphash_announcement', '_wphash_ab_close_color', array(
 		'type'              => 'string',
-		'description'       => __( 'Close button text color', 'hashbar' ),
+		'description'       => __( 'Close button text color', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 	) );
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_close_bg_color', array(
 		'type'              => 'string',
-		'description'       => __( 'Close button background color', 'hashbar' ),
+		'description'       => __( 'Close button background color', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 	) );
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_close_hover_color', array(
 		'type'              => 'string',
-		'description'       => __( 'Close button hover text color', 'hashbar' ),
+		'description'       => __( 'Close button hover text color', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 	) );
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_close_hover_bg_color', array(
 		'type'              => 'string',
-		'description'       => __( 'Close button hover background color', 'hashbar' ),
+		'description'       => __( 'Close button hover background color', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 	) );
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_close_font_size', array(
 		'type'              => 'integer',
-		'description'       => __( 'Close button font size in pixels', 'hashbar' ),
+		'description'       => __( 'Close button font size in pixels', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 	) );
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_close_font_weight', array(
 		'type'              => 'integer',
-		'description'       => __( 'Close button font weight', 'hashbar' ),
+		'description'       => __( 'Close button font weight', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 	) );
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_close_border_radius', array(
 		'type'              => 'integer',
-		'description'       => __( 'Close button border radius in pixels', 'hashbar' ),
+		'description'       => __( 'Close button border radius in pixels', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 	) );
@@ -514,7 +518,7 @@ function hashbar_register_announcement_bar_meta() {
 	// Tab 4: Targeting
 	register_post_meta( 'wphash_announcement', '_wphash_ab_target_pages', array(
 		'type'              => 'string',
-		'description'       => __( 'Page targeting mode', 'hashbar' ),
+		'description'       => __( 'Page targeting mode', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'all',
@@ -522,7 +526,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_target_page_ids', array(
 		'type'              => 'array',
-		'description'       => __( 'Specific page IDs to target', 'hashbar' ),
+		'description'       => __( 'Specific page IDs to target', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => array(
 			'schema' => array(
@@ -534,7 +538,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_exclude_page_ids', array(
 		'type'              => 'array',
-		'description'       => __( 'Page IDs to exclude', 'hashbar' ),
+		'description'       => __( 'Page IDs to exclude', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => array(
 			'schema' => array(
@@ -546,7 +550,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_target_devices', array(
 		'type'              => 'array',
-		'description'       => __( 'Target devices', 'hashbar' ),
+		'description'       => __( 'Target devices', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => array(
 			'schema' => array(
@@ -560,7 +564,7 @@ function hashbar_register_announcement_bar_meta() {
 	// Customer Segmentation
 	register_post_meta( 'wphash_announcement', '_wphash_ab_enable_customer_segmentation', array(
 		'type'              => 'boolean',
-		'description'       => __( 'Enable customer segmentation', 'hashbar' ),
+		'description'       => __( 'Enable customer segmentation', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => false,
@@ -568,7 +572,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_target_logged_in_customers', array(
 		'type'              => 'boolean',
-		'description'       => __( 'Target logged in customers', 'hashbar' ),
+		'description'       => __( 'Target logged in customers', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => false,
@@ -576,7 +580,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_target_guest_visitors', array(
 		'type'              => 'boolean',
-		'description'       => __( 'Target guest visitors', 'hashbar' ),
+		'description'       => __( 'Target guest visitors', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => false,
@@ -585,7 +589,7 @@ function hashbar_register_announcement_bar_meta() {
 	// Behavioral Targeting
 	register_post_meta( 'wphash_announcement', '_wphash_ab_show_after_time_on_site', array(
 		'type'              => 'boolean',
-		'description'       => __( 'Show bar after time on site', 'hashbar' ),
+		'description'       => __( 'Show bar after time on site', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => false,
@@ -593,7 +597,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_minimum_time_on_site', array(
 		'type'              => 'integer',
-		'description'       => __( 'Minimum time on site in seconds', 'hashbar' ),
+		'description'       => __( 'Minimum time on site in seconds', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 0,
@@ -602,7 +606,7 @@ function hashbar_register_announcement_bar_meta() {
 	// Tab 5: Countdown (Pro)
 	register_post_meta( 'wphash_announcement', '_wphash_ab_countdown_enabled', array(
 		'type'              => 'boolean',
-		'description'       => __( 'Enable countdown', 'hashbar' ),
+		'description'       => __( 'Enable countdown', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => false,
@@ -610,7 +614,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_countdown_type', array(
 		'type'              => 'string',
-		'description'       => __( 'Countdown type', 'hashbar' ),
+		'description'       => __( 'Countdown type', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'fixed',
@@ -618,14 +622,14 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_countdown_date', array(
 		'type'              => 'string',
-		'description'       => __( 'Countdown target date/time', 'hashbar' ),
+		'description'       => __( 'Countdown target date/time', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 	) );
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_countdown_timezone', array(
 		'type'              => 'string',
-		'description'       => __( 'Timezone for countdown', 'hashbar' ),
+		'description'       => __( 'Timezone for countdown', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'site',
@@ -633,7 +637,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_countdown_style', array(
 		'type'              => 'string',
-		'description'       => __( 'Countdown display format', 'hashbar' ),
+		'description'       => __( 'Countdown display format', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'compact',
@@ -642,7 +646,7 @@ function hashbar_register_announcement_bar_meta() {
 	// Tab 6: Coupon (Pro)
 	register_post_meta( 'wphash_announcement', '_wphash_ab_coupon_enabled', array(
 		'type'              => 'boolean',
-		'description'       => __( 'Enable coupon', 'hashbar' ),
+		'description'       => __( 'Enable coupon', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => false,
@@ -650,14 +654,14 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_coupon_code', array(
 		'type'              => 'string',
-		'description'       => __( 'Coupon code', 'hashbar' ),
+		'description'       => __( 'Coupon code', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 	) );
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_coupon_autocopy', array(
 		'type'              => 'boolean',
-		'description'       => __( 'Auto-copy to clipboard', 'hashbar' ),
+		'description'       => __( 'Auto-copy to clipboard', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => true,
@@ -665,7 +669,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_coupon_autoapply', array(
 		'type'              => 'boolean',
-		'description'       => __( 'Auto-apply to cart', 'hashbar' ),
+		'description'       => __( 'Auto-apply to cart', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => false,
@@ -674,7 +678,7 @@ function hashbar_register_announcement_bar_meta() {
 	// Tab 7: Schedule (Pro)
 	register_post_meta( 'wphash_announcement', '_wphash_ab_schedule_enabled', array(
 		'type'              => 'boolean',
-		'description'       => __( 'Enable schedule', 'hashbar' ),
+		'description'       => __( 'Enable schedule', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => false,
@@ -682,21 +686,21 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_schedule_start', array(
 		'type'              => 'string',
-		'description'       => __( 'Schedule start datetime', 'hashbar' ),
+		'description'       => __( 'Schedule start datetime', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 	) );
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_schedule_end', array(
 		'type'              => 'string',
-		'description'       => __( 'Schedule end datetime', 'hashbar' ),
+		'description'       => __( 'Schedule end datetime', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 	) );
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_schedule_timezone', array(
 		'type'              => 'string',
-		'description'       => __( 'Schedule timezone', 'hashbar' ),
+		'description'       => __( 'Schedule timezone', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'site',
@@ -705,7 +709,7 @@ function hashbar_register_announcement_bar_meta() {
 	// Tab 8: Animation (Pro)
 	register_post_meta( 'wphash_announcement', '_wphash_ab_animation_entry', array(
 		'type'              => 'string',
-		'description'       => __( 'Entry animation', 'hashbar' ),
+		'description'       => __( 'Entry animation', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'slideInDown',
@@ -713,7 +717,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_animation_exit', array(
 		'type'              => 'string',
-		'description'       => __( 'Exit animation', 'hashbar' ),
+		'description'       => __( 'Exit animation', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'slideOutUp',
@@ -721,7 +725,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_animation_duration', array(
 		'type'              => 'integer',
-		'description'       => __( 'Animation duration in ms', 'hashbar' ),
+		'description'       => __( 'Animation duration in ms', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 500,
@@ -730,7 +734,7 @@ function hashbar_register_announcement_bar_meta() {
 	// Tab 9: A/B Test (Pro)
 	register_post_meta( 'wphash_announcement', '_wphash_ab_test_enabled', array(
 		'type'              => 'boolean',
-		'description'       => __( 'Enable A/B testing', 'hashbar' ),
+		'description'       => __( 'Enable A/B testing', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => false,
@@ -738,7 +742,7 @@ function hashbar_register_announcement_bar_meta() {
 
 	register_post_meta( 'wphash_announcement', '_wphash_ab_test_variants', array(
 		'type'              => 'array',
-		'description'       => __( 'A/B test variants', 'hashbar' ),
+		'description'       => __( 'A/B test variants', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => array(
 			'schema' => array(

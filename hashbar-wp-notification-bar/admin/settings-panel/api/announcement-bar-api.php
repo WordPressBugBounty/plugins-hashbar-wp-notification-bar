@@ -6,6 +6,10 @@ use WP_REST_Request;
 use WP_Query;
 use Exception;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 if (!class_exists('WP_REST_Response')) {
 	require_once ABSPATH . 'wp-includes/rest-api/class-wp-rest-response.php';
 	require_once ABSPATH . 'wp-includes/rest-api.php';
@@ -200,7 +204,7 @@ class AnnouncementBar {
 			if (!$post || $post->post_type !== 'wphash_announcement') {
 				return new WP_REST_Response([
 					'success' => false,
-					'message' => esc_html__('Announcement bar not found', 'hashbar'),
+					'message' => esc_html__('Announcement bar not found', 'hashbar-wp-notification-bar'),
 				], 404);
 			}
 
@@ -229,7 +233,7 @@ class AnnouncementBar {
 			if (empty($title)) {
 				return new WP_REST_Response([
 					'success' => false,
-					'message' => esc_html__('Title is required', 'hashbar'),
+					'message' => esc_html__('Title is required', 'hashbar-wp-notification-bar'),
 				], 400);
 			}
 
@@ -273,7 +277,7 @@ class AnnouncementBar {
 
 			return new WP_REST_Response([
 				'success' => true,
-				'message' => esc_html__('Announcement bar created successfully', 'hashbar'),
+				'message' => esc_html__('Announcement bar created successfully', 'hashbar-wp-notification-bar'),
 				'data'    => self::format_announcement_bar_data($post),
 			], 201);
 
@@ -299,7 +303,7 @@ class AnnouncementBar {
 			if (!$post || $post->post_type !== 'wphash_announcement') {
 				return new WP_REST_Response([
 					'success' => false,
-					'message' => esc_html__('Announcement bar not found', 'hashbar'),
+					'message' => esc_html__('Announcement bar not found', 'hashbar-wp-notification-bar'),
 				], 404);
 			}
 
@@ -352,7 +356,7 @@ class AnnouncementBar {
 
 			return new WP_REST_Response([
 				'success' => true,
-				'message' => esc_html__('Announcement bar updated successfully', 'hashbar'),
+				'message' => esc_html__('Announcement bar updated successfully', 'hashbar-wp-notification-bar'),
 				'data'    => self::format_announcement_bar_data($post),
 			], 200);
 
@@ -378,7 +382,7 @@ class AnnouncementBar {
 			if (!$post || $post->post_type !== 'wphash_announcement') {
 				return new WP_REST_Response([
 					'success' => false,
-					'message' => esc_html__('Announcement bar not found', 'hashbar'),
+					'message' => esc_html__('Announcement bar not found', 'hashbar-wp-notification-bar'),
 				], 404);
 			}
 
@@ -388,13 +392,13 @@ class AnnouncementBar {
 			if (!$result) {
 				return new WP_REST_Response([
 					'success' => false,
-					'message' => esc_html__('Failed to delete announcement bar', 'hashbar'),
+					'message' => esc_html__('Failed to delete announcement bar', 'hashbar-wp-notification-bar'),
 				], 500);
 			}
 
 			return new WP_REST_Response([
 				'success' => true,
-				'message' => esc_html__('Announcement bar deleted successfully', 'hashbar'),
+				'message' => esc_html__('Announcement bar deleted successfully', 'hashbar-wp-notification-bar'),
 				'data'    => ['id' => $post_id],
 			], 200);
 
@@ -420,7 +424,7 @@ class AnnouncementBar {
 			if (!$post || $post->post_type !== 'wphash_announcement') {
 				return new WP_REST_Response([
 					'success' => false,
-					'message' => esc_html__('Announcement bar not found', 'hashbar'),
+					'message' => esc_html__('Announcement bar not found', 'hashbar-wp-notification-bar'),
 				], 404);
 			}
 
@@ -430,7 +434,7 @@ class AnnouncementBar {
 				'post_content' => $post->post_content,
 				'post_excerpt' => $post->post_excerpt,
 				'post_status'  => 'draft',
-				'post_title'   => $post->post_title . ' ' . esc_html__('(Copy)', 'hashbar'),
+				'post_title'   => $post->post_title . ' ' . esc_html__('(Copy)', 'hashbar-wp-notification-bar'),
 				'post_type'    => $post->post_type,
 			];
 
@@ -471,7 +475,7 @@ class AnnouncementBar {
 
 			return new WP_REST_Response([
 				'success' => true,
-				'message' => esc_html__('Announcement bar duplicated successfully', 'hashbar'),
+				'message' => esc_html__('Announcement bar duplicated successfully', 'hashbar-wp-notification-bar'),
 				'data'    => self::format_announcement_bar_data($new_post),
 			], 201);
 
@@ -494,7 +498,7 @@ class AnnouncementBar {
 			$templates = [
 				[
 					'id'       => 'classic',
-					'name'     => esc_html__('Classic', 'hashbar'),
+					'name'     => esc_html__('Classic', 'hashbar-wp-notification-bar'),
 					'icon'     => 'image/classic-template.png',
 					'pro'      => false,
 					'defaults' => [
@@ -506,7 +510,7 @@ class AnnouncementBar {
 				],
 				[
 					'id'       => 'sale-alert',
-					'name'     => esc_html__('Sale Alert', 'hashbar'),
+					'name'     => esc_html__('Sale Alert', 'hashbar-wp-notification-bar'),
 					'icon'     => 'image/sale-template.png',
 					'pro'      => false,
 					'defaults' => [
@@ -519,7 +523,7 @@ class AnnouncementBar {
 				],
 				[
 					'id'       => 'free-shipping',
-					'name'     => esc_html__('Free Shipping', 'hashbar'),
+					'name'     => esc_html__('Free Shipping', 'hashbar-wp-notification-bar'),
 					'icon'     => 'image/shipping-template.png',
 					'pro'      => false,
 					'defaults' => [
@@ -531,7 +535,7 @@ class AnnouncementBar {
 				],
 				[
 					'id'       => 'info-banner',
-					'name'     => esc_html__('Info Banner', 'hashbar'),
+					'name'     => esc_html__('Info Banner', 'hashbar-wp-notification-bar'),
 					'icon'     => 'image/info-template.png',
 					'pro'      => false,
 					'defaults' => [
@@ -543,7 +547,7 @@ class AnnouncementBar {
 				],
 				[
 					'id'       => 'countdown-sale',
-					'name'     => esc_html__('Countdown Sale', 'hashbar'),
+					'name'     => esc_html__('Countdown Sale', 'hashbar-wp-notification-bar'),
 					'icon'     => 'image/countdown-template.png',
 					'pro'      => true,
 					'defaults' => [
@@ -555,7 +559,7 @@ class AnnouncementBar {
 				],
 				[
 					'id'       => 'coupon-display',
-					'name'     => esc_html__('Coupon Display', 'hashbar'),
+					'name'     => esc_html__('Coupon Display', 'hashbar-wp-notification-bar'),
 					'icon'     => 'image/coupon-template.png',
 					'pro'      => true,
 					'defaults' => [

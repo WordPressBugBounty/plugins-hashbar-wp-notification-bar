@@ -409,21 +409,21 @@ class Hashbar_Plugin_Deactivation_Feedback {
             </button>
             <div class="hashbar-header-content">
                 <div class="hashbar-header-text">
-                    <h3><?php esc_html_e("Before You Go, Can We Have a Moment?", 'hashbar') ?></h3>
-                    <p><?php esc_html_e('We built HashBar with love. A small feedback from you means the world to us.', 'hashbar') ?></p>
+                    <h3><?php esc_html_e("Before You Go, Can We Have a Moment?", 'hashbar-wp-notification-bar') ?></h3>
+                    <p><?php esc_html_e('We built HashBar with love. A small feedback from you means the world to us.', 'hashbar-wp-notification-bar') ?></p>
                 </div>
             </div>
         </div>
 
         <!-- Body -->
         <div class="hashbar-deactivate-body">
-            <p class="hashbar-body-title"><?php esc_html_e('Please share why you\'re deactivating HashBar:', 'hashbar') ?></p>
+            <p class="hashbar-body-title"><?php esc_html_e('Please share why you\'re deactivating HashBar:', 'hashbar-wp-notification-bar') ?></p>
 
             <form id="hashbar-deactivation-feedback-form">
                 <div class="hashbar-reasons-list">
                     <!-- Reason 1: Temporary -->
                     <div class="hashbar-reason-item">
-                        <input type="radio" name="reason" id="hashbar_reason_temporary" data-id="" value="<?php esc_attr_e("It's a temporary deactivation", 'hashbar') ?>">
+                        <input type="radio" name="reason" id="hashbar_reason_temporary" data-id="" value="<?php esc_attr_e("It's a temporary deactivation", 'hashbar-wp-notification-bar') ?>">
                         <label for="hashbar_reason_temporary" class="hashbar-reason-label">
                             <span class="hashbar-reason-radio"></span>
                             <span class="hashbar-reason-icon">
@@ -433,14 +433,14 @@ class Hashbar_Plugin_Deactivation_Feedback {
                                 </svg>
                             </span>
                             <span class="hashbar-reason-text">
-                                <span><?php esc_html_e("It's a temporary deactivation", 'hashbar') ?></span>
+                                <span><?php esc_html_e("It's a temporary deactivation", 'hashbar-wp-notification-bar') ?></span>
                             </span>
                         </label>
                     </div>
 
                     <!-- Reason 2: No longer need -->
                     <div class="hashbar-reason-item">
-                        <input type="radio" name="reason" id="hashbar_reason_no_need" data-id="" value="<?php esc_attr_e('I no longer need the plugin', 'hashbar') ?>">
+                        <input type="radio" name="reason" id="hashbar_reason_no_need" data-id="" value="<?php esc_attr_e('I no longer need the plugin', 'hashbar-wp-notification-bar') ?>">
                         <label for="hashbar_reason_no_need" class="hashbar-reason-label">
                             <span class="hashbar-reason-radio"></span>
                             <span class="hashbar-reason-icon">
@@ -449,14 +449,14 @@ class Hashbar_Plugin_Deactivation_Feedback {
                                 </svg>
                             </span>
                             <span class="hashbar-reason-text">
-                                <span><?php esc_html_e('I no longer need the plugin', 'hashbar') ?></span>
+                                <span><?php esc_html_e('I no longer need the plugin', 'hashbar-wp-notification-bar') ?></span>
                             </span>
                         </label>
                     </div>
 
                     <!-- Reason 3: Found better -->
                     <div class="hashbar-reason-item">
-                        <input type="radio" name="reason" id="hashbar_reason_better" data-id="found_better" value="<?php esc_attr_e('I found a better plugin', 'hashbar') ?>">
+                        <input type="radio" name="reason" id="hashbar_reason_better" data-id="found_better" value="<?php esc_attr_e('I found a better plugin', 'hashbar-wp-notification-bar') ?>">
                         <label for="hashbar_reason_better" class="hashbar-reason-label">
                             <span class="hashbar-reason-radio"></span>
                             <span class="hashbar-reason-icon">
@@ -466,17 +466,17 @@ class Hashbar_Plugin_Deactivation_Feedback {
                                 </svg>
                             </span>
                             <span class="hashbar-reason-text">
-                                <span><?php esc_html_e('I found a better plugin', 'hashbar') ?></span>
+                                <span><?php esc_html_e('I found a better plugin', 'hashbar-wp-notification-bar') ?></span>
                             </span>
                         </label>
                     </div>
                     <div id="hashbar-found_better-reason-text" class="hashbar-additional-input hashbar-deactivation-reason-input">
-                        <textarea name="found_better_reason" placeholder="<?php esc_attr_e('Which plugin are you switching to? We\'d love to know...', 'hashbar') ?>"></textarea>
+                        <textarea name="found_better_reason" placeholder="<?php esc_attr_e('Which plugin are you switching to? We\'d love to know...', 'hashbar-wp-notification-bar') ?>"></textarea>
                     </div>
 
                     <!-- Reason 4: Not working -->
                     <div class="hashbar-reason-item">
-                        <input type="radio" name="reason" id="hashbar_reason_not_working" data-id="stopped_working" value="<?php esc_attr_e('The plugin suddenly stopped working', 'hashbar') ?>">
+                        <input type="radio" name="reason" id="hashbar_reason_not_working" data-id="stopped_working" value="<?php esc_attr_e('The plugin suddenly stopped working', 'hashbar-wp-notification-bar') ?>">
                         <label for="hashbar_reason_not_working" class="hashbar-reason-label">
                             <span class="hashbar-reason-radio"></span>
                             <span class="hashbar-reason-icon">
@@ -487,17 +487,17 @@ class Hashbar_Plugin_Deactivation_Feedback {
                                 </svg>
                             </span>
                             <span class="hashbar-reason-text">
-                                <span><?php esc_html_e('The plugin suddenly stopped working', 'hashbar') ?></span>
+                                <span><?php esc_html_e('The plugin suddenly stopped working', 'hashbar-wp-notification-bar') ?></span>
                             </span>
                         </label>
                     </div>
                     <div id="hashbar-stopped_working-reason-text" class="hashbar-additional-input hashbar-deactivation-reason-input">
-                        <textarea name="stopped_working_reason" placeholder="<?php esc_attr_e('Please describe the issue you\'re experiencing...', 'hashbar') ?>"></textarea>
+                        <textarea name="stopped_working_reason" placeholder="<?php esc_attr_e('Please describe the issue you\'re experiencing...', 'hashbar-wp-notification-bar') ?>"></textarea>
                     </div>
 
                     <!-- Reason 5: Bug -->
                     <div class="hashbar-reason-item">
-                        <input type="radio" name="reason" id="hashbar_reason_bug" data-id="found_bug" value="<?php esc_attr_e('I encountered an error or bug', 'hashbar') ?>">
+                        <input type="radio" name="reason" id="hashbar_reason_bug" data-id="found_bug" value="<?php esc_attr_e('I encountered an error or bug', 'hashbar-wp-notification-bar') ?>">
                         <label for="hashbar_reason_bug" class="hashbar-reason-label">
                             <span class="hashbar-reason-radio"></span>
                             <span class="hashbar-reason-icon">
@@ -506,17 +506,17 @@ class Hashbar_Plugin_Deactivation_Feedback {
                                 </svg>
                             </span>
                             <span class="hashbar-reason-text">
-                                <span><?php esc_html_e('I encountered an error or bug', 'hashbar') ?></span>
+                                <span><?php esc_html_e('I encountered an error or bug', 'hashbar-wp-notification-bar') ?></span>
                             </span>
                         </label>
                     </div>
                     <div id="hashbar-found_bug-reason-text" class="hashbar-additional-input hashbar-deactivation-reason-input">
-                        <textarea name="found_bug_reason" placeholder="<?php esc_attr_e('Please describe the error/bug. This will help us fix it...', 'hashbar') ?>"></textarea>
+                        <textarea name="found_bug_reason" placeholder="<?php esc_attr_e('Please describe the error/bug. This will help us fix it...', 'hashbar-wp-notification-bar') ?>"></textarea>
                     </div>
 
                     <!-- Reason 6: Other -->
                     <div class="hashbar-reason-item">
-                        <input type="radio" name="reason" id="hashbar_reason_other" data-id="other" value="<?php esc_attr_e('Other', 'hashbar') ?>">
+                        <input type="radio" name="reason" id="hashbar_reason_other" data-id="other" value="<?php esc_attr_e('Other', 'hashbar-wp-notification-bar') ?>">
                         <label for="hashbar_reason_other" class="hashbar-reason-label">
                             <span class="hashbar-reason-radio"></span>
                             <span class="hashbar-reason-icon">
@@ -525,20 +525,20 @@ class Hashbar_Plugin_Deactivation_Feedback {
                                 </svg>
                             </span>
                             <span class="hashbar-reason-text">
-                                <span><?php esc_html_e('Other', 'hashbar') ?></span>
+                                <span><?php esc_html_e('Other', 'hashbar-wp-notification-bar') ?></span>
                             </span>
                         </label>
                     </div>
                     <div id="hashbar-other-reason-text" class="hashbar-additional-input hashbar-deactivation-reason-input">
-                        <textarea name="other_reason" placeholder="<?php esc_attr_e('Please share the reason...', 'hashbar') ?>"></textarea>
+                        <textarea name="other_reason" placeholder="<?php esc_attr_e('Please share the reason...', 'hashbar-wp-notification-bar') ?>"></textarea>
                     </div>
                 </div>
 
                 <!-- Footer -->
                 <div class="hashbar-deactivate-footer">
-                    <a href="#" class="hashbar-btn hashbar-btn-skip hashbar-skip-feedback"><?php esc_html_e('Skip & Deactivate', 'hashbar') ?></a>
+                    <a href="#" class="hashbar-btn hashbar-btn-skip hashbar-skip-feedback"><?php esc_html_e('Skip & Deactivate', 'hashbar-wp-notification-bar') ?></a>
                     <button type="submit" class="hashbar-btn hashbar-btn-submit">
-                        <span><?php esc_html_e('Submit & Deactivate', 'hashbar') ?></span>
+                        <span><?php esc_html_e('Submit & Deactivate', 'hashbar-wp-notification-bar') ?></span>
                     </button>
                 </div>
             </form>
@@ -600,7 +600,7 @@ class Hashbar_Plugin_Deactivation_Feedback {
             const $buttonText = $submitButton.find('span');
             const originalText = $buttonText.text();
 
-            $buttonText.text('<?php esc_html_e('Submitting...', 'hashbar') ?>');
+            $buttonText.text('<?php esc_html_e('Submitting...', 'hashbar-wp-notification-bar') ?>');
             $submitButton.prop('disabled', true);
 
             const reason = $('input[name="reason"]:checked').val() || 'No reason selected';

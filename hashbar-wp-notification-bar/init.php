@@ -3,19 +3,23 @@
  * Plugin Name: HashBar - Announcement, Notification Bar & Popup Campaign
  * Plugin URI:  https://wphashbar.com/
  * Description: Announcement, Notification & Popup Campaign plugin for WordPress
- * Version:     2.0.3
+ * Version:     2.0.4
  * Author:      HasThemes
  * Author URI:  https://hasthemes.com
- * Text Domain: hashbar
+ * Text Domain: hashbar-wp-notification-bar
  * License:     GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 // define path
 define( 'HASHBAR_WPNB_ROOT', __FILE__ );
 define( 'HASHBAR_WPNB_URI', plugins_url('',HASHBAR_WPNB_ROOT) );
 define( 'HASHBAR_WPNB_DIR', dirname(HASHBAR_WPNB_ROOT ) );
-define( 'HASHBAR_WPNB_VERSION', '2.0.3');
+define( 'HASHBAR_WPNB_VERSION', '2.0.4');
 
 // Template library image source: 'local' for dev, 'external' for production
 define( 'HASHBAR_TEMPLATE_IMG_SOURCE', 'local' );
@@ -103,12 +107,12 @@ function hashbar_show_rating_notice() {
             <img src="' . esc_url(HASHBAR_WPNB_URI . "/assets/images/logo.png") . '" alt="HashBar" style="max-width:110px"/>
         </div>
         <div class="hashbar-review-notice-content">
-            <h3>'.esc_html__('Thank you for choosing HashBar to show notifications to your audience!','hashbar').'</h3>
-            <p>'.esc_html__('Would you mind doing us a huge favor by providing your feedback on WordPress? Your support helps us spread the word and greatly boosts our motivation.','hashbar').'</p>
+            <h3>'.esc_html__('Thank you for choosing HashBar to show notifications to your audience!','hashbar-wp-notification-bar').'</h3>
+            <p>'.esc_html__('Would you mind doing us a huge favor by providing your feedback on WordPress? Your support helps us spread the word and greatly boosts our motivation.','hashbar-wp-notification-bar').'</p>
             <div class="hashbar-review-notice-action">
-                <a href="https://wordpress.org/support/plugin/hashbar-wp-notification-bar/reviews/?filter=5#new-post" class="hashbar-review-notice button-primary" target="_blank">'.esc_html__('Ok, you deserve it!','hashbar').'</a>
-                <a href="'. esc_url( add_query_arg(array_merge($notice_qyery_param), 'admin-ajax.php') ) .'" class="hashbar-notice-close hashbar-review-notice"><span class="dashicons dashicons-calendar"></span>'.esc_html__('Maybe Later','hashbar').'</a>
-                <a href="'. esc_url( add_query_arg(array_merge($notice_qyery_param, ['alreadydid' => 'yes']), 'admin-ajax.php') ) .'" data-already-did="yes" class="hashbar-notice-close hashbar-review-notice"><span class="dashicons dashicons-smiley"></span>'.esc_html__('I already did','hashbar').'</a>
+                <a href="https://wordpress.org/support/plugin/hashbar-wp-notification-bar/reviews/#new-post" class="hashbar-review-notice button-primary" target="_blank">'.esc_html__('Ok, you deserve it!','hashbar-wp-notification-bar').'</a>
+                <a href="'. esc_url( add_query_arg(array_merge($notice_qyery_param), 'admin-ajax.php') ) .'" class="hashbar-notice-close hashbar-review-notice"><span class="dashicons dashicons-calendar"></span>'.esc_html__('Maybe Later','hashbar-wp-notification-bar').'</a>
+                <a href="'. esc_url( add_query_arg(array_merge($notice_qyery_param, ['alreadydid' => 'yes']), 'admin-ajax.php') ) .'" data-already-did="yes" class="hashbar-notice-close hashbar-review-notice"><span class="dashicons dashicons-smiley"></span>'.esc_html__('I already did','hashbar-wp-notification-bar').'</a>
             </div>
         </div>
     </div>';
@@ -232,7 +236,7 @@ function hashbar_register_activation_hook(){
                 update_post_meta( $post_id, '_wphash_exclusion_page_for_notification', $implode_page_ids);
             }
         }
-        wp_reset_query(); wp_reset_postdata();
+        wp_reset_postdata();
     }
 
     if(!get_option('hashbar_sample_bar_added')) {
@@ -290,7 +294,7 @@ function hashbar_register_activation_hook(){
 //add settings in plugin action
 add_filter('plugin_action_links_'.plugin_basename(__FILE__),function($links){
 
-    $link = sprintf("<a href='%s'>%s</a>",esc_url(admin_url('edit.php?post_type=wphash_ntf_bar')),__('Settings','hashbar'));
+    $link = sprintf("<a href='%s'>%s</a>",esc_url(admin_url('edit.php?post_type=wphash_ntf_bar')),__('Settings','hashbar-wp-notification-bar'));
 
     array_unshift($links,$link);
 
@@ -375,7 +379,7 @@ function hashbar_wpnb_upgrade_metadata(){
             }
         }
     }
-    wp_reset_query(); wp_reset_postdata();
+    wp_reset_postdata();
 
     add_option('hashbar_1st_upgrade_completed', true);
 }
@@ -383,9 +387,60 @@ function hashbar_wpnb_upgrade_metadata(){
 // define text domain path
 function hashbar_wpnb_textdomain() {
 
-    load_plugin_textdomain( 'hashbar', false, basename(HASHBAR_WPNB_URI) . '/languages/' );
+    load_plugin_textdomain( 'hashbar-wp-notification-bar', false, basename(HASHBAR_WPNB_URI) . '/languages/' );
+
+    hashbar_wpnb_legacy_textdomain_fallback();
 }
 add_action( 'init', 'hashbar_wpnb_textdomain' );
+
+/**
+ * Backward compatibility: fall back to a translation file saved under this
+ * plugin's old, mismatched text domain ('hashbar') if no file exists yet
+ * under the corrected domain ('hashbar-wp-notification-bar'). Lets custom
+ * translations created before the domain fix (e.g. via Loco Translate/Poedit)
+ * keep working without the user needing to rename anything.
+ *
+ * Checks file existence directly rather than is_textdomain_loaded() — as of
+ * WP 6.7, load_plugin_textdomain() no longer loads eagerly, so
+ * is_textdomain_loaded() reads false immediately afterwards regardless of
+ * whether a valid new-domain file exists, which would otherwise make this
+ * fallback wrongly prefer the legacy file even when a correct one is present.
+ *
+ * Loads directly via load_textdomain() rather than a load_textdomain_mofile
+ * filter redirect — Loco Translate hooks its own, later translation-file
+ * filter that can override a filter-based redirect for files inside a
+ * plugin's own "author location" folder; a direct call is unaffected.
+ *
+ * Checks all three locations Loco Translate can save to (its own "Custom"
+ * location, the WP-standard "System" location, and the "Author" location
+ * inside the plugin's own folder) — not just the WP-standard one.
+ *
+ * Safe to remove in a future release once users have had time to re-save
+ * their translations under the new domain.
+ */
+function hashbar_wpnb_legacy_textdomain_fallback() {
+    $domain   = 'hashbar-wp-notification-bar';
+    $locale   = determine_locale();
+    $lang_dir = HASHBAR_WPNB_DIR . '/languages/';
+
+    // A proper file already exists under the corrected domain — nothing to do.
+    if ( file_exists( $lang_dir . $domain . '-' . $locale . '.mo' ) ) {
+        return;
+    }
+
+    $legacy_paths = array(
+        trailingslashit( WP_LANG_DIR ) . 'loco/plugins/hashbar-' . $locale . '.mo',
+        trailingslashit( WP_LANG_DIR ) . 'plugins/hashbar-' . $locale . '.mo',
+        $lang_dir . 'hashbar-' . $locale . '.mo',
+    );
+
+    foreach ( $legacy_paths as $legacy_mofile ) {
+        if ( file_exists( $legacy_mofile ) ) {
+            load_textdomain( $domain, $legacy_mofile, $locale );
+            break;
+        }
+    }
+}
 
 function hashbar_wpnb_enqueue_block_assets() {
     wp_enqueue_style( 'hashbar-frontend', HASHBAR_WPNB_URI.'/assets/css/frontend.css',[],HASHBAR_WPNB_VERSION);
@@ -464,9 +519,9 @@ function  hashbar_wpnb_admin_enqueue_scripts(){
 add_action('admin_footer', 'hashbar_wpnb_upgrade_popup');
 function hashbar_wpnb_upgrade_popup(){
 	?>
-	<div id="ht_dialog" title="<?php echo esc_attr__( 'Go Premium!', 'hashbar' ); ?>" class="ht_dialog" style="display: none;">
+	<div id="ht_dialog" title="<?php echo esc_attr__( 'Go Premium!', 'hashbar-wp-notification-bar' ); ?>" class="ht_dialog" style="display: none;">
 		<div class="dashicons-before dashicons-warning"></div>
-		<h3><?php esc_html_e( 'Purchase our', 'hashbar' ); ?> <a target="_blank" href="https://wphashbar.com/pricing/"><?php esc_html_e( 'Premium', 'hashbar' ); ?></a> <?php esc_html_e( 'version to unlock this feature!', 'hashbar' ); ?></h3>
+		<h3><?php esc_html_e( 'Purchase our', 'hashbar-wp-notification-bar' ); ?> <a target="_blank" href="https://wphashbar.com/pricing/"><?php esc_html_e( 'Premium', 'hashbar-wp-notification-bar' ); ?></a> <?php esc_html_e( 'version to unlock this feature!', 'hashbar-wp-notification-bar' ); ?></h3>
 	</div>
 	<?php
 }
@@ -577,7 +632,7 @@ function hashbar_wpnb_load_notification_to_footer(){
             hashbar_wpnb_output($post_id);
         }
     }
-    wp_reset_query(); wp_reset_postdata();
+    wp_reset_postdata();
 }
 
 /**
@@ -901,7 +956,7 @@ function hashbar_wpnb_output($post_id){
 
             $notification_region_label = trim( wp_strip_all_tags( get_the_title( $post_id ) ) );
             if ( '' === $notification_region_label ) {
-                $notification_region_label = __( 'Site notification', 'hashbar' );
+                $notification_region_label = __( 'Site notification', 'hashbar-wp-notification-bar' );
             }
         ?>
         <div id="notification-<?php echo esc_attr( $post_id ); ?>"
@@ -918,7 +973,7 @@ function hashbar_wpnb_output($post_id){
 
             <!--Notification Open Buttons-->
             <?php if ( empty( $open_button_text ) ) : ?>
-                <span class="hthb-open-toggle" role="button" tabindex="0" aria-label="<?php echo esc_attr__( 'Show notification', 'hashbar' ); ?>">
+                <span class="hthb-open-toggle" role="button" tabindex="0" aria-label="<?php echo esc_attr__( 'Show notification', 'hashbar-wp-notification-bar' ); ?>">
                     <svg aria-hidden="true" focusable="false" enable-background="new 0 0 64 64" height="25" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="m37.379 12.552c-.799-.761-2.066-.731-2.827.069-.762.8-.73 2.066.069 2.828l15.342 14.551h-39.963c-1.104 0-2 .896-2 2s.896 2 2 2h39.899l-15.278 14.552c-.8.762-.831 2.028-.069 2.828.393.412.92.62 1.448.62.496 0 .992-.183 1.379-.552l17.449-16.62c.756-.755 1.172-1.759 1.172-2.828s-.416-2.073-1.207-2.862z" fill="#ffffff"/></svg>
                 </span>
             <?php else : ?>
@@ -930,7 +985,7 @@ function hashbar_wpnb_output($post_id){
 
                     <!--Notification Buttons-->
                     <div class="hthb-close-toggle-wrapper">
-                        <span class="hthb-close-toggle" role="button" tabindex="0" data-text="<?php echo esc_attr( $close_button_text ); ?>"<?php echo empty( $close_button_text ) ? ' aria-label="' . esc_attr__( 'Close notification', 'hashbar' ) . '"' : ''; ?>>
+                        <span class="hthb-close-toggle" role="button" tabindex="0" data-text="<?php echo esc_attr( $close_button_text ); ?>"<?php echo empty( $close_button_text ) ? ' aria-label="' . esc_attr__( 'Close notification', 'hashbar-wp-notification-bar' ) . '"' : ''; ?>>
                             <svg aria-hidden="true" focusable="false" version="1.1" width="15" height="25" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                  viewBox="0 0 496.096 496.096" style="enable-background:new 0 0 496.096 496.096;" xml:space="preserve">
                                 <path d="M259.41,247.998L493.754,13.654c3.123-3.124,3.123-8.188,0-11.312c-3.124-3.123-8.188-3.123-11.312,0L248.098,236.686
@@ -971,7 +1026,7 @@ add_filter('manage_wphash_ntf_bar_posts_columns', 'hashbar_status_column');
 if ( !function_exists( 'hashbar_status_column' ) ){
     function hashbar_status_column($columns){
         $offset = array_search('date', array_keys($columns));
-        return array_merge(array_slice($columns, 0, $offset), ['status' => __('Where to show', 'hashbar')], array_slice($columns, $offset, null));
+        return array_merge(array_slice($columns, 0, $offset), ['status' => __('Where to show', 'hashbar-wp-notification-bar')], array_slice($columns, $offset, null));
     }
 }
 
@@ -1029,12 +1084,12 @@ add_action( 'admin_footer', 'pro_version_notice');
 
 function pro_version_notice(){
     ?>
-        <a href="#TB_inline?height=250&width=400&inlineId=hashbar_pro_notice" class="thickbox hashbar_trigger_pro_notice" style="display: none;"><?php echo esc_html__('Pro Notice', 'hashbar') ?></a>
+        <a href="#TB_inline?height=250&width=400&inlineId=hashbar_pro_notice" class="thickbox hashbar_trigger_pro_notice" style="display: none;"><?php echo esc_html__('Pro Notice', 'hashbar-wp-notification-bar') ?></a>
         <div id="hashbar_pro_notice" style="display: none;">
             <div class="hashbar_pro_notice_wrapper">
-                <h3><?php echo esc_html__('Pro Version is Required!', 'hashbar') ?></h3>
-                <p><?php echo esc_html__('This feature is available in the pro version.', 'hashbar') ?></p>
-                <a target="_blank" href="<?php echo esc_url('https://wphashbar.com/pricing/') ?>"><?php echo esc_html__('Buy Now', 'hashbar') ?></a>
+                <h3><?php echo esc_html__('Pro Version is Required!', 'hashbar-wp-notification-bar') ?></h3>
+                <p><?php echo esc_html__('This feature is available in the pro version.', 'hashbar-wp-notification-bar') ?></p>
+                <a target="_blank" href="<?php echo esc_url('https://wphashbar.com/pricing/') ?>"><?php echo esc_html__('Buy Now', 'hashbar-wp-notification-bar') ?></a>
             </div>
         </div>
     <?php

@@ -4,6 +4,10 @@ namespace HashbarFree\API;
 use WP_Query;
 use Exception;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * AJAX handler for fetching pages and posts
  */
@@ -20,8 +24,14 @@ class PagesPostsAJAX {
             wp_die();
         }
 
-        $search = isset($_POST['search']) ? sanitize_text_field($_POST['search']) : '';
-        $post_type = isset($_POST['post_type']) ? sanitize_text_field($_POST['post_type']) : '';
+        // Verify nonce (the settings panel localizes the same 'wp_rest' nonce used for its REST calls)
+        if (!isset($_POST['_wpnonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['_wpnonce'])), 'wp_rest')) {
+            wp_send_json_error(['message' => 'Invalid nonce']);
+            wp_die();
+        }
+
+        $search = isset($_POST['search']) ? sanitize_text_field(wp_unslash($_POST['search'])) : '';
+        $post_type = isset($_POST['post_type']) ? sanitize_text_field(wp_unslash($_POST['post_type'])) : '';
 
         // Read saved limits from settings
         $hashbar_options = get_option('hashbar_wpnb_opt', array());

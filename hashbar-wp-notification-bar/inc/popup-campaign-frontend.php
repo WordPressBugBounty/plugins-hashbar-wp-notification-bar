@@ -258,8 +258,8 @@ class Frontend {
 							'rest_nonce' => wp_create_nonce( 'wp_rest' ),
 							'plugin_url' => defined( 'HTCONTACTFORM_PL_URL' ) ? HTCONTACTFORM_PL_URL : '',
 							'i18n'       => array(
-								'required' => __( 'This field is required.', 'hashbar' ),
-								'email'    => __( 'Please enter a valid email address.', 'hashbar' ),
+								'required' => __( 'This field is required.', 'hashbar-wp-notification-bar' ),
+								'email'    => __( 'Please enter a valid email address.', 'hashbar-wp-notification-bar' ),
 							),
 						)
 					);
@@ -775,7 +775,7 @@ class Frontend {
 		$control_traffic = max( 0, 100 - $total_variant_traffic );
 
 		// Generate random number between 1 and 100 (inclusive)
-		$random = mt_rand( 1, 100 );
+		$random = wp_rand( 1, 100 );
 
 		// Check if control is selected (1 to control_traffic)
 		if ( $random <= $control_traffic ) {
@@ -1026,14 +1026,14 @@ class Frontend {
 		$settings['countdown_show_hours'] = $this->get_bool_meta( $popup_id, '_wphash_popup_countdown_show_hours', true );
 		$settings['countdown_show_minutes'] = $this->get_bool_meta( $popup_id, '_wphash_popup_countdown_show_minutes', true );
 		$settings['countdown_show_seconds'] = $this->get_bool_meta( $popup_id, '_wphash_popup_countdown_show_seconds', true );
-		$settings['countdown_label_days'] = get_post_meta( $popup_id, '_wphash_popup_countdown_label_days', true ) ?: __( 'Days', 'hashbar' );
-		$settings['countdown_label_hours'] = get_post_meta( $popup_id, '_wphash_popup_countdown_label_hours', true ) ?: __( 'Hours', 'hashbar' );
-		$settings['countdown_label_minutes'] = get_post_meta( $popup_id, '_wphash_popup_countdown_label_minutes', true ) ?: __( 'Minutes', 'hashbar' );
-		$settings['countdown_label_seconds'] = get_post_meta( $popup_id, '_wphash_popup_countdown_label_seconds', true ) ?: __( 'Seconds', 'hashbar' );
+		$settings['countdown_label_days'] = get_post_meta( $popup_id, '_wphash_popup_countdown_label_days', true ) ?: __( 'Days', 'hashbar-wp-notification-bar' );
+		$settings['countdown_label_hours'] = get_post_meta( $popup_id, '_wphash_popup_countdown_label_hours', true ) ?: __( 'Hours', 'hashbar-wp-notification-bar' );
+		$settings['countdown_label_minutes'] = get_post_meta( $popup_id, '_wphash_popup_countdown_label_minutes', true ) ?: __( 'Minutes', 'hashbar-wp-notification-bar' );
+		$settings['countdown_label_seconds'] = get_post_meta( $popup_id, '_wphash_popup_countdown_label_seconds', true ) ?: __( 'Seconds', 'hashbar-wp-notification-bar' );
 		$settings['countdown_style'] = get_post_meta( $popup_id, '_wphash_popup_countdown_style', true ) ?: 'boxes';
 		$settings['countdown_size'] = get_post_meta( $popup_id, '_wphash_popup_countdown_size', true ) ?: 'medium';
 		$settings['countdown_expired_action'] = get_post_meta( $popup_id, '_wphash_popup_countdown_expired_action', true ) ?: 'hide_popup';
-		$settings['countdown_expired_message'] = get_post_meta( $popup_id, '_wphash_popup_countdown_expired_message', true ) ?: __( 'This offer has expired!', 'hashbar' );
+		$settings['countdown_expired_message'] = get_post_meta( $popup_id, '_wphash_popup_countdown_expired_message', true ) ?: __( 'This offer has expired!', 'hashbar-wp-notification-bar' );
 		$settings['countdown_expired_redirect'] = get_post_meta( $popup_id, '_wphash_popup_countdown_expired_redirect', true );
 		$settings['countdown_bg_color'] = get_post_meta( $popup_id, '_wphash_popup_countdown_bg_color', true ) ?: '#1890ff';
 		$settings['countdown_text_color'] = get_post_meta( $popup_id, '_wphash_popup_countdown_text_color', true ) ?: '#ffffff';
@@ -1060,7 +1060,7 @@ class Frontend {
 		$settings['coupon_copied_text'] = get_post_meta( $popup_id, '_wphash_popup_coupon_copied_text', true ) ?: 'Copied!';
 		$settings['coupon_copied_bg_color'] = get_post_meta( $popup_id, '_wphash_popup_coupon_copied_bg_color', true ) ?: '#52c41a';
 		$settings['coupon_autocopy_on_click'] = $this->is_truthy( get_post_meta( $popup_id, '_wphash_popup_coupon_autocopy_on_click', true ) );
-		$settings['coupon_click_to_copy_text'] = get_post_meta( $popup_id, '_wphash_popup_coupon_click_to_copy_text', true ) ?: __( 'Click to copy', 'hashbar' );
+		$settings['coupon_click_to_copy_text'] = get_post_meta( $popup_id, '_wphash_popup_coupon_click_to_copy_text', true ) ?: __( 'Click to copy', 'hashbar-wp-notification-bar' );
 		$settings['coupon_gradient_start'] = get_post_meta( $popup_id, '_wphash_popup_coupon_gradient_start', true ) ?: '#667eea';
 		$settings['coupon_gradient_end'] = get_post_meta( $popup_id, '_wphash_popup_coupon_gradient_end', true ) ?: '#764ba2';
 
@@ -1207,7 +1207,7 @@ class Frontend {
 
 		$popup_dialog_label = trim( wp_strip_all_tags( $popup->post_title ) );
 		if ( '' === $popup_dialog_label ) {
-			$popup_dialog_label = __( 'Promotion', 'hashbar' );
+			$popup_dialog_label = __( 'Promotion', 'hashbar-wp-notification-bar' );
 		}
 		$popup_aria_modal = ! empty( $settings['overlay_enabled'] ) ? 'true' : 'false';
 		?>
@@ -1354,7 +1354,7 @@ class Frontend {
 					$content_classes .= ' hashbar-popup-split';
 				}
 				?>
-				<div class="<?php echo esc_attr( $content_classes ); ?>"<?php echo $content_style_attr; ?>>
+				<div class="<?php echo esc_attr( $content_classes ); ?>"<?php echo $content_style_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- already built with esc_attr() above. ?>>
 					<?php if ( $settings['content_type'] === 'custom' ) : ?>
 						<?php $this->render_custom_content( $popup_id, $settings, $image_url, $form_fields ); ?>
 					<?php else : ?>
@@ -1376,7 +1376,7 @@ class Frontend {
 	protected function render_close_button( $settings, $close_position_class ) {
 		$icon_size = max( 12, intval( $settings['close_size'] ) - 8 );
 		?>
-		<button type="button" class="hashbar-popup-close <?php echo esc_attr( $close_position_class ); ?>" data-popup-close aria-label="<?php echo esc_attr__( 'Close popup', 'hashbar' ); ?>" style="
+		<button type="button" class="hashbar-popup-close <?php echo esc_attr( $close_position_class ); ?>" data-popup-close aria-label="<?php echo esc_attr__( 'Close popup', 'hashbar-wp-notification-bar' ); ?>" style="
 			color: <?php echo esc_attr( $settings['close_color'] ); ?>;
 			background-color: <?php echo esc_attr( $settings['close_bg_color'] ); ?>;
 			--close-hover-color: <?php echo esc_attr( $settings['close_hover_color'] ); ?>;
@@ -1457,7 +1457,7 @@ class Frontend {
 		?>
 
 		<?php if ( ! empty( $image_url ) && in_array( $settings['image_position'], array( 'top', 'left' ), true ) ) : ?>
-			<div class="hashbar-popup-image hashbar-popup-image--<?php echo esc_attr( $settings['image_position'] ); ?>"<?php echo $image_style_attr; ?>>
+			<div class="hashbar-popup-image hashbar-popup-image--<?php echo esc_attr( $settings['image_position'] ); ?>"<?php echo $image_style_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- already built with esc_attr() above. ?>>
 				<img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $settings['heading'] ); ?>" />
 			</div>
 		<?php endif; ?>
@@ -1485,7 +1485,7 @@ class Frontend {
 		}
 		$body_style_attr = ! empty( $body_styles ) ? ' style="' . esc_attr( implode( '; ', $body_styles ) ) . '"' : '';
 		?>
-		<div class="hashbar-popup-body"<?php echo $body_style_attr; ?>>
+		<div class="hashbar-popup-body"<?php echo $body_style_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- already built with esc_attr() above. ?>>
 			<?php
 			$content_order = isset( $settings['content_order'] ) && is_array( $settings['content_order'] )
 				? $settings['content_order']
@@ -1556,7 +1556,7 @@ class Frontend {
 		</div>
 
 		<?php if ( ! empty( $image_url ) && in_array( $settings['image_position'], array( 'bottom', 'right' ), true ) ) : ?>
-			<div class="hashbar-popup-image hashbar-popup-image--<?php echo esc_attr( $settings['image_position'] ); ?>"<?php echo $image_style_attr; ?>>
+			<div class="hashbar-popup-image hashbar-popup-image--<?php echo esc_attr( $settings['image_position'] ); ?>"<?php echo $image_style_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- already built with esc_attr() above. ?>>
 				<img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $settings['heading'] ); ?>" />
 			</div>
 		<?php endif; ?>

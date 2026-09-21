@@ -485,7 +485,7 @@ class PopupABTestAPI {
 		}
 
 		// Assign variant based on traffic split
-		$rand = mt_rand( 1, 100 );
+		$rand = wp_rand( 1, 100 );
 		$cumulative = 0;
 		$selected_variant = 'control';
 

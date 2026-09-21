@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 // register TinyMCE buttons
 add_filter( 'mce_buttons', 'hashbar_wpnb_register_mce_buttons' );
 function hashbar_wpnb_register_mce_buttons( $buttons ) {
@@ -102,20 +106,20 @@ if( !function_exists('hashbar_countdown_sc') ){
                 <?php endif; ?>
                 <div class="hthb-countdown-wrap <?php echo esc_attr( $countdown_style ); ?>" data-countdown="<?php echo esc_attr( $countdown_date ); ?>" data-custom_label='{"day":"<?php echo esc_attr( $countdown_day_label ); ?>", "hour":"<?php echo esc_attr( $countdown_hour_labl ); ?>", "min":"<?php echo esc_attr( $countdown_mins_labl ); ?>", "sec":"<?php echo esc_attr( $countdown_sec_label ); ?>"}'>
                     <div class="hthb-single-countdown">
-                        <span  class="hthb-single-countdown__time countdown-day"><?php echo esc_html__( '00', 'hashbar' ); ?></span>
-                        <span class="hthb-single-countdown__text countdown-day-text"><?php echo esc_html__( 'Days', 'hashbar' ); ?></span>
+                        <span  class="hthb-single-countdown__time countdown-day"><?php echo esc_html__( '00', 'hashbar-wp-notification-bar' ); ?></span>
+                        <span class="hthb-single-countdown__text countdown-day-text"><?php echo esc_html__( 'Days', 'hashbar-wp-notification-bar' ); ?></span>
                     </div>
                     <div class="hthb-single-countdown">
-                        <span class="hthb-single-countdown__time countdown-hour"><?php echo esc_html__( '00', 'hashbar' ); ?></span>
-                        <span class="hthb-single-countdown__text countdown-hour-text"><?php echo esc_html__( 'Hours', 'hashbar' ); ?></span>
+                        <span class="hthb-single-countdown__time countdown-hour"><?php echo esc_html__( '00', 'hashbar-wp-notification-bar' ); ?></span>
+                        <span class="hthb-single-countdown__text countdown-hour-text"><?php echo esc_html__( 'Hours', 'hashbar-wp-notification-bar' ); ?></span>
                     </div>
                     <div class="hthb-single-countdown">
-                        <span class="hthb-single-countdown__time countdown-minute"><?php echo esc_html__( '00', 'hashbar' ); ?></span>
-                        <span class="hthb-single-countdown__text countdown-minite-text"><?php echo esc_html__( 'Minutes', 'hashbar' ); ?></span>
+                        <span class="hthb-single-countdown__time countdown-minute"><?php echo esc_html__( '00', 'hashbar-wp-notification-bar' ); ?></span>
+                        <span class="hthb-single-countdown__text countdown-minite-text"><?php echo esc_html__( 'Minutes', 'hashbar-wp-notification-bar' ); ?></span>
                     </div>
                     <div class="hthb-single-countdown">
-                        <span class="hthb-single-countdown__time countdown-second"><?php echo esc_html__( '00', 'hashbar' ); ?></span>
-                        <span class="hthb-single-countdown__text countdown-second-text"><?php echo esc_html__( 'Seconds', 'hashbar' ); ?></span>
+                        <span class="hthb-single-countdown__time countdown-second"><?php echo esc_html__( '00', 'hashbar-wp-notification-bar' ); ?></span>
+                        <span class="hthb-single-countdown__text countdown-second-text"><?php echo esc_html__( 'Seconds', 'hashbar-wp-notification-bar' ); ?></span>
                     </div>
                 </div>
                 <?php if($after_txt): ?>

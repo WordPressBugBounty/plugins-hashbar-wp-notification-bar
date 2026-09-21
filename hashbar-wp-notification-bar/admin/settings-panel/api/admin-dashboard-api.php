@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 if (!class_exists('WP_REST_Response')) {
     require_once ABSPATH . 'wp-includes/rest-api/class-wp-rest-response.php';
     require_once ABSPATH . 'wp-includes/rest-api.php';
@@ -124,7 +128,7 @@ function hashbar_duplicate_post($request) {
         if (!$post_id) {
             return new WP_REST_Response([
                 'success' => false,
-                'message' => esc_html__('No post ID provided', 'hashbar')
+                'message' => esc_html__('No post ID provided', 'hashbar-wp-notification-bar')
             ], 400);
         }
 
@@ -132,7 +136,7 @@ function hashbar_duplicate_post($request) {
         if (!$post) {
             return new WP_REST_Response([
                 'success' => false,
-                'message' => esc_html__('Post not found', 'hashbar')
+                'message' => esc_html__('Post not found', 'hashbar-wp-notification-bar')
             ], 404);
         }
 
@@ -161,7 +165,7 @@ function hashbar_duplicate_post($request) {
         if (is_wp_error($new_post_id)) {
             return new WP_REST_Response([
                 'success' => false,
-                'message' => esc_html__('Failed to create post duplicate', 'hashbar')
+                'message' => esc_html__('Failed to create post duplicate', 'hashbar-wp-notification-bar')
             ], 500);
         }
 
@@ -173,21 +177,12 @@ function hashbar_duplicate_post($request) {
         }
 
         // Copy post meta
-        $post_meta_infos = $wpdb->get_results("SELECT meta_key, meta_value FROM $wpdb->postmeta WHERE post_id=$post_id");
+        $post_meta_infos = $wpdb->get_results($wpdb->prepare("SELECT meta_key, meta_value FROM $wpdb->postmeta WHERE post_id=%d", $post_id));
         if (count($post_meta_infos) > 0) {
-            $sql_query = "INSERT INTO $wpdb->postmeta (post_id, meta_key, meta_value) ";
-            $sql_query_sel = [];
-            
             foreach ($post_meta_infos as $meta_info) {
                 $meta_key = $meta_info->meta_key;
                 if ($meta_key === '_wp_old_slug') continue;
-                $meta_value = addslashes($meta_info->meta_value);
-                $sql_query_sel[] = "SELECT $new_post_id, '$meta_key', '$meta_value'";
-            }
-            
-            if (!empty($sql_query_sel)) {
-                $sql_query .= implode(" UNION ALL ", $sql_query_sel);
-                $wpdb->query($sql_query);
+                add_post_meta($new_post_id, $meta_key, maybe_unserialize($meta_info->meta_value));
             }
         }
         update_post_meta($new_post_id, '_wphash_notification_where_to_show', 'none');
@@ -198,13 +193,13 @@ function hashbar_duplicate_post($request) {
                 'title' => get_the_title($new_post_id),
                 'edit_url' => admin_url('post.php?action=edit&post=' . $new_post_id)
             ],
-            'message' => esc_html__('Post duplicated successfully', 'hashbar')
+            'message' => esc_html__('Post duplicated successfully', 'hashbar-wp-notification-bar')
         ], 200);
 
     } catch (Throwable $e) {
         return new WP_REST_Response([
             'success' => false,
-            'message' => esc_html__('An error occurred while duplicating the post', 'hashbar')
+            'message' => esc_html__('An error occurred while duplicating the post', 'hashbar-wp-notification-bar')
         ], 500);
     }
 }
@@ -247,7 +242,7 @@ function hashbar_update_notification($request) {
     return new WP_REST_Response([
         'success' => true,
         'data' => $updated_data,
-        'message' => esc_html__('Notification updated successfully', 'hashbar')
+        'message' => esc_html__('Notification updated successfully', 'hashbar-wp-notification-bar')
     ], 200);
 }
 
@@ -262,7 +257,7 @@ function hashbar_delete_notification($request) {
 
     return new WP_REST_Response([
         'success' => true,
-        'message' =>  esc_html__('Notification deleted successfully', 'hashbar')
+        'message' =>  esc_html__('Notification deleted successfully', 'hashbar-wp-notification-bar')
     ], 200);
 }
 /**
@@ -276,7 +271,7 @@ function hashbar_get_sidebar_content() {
         if (!file_exists($template_path)) {
             return new WP_Error(
                 'template_not_found',
-                esc_html__('Sidebar template file not found.', 'hashbar'),
+                esc_html__('Sidebar template file not found.', 'hashbar-wp-notification-bar'),
                 ['status' => 404]
             );
         }
@@ -342,13 +337,13 @@ function hashbar_update_dashboard_settings($request) {
         return new WP_REST_Response([
             'success' => true,
             'data' => $settings,
-            'message' =>  esc_html__( 'Settings updated successfully', 'hashbar' ),
+            'message' =>  esc_html__( 'Settings updated successfully', 'hashbar-wp-notification-bar' ),
         ], 200);
 
     } catch (Throwable $e) {
         return new WP_REST_Response([
             'success' => false,
-            'message' =>esc_html__( 'An error occurred while updating settings', 'hashbar' ),
+            'message' =>esc_html__( 'An error occurred while updating settings', 'hashbar-wp-notification-bar' ),
         ], 500);
     }
 }

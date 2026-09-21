@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 add_action( 'admin_menu', 'hashbar_wpnb_add_admin_menu' );
 add_action( 'admin_menu', 'hashbar_wpnb_upgrade_menu_tweaks', 101 );
 add_action( 'admin_init', 'hashbar_wpnb_settings_init' );
@@ -6,9 +10,9 @@ add_action( 'admin_init', 'hashbar_wpnb_settings_init' );
 
 function hashbar_wpnb_add_admin_menu() { 
 
-	add_submenu_page( 'edit.php?post_type=wphash_ntf_bar', __('Settings', 'hashbar'), __('Settings', 'hashbar'), 'manage_options', 'hashbar_options_page', 'hashbar_wpnb_options_page' );
+	add_submenu_page( 'edit.php?post_type=wphash_ntf_bar', __('Settings', 'hashbar-wp-notification-bar'), __('Settings', 'hashbar-wp-notification-bar'), 'manage_options', 'hashbar_options_page', 'hashbar_wpnb_options_page' );
 	if(hashbar_wpnb_get_opt('enable_analytics')){
-		add_submenu_page( 'edit.php?post_type=wphash_ntf_bar', __('HashBar Analytics', 'hashbar'), __('Analytics', 'hashbar'), 'manage_options', 'hashbar_analytics_page', 'hashbar_wpnb_analytics_page' );
+		add_submenu_page( 'edit.php?post_type=wphash_ntf_bar', __('HashBar Analytics', 'hashbar-wp-notification-bar'), __('Analytics', 'hashbar-wp-notification-bar'), 'manage_options', 'hashbar_analytics_page', 'hashbar_wpnb_analytics_page' );
 	}
 
 }
@@ -16,8 +20,8 @@ function hashbar_wpnb_upgrade_menu_tweaks() {
 	if( !is_plugin_active('hashbar-pro/init.php') ){
 		add_submenu_page(
             'edit.php?post_type=wphash_ntf_bar', 
-            __('Upgrade to Pro', 'hashbar'),
-            __('Upgrade to Pro', 'hashbar'), 
+            __('Upgrade to Pro', 'hashbar-wp-notification-bar'),
+            __('Upgrade to Pro', 'hashbar-wp-notification-bar'), 
             'manage_options', 
             'https://wphashbar.com/pricing/?utm_source=admin&utm_medium=mainmenu&utm_campaign=free'
         );
@@ -37,9 +41,41 @@ function hashbar_wpnb_enqueue_admin_head_scripts() {
 }
 
 
-function hashbar_wpnb_settings_init(  ) { 
+function hashbar_wpnb_sanitize_opt( $input ) {
+	$input = is_array( $input ) ? $input : array();
 
-	register_setting( 'options_group_1', 'hashbar_wpnb_opt' );
+	// Merge onto the existing stored option instead of rebuilding it from
+	// scratch, so keys written by another surface sharing this same option
+	// (e.g. HashBar Pro syncs its own settings into 'hashbar_wpnb_opt' for
+	// cross-version compatibility) are never wiped out by saving this form.
+	$existing = get_option( 'hashbar_wpnb_opt', array() );
+	$output   = is_array( $existing ) ? $existing : array();
+
+	$checkbox_keys = array( 'dont_show_bar_after_close', 'keep_closed_bar', 'enable_analytics', 'count_onece_byip' );
+	foreach ( $checkbox_keys as $key ) {
+		$output[ $key ] = ! empty( $input[ $key ] ) ? '1' : '';
+	}
+
+	$analytics_from = isset( $input['analytics_from'] ) ? $input['analytics_from'] : 'everyone';
+	$output['analytics_from'] = in_array( $analytics_from, array( 'everyone', 'guests', 'registered_users' ), true ) ? $analytics_from : 'everyone';
+
+	$output['mobile_device_breakpoint'] = isset( $input['mobile_device_breakpoint'] ) ? absint( $input['mobile_device_breakpoint'] ) : 767;
+
+	$output['cookies_expire_time'] = isset( $input['cookies_expire_time'] ) ? absint( $input['cookies_expire_time'] ) : 7;
+
+	$cookies_expire_type = isset( $input['cookies_expire_type'] ) ? $input['cookies_expire_type'] : 'days';
+	$output['cookies_expire_type'] = in_array( $cookies_expire_type, array( 'days', 'hours', 'minutes' ), true ) ? $cookies_expire_type : 'days';
+
+	return $output;
+}
+
+function hashbar_wpnb_settings_init(  ) {
+
+	register_setting( 'options_group_1', 'hashbar_wpnb_opt', array(
+		'type'              => 'array',
+		'sanitize_callback' => 'hashbar_wpnb_sanitize_opt',
+		'default'           => array(),
+	) );
 
 	add_settings_section(
 		'hashbar_wpnb_options_group_1_section', 
@@ -50,7 +86,7 @@ function hashbar_wpnb_settings_init(  ) {
 
 	add_settings_field( 
 		'dont_show_bar_after_close', 
-		__( 'Don\'t Show Again', 'hashbar' ), 
+		__( 'Don\'t Show Again', 'hashbar-wp-notification-bar' ), 
 		'hashbar_wpnb_checkbox_render', 
 		'options_group_1', 
 		'hashbar_wpnb_options_group_1_section' 
@@ -58,7 +94,7 @@ function hashbar_wpnb_settings_init(  ) {
 
 	add_settings_field( 
 		'keep_closed_bar', 
-		__( 'Keep Notification Bar Closed', 'hashbar' ), 
+		__( 'Keep Notification Bar Closed', 'hashbar-wp-notification-bar' ), 
 		'hashbar_wpnb_bar_closed_checkbox_render', 
 		'options_group_1', 
 		'hashbar_wpnb_options_group_1_section' 
@@ -66,7 +102,7 @@ function hashbar_wpnb_settings_init(  ) {
 
 	add_settings_field( 
 		'cookies_expire_time', 
-		__( 'Cookies expire time.', 'hashbar' ), 
+		__( 'Cookies expire time.', 'hashbar-wp-notification-bar' ), 
 		'hashbar_cookies_expire_time_render', 
 		'options_group_1', 
 		'hashbar_wpnb_options_group_1_section'
@@ -74,7 +110,7 @@ function hashbar_wpnb_settings_init(  ) {
 
 	add_settings_field( 
 		'enable_analytics', 
-		__( 'Enable Analytics', 'hashbar' ), 
+		__( 'Enable Analytics', 'hashbar-wp-notification-bar' ), 
 		'hashbar_wpnb_analytics_checkbox_render', 
 		'options_group_1', 
 		'hashbar_wpnb_options_group_1_section' 
@@ -82,7 +118,7 @@ function hashbar_wpnb_settings_init(  ) {
 
 	add_settings_field( 
 		'count_onece_byip', 
-		__( 'Count Only 1 From Each IP', 'hashbar' ), 
+		__( 'Count Only 1 From Each IP', 'hashbar-wp-notification-bar' ), 
 		'hashbar_wpnb_count_onece_byip_checkbox_render', 
 		'options_group_1', 
 		'hashbar_wpnb_options_group_1_section' 
@@ -90,7 +126,7 @@ function hashbar_wpnb_settings_init(  ) {
 
 	add_settings_field(
 		'analytics_from', 
-		__( 'User Tracking Options', 'hashbar' ), 
+		__( 'User Tracking Options', 'hashbar-wp-notification-bar' ), 
 		'hashbar_wpnb_analytics_from_options_render', 
 		'options_group_1', 
 		'hashbar_wpnb_options_group_1_section' 
@@ -98,7 +134,7 @@ function hashbar_wpnb_settings_init(  ) {
 
 	add_settings_field(
 		'mobile_device_breakpoint',
-		__( 'Mobile device breakpoint (px)', 'hashbar' ),
+		__( 'Mobile device breakpoint (px)', 'hashbar-wp-notification-bar' ),
 		'hashbar_wpnb_text_render',
 		'options_group_1',
 		'hashbar_wpnb_options_group_1_section'
@@ -119,7 +155,7 @@ function hashbar_wpnb_checkbox_render(  ) {
 	$checkbox_val = isset($options['dont_show_bar_after_close']) ? $options['dont_show_bar_after_close'] : '';
 	?>
 	<input class="pro" type='checkbox' name='hashbar_wpnb_opt[dont_show_bar_after_close]'  <?php checked($checkbox_val, 1) ?> value='1'>
-	<p class="description"><?php echo esc_html__('If check this option. The notification will not appear again on a page, after closing the notification.', 'hashbar');?></p>
+	<p class="description"><?php echo esc_html__('If check this option. The notification will not appear again on a page, after closing the notification.', 'hashbar-wp-notification-bar');?></p>
 	<?php
 
 }
@@ -129,7 +165,7 @@ function hashbar_wpnb_bar_closed_checkbox_render(){
 	$checkbox_val = isset($options['keep_closed_bar']) ? $options['keep_closed_bar'] : '';
 	?>
 	<input type='checkbox' name='hashbar_wpnb_opt[keep_closed_bar]'  <?php checked($checkbox_val, 1) ?> value='1'>
-	<p class="description"><?php echo esc_html__( 'When you close the notification bar once then it will always keep closed in all pages of your site.<br>This option will be effective for the notifications which have set "Load as minimized = No" from the notification metabox options.','hashbar' ); ?></p>
+	<p class="description"><?php echo esc_html__( 'When you close the notification bar once then it will always keep closed in all pages of your site.<br>This option will be effective for the notifications which have set "Load as minimized = No" from the notification metabox options.','hashbar-wp-notification-bar' ); ?></p>
 	<?php
 }
 
@@ -138,7 +174,7 @@ function hashbar_wpnb_analytics_checkbox_render(){
 	$checkbox_val = isset($options['enable_analytics']) ? $options['enable_analytics'] : '';
 	?>
 	<input type='checkbox' name='hashbar_wpnb_opt[enable_analytics]'  <?php checked($checkbox_val, 1) ?> value='1'>
-	<p class="description"><?php echo esc_html__('Enable Analytics to get the analytical report about your notifications.', 'hashbar');?></p>
+	<p class="description"><?php echo esc_html__('Enable Analytics to get the analytical report about your notifications.', 'hashbar-wp-notification-bar');?></p>
 	<?php
 }
 
@@ -147,7 +183,7 @@ function hashbar_wpnb_count_onece_byip_checkbox_render(){
 	$checkbox_val = isset($options['count_onece_byip']) ? $options['count_onece_byip'] : '';
 	?>
 	<input type='checkbox' name='hashbar_wpnb_opt[count_onece_byip]'  <?php checked($checkbox_val, 1) ?> value='1'>
-	<p class="description"><?php echo esc_html__('Enable to count the views and clicks only once from each IP-address.', 'hashbar');?></p>
+	<p class="description"><?php echo esc_html__('Enable to count the views and clicks only once from each IP-address.', 'hashbar-wp-notification-bar');?></p>
 	<?php
 }
 
@@ -156,9 +192,9 @@ function hashbar_wpnb_analytics_from_options_render(){
 	$checkbox_val = isset($options['analytics_from']) ? $options['analytics_from'] : '';
 	?>
 	<select name="hashbar_wpnb_opt[analytics_from]">
-	  <option value="everyone" <?php echo $checkbox_val == 'everyone' ? 'selected' : ''; ?>><?php echo esc_html__('Everyone', 'hashbar') ?></option>
-	  <option value="guests" <?php echo $checkbox_val == 'guests' ? 'selected' : ''; ?>><?php echo esc_html__('Guest Users Only', 'hashbar') ?></option>
-	  <option value="registered_users" <?php echo $checkbox_val == 'registered_users' ? 'selected' : ''; ?>><?php echo esc_html__('Rigestered Users Only', 'hashbar') ?></option>
+	  <option value="everyone" <?php echo $checkbox_val == 'everyone' ? 'selected' : ''; ?>><?php echo esc_html__('Everyone', 'hashbar-wp-notification-bar') ?></option>
+	  <option value="guests" <?php echo $checkbox_val == 'guests' ? 'selected' : ''; ?>><?php echo esc_html__('Guest Users Only', 'hashbar-wp-notification-bar') ?></option>
+	  <option value="registered_users" <?php echo $checkbox_val == 'registered_users' ? 'selected' : ''; ?>><?php echo esc_html__('Rigestered Users Only', 'hashbar-wp-notification-bar') ?></option>
 	</select>
 	<?php
 }
@@ -196,7 +232,7 @@ function hashbar_wpnb_options_page(  ) {
 		<?php do_action('hashbar_admin_notices') ?>
 		<form id="hashbar" action='options.php' method='post'>
 
-			<h2><?php echo esc_html__( 'HashBar Global Options', 'hashbar' ) ?></h2>
+			<h2><?php echo esc_html__( 'HashBar Global Options', 'hashbar-wp-notification-bar' ) ?></h2>
 
 			<?php
 			settings_fields( 'options_group_1' );
@@ -222,7 +258,7 @@ function hashbar_wpnb_analytics_page(){
 	<div class="hthb--site-wrapper-reveal">
 	    <div class="hthb--container">
 	    	<div class="hthb-analytics-title">
-    			<h2><?php echo esc_html__( 'Analytics Overview','hashbar'); ?></h2>
+    			<h2><?php echo esc_html__( 'Analytics Overview','hashbar-wp-notification-bar'); ?></h2>
     		</div>
 	        <div class="hthb--row">
 	            <div class="hthb--col-lg-4 hthb--col-md-4 hthb--col-sm-6 ">
@@ -231,7 +267,7 @@ function hashbar_wpnb_analytics_page(){
 	                        <img src="<?php echo esc_url( HASHBAR_WPNB_URI . '/admin/img/click-icons.png')?>" alt="Click">
 	                    </div>
 	                    <div class="hthb-card__content">
-	                        <h6 class="hthb-card__title"><?php echo esc_html__( 'Total Clicks','hashbar') ?></h6>
+	                        <h6 class="hthb-card__title"><?php echo esc_html__( 'Total Clicks','hashbar-wp-notification-bar') ?></h6>
 	                        <h4 class="hthb-card__nubmer"><?php echo esc_html( $total_clicks ); ?></h4>
 	                    </div>
 	                    <div class="hthb-card__inner-image">
@@ -245,7 +281,7 @@ function hashbar_wpnb_analytics_page(){
 	                        <img src="<?php echo esc_url( HASHBAR_WPNB_URI . '/admin/img/views-icons.png')?>" alt="icon">
 	                    </div>
 	                    <div class="hthb-card__content">
-	                        <h6 class="hthb-card__title"><?php echo esc_html__( 'Total Views','hashbar') ?></h6>
+	                        <h6 class="hthb-card__title"><?php echo esc_html__( 'Total Views','hashbar-wp-notification-bar') ?></h6>
 	                        <h4 class="hthb-card__nubmer hthb-card__nubmer--two"><?php echo esc_html( $total_views ); ?></h4>
 	                    </div>
 	                    <div class="hthb-card__inner-image">
@@ -260,7 +296,7 @@ function hashbar_wpnb_analytics_page(){
 	                        <img src="<?php echo esc_url( HASHBAR_WPNB_URI . '/admin/img/rate-icons.png')?>" alt="icon">
 	                    </div>
 	                    <div class="hthb-card__content">
-	                        <h6 class="hthb-card__title"><?php echo esc_html__( 'Click Through Rate','hashbar') ?></h6>
+	                        <h6 class="hthb-card__title"><?php echo esc_html__( 'Click Through Rate','hashbar-wp-notification-bar') ?></h6>
 	                        <h4 class="hthb-card__nubmer hthb-card__nubmer--three"><?php echo esc_html( $total_clthrt ); ?>%</h4>
 	                    </div>
 	                    <div class="hthb-card__inner-image">
@@ -277,21 +313,21 @@ function hashbar_wpnb_analytics_page(){
 	        <div class="hthb--row">
 	            <div class="hthb--col-lg-8">
 	                <div class="hthb-traking">
-	                    <h6 class="hthb-traking__heading"><?php echo esc_html__( 'Traking By Notification Bars','hashbar') ?></h6>
+	                    <h6 class="hthb-traking__heading"><?php echo esc_html__( 'Traking By Notification Bars','hashbar-wp-notification-bar') ?></h6>
 
 	                    <div class="hthb-traking__wrap">
 	                        <div class="hthb-traking__header">
 	                            <div class="hthb-traking__header-item hthb-traking__header-item--name">
-	                                <?php echo esc_html__( 'Name','hashbar'); ?>
+	                                <?php echo esc_html__( 'Name','hashbar-wp-notification-bar'); ?>
 	                            </div>
 	                            <div class="hthb-traking__header-item hthb-traking__header-item--views">
-	                                <?php echo esc_html__( 'Total Views','hashbar'); ?>
+	                                <?php echo esc_html__( 'Total Views','hashbar-wp-notification-bar'); ?>
 	                            </div>
 	                            <div class="hthb-traking__header-item hthb-traking__header-item--clicks">
-	                                <?php echo esc_html__( 'Total Clicks','hashbar'); ?>
+	                                <?php echo esc_html__( 'Total Clicks','hashbar-wp-notification-bar'); ?>
 	                            </div>
 	                            <div class="hthb-traking__header-item hthb-traking__header-item--through-rate">
-	                                <?php echo esc_html__( 'Through Rate','hashbar'); ?>
+	                                <?php echo esc_html__( 'Through Rate','hashbar-wp-notification-bar'); ?>
 	                            </div>
 	                        </div>
 	                        <div class="hthb-traking__body">
@@ -299,16 +335,16 @@ function hashbar_wpnb_analytics_page(){
 	                        		<?php if('publish' == get_post_status($postwise_count['post_id'])): ?>
 			                            <div class="hthb-traking__items">
 			                                <div class="hthb-traking__item hthb-traking__item--title">
-			                                    <?php echo get_the_title($postwise_count['post_id']); ?>
+			                                    <?php echo esc_html( get_the_title($postwise_count['post_id']) ); ?>
 			                                </div>
 			                                <div class="hthb-traking__item hthb-traking__item--total-views-number">
-			                                    <?php echo $postwise_count['totalviews']; ?>
+			                                    <?php echo esc_html( $postwise_count['totalviews'] ); ?>
 			                                </div>
 			                                <div class="hthb-traking__item hthb-traking__item--total-clicks-number">
-			                                    <?php echo $postwise_count['totalclicks']; ?>
+			                                    <?php echo esc_html( $postwise_count['totalclicks'] ); ?>
 			                                </div>
 			                                <div class="hthb-traking__item hthb-traking__item--through-rate-numbmer">
-			                                    <?php echo round(($postwise_count['totalclicks']/$postwise_count['totalviews'])*100, 2); ?> %
+			                                    <?php echo esc_html( round(($postwise_count['totalclicks']/$postwise_count['totalviews'])*100, 2) ); ?> %
 			                                </div>
 			                            </div>
 			                        <?php endif; ?>
@@ -319,11 +355,11 @@ function hashbar_wpnb_analytics_page(){
 	            </div>
 	            <div class="hthb--col-lg-4 ">
 	                <div class="hthb-top-countries">
-	                    <h6 class="hthb-top-countries__heading"><?php echo esc_html__( 'Top 10 Countries','hashbar') ?></h6>
+	                    <h6 class="hthb-top-countries__heading"><?php echo esc_html__( 'Top 10 Countries','hashbar-wp-notification-bar') ?></h6>
 	                    <?php foreach ($country_traking as $countrywise_count):?>
 		                    <div class="hthb-top-countries__list-wrap">
 		                        <div class="hthb-top-countries__item">
-		                            <div class="hthb-top-countries__name"><?php echo $countrywise_count['country']; ?></div>
+		                            <div class="hthb-top-countries__name"><?php echo esc_html( $countrywise_count['country'] ); ?></div>
 		                        </div>
 		                    </div>
 		                <?php endforeach; ?>

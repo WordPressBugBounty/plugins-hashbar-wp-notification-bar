@@ -27,7 +27,7 @@ function hashbar_ab_test_determine_winner( $bar_id ) {
 		return array(
 			'winner' => null,
 			'significant' => false,
-			'message' => __( 'Not enough variants or data to determine winner', 'hashbar' ),
+			'message' => __( 'Not enough variants or data to determine winner', 'hashbar-wp-notification-bar' ),
 		);
 	}
 
@@ -48,7 +48,7 @@ function hashbar_ab_test_determine_winner( $bar_id ) {
 	if ( ! $control && ! empty( $test_variants ) ) {
 		$control = array(
 			'variant_id' => 'control',
-			'variant_name' => __( 'Control (Original)', 'hashbar' ),
+			'variant_name' => __( 'Control (Original)', 'hashbar-wp-notification-bar' ),
 			'unique_visitors' => 0,
 			'impressions' => 0,
 			'clicks' => 0,
@@ -64,7 +64,7 @@ function hashbar_ab_test_determine_winner( $bar_id ) {
 		return array(
 			'winner' => null,
 			'significant' => false,
-			'message' => __( 'Not enough data to determine winner. Continue testing.', 'hashbar' ),
+			'message' => __( 'Not enough data to determine winner. Continue testing.', 'hashbar-wp-notification-bar' ),
 		);
 	}
 
@@ -110,8 +110,9 @@ function hashbar_ab_test_determine_winner( $bar_id ) {
 		'comparisons' => $comparisons,
 		'control' => $control,
 		'message' => $significant
-			? sprintf( __( '%s is the winner with %.2f%% improvement (%.1f%% confidence)', 'hashbar' ), $winner['variant_name'], $best_improvement, $best_comparison['confidence_level'] )
-			: __( 'No statistically significant winner yet. Continue testing.', 'hashbar' ),
+			/* translators: 1: variant name, 2: improvement percentage, 3: confidence percentage */
+			? sprintf( __( '%1$s is the winner with %2$.2f%% improvement (%3$.1f%% confidence)', 'hashbar-wp-notification-bar' ), $winner['variant_name'], $best_improvement, $best_comparison['confidence_level'] )
+			: __( 'No statistically significant winner yet. Continue testing.', 'hashbar-wp-notification-bar' ),
 	);
 }
 
@@ -138,7 +139,7 @@ function hashbar_ab_test_calculate_significance( $variant_a, $variant_b ) {
 			'p_value' => 1.0,
 			'significant' => false,
 			'confidence_level' => 0,
-			'message' => __( 'Insufficient sample size (need at least 30 impressions per variant)', 'hashbar' ),
+			'message' => __( 'Insufficient sample size (need at least 30 impressions per variant)', 'hashbar-wp-notification-bar' ),
 		);
 	}
 
@@ -154,7 +155,7 @@ function hashbar_ab_test_calculate_significance( $variant_a, $variant_b ) {
 			'p_value' => 1.0,
 			'significant' => false,
 			'confidence_level' => 0,
-			'message' => __( 'Cannot calculate significance (zero standard error)', 'hashbar' ),
+			'message' => __( 'Cannot calculate significance (zero standard error)', 'hashbar-wp-notification-bar' ),
 		);
 	}
 
@@ -175,8 +176,10 @@ function hashbar_ab_test_calculate_significance( $variant_a, $variant_b ) {
 		'significant' => $significant,
 		'confidence_level' => round( $confidence_level, 2 ),
 		'message' => $significant
-			? sprintf( __( 'Statistically significant (p=%.4f, %.1f%% confidence)', 'hashbar' ), $p_value, $confidence_level )
-			: sprintf( __( 'Not significant (p=%.4f, %.1f%% confidence)', 'hashbar' ), $p_value, $confidence_level ),
+			/* translators: 1: p-value, 2: confidence percentage */
+			? sprintf( __( 'Statistically significant (p=%1$.4f, %2$.1f%% confidence)', 'hashbar-wp-notification-bar' ), $p_value, $confidence_level )
+			/* translators: 1: p-value, 2: confidence percentage */
+			: sprintf( __( 'Not significant (p=%1$.4f, %2$.1f%% confidence)', 'hashbar-wp-notification-bar' ), $p_value, $confidence_level ),
 	);
 }
 

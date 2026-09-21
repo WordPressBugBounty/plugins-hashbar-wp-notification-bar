@@ -82,7 +82,7 @@ class Manage_Blocks {
 	public function register_block_category( $categories ) {
 		array_unshift($categories, array(
 			'slug'  => 'hashbar-blocks',
-			'title' => __( 'Hashbar Blocks', 'hashbar' )
+			'title' => __( 'Hashbar Blocks', 'hashbar-wp-notification-bar' )
 		));
 	
 		return $categories;
@@ -93,7 +93,7 @@ class Manage_Blocks {
 		if(function_exists('register_block_pattern_category')){
 			register_block_pattern_category(
 			    'hashbar',
-			    array( 'label' => __( 'Hashbar', 'hashbar' ) )
+			    array( 'label' => __( 'Hashbar', 'hashbar-wp-notification-bar' ) )
 			);
 		}
 
@@ -101,8 +101,8 @@ class Manage_Blocks {
 			register_block_pattern(
 			    'hashbar-pro/hashbar-promo-banner',
 			    array(
-			        'title'       => __( 'Hashbar Promo Banner','hashbar' ),
-			        'description' => __( 'Promo Title, Promo content and button for a link.', 'hashbar' ),
+			        'title'       => __( 'Hashbar Promo Banner','hashbar-wp-notification-bar' ),
+			        'description' => __( 'Promo Title, Promo content and button for a link.', 'hashbar-wp-notification-bar' ),
 			        'categories'  => array('hashbar'),
 			        'content'     => "<!-- wp:hashbar/hashbar-promo-banner -->\n<div class=\"wp-block-hashbar-hashbar-promo-banner ht-promo-banner\" style=\"width:250px;background-color:#FB3555;background-image:url(undefined);background-position:center;background-repeat:no-repeat;background-size:cover;border-radius:6px\"><div class=\"ht-content\"><h4 class=\"promo-title\" style=\"font-size:22px;color:#fff\">Add Promo Title</h4><p class=\"promo-summery\" style=\"font-size:17px;color:#fff\">Add Promo Content</p></div><div class=\"ht-promo-button\"><a href=\"#\" style=\"background-color:#fff;color:#1D1E22\">Button</a></div></div>\n<!-- /wp:hashbar/hashbar-promo-banner -->",
 			    )
@@ -114,8 +114,8 @@ class Manage_Blocks {
 			register_block_pattern(
 			    'hashbar-pro/hashbar-promo-banner-image',
 			    array(
-			        'title'       => __( 'Hashbar Promo Banner Image','hashbar' ),
-			        'description' => __( 'Promo Banner Image', 'hashbar' ),
+			        'title'       => __( 'Hashbar Promo Banner Image','hashbar-wp-notification-bar' ),
+			        'description' => __( 'Promo Banner Image', 'hashbar-wp-notification-bar' ),
 			        'categories'  => array('hashbar'),
 			        'content'     => $content,
 			    )

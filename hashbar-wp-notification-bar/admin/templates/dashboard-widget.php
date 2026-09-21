@@ -88,19 +88,19 @@ $banner    = ! empty( $info_data['banner'] ) ? $info_data['banner'] : [];
         <ul>
             <li>
                 <a href="https://hasthemes.com/blog/" target="_blank">
-                    <?php esc_html_e( 'Blog', 'hashbar' ); ?>
+                    <?php esc_html_e( 'Blog', 'hashbar-wp-notification-bar' ); ?>
                     <span aria-hidden="true" class="dashicons dashicons-external"></span>
                 </a>
             </li>
             <li>
                 <a href="https://wphashbar.com/docs/" target="_blank">
-                    <?php esc_html_e( 'Documentation', 'hashbar' ); ?>
+                    <?php esc_html_e( 'Documentation', 'hashbar-wp-notification-bar' ); ?>
                     <span aria-hidden="true" class="dashicons dashicons-external"></span>
                 </a>
             </li>
             <li>
                 <a href="https://wphashbar.com/contact/" target="_blank">
-                    <?php esc_html_e( 'Support', 'hashbar' ); ?>
+                    <?php esc_html_e( 'Support', 'hashbar-wp-notification-bar' ); ?>
                     <span aria-hidden="true" class="dashicons dashicons-external"></span>
                 </a>
             </li>

@@ -62,7 +62,7 @@ class Hashbar_Popup_Campaign_Form_Handler {
 				return new WP_REST_Response(
 					array(
 						'success' => false,
-						'message' => esc_html__( 'Invalid popup campaign', 'hashbar' ),
+						'message' => esc_html__( 'Invalid popup campaign', 'hashbar-wp-notification-bar' ),
 					),
 					404
 				);
@@ -73,7 +73,7 @@ class Hashbar_Popup_Campaign_Form_Handler {
 				return new WP_REST_Response(
 					array(
 						'success' => false,
-						'message' => esc_html__( 'This popup is not active', 'hashbar' ),
+						'message' => esc_html__( 'This popup is not active', 'hashbar-wp-notification-bar' ),
 					),
 					403
 				);
@@ -85,7 +85,7 @@ class Hashbar_Popup_Campaign_Form_Handler {
 				return new WP_REST_Response(
 					array(
 						'success' => false,
-						'message' => esc_html__( 'No form data provided', 'hashbar' ),
+						'message' => esc_html__( 'No form data provided', 'hashbar-wp-notification-bar' ),
 					),
 					400
 				);
@@ -172,7 +172,7 @@ class Hashbar_Popup_Campaign_Form_Handler {
 				return new WP_REST_Response(
 					array(
 						'success' => false,
-						'message' => esc_html__( 'Failed to save submission', 'hashbar' ),
+						'message' => esc_html__( 'Failed to save submission', 'hashbar-wp-notification-bar' ),
 					),
 					500
 				);
@@ -188,9 +188,9 @@ class Hashbar_Popup_Campaign_Form_Handler {
 
 			// Get success action settings
 			$success_action  = get_post_meta( $popup_id, '_wphash_popup_form_success_action', true ) ?: 'message';
-			$success_message = get_post_meta( $popup_id, '_wphash_popup_form_success_message', true ) ?: esc_html__( 'Thank you! You have successfully subscribed.', 'hashbar' );
+			$success_message = get_post_meta( $popup_id, '_wphash_popup_form_success_message', true ) ?: esc_html__( 'Thank you! You have successfully subscribed.', 'hashbar-wp-notification-bar' );
 			$redirect_url     = get_post_meta( $popup_id, '_wphash_popup_form_success_redirect_url', true ) ?: '';
-			$redirecting_text = get_post_meta( $popup_id, '_wphash_popup_form_redirecting_text', true ) ?: esc_html__( 'Redirecting...', 'hashbar' );
+			$redirecting_text = get_post_meta( $popup_id, '_wphash_popup_form_redirecting_text', true ) ?: esc_html__( 'Redirecting...', 'hashbar-wp-notification-bar' );
 			$close_delay      = get_post_meta( $popup_id, '_wphash_popup_form_close_delay', true ) ?: 3;
 
 			// Build response
@@ -252,7 +252,7 @@ class Hashbar_Popup_Campaign_Form_Handler {
 			if ( $required && empty( $value ) ) {
 				$errors[ $field_id ] = sprintf(
 					/* translators: %s: field label */
-					esc_html__( '%s is required', 'hashbar' ),
+					esc_html__( '%s is required', 'hashbar-wp-notification-bar' ),
 					$label
 				);
 				continue;
@@ -267,14 +267,14 @@ class Hashbar_Popup_Campaign_Form_Handler {
 			switch ( $field_type ) {
 				case 'email':
 					if ( ! is_email( $value ) ) {
-						$errors[ $field_id ] = esc_html__( 'Please enter a valid email address', 'hashbar' );
+						$errors[ $field_id ] = esc_html__( 'Please enter a valid email address', 'hashbar-wp-notification-bar' );
 					}
 					break;
 
 				case 'phone':
 					// Basic phone validation - allow digits, spaces, dashes, parentheses, plus
 					if ( ! preg_match( '/^[0-9\s\-\(\)\+]+$/', $value ) ) {
-						$errors[ $field_id ] = esc_html__( 'Please enter a valid phone number', 'hashbar' );
+						$errors[ $field_id ] = esc_html__( 'Please enter a valid phone number', 'hashbar-wp-notification-bar' );
 					}
 					break;
 
@@ -283,7 +283,7 @@ class Hashbar_Popup_Campaign_Form_Handler {
 					if ( $required && empty( $value ) ) {
 						$errors[ $field_id ] = sprintf(
 							/* translators: %s: field label */
-							esc_html__( 'You must agree to %s', 'hashbar' ),
+							esc_html__( 'You must agree to %s', 'hashbar-wp-notification-bar' ),
 							$label
 						);
 					}
@@ -294,7 +294,7 @@ class Hashbar_Popup_Campaign_Form_Handler {
 		if ( ! empty( $errors ) ) {
 			return array(
 				'valid'   => false,
-				'message' => esc_html__( 'Please correct the errors below', 'hashbar' ),
+				'message' => esc_html__( 'Please correct the errors below', 'hashbar-wp-notification-bar' ),
 				'errors'  => $errors,
 			);
 		}
@@ -457,7 +457,7 @@ class Hashbar_Popup_Campaign_Form_Handler {
 		if ( empty( $api_key ) || empty( $list_id ) ) {
 			return array(
 				'success' => false,
-				'message' => esc_html__( 'Mailchimp not configured properly', 'hashbar' ),
+				'message' => esc_html__( 'Mailchimp not configured properly', 'hashbar-wp-notification-bar' ),
 			);
 		}
 
@@ -470,7 +470,7 @@ class Hashbar_Popup_Campaign_Form_Handler {
 		if ( empty( $dc ) ) {
 			return array(
 				'success' => false,
-				'message' => esc_html__( 'Invalid Mailchimp API key', 'hashbar' ),
+				'message' => esc_html__( 'Invalid Mailchimp API key', 'hashbar-wp-notification-bar' ),
 			);
 		}
 
@@ -544,7 +544,7 @@ class Hashbar_Popup_Campaign_Form_Handler {
 		$status_code = wp_remote_retrieve_response_code( $response );
 
 		if ( $status_code >= 400 ) {
-			$error_message = isset( $body['detail'] ) ? $body['detail'] : esc_html__( 'Mailchimp subscription failed', 'hashbar' );
+			$error_message = isset( $body['detail'] ) ? $body['detail'] : esc_html__( 'Mailchimp subscription failed', 'hashbar-wp-notification-bar' );
 
 			// Update submission with error
 			// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery
@@ -583,8 +583,8 @@ class Hashbar_Popup_Campaign_Form_Handler {
 			'success' => true,
 			'status'  => $mailchimp_status,
 			'message' => $double_optin
-				? esc_html__( 'Please check your email to confirm subscription', 'hashbar' )
-				: esc_html__( 'Successfully subscribed', 'hashbar' ),
+				? esc_html__( 'Please check your email to confirm subscription', 'hashbar-wp-notification-bar' )
+				: esc_html__( 'Successfully subscribed', 'hashbar-wp-notification-bar' ),
 		);
 	}
 

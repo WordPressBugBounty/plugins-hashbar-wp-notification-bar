@@ -255,7 +255,7 @@ function hashbar_check_schedule( $bar_id ) {
 			return false;
 		}
 		// Get current day name in lowercase (monday, tuesday, etc.)
-		$current_day = strtolower( date( 'l' ) );
+		$current_day = strtolower( current_time( 'l' ) );
 		// Normalize array values to lowercase
 		$recurring_days_normalized = array_map( 'strtolower', (array) $recurring_days );
 		if ( ! in_array( $current_day, $recurring_days_normalized, true ) ) {
@@ -1059,8 +1059,8 @@ function hashbar_render_single_bar( $bar ) {
 	$coupon_show_button_raw = get_post_meta( $bar_id, '_wphash_ab_coupon_show_copy_button', true );
 	$coupon_show_button     = ! empty( $coupon_show_button_raw ) && $coupon_show_button_raw !== '0' && $coupon_show_button_raw !== 'false';
 
-	$coupon_copy_button_text = get_post_meta( $bar_id, '_wphash_ab_coupon_copy_button_text', true ) ?: __( 'Copy', 'hashbar' );
-	$coupon_copied_button_text = get_post_meta( $bar_id, '_wphash_ab_coupon_copied_button_text', true ) ?: __( 'Copied!', 'hashbar' );
+	$coupon_copy_button_text = get_post_meta( $bar_id, '_wphash_ab_coupon_copy_button_text', true ) ?: __( 'Copy', 'hashbar-wp-notification-bar' );
+	$coupon_copied_button_text = get_post_meta( $bar_id, '_wphash_ab_coupon_copied_button_text', true ) ?: __( 'Copied!', 'hashbar-wp-notification-bar' );
 
 	// Handle both string ('1', 'true') and boolean values from React
 	// When saved from React, true becomes '1', false becomes empty string
@@ -1396,7 +1396,7 @@ function hashbar_render_single_bar( $bar ) {
 	// Landmark label for assistive tech (does not affect layout). Avoid aria-live on the whole bar — countdown updates would be noisy.
 	$announcement_region_label = trim( wp_strip_all_tags( $bar->post_title ) );
 	if ( '' === $announcement_region_label ) {
-		$announcement_region_label = __( 'Site announcement', 'hashbar' );
+		$announcement_region_label = __( 'Site announcement', 'hashbar-wp-notification-bar' );
 	}
 
 	// Get Custom CSS
@@ -1426,13 +1426,13 @@ function hashbar_render_single_bar( $bar ) {
 	<div class="hashbar-announcement-bar-wrapper" data-bar-id="<?php echo esc_attr( $bar_id ); ?>"<?php echo $wrapper_inline_style; // phpcs:ignore ?>>
 		<?php if ( ! empty( $custom_css ) ) : ?>
 			<style>
-				<?php echo wp_strip_all_tags( $custom_css ); ?>
+				<?php echo wp_strip_all_tags( $custom_css ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- no esc_css() in core; wp_strip_all_tags() prevents breaking out of the style block. ?>
 			</style>
 		<?php endif; ?>
 
 	<div class="hashbar-announcement-bar" id="hashbar-bar-<?php echo esc_attr( $bar_id ); ?>" role="region" aria-label="<?php echo esc_attr( $announcement_region_label ); ?>" style="<?php echo esc_attr( $style_string ); ?>" data-hashbar-announcement="<?php echo esc_attr( $bar_id ); ?>" <?php echo $data_attr_string; // phpcs:ignore ?>>
 		<?php if ( $close_enabled && ( $close_position === 'left' || $close_position === 'top_left' ) ) : ?>
-			<button type="button" class="hashbar-announcement-close" style="<?php echo esc_attr( $close_button_styles ); ?>" aria-label="<?php echo esc_attr__( 'Close announcement', 'hashbar' ); ?>" title="<?php echo esc_attr__( 'Close', 'hashbar' ); ?>" data-hashbar-close="true">
+			<button type="button" class="hashbar-announcement-close" style="<?php echo esc_attr( $close_button_styles ); ?>" aria-label="<?php echo esc_attr__( 'Close announcement', 'hashbar-wp-notification-bar' ); ?>" title="<?php echo esc_attr__( 'Close', 'hashbar-wp-notification-bar' ); ?>" data-hashbar-close="true">
 				<?php echo esc_html( $close_text ); ?>
 			</button>
 		<?php endif; ?>
@@ -1581,7 +1581,7 @@ function hashbar_render_single_bar( $bar ) {
 
 		<?php if ( $close_enabled && ( $close_position === 'right' || $close_position === 'top_right' ) ) : ?>
 			<!-- Debug: Close Button Styles: <?php echo esc_attr( $close_button_styles ); ?> -->
-			<button type="button" class="hashbar-announcement-close" style="<?php echo esc_attr( $close_button_styles ); ?>" aria-label="<?php echo esc_attr__( 'Close announcement', 'hashbar' ); ?>" title="<?php echo esc_attr__( 'Close', 'hashbar' ); ?>" data-hashbar-close="true">
+			<button type="button" class="hashbar-announcement-close" style="<?php echo esc_attr( $close_button_styles ); ?>" aria-label="<?php echo esc_attr__( 'Close announcement', 'hashbar-wp-notification-bar' ); ?>" title="<?php echo esc_attr__( 'Close', 'hashbar-wp-notification-bar' ); ?>" data-hashbar-close="true">
 				<?php echo esc_html( $close_text ); ?>
 			</button>
 		<?php endif; ?>

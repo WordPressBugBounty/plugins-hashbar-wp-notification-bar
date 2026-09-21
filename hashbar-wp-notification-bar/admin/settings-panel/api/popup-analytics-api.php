@@ -11,6 +11,10 @@ namespace HashbarFree\API;
 use WP_REST_Response;
 use WP_REST_Request;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 // Register REST API routes
 add_action( 'rest_api_init', [ PopupAnalytics::class, 'register_routes' ] );
 
@@ -468,7 +472,7 @@ class PopupAnalytics {
 		}
 
 		// Get timeline data
-		$results = $wpdb->get_results(
+		$results = $wpdb->get_results( // phpcs:ignore PluginCheck.Security.DirectDB.UnescapedDBParameter -- $date_format is one of 3 hardcoded strings from the switch above (never user input); $table is hardcoded; $where is built via $wpdb->prepare() above.
 			"SELECT
 				DATE_FORMAT(event_timestamp, '{$date_format}') as period,
 				SUM(CASE WHEN event_type = 'view' THEN 1 ELSE 0 END) as views,

@@ -1,3 +1,5 @@
 <?php
 // Direct access security
-die();
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}

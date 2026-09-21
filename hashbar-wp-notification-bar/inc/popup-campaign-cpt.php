@@ -27,35 +27,35 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function hashbar_register_popup_campaign_cpt() {
 	$labels = array(
-		'name'                  => _x( 'Popup Campaigns', 'Post Type General Name', 'hashbar' ),
-		'singular_name'         => _x( 'Popup Campaign', 'Post Type Singular Name', 'hashbar' ),
-		'menu_name'             => __( 'Popup Campaigns', 'hashbar' ),
-		'name_admin_bar'        => __( 'Popup Campaign', 'hashbar' ),
-		'archives'              => __( 'Popup Archives', 'hashbar' ),
-		'parent_item_colon'     => __( 'Parent Popup:', 'hashbar' ),
-		'all_items'             => __( 'All Popups', 'hashbar' ),
-		'add_new_item'          => __( 'Add New Popup', 'hashbar' ),
-		'add_new'               => __( 'Add New Popup', 'hashbar' ),
-		'new_item'              => __( 'New Popup', 'hashbar' ),
-		'edit_item'             => __( 'Edit Popup', 'hashbar' ),
-		'update_item'           => __( 'Update Popup', 'hashbar' ),
-		'view_item'             => __( 'View Popup', 'hashbar' ),
-		'search_items'          => __( 'Search Popup', 'hashbar' ),
-		'not_found'             => __( 'Not found', 'hashbar' ),
-		'not_found_in_trash'    => __( 'Not found in Trash', 'hashbar' ),
-		'featured_image'        => __( 'Featured Image', 'hashbar' ),
-		'set_featured_image'    => __( 'Set featured image', 'hashbar' ),
-		'remove_featured_image' => __( 'Remove featured image', 'hashbar' ),
-		'use_featured_image'    => __( 'Use as featured image', 'hashbar' ),
-		'insert_into_item'      => __( 'Insert into popup', 'hashbar' ),
-		'uploaded_to_this_item' => __( 'Uploaded to this popup', 'hashbar' ),
-		'items_list'            => __( 'Popups list', 'hashbar' ),
-		'items_list_navigation' => __( 'Popups list navigation', 'hashbar' ),
-		'filter_items_list'     => __( 'Filter popups list', 'hashbar' ),
+		'name'                  => _x( 'Popup Campaigns', 'Post Type General Name', 'hashbar-wp-notification-bar' ),
+		'singular_name'         => _x( 'Popup Campaign', 'Post Type Singular Name', 'hashbar-wp-notification-bar' ),
+		'menu_name'             => __( 'Popup Campaigns', 'hashbar-wp-notification-bar' ),
+		'name_admin_bar'        => __( 'Popup Campaign', 'hashbar-wp-notification-bar' ),
+		'archives'              => __( 'Popup Archives', 'hashbar-wp-notification-bar' ),
+		'parent_item_colon'     => __( 'Parent Popup:', 'hashbar-wp-notification-bar' ),
+		'all_items'             => __( 'All Popups', 'hashbar-wp-notification-bar' ),
+		'add_new_item'          => __( 'Add New Popup', 'hashbar-wp-notification-bar' ),
+		'add_new'               => __( 'Add New Popup', 'hashbar-wp-notification-bar' ),
+		'new_item'              => __( 'New Popup', 'hashbar-wp-notification-bar' ),
+		'edit_item'             => __( 'Edit Popup', 'hashbar-wp-notification-bar' ),
+		'update_item'           => __( 'Update Popup', 'hashbar-wp-notification-bar' ),
+		'view_item'             => __( 'View Popup', 'hashbar-wp-notification-bar' ),
+		'search_items'          => __( 'Search Popup', 'hashbar-wp-notification-bar' ),
+		'not_found'             => __( 'Not found', 'hashbar-wp-notification-bar' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'hashbar-wp-notification-bar' ),
+		'featured_image'        => __( 'Featured Image', 'hashbar-wp-notification-bar' ),
+		'set_featured_image'    => __( 'Set featured image', 'hashbar-wp-notification-bar' ),
+		'remove_featured_image' => __( 'Remove featured image', 'hashbar-wp-notification-bar' ),
+		'use_featured_image'    => __( 'Use as featured image', 'hashbar-wp-notification-bar' ),
+		'insert_into_item'      => __( 'Insert into popup', 'hashbar-wp-notification-bar' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this popup', 'hashbar-wp-notification-bar' ),
+		'items_list'            => __( 'Popups list', 'hashbar-wp-notification-bar' ),
+		'items_list_navigation' => __( 'Popups list navigation', 'hashbar-wp-notification-bar' ),
+		'filter_items_list'     => __( 'Filter popups list', 'hashbar-wp-notification-bar' ),
 	);
 
 	$args = array(
-		'label'               => __( 'Popup Campaign', 'hashbar' ),
+		'label'               => __( 'Popup Campaign', 'hashbar-wp-notification-bar' ),
 		'labels'              => $labels,
 		'supports'            => array( 'title' ),
 		'hierarchical'        => false,
@@ -94,7 +94,7 @@ function hashbar_register_popup_campaign_meta() {
 	// ===========================================
 	register_post_meta( 'wphash_popup', '_wphash_popup_status', array(
 		'type'              => 'string',
-		'description'       => __( 'Popup status (active/inactive)', 'hashbar' ),
+		'description'       => __( 'Popup status (active/inactive)', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'inactive',
@@ -108,7 +108,7 @@ function hashbar_register_popup_campaign_meta() {
 	// ===========================================
 	register_post_meta( 'wphash_popup', '_wphash_popup_template_id', array(
 		'type'              => 'string',
-		'description'       => __( 'Template ID', 'hashbar' ),
+		'description'       => __( 'Template ID', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => '',
@@ -119,7 +119,7 @@ function hashbar_register_popup_campaign_meta() {
 	// ===========================================
 	register_post_meta( 'wphash_popup', '_wphash_popup_position', array(
 		'type'              => 'string',
-		'description'       => __( 'Popup position (center, bottom_right, bottom_left, fullscreen, side_left, side_right, floating)', 'hashbar' ),
+		'description'       => __( 'Popup position (center, bottom_right, bottom_left, fullscreen, side_left, side_right, floating)', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'center',
@@ -127,7 +127,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_campaign_type', array(
 		'type'              => 'string',
-		'description'       => __( 'Campaign type', 'hashbar' ),
+		'description'       => __( 'Campaign type', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'lead_capture',
@@ -135,7 +135,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_overlay_enabled', array(
 		'type'              => 'boolean',
-		'description'       => __( 'Show background overlay', 'hashbar' ),
+		'description'       => __( 'Show background overlay', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => true,
@@ -143,7 +143,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_overlay_close', array(
 		'type'              => 'boolean',
-		'description'       => __( 'Close on overlay click', 'hashbar' ),
+		'description'       => __( 'Close on overlay click', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => true,
@@ -151,7 +151,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_close_enabled', array(
 		'type'              => 'boolean',
-		'description'       => __( 'Show close button', 'hashbar' ),
+		'description'       => __( 'Show close button', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => true,
@@ -159,7 +159,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_close_position', array(
 		'type'              => 'string',
-		'description'       => __( 'Close button position', 'hashbar' ),
+		'description'       => __( 'Close button position', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'top_right',
@@ -167,7 +167,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_esc_close', array(
 		'type'              => 'boolean',
-		'description'       => __( 'Close on ESC key', 'hashbar' ),
+		'description'       => __( 'Close on ESC key', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => true,
@@ -178,7 +178,7 @@ function hashbar_register_popup_campaign_meta() {
 	// ===========================================
 	register_post_meta( 'wphash_popup', '_wphash_popup_content_type', array(
 		'type'              => 'string',
-		'description'       => __( 'Content type (custom, cf7, wpforms, etc.)', 'hashbar' ),
+		'description'       => __( 'Content type (custom, cf7, wpforms, etc.)', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'custom',
@@ -187,7 +187,7 @@ function hashbar_register_popup_campaign_meta() {
 	// Form plugin IDs
 	register_post_meta( 'wphash_popup', '_wphash_popup_cf7_form_id', array(
 		'type'              => 'integer',
-		'description'       => __( 'Contact Form 7 form ID', 'hashbar' ),
+		'description'       => __( 'Contact Form 7 form ID', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 0,
@@ -195,7 +195,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_wpforms_form_id', array(
 		'type'              => 'integer',
-		'description'       => __( 'WPForms form ID', 'hashbar' ),
+		'description'       => __( 'WPForms form ID', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 0,
@@ -203,7 +203,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_ninja_form_id', array(
 		'type'              => 'integer',
-		'description'       => __( 'Ninja Forms form ID', 'hashbar' ),
+		'description'       => __( 'Ninja Forms form ID', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 0,
@@ -211,7 +211,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_gravity_form_id', array(
 		'type'              => 'integer',
-		'description'       => __( 'Gravity Forms form ID', 'hashbar' ),
+		'description'       => __( 'Gravity Forms form ID', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 0,
@@ -219,7 +219,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_fluent_form_id', array(
 		'type'              => 'integer',
-		'description'       => __( 'Fluent Forms form ID', 'hashbar' ),
+		'description'       => __( 'Fluent Forms form ID', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 0,
@@ -227,7 +227,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_shortcode', array(
 		'type'              => 'string',
-		'description'       => __( 'Custom shortcode', 'hashbar' ),
+		'description'       => __( 'Custom shortcode', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => '',
@@ -236,7 +236,7 @@ function hashbar_register_popup_campaign_meta() {
 	// Custom content
 	register_post_meta( 'wphash_popup', '_wphash_popup_image', array(
 		'type'              => 'object',
-		'description'       => __( 'Popup image', 'hashbar' ),
+		'description'       => __( 'Popup image', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => array(
 			'schema' => array(
@@ -251,7 +251,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_image_position', array(
 		'type'              => 'string',
-		'description'       => __( 'Image position', 'hashbar' ),
+		'description'       => __( 'Image position', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'top',
@@ -259,7 +259,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_heading', array(
 		'type'              => 'string',
-		'description'       => __( 'Popup heading', 'hashbar' ),
+		'description'       => __( 'Popup heading', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => '',
@@ -267,7 +267,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_subheading', array(
 		'type'              => 'string',
-		'description'       => __( 'Popup subheading', 'hashbar' ),
+		'description'       => __( 'Popup subheading', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => '',
@@ -275,7 +275,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_description', array(
 		'type'              => 'string',
-		'description'       => __( 'Popup description', 'hashbar' ),
+		'description'       => __( 'Popup description', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => '',
@@ -284,7 +284,7 @@ function hashbar_register_popup_campaign_meta() {
 	// CTA Button
 	register_post_meta( 'wphash_popup', '_wphash_popup_cta_enabled', array(
 		'type'              => 'boolean',
-		'description'       => __( 'Show CTA button', 'hashbar' ),
+		'description'       => __( 'Show CTA button', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => true,
@@ -292,7 +292,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_cta_text', array(
 		'type'              => 'string',
-		'description'       => __( 'CTA button text', 'hashbar' ),
+		'description'       => __( 'CTA button text', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'Get Started',
@@ -300,7 +300,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_cta_url', array(
 		'type'              => 'string',
-		'description'       => __( 'CTA button URL', 'hashbar' ),
+		'description'       => __( 'CTA button URL', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => '#',
@@ -308,7 +308,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_cta_target', array(
 		'type'              => 'string',
-		'description'       => __( 'CTA link target', 'hashbar' ),
+		'description'       => __( 'CTA link target', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => '_self',
@@ -316,7 +316,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_cta_close_on_click', array(
 		'type'              => 'boolean',
-		'description'       => __( 'Close popup on CTA click', 'hashbar' ),
+		'description'       => __( 'Close popup on CTA click', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => false,
@@ -324,7 +324,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_confirmation_page_id', array(
 		'type'              => 'integer',
-		'description'       => __( 'Order confirmation / thank-you page to auto-track conversions on', 'hashbar' ),
+		'description'       => __( 'Order confirmation / thank-you page to auto-track conversions on', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 0,
@@ -333,7 +333,7 @@ function hashbar_register_popup_campaign_meta() {
 	// Secondary Button
 	register_post_meta( 'wphash_popup', '_wphash_popup_secondary_enabled', array(
 		'type'              => 'boolean',
-		'description'       => __( 'Show secondary button', 'hashbar' ),
+		'description'       => __( 'Show secondary button', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => false,
@@ -341,7 +341,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_secondary_text', array(
 		'type'              => 'string',
-		'description'       => __( 'Secondary button text', 'hashbar' ),
+		'description'       => __( 'Secondary button text', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'No Thanks',
@@ -349,7 +349,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_secondary_action', array(
 		'type'              => 'string',
-		'description'       => __( 'Secondary button action', 'hashbar' ),
+		'description'       => __( 'Secondary button action', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'close',
@@ -360,7 +360,7 @@ function hashbar_register_popup_campaign_meta() {
 	// ===========================================
 	register_post_meta( 'wphash_popup', '_wphash_popup_form_enabled', array(
 		'type'              => 'boolean',
-		'description'       => __( 'Enable built-in form', 'hashbar' ),
+		'description'       => __( 'Enable built-in form', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => true,
@@ -368,7 +368,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_form_fields', array(
 		'type'              => 'array',
-		'description'       => __( 'Form fields configuration', 'hashbar' ),
+		'description'       => __( 'Form fields configuration', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => array(
 			'schema' => array(
@@ -391,7 +391,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_form_submit_text', array(
 		'type'              => 'string',
-		'description'       => __( 'Submit button text', 'hashbar' ),
+		'description'       => __( 'Submit button text', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'Subscribe',
@@ -399,7 +399,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_form_submitting_text', array(
 		'type'              => 'string',
-		'description'       => __( 'Submitting text', 'hashbar' ),
+		'description'       => __( 'Submitting text', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'Submitting...',
@@ -407,7 +407,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_form_success_action', array(
 		'type'              => 'string',
-		'description'       => __( 'Success action (message, redirect, close)', 'hashbar' ),
+		'description'       => __( 'Success action (message, redirect, close)', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'message',
@@ -415,7 +415,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_form_success_message', array(
 		'type'              => 'string',
-		'description'       => __( 'Success message', 'hashbar' ),
+		'description'       => __( 'Success message', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'Thank you! You have successfully subscribed.',
@@ -423,7 +423,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_form_success_redirect_url', array(
 		'type'              => 'string',
-		'description'       => __( 'Redirect URL after submission', 'hashbar' ),
+		'description'       => __( 'Redirect URL after submission', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => '',
@@ -431,7 +431,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_form_close_delay', array(
 		'type'              => 'integer',
-		'description'       => __( 'Close delay in seconds', 'hashbar' ),
+		'description'       => __( 'Close delay in seconds', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 3,
@@ -440,7 +440,7 @@ function hashbar_register_popup_campaign_meta() {
 	// Mailchimp Integration
 	register_post_meta( 'wphash_popup', '_wphash_popup_mailchimp_enabled', array(
 		'type'              => 'boolean',
-		'description'       => __( 'Enable Mailchimp integration', 'hashbar' ),
+		'description'       => __( 'Enable Mailchimp integration', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => false,
@@ -448,7 +448,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_mailchimp_api_key', array(
 		'type'              => 'string',
-		'description'       => __( 'Mailchimp API key', 'hashbar' ),
+		'description'       => __( 'Mailchimp API key', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => '',
@@ -456,7 +456,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_mailchimp_list_id', array(
 		'type'              => 'string',
-		'description'       => __( 'Mailchimp list/audience ID', 'hashbar' ),
+		'description'       => __( 'Mailchimp list/audience ID', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => '',
@@ -464,7 +464,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_mailchimp_double_optin', array(
 		'type'              => 'boolean',
-		'description'       => __( 'Enable double opt-in', 'hashbar' ),
+		'description'       => __( 'Enable double opt-in', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => true,
@@ -472,7 +472,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_mailchimp_tags', array(
 		'type'              => 'string',
-		'description'       => __( 'Mailchimp subscriber tags', 'hashbar' ),
+		'description'       => __( 'Mailchimp subscriber tags', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => '',
@@ -483,7 +483,7 @@ function hashbar_register_popup_campaign_meta() {
 	// ===========================================
 	register_post_meta( 'wphash_popup', '_wphash_popup_width', array(
 		'type'              => 'integer',
-		'description'       => __( 'Popup width in pixels', 'hashbar' ),
+		'description'       => __( 'Popup width in pixels', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 500,
@@ -491,7 +491,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_max_width', array(
 		'type'              => 'integer',
-		'description'       => __( 'Max width percentage', 'hashbar' ),
+		'description'       => __( 'Max width percentage', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 90,
@@ -499,7 +499,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_padding', array(
 		'type'              => 'object',
-		'description'       => __( 'Padding values', 'hashbar' ),
+		'description'       => __( 'Padding values', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => array(
 			'schema' => array(
@@ -516,7 +516,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_bg_type', array(
 		'type'              => 'string',
-		'description'       => __( 'Background type', 'hashbar' ),
+		'description'       => __( 'Background type', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'solid',
@@ -524,7 +524,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_bg_color', array(
 		'type'              => 'string',
-		'description'       => __( 'Background color', 'hashbar' ),
+		'description'       => __( 'Background color', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => '#ffffff',
@@ -532,7 +532,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_gradient_color', array(
 		'type'              => 'string',
-		'description'       => __( 'Gradient second color', 'hashbar' ),
+		'description'       => __( 'Gradient second color', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => '#f0f0f0',
@@ -540,7 +540,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_gradient_direction', array(
 		'type'              => 'string',
-		'description'       => __( 'Gradient direction', 'hashbar' ),
+		'description'       => __( 'Gradient direction', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'to_bottom',
@@ -548,7 +548,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_bg_image', array(
 		'type'              => 'object',
-		'description'       => __( 'Background image', 'hashbar' ),
+		'description'       => __( 'Background image', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => array(
 			'schema' => array(
@@ -563,7 +563,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_text_color', array(
 		'type'              => 'string',
-		'description'       => __( 'Text color', 'hashbar' ),
+		'description'       => __( 'Text color', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => '#1a1a1a',
@@ -571,7 +571,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_heading_color', array(
 		'type'              => 'string',
-		'description'       => __( 'Heading color', 'hashbar' ),
+		'description'       => __( 'Heading color', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => '#1a1a1a',
@@ -579,7 +579,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_overlay_color', array(
 		'type'              => 'string',
-		'description'       => __( 'Overlay color', 'hashbar' ),
+		'description'       => __( 'Overlay color', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'rgba(0, 0, 0, 0.5)',
@@ -587,7 +587,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_font_family', array(
 		'type'              => 'string',
-		'description'       => __( 'Font family', 'hashbar' ),
+		'description'       => __( 'Font family', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'system-ui',
@@ -595,7 +595,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_heading_size', array(
 		'type'              => 'integer',
-		'description'       => __( 'Heading size in pixels', 'hashbar' ),
+		'description'       => __( 'Heading size in pixels', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 24,
@@ -603,7 +603,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_text_size', array(
 		'type'              => 'integer',
-		'description'       => __( 'Text size in pixels', 'hashbar' ),
+		'description'       => __( 'Text size in pixels', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 16,
@@ -611,7 +611,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_text_align', array(
 		'type'              => 'string',
-		'description'       => __( 'Text alignment', 'hashbar' ),
+		'description'       => __( 'Text alignment', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'center',
@@ -619,7 +619,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_border_radius', array(
 		'type'              => 'integer',
-		'description'       => __( 'Border radius in pixels', 'hashbar' ),
+		'description'       => __( 'Border radius in pixels', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 12,
@@ -627,7 +627,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_border_width', array(
 		'type'              => 'integer',
-		'description'       => __( 'Border width in pixels', 'hashbar' ),
+		'description'       => __( 'Border width in pixels', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 0,
@@ -635,7 +635,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_border_color', array(
 		'type'              => 'string',
-		'description'       => __( 'Border color', 'hashbar' ),
+		'description'       => __( 'Border color', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => '#e8e8e8',
@@ -643,7 +643,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_shadow', array(
 		'type'              => 'string',
-		'description'       => __( 'Box shadow preset', 'hashbar' ),
+		'description'       => __( 'Box shadow preset', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'large',
@@ -652,7 +652,7 @@ function hashbar_register_popup_campaign_meta() {
 	// Button styling
 	register_post_meta( 'wphash_popup', '_wphash_popup_btn_bg_color', array(
 		'type'              => 'string',
-		'description'       => __( 'Button background color', 'hashbar' ),
+		'description'       => __( 'Button background color', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => '#1890ff',
@@ -660,7 +660,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_btn_text_color', array(
 		'type'              => 'string',
-		'description'       => __( 'Button text color', 'hashbar' ),
+		'description'       => __( 'Button text color', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => '#ffffff',
@@ -668,7 +668,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_btn_hover_bg_color', array(
 		'type'              => 'string',
-		'description'       => __( 'Button hover background', 'hashbar' ),
+		'description'       => __( 'Button hover background', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => '#40a9ff',
@@ -676,7 +676,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_btn_hover_text_color', array(
 		'type'              => 'string',
-		'description'       => __( 'Button hover text color', 'hashbar' ),
+		'description'       => __( 'Button hover text color', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => '#ffffff',
@@ -684,7 +684,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_btn_border_radius', array(
 		'type'              => 'integer',
-		'description'       => __( 'Button border radius', 'hashbar' ),
+		'description'       => __( 'Button border radius', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 6,
@@ -692,7 +692,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_btn_font_size', array(
 		'type'              => 'integer',
-		'description'       => __( 'Button font size', 'hashbar' ),
+		'description'       => __( 'Button font size', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 16,
@@ -701,7 +701,7 @@ function hashbar_register_popup_campaign_meta() {
 	// Close button styling
 	register_post_meta( 'wphash_popup', '_wphash_popup_close_color', array(
 		'type'              => 'string',
-		'description'       => __( 'Close button color', 'hashbar' ),
+		'description'       => __( 'Close button color', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => '#8c8c8c',
@@ -709,7 +709,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_close_hover_color', array(
 		'type'              => 'string',
-		'description'       => __( 'Close button hover color', 'hashbar' ),
+		'description'       => __( 'Close button hover color', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => '#1a1a1a',
@@ -717,7 +717,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_close_size', array(
 		'type'              => 'integer',
-		'description'       => __( 'Close button size', 'hashbar' ),
+		'description'       => __( 'Close button size', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 24,
@@ -725,7 +725,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_custom_css', array(
 		'type'              => 'string',
-		'description'       => __( 'Custom CSS', 'hashbar' ),
+		'description'       => __( 'Custom CSS', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => '',
@@ -734,7 +734,7 @@ function hashbar_register_popup_campaign_meta() {
 	// Content order
 	register_post_meta( 'wphash_popup', '_wphash_popup_content_order', array(
 		'type'              => 'array',
-		'description'       => __( 'Content element order', 'hashbar' ),
+		'description'       => __( 'Content element order', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => array(
 			'schema' => array(
@@ -748,7 +748,7 @@ function hashbar_register_popup_campaign_meta() {
 	// Element spacing
 	register_post_meta( 'wphash_popup', '_wphash_popup_element_spacing', array(
 		'type'              => 'object',
-		'description'       => __( 'Per-element spacing (margin-bottom)', 'hashbar' ),
+		'description'       => __( 'Per-element spacing (margin-bottom)', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => array(
 			'schema' => array(
@@ -771,7 +771,7 @@ function hashbar_register_popup_campaign_meta() {
 	// ===========================================
 	register_post_meta( 'wphash_popup', '_wphash_popup_trigger_type', array(
 		'type'              => 'string',
-		'description'       => __( 'Trigger type', 'hashbar' ),
+		'description'       => __( 'Trigger type', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'time_delay',
@@ -779,7 +779,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_trigger_delay', array(
 		'type'              => 'integer',
-		'description'       => __( 'Time delay in seconds', 'hashbar' ),
+		'description'       => __( 'Time delay in seconds', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 5,
@@ -787,7 +787,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_trigger_scroll_percent', array(
 		'type'              => 'integer',
-		'description'       => __( 'Scroll percentage', 'hashbar' ),
+		'description'       => __( 'Scroll percentage', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 50,
@@ -795,7 +795,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_trigger_click_selector', array(
 		'type'              => 'string',
-		'description'       => __( 'Click trigger CSS selector', 'hashbar' ),
+		'description'       => __( 'Click trigger CSS selector', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => '',
@@ -803,7 +803,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_trigger_click_delay', array(
 		'type'              => 'integer',
-		'description'       => __( 'Delay in seconds after click before showing popup', 'hashbar' ),
+		'description'       => __( 'Delay in seconds after click before showing popup', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 0,
@@ -811,7 +811,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_trigger_inactivity_time', array(
 		'type'              => 'integer',
-		'description'       => __( 'Inactivity time in seconds', 'hashbar' ),
+		'description'       => __( 'Inactivity time in seconds', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 30,
@@ -819,7 +819,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_trigger_element_selector', array(
 		'type'              => 'string',
-		'description'       => __( 'Element visible selector', 'hashbar' ),
+		'description'       => __( 'Element visible selector', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => '',
@@ -827,7 +827,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_trigger_page_views_count', array(
 		'type'              => 'integer',
-		'description'       => __( 'Page views count', 'hashbar' ),
+		'description'       => __( 'Page views count', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 3,
@@ -835,7 +835,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_exit_sensitivity', array(
 		'type'              => 'string',
-		'description'       => __( 'Exit intent sensitivity', 'hashbar' ),
+		'description'       => __( 'Exit intent sensitivity', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'medium',
@@ -843,7 +843,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_exit_mobile_enabled', array(
 		'type'              => 'boolean',
-		'description'       => __( 'Enable exit intent on mobile', 'hashbar' ),
+		'description'       => __( 'Enable exit intent on mobile', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => false,
@@ -854,7 +854,7 @@ function hashbar_register_popup_campaign_meta() {
 	// ===========================================
 	register_post_meta( 'wphash_popup', '_wphash_popup_target_pages', array(
 		'type'              => 'string',
-		'description'       => __( 'Page targeting mode', 'hashbar' ),
+		'description'       => __( 'Page targeting mode', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'all',
@@ -862,7 +862,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_target_page_ids', array(
 		'type'              => 'array',
-		'description'       => __( 'Specific page IDs to target', 'hashbar' ),
+		'description'       => __( 'Specific page IDs to target', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => array(
 			'schema' => array(
@@ -874,7 +874,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_exclude_page_ids', array(
 		'type'              => 'array',
-		'description'       => __( 'Page IDs to exclude', 'hashbar' ),
+		'description'       => __( 'Page IDs to exclude', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => array(
 			'schema' => array(
@@ -886,7 +886,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_target_devices', array(
 		'type'              => 'array',
-		'description'       => __( 'Target devices', 'hashbar' ),
+		'description'       => __( 'Target devices', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => array(
 			'schema' => array(
@@ -899,7 +899,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_target_user_status', array(
 		'type'              => 'string',
-		'description'       => __( 'User status targeting', 'hashbar' ),
+		'description'       => __( 'User status targeting', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'all',
@@ -907,7 +907,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_target_new_visitors', array(
 		'type'              => 'boolean',
-		'description'       => __( 'Target new visitors only', 'hashbar' ),
+		'description'       => __( 'Target new visitors only', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => false,
@@ -915,7 +915,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_target_returning_visitors', array(
 		'type'              => 'boolean',
-		'description'       => __( 'Target returning visitors only', 'hashbar' ),
+		'description'       => __( 'Target returning visitors only', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => false,
@@ -923,7 +923,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_target_referrer_enabled', array(
 		'type'              => 'boolean',
-		'description'       => __( 'Enable referrer targeting', 'hashbar' ),
+		'description'       => __( 'Enable referrer targeting', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => false,
@@ -931,7 +931,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_target_referrer_type', array(
 		'type'              => 'string',
-		'description'       => __( 'Referrer match type', 'hashbar' ),
+		'description'       => __( 'Referrer match type', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'include',
@@ -939,7 +939,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_target_referrer_sources', array(
 		'type'              => 'string',
-		'description'       => __( 'Referrer URLs', 'hashbar' ),
+		'description'       => __( 'Referrer URLs', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => '',
@@ -950,7 +950,7 @@ function hashbar_register_popup_campaign_meta() {
 	// ===========================================
 	register_post_meta( 'wphash_popup', '_wphash_popup_frequency_type', array(
 		'type'              => 'string',
-		'description'       => __( 'Frequency type', 'hashbar' ),
+		'description'       => __( 'Frequency type', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'once_per_session',
@@ -958,7 +958,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_frequency_days', array(
 		'type'              => 'integer',
-		'description'       => __( 'Number of days', 'hashbar' ),
+		'description'       => __( 'Number of days', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 7,
@@ -966,7 +966,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_frequency_times', array(
 		'type'              => 'integer',
-		'description'       => __( 'Maximum times to show', 'hashbar' ),
+		'description'       => __( 'Maximum times to show', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 3,
@@ -974,7 +974,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_after_close', array(
 		'type'              => 'string',
-		'description'       => __( 'After close behavior', 'hashbar' ),
+		'description'       => __( 'After close behavior', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'respect_frequency',
@@ -982,7 +982,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_after_close_days', array(
 		'type'              => 'integer',
-		'description'       => __( 'Days to hide after close', 'hashbar' ),
+		'description'       => __( 'Days to hide after close', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 7,
@@ -990,7 +990,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_after_convert', array(
 		'type'              => 'string',
-		'description'       => __( 'After conversion behavior', 'hashbar' ),
+		'description'       => __( 'After conversion behavior', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'never_show',
@@ -998,7 +998,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_after_convert_days', array(
 		'type'              => 'integer',
-		'description'       => __( 'Days to hide after conversion', 'hashbar' ),
+		'description'       => __( 'Days to hide after conversion', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 30,
@@ -1009,7 +1009,7 @@ function hashbar_register_popup_campaign_meta() {
 	// ===========================================
 	register_post_meta( 'wphash_popup', '_wphash_popup_animation_entry', array(
 		'type'              => 'string',
-		'description'       => __( 'Entry animation', 'hashbar' ),
+		'description'       => __( 'Entry animation', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'fadeIn',
@@ -1017,7 +1017,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_animation_exit', array(
 		'type'              => 'string',
-		'description'       => __( 'Exit animation', 'hashbar' ),
+		'description'       => __( 'Exit animation', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'fadeOut',
@@ -1025,7 +1025,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_animation_duration', array(
 		'type'              => 'integer',
-		'description'       => __( 'Animation duration in ms', 'hashbar' ),
+		'description'       => __( 'Animation duration in ms', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 300,
@@ -1033,7 +1033,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_animation_delay', array(
 		'type'              => 'integer',
-		'description'       => __( 'Animation delay in ms', 'hashbar' ),
+		'description'       => __( 'Animation delay in ms', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 0,
@@ -1044,7 +1044,7 @@ function hashbar_register_popup_campaign_meta() {
 	// ===========================================
 	register_post_meta( 'wphash_popup', '_wphash_popup_spinwheel_enabled', array(
 		'type'              => 'boolean',
-		'description'       => __( 'Enable spin wheel', 'hashbar' ),
+		'description'       => __( 'Enable spin wheel', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => false,
@@ -1052,7 +1052,7 @@ function hashbar_register_popup_campaign_meta() {
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_spinwheel_segments', array(
 		'type'              => 'array',
-		'description'       => __( 'Spin wheel segments', 'hashbar' ),
+		'description'       => __( 'Spin wheel segments', 'hashbar-wp-notification-bar' ),
 		'single'            => true,
 		'show_in_rest'      => array(
 			'schema' => array(

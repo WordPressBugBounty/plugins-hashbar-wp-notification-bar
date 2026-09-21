@@ -8,6 +8,10 @@
 
 namespace HashbarFree\PopupAnalytics;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Popup Analytics Processor Class
  * Handles incoming analytics events and stores them in the database

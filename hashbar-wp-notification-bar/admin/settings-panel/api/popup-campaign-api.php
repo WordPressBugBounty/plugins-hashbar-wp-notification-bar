@@ -218,7 +218,7 @@ class PopupCampaign {
 				return new WP_REST_Response(
 					array(
 						'success' => false,
-						'message' => esc_html__( 'Popup campaign not found', 'hashbar' ),
+						'message' => esc_html__( 'Popup campaign not found', 'hashbar-wp-notification-bar' ),
 					),
 					404
 				);
@@ -253,7 +253,7 @@ class PopupCampaign {
 		try {
 			$title = sanitize_text_field( $request->get_param( 'title' ) );
 			if ( empty( $title ) ) {
-				$title = esc_html__( 'Untitled Popup', 'hashbar' );
+				$title = esc_html__( 'Untitled Popup', 'hashbar-wp-notification-bar' );
 			}
 
 			$post_data = array(
@@ -290,7 +290,7 @@ class PopupCampaign {
 			return new WP_REST_Response(
 				array(
 					'success' => true,
-					'message' => esc_html__( 'Popup campaign created successfully', 'hashbar' ),
+					'message' => esc_html__( 'Popup campaign created successfully', 'hashbar-wp-notification-bar' ),
 					'data'    => self::format_popup_campaign_data( $post ),
 				),
 				201
@@ -322,7 +322,7 @@ class PopupCampaign {
 				return new WP_REST_Response(
 					array(
 						'success' => false,
-						'message' => esc_html__( 'Popup campaign not found', 'hashbar' ),
+						'message' => esc_html__( 'Popup campaign not found', 'hashbar-wp-notification-bar' ),
 					),
 					404
 				);
@@ -371,7 +371,7 @@ class PopupCampaign {
 			return new WP_REST_Response(
 				array(
 					'success' => true,
-					'message' => esc_html__( 'Popup campaign updated successfully', 'hashbar' ),
+					'message' => esc_html__( 'Popup campaign updated successfully', 'hashbar-wp-notification-bar' ),
 					'data'    => self::format_popup_campaign_data( $post ),
 				),
 				200
@@ -403,7 +403,7 @@ class PopupCampaign {
 				return new WP_REST_Response(
 					array(
 						'success' => false,
-						'message' => esc_html__( 'Popup campaign not found', 'hashbar' ),
+						'message' => esc_html__( 'Popup campaign not found', 'hashbar-wp-notification-bar' ),
 					),
 					404
 				);
@@ -416,7 +416,7 @@ class PopupCampaign {
 				return new WP_REST_Response(
 					array(
 						'success' => false,
-						'message' => esc_html__( 'Failed to delete popup campaign', 'hashbar' ),
+						'message' => esc_html__( 'Failed to delete popup campaign', 'hashbar-wp-notification-bar' ),
 					),
 					500
 				);
@@ -425,7 +425,7 @@ class PopupCampaign {
 			return new WP_REST_Response(
 				array(
 					'success' => true,
-					'message' => esc_html__( 'Popup campaign deleted successfully', 'hashbar' ),
+					'message' => esc_html__( 'Popup campaign deleted successfully', 'hashbar-wp-notification-bar' ),
 					'data'    => array( 'id' => $post_id ),
 				),
 				200
@@ -457,7 +457,7 @@ class PopupCampaign {
 				return new WP_REST_Response(
 					array(
 						'success' => false,
-						'message' => esc_html__( 'Popup campaign not found', 'hashbar' ),
+						'message' => esc_html__( 'Popup campaign not found', 'hashbar-wp-notification-bar' ),
 					),
 					404
 				);
@@ -469,7 +469,7 @@ class PopupCampaign {
 				'post_content' => $post->post_content,
 				'post_excerpt' => $post->post_excerpt,
 				'post_status'  => 'draft',
-				'post_title'   => $post->post_title . ' ' . esc_html__( '(Copy)', 'hashbar' ),
+				'post_title'   => $post->post_title . ' ' . esc_html__( '(Copy)', 'hashbar-wp-notification-bar' ),
 				'post_type'    => $post->post_type,
 			);
 
@@ -501,7 +501,7 @@ class PopupCampaign {
 			return new WP_REST_Response(
 				array(
 					'success' => true,
-					'message' => esc_html__( 'Popup campaign duplicated successfully', 'hashbar' ),
+					'message' => esc_html__( 'Popup campaign duplicated successfully', 'hashbar-wp-notification-bar' ),
 					'data'    => self::format_popup_campaign_data( $new_post ),
 				),
 				201
@@ -532,8 +532,8 @@ class PopupCampaign {
 				// Free Templates
 				array(
 					'id'          => 'newsletter_classic',
-					'name'        => esc_html__( 'Newsletter Classic', 'hashbar' ),
-					'description' => esc_html__( 'Simple and clean email capture popup', 'hashbar' ),
+					'name'        => esc_html__( 'Newsletter Classic', 'hashbar-wp-notification-bar' ),
+					'description' => esc_html__( 'Simple and clean email capture popup', 'hashbar-wp-notification-bar' ),
 					'isPro'       => false,
 					'category'    => 'lead_capture',
 					'type'        => 'center',
@@ -541,16 +541,16 @@ class PopupCampaign {
 					'defaults'    => array(
 						'_wphash_popup_position'    => 'center',
 						'_wphash_popup_campaign_type' => 'lead_capture',
-						'_wphash_popup_heading'     => esc_html__( 'Subscribe to our Newsletter', 'hashbar' ),
-						'_wphash_popup_description' => esc_html__( 'Get exclusive updates and offers delivered straight to your inbox.', 'hashbar' ),
+						'_wphash_popup_heading'     => esc_html__( 'Subscribe to our Newsletter', 'hashbar-wp-notification-bar' ),
+						'_wphash_popup_description' => esc_html__( 'Get exclusive updates and offers delivered straight to your inbox.', 'hashbar-wp-notification-bar' ),
 						'_wphash_popup_bg_color'    => '#ffffff',
 						'_wphash_popup_btn_bg_color' => '#1890ff',
 					),
 				),
 				array(
 					'id'          => 'welcome_popup',
-					'name'        => esc_html__( 'Welcome Popup', 'hashbar' ),
-					'description' => esc_html__( 'Greet first-time visitors with a friendly message', 'hashbar' ),
+					'name'        => esc_html__( 'Welcome Popup', 'hashbar-wp-notification-bar' ),
+					'description' => esc_html__( 'Greet first-time visitors with a friendly message', 'hashbar-wp-notification-bar' ),
 					'isPro'       => false,
 					'category'    => 'welcome',
 					'type'        => 'center',
@@ -558,16 +558,16 @@ class PopupCampaign {
 					'defaults'    => array(
 						'_wphash_popup_position'    => 'center',
 						'_wphash_popup_campaign_type' => 'welcome',
-						'_wphash_popup_heading'     => esc_html__( 'Welcome!', 'hashbar' ),
-						'_wphash_popup_description' => esc_html__( 'Thanks for visiting our site. We\'re glad you\'re here!', 'hashbar' ),
+						'_wphash_popup_heading'     => esc_html__( 'Welcome!', 'hashbar-wp-notification-bar' ),
+						'_wphash_popup_description' => esc_html__( 'Thanks for visiting our site. We\'re glad you\'re here!', 'hashbar-wp-notification-bar' ),
 						'_wphash_popup_bg_color'    => '#ffffff',
 						'_wphash_popup_btn_bg_color' => '#52c41a',
 					),
 				),
 				array(
 					'id'          => 'basic_promotion',
-					'name'        => esc_html__( 'Basic Promotion', 'hashbar' ),
-					'description' => esc_html__( 'Announce sales and discount offers', 'hashbar' ),
+					'name'        => esc_html__( 'Basic Promotion', 'hashbar-wp-notification-bar' ),
+					'description' => esc_html__( 'Announce sales and discount offers', 'hashbar-wp-notification-bar' ),
 					'isPro'       => false,
 					'category'    => 'promotion',
 					'type'        => 'center',
@@ -575,8 +575,8 @@ class PopupCampaign {
 					'defaults'    => array(
 						'_wphash_popup_position'    => 'center',
 						'_wphash_popup_campaign_type' => 'promotion',
-						'_wphash_popup_heading'     => esc_html__( 'Special Offer!', 'hashbar' ),
-						'_wphash_popup_description' => esc_html__( 'Get 20% off your first order. Limited time only!', 'hashbar' ),
+						'_wphash_popup_heading'     => esc_html__( 'Special Offer!', 'hashbar-wp-notification-bar' ),
+						'_wphash_popup_description' => esc_html__( 'Get 20% off your first order. Limited time only!', 'hashbar-wp-notification-bar' ),
 						'_wphash_popup_bg_color'    => '#f5222d',
 						'_wphash_popup_text_color'  => '#ffffff',
 						'_wphash_popup_heading_color' => '#ffffff',
@@ -587,8 +587,8 @@ class PopupCampaign {
 				// Pro Templates
 				array(
 					'id'          => 'exit_intent_offer',
-					'name'        => esc_html__( 'Exit Intent Offer', 'hashbar' ),
-					'description' => esc_html__( 'Capture leaving visitors with a special offer', 'hashbar' ),
+					'name'        => esc_html__( 'Exit Intent Offer', 'hashbar-wp-notification-bar' ),
+					'description' => esc_html__( 'Capture leaving visitors with a special offer', 'hashbar-wp-notification-bar' ),
 					'isPro'       => true,
 					'category'    => 'exit_intent',
 					'type'        => 'center',
@@ -597,14 +597,14 @@ class PopupCampaign {
 						'_wphash_popup_position'     => 'center',
 						'_wphash_popup_campaign_type' => 'exit_intent',
 						'_wphash_popup_trigger_type' => 'exit_intent',
-						'_wphash_popup_heading'      => esc_html__( 'Wait! Don\'t Leave Yet!', 'hashbar' ),
-						'_wphash_popup_description'  => esc_html__( 'Get 15% off when you complete your purchase today.', 'hashbar' ),
+						'_wphash_popup_heading'      => esc_html__( 'Wait! Don\'t Leave Yet!', 'hashbar-wp-notification-bar' ),
+						'_wphash_popup_description'  => esc_html__( 'Get 15% off when you complete your purchase today.', 'hashbar-wp-notification-bar' ),
 					),
 				),
 				array(
 					'id'          => 'slide_in_notification',
-					'name'        => esc_html__( 'Slide-In Notification', 'hashbar' ),
-					'description' => esc_html__( 'Subtle slide-in from bottom right', 'hashbar' ),
+					'name'        => esc_html__( 'Slide-In Notification', 'hashbar-wp-notification-bar' ),
+					'description' => esc_html__( 'Subtle slide-in from bottom right', 'hashbar-wp-notification-bar' ),
 					'isPro'       => true,
 					'category'    => 'announcement',
 					'type'        => 'bottom_right',
@@ -613,14 +613,14 @@ class PopupCampaign {
 						'_wphash_popup_position'        => 'bottom_right',
 						'_wphash_popup_campaign_type'   => 'announcement',
 						'_wphash_popup_overlay_enabled' => false,
-						'_wphash_popup_heading'         => esc_html__( 'New Feature!', 'hashbar' ),
+						'_wphash_popup_heading'         => esc_html__( 'New Feature!', 'hashbar-wp-notification-bar' ),
 						'_wphash_popup_width'           => 350,
 					),
 				),
 				array(
 					'id'          => 'fullscreen_takeover',
-					'name'        => esc_html__( 'Fullscreen Takeover', 'hashbar' ),
-					'description' => esc_html__( 'Full attention-grabbing overlay', 'hashbar' ),
+					'name'        => esc_html__( 'Fullscreen Takeover', 'hashbar-wp-notification-bar' ),
+					'description' => esc_html__( 'Full attention-grabbing overlay', 'hashbar-wp-notification-bar' ),
 					'isPro'       => true,
 					'category'    => 'promotion',
 					'type'        => 'fullscreen',
@@ -628,7 +628,7 @@ class PopupCampaign {
 					'defaults'    => array(
 						'_wphash_popup_position' => 'fullscreen',
 						'_wphash_popup_campaign_type' => 'promotion',
-						'_wphash_popup_heading' => esc_html__( 'Massive Sale!', 'hashbar' ),
+						'_wphash_popup_heading' => esc_html__( 'Massive Sale!', 'hashbar-wp-notification-bar' ),
 						'_wphash_popup_bg_type' => 'gradient',
 					),
 				),
@@ -860,7 +860,7 @@ class PopupCampaign {
 				return new WP_REST_Response(
 					array(
 						'success' => false,
-						'message' => esc_html__( 'API key is required', 'hashbar' ),
+						'message' => esc_html__( 'API key is required', 'hashbar-wp-notification-bar' ),
 					),
 					400
 				);
@@ -876,7 +876,7 @@ class PopupCampaign {
 				return new WP_REST_Response(
 					array(
 						'success' => false,
-						'message' => esc_html__( 'Invalid API key format', 'hashbar' ),
+						'message' => esc_html__( 'Invalid API key format', 'hashbar-wp-notification-bar' ),
 					),
 					400
 				);
@@ -911,7 +911,7 @@ class PopupCampaign {
 				return new WP_REST_Response(
 					array(
 						'success' => false,
-						'message' => $body['detail'] ?? esc_html__( 'Failed to fetch lists', 'hashbar' ),
+						'message' => $body['detail'] ?? esc_html__( 'Failed to fetch lists', 'hashbar-wp-notification-bar' ),
 					),
 					400
 				);
@@ -1148,7 +1148,7 @@ class PopupCampaign {
 			return new WP_REST_Response(
 				array(
 					'success' => false,
-					'message' => __( 'WooCommerce is not installed or active.', 'hashbar' ),
+					'message' => __( 'WooCommerce is not installed or active.', 'hashbar-wp-notification-bar' ),
 					'coupons' => array(),
 				),
 				200
@@ -1179,13 +1179,13 @@ class PopupCampaign {
 
 			switch ( $discount_type ) {
 				case 'percent':
-					$type_label = $coupon_amount . '% ' . __( 'off', 'hashbar' );
+					$type_label = $coupon_amount . '% ' . __( 'off', 'hashbar-wp-notification-bar' );
 					break;
 				case 'fixed_cart':
-					$type_label = $currency_symbol . $coupon_amount . ' ' . __( 'off cart', 'hashbar' );
+					$type_label = $currency_symbol . $coupon_amount . ' ' . __( 'off cart', 'hashbar-wp-notification-bar' );
 					break;
 				case 'fixed_product':
-					$type_label = $currency_symbol . $coupon_amount . ' ' . __( 'off product', 'hashbar' );
+					$type_label = $currency_symbol . $coupon_amount . ' ' . __( 'off product', 'hashbar-wp-notification-bar' );
 					break;
 				default:
 					$type_label = $discount_type;

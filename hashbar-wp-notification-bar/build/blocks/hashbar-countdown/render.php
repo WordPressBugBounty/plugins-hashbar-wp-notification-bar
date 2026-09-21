@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 $attr = $attributes;
 		$block_id = get_the_id();
 		$attr['countdown_timr_box_width'] = (string)$attr['countdown_timr_box_width'];
@@ -32,4 +36,4 @@ $attr = $attributes;
 				}
 			</style>
 		<?php
-		echo ob_get_clean();
+		echo ob_get_clean(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- buffered markup above is already built with esc_attr()/esc_html() and an escaped shortcode call.

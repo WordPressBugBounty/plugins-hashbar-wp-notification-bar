@@ -4,6 +4,10 @@ namespace hashbarOptions\Api;
 use WP_REST_Controller;
 use WP_Error;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Changelog Handler
  */
@@ -86,7 +90,7 @@ class ChangeLog extends WP_REST_Controller {
         if (!current_user_can('manage_options')) {
             return new WP_Error(
                 'rest_forbidden',
-                esc_html__('You do not have permissions to manage this resource.', 'hashbar'),
+                esc_html__('You do not have permissions to manage this resource.', 'hashbar-wp-notification-bar'),
                 ['status' => 401]
             );
         }
@@ -127,7 +131,7 @@ class ChangeLog extends WP_REST_Controller {
             
             return rest_ensure_response([
                 'success' => true,
-                'message' => __('Marked as read successfully', 'hashbar')
+                'message' => __('Marked as read successfully', 'hashbar-wp-notification-bar')
             ]);
 
         } catch (\Exception $e) {
@@ -181,6 +185,24 @@ class ChangeLog extends WP_REST_Controller {
      */
     private function get_changelog_data() {
         return [
+            [
+                'version' => '2.0.4',
+                'date'    => '2026-09-21',
+                'changes' => [
+                    'Security' => [
+                        'Hardened the Notification Bar duplicate action and the page/post search endpoint against malicious requests.',
+                    ],
+                    'Improved' => [
+                        'Updated the codebase to follow WordPress coding standards and best practices.',
+                    ],
+                    'Fixed' => [
+                        'Text domain corrected from `hashbar` to `hashbar-wp-notification-bar` to match the plugin slug (WordPress.org requirement).',
+                    ],
+                    'Tested' => [
+                        'Compatibility with the latest version of WordPress.',
+                    ],
+                ],
+            ],
             [
                 'version' => '2.0.3',
                 'date'    => '2026-09-14',

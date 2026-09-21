@@ -38,7 +38,7 @@ function hashbar_ab_test_track_event_internal( $bar_id, $variant_id, $visitor_id
 	if ( $event_type === 'impression' ) {
 		// Check if this impression was tracked in the last 5 minutes
 		// This prevents duplicate impressions from rapid page reloads but allows new page views
-		$five_minutes_ago = date( 'Y-m-d H:i:s', current_time( 'timestamp' ) - 300 );
+		$five_minutes_ago = gmdate( 'Y-m-d H:i:s', current_time( 'timestamp' ) - 300 );
 		$existing = $wpdb->get_var(
 			$wpdb->prepare(
 				"SELECT id FROM $table_name

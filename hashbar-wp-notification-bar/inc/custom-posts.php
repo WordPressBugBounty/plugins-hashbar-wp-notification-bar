@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /*=======================================================
 *    Register Post type
 * =======================================================*/
@@ -7,34 +11,34 @@ function hashbar_wpnb_custom_posts() {
 	global $hashbar_gutenberg_enable;
 	// Notification bars
 	$labels = array(
-		'name'                  => _x( 'Notification bars', 'Post Type General Name', 'hashbar' ),
-		'singular_name'         => _x( 'Notification bar', 'Post Type Singular Name', 'hashbar' ),
-		'menu_name'             => __( 'HashBars', 'hashbar' ),
-		'name_admin_bar'        => __( 'hashbar', 'hashbar' ),
-		'archives'              => __( 'Notification Archives', 'hashbar' ),
-		'parent_item_colon'     => __( 'Parent Notification:', 'hashbar' ),
-		'all_items'             => __( 'All Notifications', 'hashbar' ),
-		'add_new_item'          => __( 'Add New Notification', 'hashbar' ),
-		'add_new'               => __( 'Add New Notification', 'hashbar' ),
-		'new_item'              => __( 'New Notification', 'hashbar' ),
-		'edit_item'             => __( 'Edit Notification', 'hashbar' ),
-		'update_item'           => __( 'Update Notification', 'hashbar' ),
-		'view_item'             => __( 'View Notification', 'hashbar' ),
-		'search_items'          => __( 'Search Notification', 'hashbar' ),
-		'not_found'             => __( 'Not found', 'hashbar' ),
-		'not_found_in_trash'    => __( 'Not found in Trash', 'hashbar' ),
-		'featured_image'        => __( 'Featured Image', 'hashbar' ),
-		'set_featured_image'    => __( 'Set featured image', 'hashbar' ),
-		'remove_featured_image' => __( 'Remove featured image', 'hashbar' ),
-		'use_featured_image'    => __( 'Use as featured image', 'hashbar' ),
-		'insert_into_item'      => __( 'Insert into item', 'hashbar' ),
-		'uploaded_to_this_item' => __( 'Uploaded to this item', 'hashbar' ),
-		'items_list'            => __( 'Notifications list', 'hashbar' ),
-		'items_list_navigation' => __( 'Notifications list navigation', 'hashbar' ),
-		'filter_items_list'     => __( 'Filter items list', 'hashbar' ),
+		'name'                  => _x( 'Notification bars', 'Post Type General Name', 'hashbar-wp-notification-bar' ),
+		'singular_name'         => _x( 'Notification bar', 'Post Type Singular Name', 'hashbar-wp-notification-bar' ),
+		'menu_name'             => __( 'HashBars', 'hashbar-wp-notification-bar' ),
+		'name_admin_bar'        => __( 'hashbar', 'hashbar-wp-notification-bar' ),
+		'archives'              => __( 'Notification Archives', 'hashbar-wp-notification-bar' ),
+		'parent_item_colon'     => __( 'Parent Notification:', 'hashbar-wp-notification-bar' ),
+		'all_items'             => __( 'All Notifications', 'hashbar-wp-notification-bar' ),
+		'add_new_item'          => __( 'Add New Notification', 'hashbar-wp-notification-bar' ),
+		'add_new'               => __( 'Add New Notification', 'hashbar-wp-notification-bar' ),
+		'new_item'              => __( 'New Notification', 'hashbar-wp-notification-bar' ),
+		'edit_item'             => __( 'Edit Notification', 'hashbar-wp-notification-bar' ),
+		'update_item'           => __( 'Update Notification', 'hashbar-wp-notification-bar' ),
+		'view_item'             => __( 'View Notification', 'hashbar-wp-notification-bar' ),
+		'search_items'          => __( 'Search Notification', 'hashbar-wp-notification-bar' ),
+		'not_found'             => __( 'Not found', 'hashbar-wp-notification-bar' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'hashbar-wp-notification-bar' ),
+		'featured_image'        => __( 'Featured Image', 'hashbar-wp-notification-bar' ),
+		'set_featured_image'    => __( 'Set featured image', 'hashbar-wp-notification-bar' ),
+		'remove_featured_image' => __( 'Remove featured image', 'hashbar-wp-notification-bar' ),
+		'use_featured_image'    => __( 'Use as featured image', 'hashbar-wp-notification-bar' ),
+		'insert_into_item'      => __( 'Insert into item', 'hashbar-wp-notification-bar' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this item', 'hashbar-wp-notification-bar' ),
+		'items_list'            => __( 'Notifications list', 'hashbar-wp-notification-bar' ),
+		'items_list_navigation' => __( 'Notifications list navigation', 'hashbar-wp-notification-bar' ),
+		'filter_items_list'     => __( 'Filter items list', 'hashbar-wp-notification-bar' ),
 	);
 	$args = array(
-		'label'                 => __( 'Notification bar', 'hashbar' ),
+		'label'                 => __( 'Notification bar', 'hashbar-wp-notification-bar' ),
 		'labels'                => $labels,
 		'supports'              => array('title','editor', 'revisions'),
 		'hierarchical'          => false,

@@ -73,67 +73,67 @@ class Hashbar_Popup_Campaign_Settings {
 			array(
 				'key'   => 'templates',
 				'icon'  => 'AppstoreOutlined',
-				'label' => esc_html__( 'Templates', 'hashbar' ),
+				'label' => esc_html__( 'Templates', 'hashbar-wp-notification-bar' ),
 			),
 			array(
 				'key'   => 'basic',
 				'icon'  => 'SettingOutlined',
-				'label' => esc_html__( 'Basic', 'hashbar' ),
+				'label' => esc_html__( 'Basic', 'hashbar-wp-notification-bar' ),
 			),
 			array(
 				'key'   => 'content',
 				'icon'  => 'FormOutlined',
-				'label' => esc_html__( 'Content', 'hashbar' ),
+				'label' => esc_html__( 'Content', 'hashbar-wp-notification-bar' ),
 			),
 			array(
 				'key'   => 'form',
 				'icon'  => 'FileTextOutlined',
-				'label' => esc_html__( 'Form', 'hashbar' ),
+				'label' => esc_html__( 'Form', 'hashbar-wp-notification-bar' ),
 				'isPro' => false,
 			),
 			array(
 				'key'   => 'countdown',
 				'icon'  => 'FieldTimeOutlined',
-				'label' => esc_html__( 'Countdown', 'hashbar' ),
+				'label' => esc_html__( 'Countdown', 'hashbar-wp-notification-bar' ),
 				'isPro' => false,
 			),
 			array(
 				'key'   => 'coupon',
 				'icon'  => 'GiftOutlined',
-				'label' => esc_html__( 'Coupon', 'hashbar' ),
+				'label' => esc_html__( 'Coupon', 'hashbar-wp-notification-bar' ),
 				'isPro' => false,
 			),
 			array(
 				'key'   => 'design',
 				'icon'  => 'BgColorsOutlined',
-				'label' => esc_html__( 'Design', 'hashbar' ),
+				'label' => esc_html__( 'Design', 'hashbar-wp-notification-bar' ),
 			),
 			array(
 				'key'   => 'triggers',
 				'icon'  => 'ThunderboltOutlined',
-				'label' => esc_html__( 'Triggers', 'hashbar' ),
+				'label' => esc_html__( 'Triggers', 'hashbar-wp-notification-bar' ),
 			),
 			array(
 				'key'   => 'targeting',
 				'icon'  => 'AimOutlined',
-				'label' => esc_html__( 'Targeting', 'hashbar' ),
+				'label' => esc_html__( 'Targeting', 'hashbar-wp-notification-bar' ),
 			),
 			array(
 				'key'   => 'frequency',
 				'icon'  => 'ClockCircleOutlined',
-				'label' => esc_html__( 'Frequency', 'hashbar' ),
+				'label' => esc_html__( 'Frequency', 'hashbar-wp-notification-bar' ),
 				'isPro' => false,
 			),
 			array(
 				'key'   => 'schedule',
 				'icon'  => 'CalendarOutlined',
-				'label' => esc_html__( 'Schedule', 'hashbar' ),
+				'label' => esc_html__( 'Schedule', 'hashbar-wp-notification-bar' ),
 				'isPro' => false,
 			),
 			array(
 				'key'   => 'animation',
 				'icon'  => 'PlayCircleOutlined',
-				'label' => esc_html__( 'Animation', 'hashbar' ),
+				'label' => esc_html__( 'Animation', 'hashbar-wp-notification-bar' ),
 				'isPro' => false,
 			),
 		);
@@ -148,52 +148,52 @@ class Hashbar_Popup_Campaign_Settings {
 		return array(
 			'section_popup_type' => array(
 				'type'        => 'section',
-				'label'       => esc_html__( 'Popup Position', 'hashbar' ),
-				'description' => esc_html__( 'Choose the position and display style of your popup', 'hashbar' ),
+				'label'       => esc_html__( 'Popup Position', 'hashbar-wp-notification-bar' ),
+				'description' => esc_html__( 'Choose the position and display style of your popup', 'hashbar-wp-notification-bar' ),
 			),
 			'_wphash_popup_position' => array(
 				'type'    => 'select',
-				'label'   => esc_html__( 'Popup Position', 'hashbar' ),
+				'label'   => esc_html__( 'Popup Position', 'hashbar-wp-notification-bar' ),
 				'default' => 'center',
 				'options' => array(
-					'center'       => esc_html__( 'Center Modal', 'hashbar' ),
-					'bottom_right' => esc_html__( 'Bottom Right Slide-in', 'hashbar' ),
-					'bottom_left'  => esc_html__( 'Bottom Left Slide-in', 'hashbar' ),
-					'fullscreen'   => esc_html__( 'Fullscreen Overlay', 'hashbar' ),
-					'side_left'    => esc_html__( 'Left Side Panel', 'hashbar' ),
-					'side_right'   => esc_html__( 'Right Side Panel', 'hashbar' ),
-					'floating'     => esc_html__( 'Floating Box', 'hashbar' ),
+					'center'       => esc_html__( 'Center Modal', 'hashbar-wp-notification-bar' ),
+					'bottom_right' => esc_html__( 'Bottom Right Slide-in', 'hashbar-wp-notification-bar' ),
+					'bottom_left'  => esc_html__( 'Bottom Left Slide-in', 'hashbar-wp-notification-bar' ),
+					'fullscreen'   => esc_html__( 'Fullscreen Overlay', 'hashbar-wp-notification-bar' ),
+					'side_left'    => esc_html__( 'Left Side Panel', 'hashbar-wp-notification-bar' ),
+					'side_right'   => esc_html__( 'Right Side Panel', 'hashbar-wp-notification-bar' ),
+					'floating'     => esc_html__( 'Floating Box', 'hashbar-wp-notification-bar' ),
 				),
 				'isPro' => array( 'fullscreen', 'side_left', 'side_right' ),
 			),
 			'_wphash_popup_campaign_type' => array(
 				'type'    => 'select',
-				'label'   => esc_html__( 'Campaign Type', 'hashbar' ),
+				'label'   => esc_html__( 'Campaign Type', 'hashbar-wp-notification-bar' ),
 				'default' => 'lead_capture',
 				'options' => array(
-					'lead_capture'   => esc_html__( 'Lead Capture (Email Collection)', 'hashbar' ),
-					'announcement'   => esc_html__( 'Announcement', 'hashbar' ),
-					'promotion'      => esc_html__( 'Promotion / Discount', 'hashbar' ),
-					'survey'         => esc_html__( 'Survey / Feedback', 'hashbar' ),
-					'exit_intent'    => esc_html__( 'Exit Intent Offer', 'hashbar' ),
-					'welcome'        => esc_html__( 'Welcome Message', 'hashbar' ),
-					'age_verify'     => esc_html__( 'Age Verification', 'hashbar' ),
-					'cookie_consent' => esc_html__( 'Cookie Consent', 'hashbar' ),
+					'lead_capture'   => esc_html__( 'Lead Capture (Email Collection)', 'hashbar-wp-notification-bar' ),
+					'announcement'   => esc_html__( 'Announcement', 'hashbar-wp-notification-bar' ),
+					'promotion'      => esc_html__( 'Promotion / Discount', 'hashbar-wp-notification-bar' ),
+					'survey'         => esc_html__( 'Survey / Feedback', 'hashbar-wp-notification-bar' ),
+					'exit_intent'    => esc_html__( 'Exit Intent Offer', 'hashbar-wp-notification-bar' ),
+					'welcome'        => esc_html__( 'Welcome Message', 'hashbar-wp-notification-bar' ),
+					'age_verify'     => esc_html__( 'Age Verification', 'hashbar-wp-notification-bar' ),
+					'cookie_consent' => esc_html__( 'Cookie Consent', 'hashbar-wp-notification-bar' ),
 				),
 				'isPro' => array( 'survey', 'age_verify', 'cookie_consent' ),
 			),
 			'section_popup_settings' => array(
 				'type'  => 'section',
-				'label' => esc_html__( 'Popup Settings', 'hashbar' ),
+				'label' => esc_html__( 'Popup Settings', 'hashbar-wp-notification-bar' ),
 			),
 			'_wphash_popup_overlay_enabled' => array(
 				'type'    => 'switch',
-				'label'   => esc_html__( 'Show Background Overlay', 'hashbar' ),
+				'label'   => esc_html__( 'Show Background Overlay', 'hashbar-wp-notification-bar' ),
 				'default' => true,
 			),
 			'_wphash_popup_overlay_close' => array(
 				'type'      => 'switch',
-				'label'     => esc_html__( 'Close on Overlay Click', 'hashbar' ),
+				'label'     => esc_html__( 'Close on Overlay Click', 'hashbar-wp-notification-bar' ),
 				'default'   => true,
 				'condition' => array(
 					'key'      => '_wphash_popup_overlay_enabled',
@@ -203,17 +203,17 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_close_enabled' => array(
 				'type'    => 'switch',
-				'label'   => esc_html__( 'Show Close Button', 'hashbar' ),
+				'label'   => esc_html__( 'Show Close Button', 'hashbar-wp-notification-bar' ),
 				'default' => true,
 			),
 			'_wphash_popup_close_position' => array(
 				'type'      => 'select',
-				'label'     => esc_html__( 'Close Button Position', 'hashbar' ),
+				'label'     => esc_html__( 'Close Button Position', 'hashbar-wp-notification-bar' ),
 				'default'   => 'top_right',
 				'options'   => array(
-					'top_right' => esc_html__( 'Top Right', 'hashbar' ),
-					'top_left'  => esc_html__( 'Top Left', 'hashbar' ),
-					'outside'   => esc_html__( 'Outside Popup', 'hashbar' ),
+					'top_right' => esc_html__( 'Top Right', 'hashbar-wp-notification-bar' ),
+					'top_left'  => esc_html__( 'Top Left', 'hashbar-wp-notification-bar' ),
+					'outside'   => esc_html__( 'Outside Popup', 'hashbar-wp-notification-bar' ),
 				),
 				'isPro' => array( 'outside' ),
 				'condition' => array(
@@ -224,7 +224,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_esc_close' => array(
 				'type'    => 'switch',
-				'label'   => esc_html__( 'Close on ESC Key', 'hashbar' ),
+				'label'   => esc_html__( 'Close on ESC Key', 'hashbar-wp-notification-bar' ),
 				'default' => true,
 			),
 		);
@@ -239,29 +239,29 @@ class Hashbar_Popup_Campaign_Settings {
 		return array(
 			'section_content_type' => array(
 				'type'        => 'section',
-				'label'       => esc_html__( 'Content Source', 'hashbar' ),
-				'description' => esc_html__( 'Choose how to populate your popup content', 'hashbar' ),
+				'label'       => esc_html__( 'Content Source', 'hashbar-wp-notification-bar' ),
+				'description' => esc_html__( 'Choose how to populate your popup content', 'hashbar-wp-notification-bar' ),
 			),
 			'_wphash_popup_content_type' => array(
 				'type'    => 'select',
-				'label'   => esc_html__( 'Content Type', 'hashbar' ),
+				'label'   => esc_html__( 'Content Type', 'hashbar-wp-notification-bar' ),
 				'default' => 'custom',
 				'options' => array(
-					'custom'        => esc_html__( 'Custom Content (Built-in Editor)', 'hashbar' ),
-					'custom_html'   => esc_html__( 'Visual Editor', 'hashbar' ),
-					'ht_form'       => esc_html__( 'HT Contact Form', 'hashbar' ),
-					'cf7'           => esc_html__( 'Contact Form 7', 'hashbar' ),
-					'wpforms'       => esc_html__( 'WPForms', 'hashbar' ),
-					'ninja_forms'   => esc_html__( 'Ninja Forms', 'hashbar' ),
-					'gravity_forms' => esc_html__( 'Gravity Forms', 'hashbar' ),
-					'fluent_forms'  => esc_html__( 'Fluent Forms', 'hashbar' ),
-					'shortcode'     => esc_html__( 'Any Shortcode', 'hashbar' ),
+					'custom'        => esc_html__( 'Custom Content (Built-in Editor)', 'hashbar-wp-notification-bar' ),
+					'custom_html'   => esc_html__( 'Visual Editor', 'hashbar-wp-notification-bar' ),
+					'ht_form'       => esc_html__( 'HT Contact Form', 'hashbar-wp-notification-bar' ),
+					'cf7'           => esc_html__( 'Contact Form 7', 'hashbar-wp-notification-bar' ),
+					'wpforms'       => esc_html__( 'WPForms', 'hashbar-wp-notification-bar' ),
+					'ninja_forms'   => esc_html__( 'Ninja Forms', 'hashbar-wp-notification-bar' ),
+					'gravity_forms' => esc_html__( 'Gravity Forms', 'hashbar-wp-notification-bar' ),
+					'fluent_forms'  => esc_html__( 'Fluent Forms', 'hashbar-wp-notification-bar' ),
+					'shortcode'     => esc_html__( 'Any Shortcode', 'hashbar-wp-notification-bar' ),
 				),
 				'isPro' => array( 'cf7','gravity_forms','shortcode','wpforms','ninja_forms','fluent_forms','custom_html' ),
 			),
 			'_wphash_popup_cf7_form_id' => array(
 				'type'      => 'select',
-				'label'     => esc_html__( 'Select Contact Form 7 Form', 'hashbar' ),
+				'label'     => esc_html__( 'Select Contact Form 7 Form', 'hashbar-wp-notification-bar' ),
 				'options'   => 'dynamic',
 				'condition' => array(
 					'key'      => '_wphash_popup_content_type',
@@ -271,7 +271,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_wpforms_form_id' => array(
 				'type'      => 'select',
-				'label'     => esc_html__( 'Select WPForms Form', 'hashbar' ),
+				'label'     => esc_html__( 'Select WPForms Form', 'hashbar-wp-notification-bar' ),
 				'options'   => 'dynamic',
 				'condition' => array(
 					'key'      => '_wphash_popup_content_type',
@@ -281,7 +281,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_ninja_form_id' => array(
 				'type'      => 'select',
-				'label'     => esc_html__( 'Select Ninja Forms Form', 'hashbar' ),
+				'label'     => esc_html__( 'Select Ninja Forms Form', 'hashbar-wp-notification-bar' ),
 				'options'   => 'dynamic',
 				'condition' => array(
 					'key'      => '_wphash_popup_content_type',
@@ -291,7 +291,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_gravity_form_id' => array(
 				'type'      => 'select',
-				'label'     => esc_html__( 'Select Gravity Forms Form', 'hashbar' ),
+				'label'     => esc_html__( 'Select Gravity Forms Form', 'hashbar-wp-notification-bar' ),
 				'options'   => 'dynamic',
 				'isPro'     => true,
 				'condition' => array(
@@ -302,7 +302,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_fluent_form_id' => array(
 				'type'      => 'select',
-				'label'     => esc_html__( 'Select Fluent Forms Form', 'hashbar' ),
+				'label'     => esc_html__( 'Select Fluent Forms Form', 'hashbar-wp-notification-bar' ),
 				'options'   => 'dynamic',
 				'condition' => array(
 					'key'      => '_wphash_popup_content_type',
@@ -312,7 +312,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_ht_form_id' => array(
 				'type'      => 'select',
-				'label'     => esc_html__( 'Select HT Contact Form', 'hashbar' ),
+				'label'     => esc_html__( 'Select HT Contact Form', 'hashbar-wp-notification-bar' ),
 				'options'   => 'dynamic',
 				'condition' => array(
 					'key'      => '_wphash_popup_content_type',
@@ -322,8 +322,8 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_shortcode' => array(
 				'type'        => 'text',
-				'label'       => esc_html__( 'Shortcode', 'hashbar' ),
-				'placeholder' => esc_html__( '[your_shortcode]', 'hashbar' ),
+				'label'       => esc_html__( 'Shortcode', 'hashbar-wp-notification-bar' ),
+				'placeholder' => esc_html__( '[your_shortcode]', 'hashbar-wp-notification-bar' ),
 				'condition'   => array(
 					'key'      => '_wphash_popup_content_type',
 					'operator' => '==',
@@ -332,8 +332,8 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_custom_html' => array(
 				'type'        => 'wp_editor',
-				'label'       => esc_html__( 'Custom Content', 'hashbar' ),
-				'description' => esc_html__( 'Create your custom popup content using the visual editor. Supports text formatting, images, embeds, and shortcodes.', 'hashbar' ),
+				'label'       => esc_html__( 'Custom Content', 'hashbar-wp-notification-bar' ),
+				'description' => esc_html__( 'Create your custom popup content using the visual editor. Supports text formatting, images, embeds, and shortcodes.', 'hashbar-wp-notification-bar' ),
 				'default'     => '',
 				'settings'    => array(
 					'media_buttons' => true,
@@ -349,7 +349,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'section_popup_content' => array(
 				'type'      => 'section',
-				'label'     => esc_html__( 'Popup Content', 'hashbar' ),
+				'label'     => esc_html__( 'Popup Content', 'hashbar-wp-notification-bar' ),
 				'condition' => array(
 					'key'      => '_wphash_popup_content_type',
 					'operator' => '==',
@@ -358,7 +358,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_image' => array(
 				'type'      => 'image',
-				'label'     => esc_html__( 'Popup Image', 'hashbar' ),
+				'label'     => esc_html__( 'Popup Image', 'hashbar-wp-notification-bar' ),
 				'default'   => array(
 					'url' => '',
 					'id'  => 0,
@@ -371,14 +371,14 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_image_position' => array(
 				'type'      => 'select',
-				'label'     => esc_html__( 'Image Position', 'hashbar' ),
+				'label'     => esc_html__( 'Image Position', 'hashbar-wp-notification-bar' ),
 				'default'   => 'top',
 				'options'   => array(
-					'top'        => esc_html__( 'Top', 'hashbar' ),
-					'left'       => esc_html__( 'Left Side', 'hashbar' ),
-					'right'      => esc_html__( 'Right Side', 'hashbar' ),
-					'bottom'     => esc_html__( 'Bottom', 'hashbar' ),
-					'background' => esc_html__( 'Background', 'hashbar' ),
+					'top'        => esc_html__( 'Top', 'hashbar-wp-notification-bar' ),
+					'left'       => esc_html__( 'Left Side', 'hashbar-wp-notification-bar' ),
+					'right'      => esc_html__( 'Right Side', 'hashbar-wp-notification-bar' ),
+					'bottom'     => esc_html__( 'Bottom', 'hashbar-wp-notification-bar' ),
+					'background' => esc_html__( 'Background', 'hashbar-wp-notification-bar' ),
 				),
 				'isPro'     => array( 'left', 'right', 'background' ),
 				'condition' => array(
@@ -389,7 +389,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_image_width' => array(
 				'type'    => 'number',
-				'label'   => esc_html__( 'Image Width', 'hashbar' ),
+				'label'   => esc_html__( 'Image Width', 'hashbar-wp-notification-bar' ),
 				'default' => 100,
 				'min'     => 10,
 				'max'     => 1000,
@@ -401,7 +401,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_image_width_unit' => array(
 				'type'    => 'select',
-				'label'   => esc_html__( 'Image Width Unit', 'hashbar' ),
+				'label'   => esc_html__( 'Image Width Unit', 'hashbar-wp-notification-bar' ),
 				'default' => '%',
 				'options' => array(
 					'%'  => '%',
@@ -415,14 +415,14 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_image_alignment' => array(
 				'type'    => 'select',
-				'label'   => esc_html__( 'Image Alignment', 'hashbar' ),
+				'label'   => esc_html__( 'Image Alignment', 'hashbar-wp-notification-bar' ),
 				'default' => 'center',
 				'options' => array(
-					'left'   => esc_html__( 'Left', 'hashbar' ),
-					'center' => esc_html__( 'Center', 'hashbar' ),
-					'right'  => esc_html__( 'Right', 'hashbar' ),
-					'top'    => esc_html__( 'Top', 'hashbar' ),
-					'bottom' => esc_html__( 'Bottom', 'hashbar' ),
+					'left'   => esc_html__( 'Left', 'hashbar-wp-notification-bar' ),
+					'center' => esc_html__( 'Center', 'hashbar-wp-notification-bar' ),
+					'right'  => esc_html__( 'Right', 'hashbar-wp-notification-bar' ),
+					'top'    => esc_html__( 'Top', 'hashbar-wp-notification-bar' ),
+					'bottom' => esc_html__( 'Bottom', 'hashbar-wp-notification-bar' ),
 				),
 				'condition' => array(
 					'key'      => '_wphash_popup_content_type',
@@ -432,7 +432,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_image_border_radius' => array(
 				'type'    => 'spacing',
-				'label'   => esc_html__( 'Image Border Radius', 'hashbar' ),
+				'label'   => esc_html__( 'Image Border Radius', 'hashbar-wp-notification-bar' ),
 				'default' => array(
 					'top'    => 0,
 					'right'  => 0,
@@ -448,9 +448,9 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_heading' => array(
 				'type'        => 'text',
-				'label'       => esc_html__( 'Heading', 'hashbar' ),
-				'placeholder' => esc_html__( 'Enter your heading here', 'hashbar' ),
-				'default'     => esc_html__( 'Subscribe to our Newsletter', 'hashbar' ),
+				'label'       => esc_html__( 'Heading', 'hashbar-wp-notification-bar' ),
+				'placeholder' => esc_html__( 'Enter your heading here', 'hashbar-wp-notification-bar' ),
+				'default'     => esc_html__( 'Subscribe to our Newsletter', 'hashbar-wp-notification-bar' ),
 				'maxLength'   => 100,
 				'condition'   => array(
 					'key'      => '_wphash_popup_content_type',
@@ -460,8 +460,8 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_subheading' => array(
 				'type'        => 'text',
-				'label'       => esc_html__( 'Subheading', 'hashbar' ),
-				'placeholder' => esc_html__( 'Enter your subheading here', 'hashbar' ),
+				'label'       => esc_html__( 'Subheading', 'hashbar-wp-notification-bar' ),
+				'placeholder' => esc_html__( 'Enter your subheading here', 'hashbar-wp-notification-bar' ),
 				'default'     => '',
 				'maxLength'   => 150,
 				'condition'   => array(
@@ -472,9 +472,9 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_description' => array(
 				'type'        => 'textarea',
-				'label'       => esc_html__( 'Description', 'hashbar' ),
-				'placeholder' => esc_html__( 'Enter your message here (max 500 characters)', 'hashbar' ),
-				'default'     => esc_html__( 'Get exclusive updates and offers delivered straight to your inbox.', 'hashbar' ),
+				'label'       => esc_html__( 'Description', 'hashbar-wp-notification-bar' ),
+				'placeholder' => esc_html__( 'Enter your message here (max 500 characters)', 'hashbar-wp-notification-bar' ),
+				'default'     => esc_html__( 'Get exclusive updates and offers delivered straight to your inbox.', 'hashbar-wp-notification-bar' ),
 				'maxLength'   => 500,
 				'rows'        => 4,
 				'condition'   => array(
@@ -485,7 +485,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'section_cta_button' => array(
 				'type'      => 'section',
-				'label'     => esc_html__( 'Call-to-Action Button', 'hashbar' ),
+				'label'     => esc_html__( 'Call-to-Action Button', 'hashbar-wp-notification-bar' ),
 				'condition' => array(
 					'key'      => '_wphash_popup_content_type',
 					'operator' => '==',
@@ -494,7 +494,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_cta_enabled' => array(
 				'type'      => 'switch',
-				'label'     => esc_html__( 'Show CTA Button', 'hashbar' ),
+				'label'     => esc_html__( 'Show CTA Button', 'hashbar-wp-notification-bar' ),
 				'default'   => true,
 				'condition' => array(
 					'key'      => '_wphash_popup_content_type',
@@ -504,9 +504,9 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_cta_text' => array(
 				'type'        => 'text',
-				'label'       => esc_html__( 'Button Text', 'hashbar' ),
-				'placeholder' => esc_html__( 'e.g., Shop Now, Learn More', 'hashbar' ),
-				'default'     => esc_html__( 'Get Started', 'hashbar' ),
+				'label'       => esc_html__( 'Button Text', 'hashbar-wp-notification-bar' ),
+				'placeholder' => esc_html__( 'e.g., Shop Now, Learn More', 'hashbar-wp-notification-bar' ),
+				'default'     => esc_html__( 'Get Started', 'hashbar-wp-notification-bar' ),
 				'condition'   => array(
 					'key'      => '_wphash_popup_cta_enabled',
 					'operator' => '==',
@@ -515,8 +515,8 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_cta_url' => array(
 				'type'        => 'text',
-				'label'       => esc_html__( 'Button URL', 'hashbar' ),
-				'placeholder' => esc_html__( 'https://example.com', 'hashbar' ),
+				'label'       => esc_html__( 'Button URL', 'hashbar-wp-notification-bar' ),
+				'placeholder' => esc_html__( 'https://example.com', 'hashbar-wp-notification-bar' ),
 				'default'     => '#',
 				'condition'   => array(
 					'key'      => '_wphash_popup_cta_enabled',
@@ -526,11 +526,11 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_cta_target' => array(
 				'type'      => 'select',
-				'label'     => esc_html__( 'Link Target', 'hashbar' ),
+				'label'     => esc_html__( 'Link Target', 'hashbar-wp-notification-bar' ),
 				'default'   => '_self',
 				'options'   => array(
-					'_self'  => esc_html__( 'Open in Same Window', 'hashbar' ),
-					'_blank' => esc_html__( 'Open in New Tab', 'hashbar' ),
+					'_self'  => esc_html__( 'Open in Same Window', 'hashbar-wp-notification-bar' ),
+					'_blank' => esc_html__( 'Open in New Tab', 'hashbar-wp-notification-bar' ),
 				),
 				'condition' => array(
 					'key'      => '_wphash_popup_cta_enabled',
@@ -540,7 +540,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_cta_close_on_click' => array(
 				'type'      => 'switch',
-				'label'     => esc_html__( 'Close Popup on Click', 'hashbar' ),
+				'label'     => esc_html__( 'Close Popup on Click', 'hashbar-wp-notification-bar' ),
 				'default'   => false,
 				'condition' => array(
 					'key'      => '_wphash_popup_cta_enabled',
@@ -550,8 +550,8 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_confirmation_page_id' => array(
 				'type'        => 'page-select',
-				'label'       => esc_html__( 'Confirmation Page', 'hashbar' ),
-				'description' => esc_html__( 'Select your order confirmation / thank-you page to automatically track purchases as conversions', 'hashbar' ),
+				'label'       => esc_html__( 'Confirmation Page', 'hashbar-wp-notification-bar' ),
+				'description' => esc_html__( 'Select your order confirmation / thank-you page to automatically track purchases as conversions', 'hashbar-wp-notification-bar' ),
 				'default'     => 0,
 				'condition'   => array(
 					'key'      => '_wphash_popup_cta_enabled',
@@ -561,7 +561,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'section_secondary_button' => array(
 				'type'      => 'section',
-				'label'     => esc_html__( 'Secondary Button', 'hashbar' ),
+				'label'     => esc_html__( 'Secondary Button', 'hashbar-wp-notification-bar' ),
 				'isPro'     => true,
 				'condition' => array(
 					'key'      => '_wphash_popup_content_type',
@@ -571,7 +571,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_secondary_enabled' => array(
 				'type'      => 'switch',
-				'label'     => esc_html__( 'Show Secondary Button', 'hashbar' ),
+				'label'     => esc_html__( 'Show Secondary Button', 'hashbar-wp-notification-bar' ),
 				'default'   => false,
 				'isPro'     => true,
 				'condition' => array(
@@ -582,9 +582,9 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_secondary_text' => array(
 				'type'        => 'text',
-				'label'       => esc_html__( 'Secondary Button Text', 'hashbar' ),
-				'placeholder' => esc_html__( 'e.g., No Thanks', 'hashbar' ),
-				'default'     => esc_html__( 'No Thanks', 'hashbar' ),
+				'label'       => esc_html__( 'Secondary Button Text', 'hashbar-wp-notification-bar' ),
+				'placeholder' => esc_html__( 'e.g., No Thanks', 'hashbar-wp-notification-bar' ),
+				'default'     => esc_html__( 'No Thanks', 'hashbar-wp-notification-bar' ),
 				'isPro'       => true,
 				'condition'   => array(
 					'key'      => '_wphash_popup_secondary_enabled',
@@ -594,12 +594,12 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_secondary_action' => array(
 				'type'      => 'select',
-				'label'     => esc_html__( 'Secondary Button Action', 'hashbar' ),
+				'label'     => esc_html__( 'Secondary Button Action', 'hashbar-wp-notification-bar' ),
 				'default'   => 'close',
 				'options'   => array(
-					'close'   => esc_html__( 'Close Popup', 'hashbar' ),
-					'url'     => esc_html__( 'Go to URL', 'hashbar' ),
-					'dismiss' => esc_html__( 'Dismiss Forever', 'hashbar' ),
+					'close'   => esc_html__( 'Close Popup', 'hashbar-wp-notification-bar' ),
+					'url'     => esc_html__( 'Go to URL', 'hashbar-wp-notification-bar' ),
+					'dismiss' => esc_html__( 'Dismiss Forever', 'hashbar-wp-notification-bar' ),
 				),
 				'isPro'     => true,
 				'condition' => array(
@@ -620,80 +620,80 @@ class Hashbar_Popup_Campaign_Settings {
 		return array(
 			'section_form_builder' => array(
 				'type'        => 'section',
-				'label'       => esc_html__( 'Form Builder', 'hashbar' ),
-				'description' => esc_html__( 'Build your popup form with custom fields', 'hashbar' ),
+				'label'       => esc_html__( 'Form Builder', 'hashbar-wp-notification-bar' ),
+				'description' => esc_html__( 'Build your popup form with custom fields', 'hashbar-wp-notification-bar' ),
 			),
 			'_wphash_popup_form_enabled' => array(
 				'type'    => 'switch',
-				'label'   => esc_html__( 'Enable Built-in Form', 'hashbar' ),
+				'label'   => esc_html__( 'Enable Built-in Form', 'hashbar-wp-notification-bar' ),
 				'default' => true,
 			),
 			'_wphash_popup_form_fields' => array(
 				'type'       => 'form-builder',
-				'label'      => esc_html__( 'Form Fields', 'hashbar' ),
+				'label'      => esc_html__( 'Form Fields', 'hashbar-wp-notification-bar' ),
 				'default'    => array(
 					array(
 						'id'          => 'field_email',
 						'type'        => 'email',
-						'label'       => esc_html__( 'Email Address', 'hashbar' ),
-						'placeholder' => esc_html__( 'Enter your email', 'hashbar' ),
+						'label'       => esc_html__( 'Email Address', 'hashbar-wp-notification-bar' ),
+						'placeholder' => esc_html__( 'Enter your email', 'hashbar-wp-notification-bar' ),
 						'required'    => true,
 						'width'       => 'full',
 					),
 				),
 				'fieldTypes' => array(
 					'email'    => array(
-						'label' => esc_html__( 'Email', 'hashbar' ),
+						'label' => esc_html__( 'Email', 'hashbar-wp-notification-bar' ),
 						'icon'  => 'MailOutlined',
 						'isPro' => false,
 					),
 					'name'     => array(
-						'label' => esc_html__( 'Name', 'hashbar' ),
+						'label' => esc_html__( 'Name', 'hashbar-wp-notification-bar' ),
 						'icon'  => 'UserOutlined',
 						'isPro' => false,
 					),
 					'checkbox' => array(
-						'label' => esc_html__( 'Checkbox', 'hashbar' ),
+						'label' => esc_html__( 'Checkbox', 'hashbar-wp-notification-bar' ),
 						'icon'  => 'CheckSquareOutlined',
 						'isPro' => false,
 					),
 					'text'     => array(
-						'label' => esc_html__( 'Text', 'hashbar' ),
+						'label' => esc_html__( 'Text', 'hashbar-wp-notification-bar' ),
 						'icon'  => 'FontSizeOutlined',
 						'isPro' => true,
 					),
 					'textarea' => array(
-						'label' => esc_html__( 'Textarea', 'hashbar' ),
+						'label' => esc_html__( 'Textarea', 'hashbar-wp-notification-bar' ),
 						'icon'  => 'AlignLeftOutlined',
 						'isPro' => true,
 					),
 					'phone'    => array(
-						'label' => esc_html__( 'Phone', 'hashbar' ),
+						'label' => esc_html__( 'Phone', 'hashbar-wp-notification-bar' ),
 						'icon'  => 'PhoneOutlined',
 						'isPro' => true,
 					),
 					'dropdown' => array(
-						'label' => esc_html__( 'Dropdown', 'hashbar' ),
+						'label' => esc_html__( 'Dropdown', 'hashbar-wp-notification-bar' ),
 						'icon'  => 'DownOutlined',
 						'isPro' => true,
 					),
 					'radio'    => array(
-						'label' => esc_html__( 'Radio Buttons', 'hashbar' ),
+						'label' => esc_html__( 'Radio Buttons', 'hashbar-wp-notification-bar' ),
 						'icon'  => 'CheckCircleOutlined',
 						'isPro' => true,
 					),
 					'date'     => array(
-						'label' => esc_html__( 'Date Picker', 'hashbar' ),
+						'label' => esc_html__( 'Date Picker', 'hashbar-wp-notification-bar' ),
 						'icon'  => 'CalendarOutlined',
 						'isPro' => true,
 					),
 					'hidden'   => array(
-						'label' => esc_html__( 'Hidden Field', 'hashbar' ),
+						'label' => esc_html__( 'Hidden Field', 'hashbar-wp-notification-bar' ),
 						'icon'  => 'EyeInvisibleOutlined',
 						'isPro' => true,
 					),
 					'consent'  => array(
-						'label' => esc_html__( 'GDPR Consent', 'hashbar' ),
+						'label' => esc_html__( 'GDPR Consent', 'hashbar-wp-notification-bar' ),
 						'icon'  => 'SafetyOutlined',
 						'isPro' => true,
 					),
@@ -706,7 +706,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'section_form_submit' => array(
 				'type'      => 'section',
-				'label'     => esc_html__( 'Submit Button', 'hashbar' ),
+				'label'     => esc_html__( 'Submit Button', 'hashbar-wp-notification-bar' ),
 				'condition' => array(
 					'key'      => '_wphash_popup_form_enabled',
 					'operator' => '==',
@@ -715,9 +715,9 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_form_submit_text' => array(
 				'type'        => 'text',
-				'label'       => esc_html__( 'Submit Button Text', 'hashbar' ),
-				'placeholder' => esc_html__( 'e.g., Subscribe, Submit', 'hashbar' ),
-				'default'     => esc_html__( 'Subscribe', 'hashbar' ),
+				'label'       => esc_html__( 'Submit Button Text', 'hashbar-wp-notification-bar' ),
+				'placeholder' => esc_html__( 'e.g., Subscribe, Submit', 'hashbar-wp-notification-bar' ),
+				'default'     => esc_html__( 'Subscribe', 'hashbar-wp-notification-bar' ),
 				'condition'   => array(
 					'key'      => '_wphash_popup_form_enabled',
 					'operator' => '==',
@@ -726,9 +726,9 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_form_submitting_text' => array(
 				'type'        => 'text',
-				'label'       => esc_html__( 'Submitting Text', 'hashbar' ),
-				'placeholder' => esc_html__( 'e.g., Submitting...', 'hashbar' ),
-				'default'     => esc_html__( 'Submitting...', 'hashbar' ),
+				'label'       => esc_html__( 'Submitting Text', 'hashbar-wp-notification-bar' ),
+				'placeholder' => esc_html__( 'e.g., Submitting...', 'hashbar-wp-notification-bar' ),
+				'default'     => esc_html__( 'Submitting...', 'hashbar-wp-notification-bar' ),
 				'condition'   => array(
 					'key'      => '_wphash_popup_form_enabled',
 					'operator' => '==',
@@ -737,7 +737,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'section_form_success' => array(
 				'type'      => 'section',
-				'label'     => esc_html__( 'Success Behavior', 'hashbar' ),
+				'label'     => esc_html__( 'Success Behavior', 'hashbar-wp-notification-bar' ),
 				'condition' => array(
 					'key'      => '_wphash_popup_form_enabled',
 					'operator' => '==',
@@ -746,12 +746,12 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_form_success_action' => array(
 				'type'      => 'select',
-				'label'     => esc_html__( 'After Submission', 'hashbar' ),
+				'label'     => esc_html__( 'After Submission', 'hashbar-wp-notification-bar' ),
 				'default'   => 'message',
 				'options'   => array(
-					'message'  => esc_html__( 'Show Success Message', 'hashbar' ),
-					'redirect' => esc_html__( 'Redirect to URL', 'hashbar' ),
-					'close'    => esc_html__( 'Close Popup', 'hashbar' ),
+					'message'  => esc_html__( 'Show Success Message', 'hashbar-wp-notification-bar' ),
+					'redirect' => esc_html__( 'Redirect to URL', 'hashbar-wp-notification-bar' ),
+					'close'    => esc_html__( 'Close Popup', 'hashbar-wp-notification-bar' ),
 				),
 				'condition' => array(
 					'key'      => '_wphash_popup_form_enabled',
@@ -761,9 +761,9 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_form_success_message' => array(
 				'type'        => 'textarea',
-				'label'       => esc_html__( 'Success Message', 'hashbar' ),
-				'placeholder' => esc_html__( 'Thank you for subscribing!', 'hashbar' ),
-				'default'     => esc_html__( 'Thank you! You have successfully subscribed.', 'hashbar' ),
+				'label'       => esc_html__( 'Success Message', 'hashbar-wp-notification-bar' ),
+				'placeholder' => esc_html__( 'Thank you for subscribing!', 'hashbar-wp-notification-bar' ),
+				'default'     => esc_html__( 'Thank you! You have successfully subscribed.', 'hashbar-wp-notification-bar' ),
 				'rows'        => 3,
 				'condition'   => array(
 					'key'      => '_wphash_popup_form_success_action',
@@ -773,8 +773,8 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_form_success_redirect_url' => array(
 				'type'        => 'text',
-				'label'       => esc_html__( 'Redirect URL', 'hashbar' ),
-				'placeholder' => esc_html__( 'https://example.com/thank-you', 'hashbar' ),
+				'label'       => esc_html__( 'Redirect URL', 'hashbar-wp-notification-bar' ),
+				'placeholder' => esc_html__( 'https://example.com/thank-you', 'hashbar-wp-notification-bar' ),
 				'condition'   => array(
 					'key'      => '_wphash_popup_form_success_action',
 					'operator' => '==',
@@ -783,7 +783,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_form_close_delay' => array(
 				'type'      => 'number',
-				'label'     => esc_html__( 'Close Delay (seconds)', 'hashbar' ),
+				'label'     => esc_html__( 'Close Delay (seconds)', 'hashbar-wp-notification-bar' ),
 				'default'   => 3,
 				'min'       => 1,
 				'max'       => 30,
@@ -795,8 +795,8 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'section_email_integrations' => array(
 				'type'        => 'section',
-				'label'       => esc_html__( 'Email Marketing Integrations', 'hashbar' ),
-				'description' => esc_html__( 'Connect your popup form to email marketing services', 'hashbar' ),
+				'label'       => esc_html__( 'Email Marketing Integrations', 'hashbar-wp-notification-bar' ),
+				'description' => esc_html__( 'Connect your popup form to email marketing services', 'hashbar-wp-notification-bar' ),
 				'condition'   => array(
 					'key'      => '_wphash_popup_form_enabled',
 					'operator' => '==',
@@ -805,7 +805,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_mailchimp_enabled' => array(
 				'type'      => 'switch',
-				'label'     => esc_html__( 'Enable Mailchimp Integration', 'hashbar' ),
+				'label'     => esc_html__( 'Enable Mailchimp Integration', 'hashbar-wp-notification-bar' ),
 				'default'   => false,
 				'isPro'     => false,
 				'condition' => array(
@@ -816,9 +816,9 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_mailchimp_api_key' => array(
 				'type'        => 'text',
-				'label'       => esc_html__( 'Mailchimp API Key', 'hashbar' ),
-				'placeholder' => esc_html__( 'Enter your Mailchimp API key', 'hashbar' ),
-				'description' => esc_html__( 'Find your API key in Mailchimp > Account > Extras > API keys', 'hashbar' ),
+				'label'       => esc_html__( 'Mailchimp API Key', 'hashbar-wp-notification-bar' ),
+				'placeholder' => esc_html__( 'Enter your Mailchimp API key', 'hashbar-wp-notification-bar' ),
+				'description' => esc_html__( 'Find your API key in Mailchimp > Account > Extras > API keys', 'hashbar-wp-notification-bar' ),
 				'isPro'       => false,
 				'condition'   => array(
 					'key'      => '_wphash_popup_mailchimp_enabled',
@@ -828,9 +828,9 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_mailchimp_list_id' => array(
 				'type'        => 'select',
-				'label'       => esc_html__( 'Mailchimp Audience/List', 'hashbar' ),
+				'label'       => esc_html__( 'Mailchimp Audience/List', 'hashbar-wp-notification-bar' ),
 				'options'     => 'dynamic',
-				'description' => esc_html__( 'Select the audience to add subscribers to', 'hashbar' ),
+				'description' => esc_html__( 'Select the audience to add subscribers to', 'hashbar-wp-notification-bar' ),
 				'isPro'       => false,
 				'condition'   => array(
 					'key'      => '_wphash_popup_mailchimp_enabled',
@@ -840,8 +840,8 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_mailchimp_double_optin' => array(
 				'type'      => 'switch',
-				'label'     => esc_html__( 'Enable Double Opt-in', 'hashbar' ),
-				'desc'      => esc_html__( 'Subscribers will receive a confirmation email before being added', 'hashbar' ),
+				'label'     => esc_html__( 'Enable Double Opt-in', 'hashbar-wp-notification-bar' ),
+				'desc'      => esc_html__( 'Subscribers will receive a confirmation email before being added', 'hashbar-wp-notification-bar' ),
 				'default'   => true,
 				'isPro'     => false,
 				'condition' => array(
@@ -852,9 +852,9 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_mailchimp_tags' => array(
 				'type'        => 'text',
-				'label'       => esc_html__( 'Subscriber Tags', 'hashbar' ),
-				'placeholder' => esc_html__( 'tag1, tag2, tag3', 'hashbar' ),
-				'description' => esc_html__( 'Comma-separated tags to apply to new subscribers', 'hashbar' ),
+				'label'       => esc_html__( 'Subscriber Tags', 'hashbar-wp-notification-bar' ),
+				'placeholder' => esc_html__( 'tag1, tag2, tag3', 'hashbar-wp-notification-bar' ),
+				'description' => esc_html__( 'Comma-separated tags to apply to new subscribers', 'hashbar-wp-notification-bar' ),
 				'isPro'       => false,
 				'condition'   => array(
 					'key'      => '_wphash_popup_mailchimp_enabled',
@@ -874,11 +874,11 @@ class Hashbar_Popup_Campaign_Settings {
 		return array(
 			'section_popup_size' => array(
 				'type'  => 'section',
-				'label' => esc_html__( 'Popup Size', 'hashbar' ),
+				'label' => esc_html__( 'Popup Size', 'hashbar-wp-notification-bar' ),
 			),
 			'_wphash_popup_width' => array(
 				'type'    => 'slider',
-				'label'   => esc_html__( 'Width', 'hashbar' ),
+				'label'   => esc_html__( 'Width', 'hashbar-wp-notification-bar' ),
 				'default' => 500,
 				'min'     => 300,
 				'max'     => 900,
@@ -886,7 +886,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_max_width' => array(
 				'type'    => 'slider',
-				'label'   => esc_html__( 'Max Width', 'hashbar' ),
+				'label'   => esc_html__( 'Max Width', 'hashbar-wp-notification-bar' ),
 				'default' => 98,
 				'min'     => 50,
 				'max'     => 100,
@@ -894,7 +894,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_padding' => array(
 				'type'    => 'padding',
-				'label'   => esc_html__( 'Padding', 'hashbar' ),
+				'label'   => esc_html__( 'Padding', 'hashbar-wp-notification-bar' ),
 				'default' => array(
 					'top'    => 30,
 					'right'  => 30,
@@ -905,11 +905,11 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'section_content_wrapper' => array(
 				'type'  => 'section',
-				'label' => esc_html__( 'Content Wrapper', 'hashbar' ),
+				'label' => esc_html__( 'Content Wrapper', 'hashbar-wp-notification-bar' ),
 			),
 			'_wphash_popup_content_padding' => array(
 				'type'    => 'padding',
-				'label'   => esc_html__( 'Inner Spacing', 'hashbar' ),
+				'label'   => esc_html__( 'Inner Spacing', 'hashbar-wp-notification-bar' ),
 				'default' => array(
 					'top'    => 0,
 					'right'  => 0,
@@ -920,7 +920,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_content_border_radius' => array(
 				'type'    => 'padding',
-				'label'   => esc_html__( 'Rounded Corners', 'hashbar' ),
+				'label'   => esc_html__( 'Rounded Corners', 'hashbar-wp-notification-bar' ),
 				'default' => array(
 					'top'    => 0,
 					'right'  => 0,
@@ -931,50 +931,50 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_content_bg_color' => array(
 				'type'    => 'color',
-				'label'   => esc_html__( 'Background', 'hashbar' ),
+				'label'   => esc_html__( 'Background', 'hashbar-wp-notification-bar' ),
 				'default' => 'transparent',
 				'presets' => array( 'transparent', '#ffffff', '#f8f9fa', '#f0f0f0', '#1a1a1a', '#000000' ),
 			),
 			'_wphash_popup_content_valign' => array(
 				'type'    => 'select',
-				'label'   => esc_html__( 'Vertical Align', 'hashbar' ),
+				'label'   => esc_html__( 'Vertical Align', 'hashbar-wp-notification-bar' ),
 				'default' => 'middle',
 				'options' => array(
-					'top'    => esc_html__( 'Top', 'hashbar' ),
-					'middle' => esc_html__( 'Middle', 'hashbar' ),
-					'bottom' => esc_html__( 'Bottom', 'hashbar' ),
+					'top'    => esc_html__( 'Top', 'hashbar-wp-notification-bar' ),
+					'middle' => esc_html__( 'Middle', 'hashbar-wp-notification-bar' ),
+					'bottom' => esc_html__( 'Bottom', 'hashbar-wp-notification-bar' ),
 				),
 			),
 			'_wphash_popup_content_gap' => array(
 				'type'    => 'number',
-				'label'   => esc_html__( 'Image Spacing', 'hashbar' ),
+				'label'   => esc_html__( 'Image Spacing', 'hashbar-wp-notification-bar' ),
 				'default' => 0,
 				'unit'    => 'px',
 			),
 			'section_colors' => array(
 				'type'  => 'section',
-				'label' => esc_html__( 'Colors', 'hashbar' ),
+				'label' => esc_html__( 'Colors', 'hashbar-wp-notification-bar' ),
 			),
 			'_wphash_popup_bg_type' => array(
 				'type'    => 'select',
-				'label'   => esc_html__( 'Background Type', 'hashbar' ),
+				'label'   => esc_html__( 'Background Type', 'hashbar-wp-notification-bar' ),
 				'default' => 'solid',
 				'options' => array(
-					'solid'    => esc_html__( 'Solid Color', 'hashbar' ),
-					'gradient' => esc_html__( 'Gradient', 'hashbar' ),
-					'image'    => esc_html__( 'Image', 'hashbar' ),
+					'solid'    => esc_html__( 'Solid Color', 'hashbar-wp-notification-bar' ),
+					'gradient' => esc_html__( 'Gradient', 'hashbar-wp-notification-bar' ),
+					'image'    => esc_html__( 'Image', 'hashbar-wp-notification-bar' ),
 				),
 				'isPro'   => array( 'gradient', 'image' ),
 			),
 			'_wphash_popup_bg_color' => array(
 				'type'    => 'color',
-				'label'   => esc_html__( 'Background Color', 'hashbar' ),
+				'label'   => esc_html__( 'Background Color', 'hashbar-wp-notification-bar' ),
 				'default' => '#ffffff',
 				'presets' => array( '#ffffff', '#f8f9fa', '#1a1a1a', '#1890ff', '#52c41a', '#722ed1' ),
 			),
 			'_wphash_popup_gradient_color' => array(
 				'type'      => 'color',
-				'label'     => esc_html__( 'Gradient Second Color', 'hashbar' ),
+				'label'     => esc_html__( 'Gradient Second Color', 'hashbar-wp-notification-bar' ),
 				'default'   => '#f0f0f0',
 				'presets'   => array( '#f0f0f0', '#1890ff', '#52c41a', '#faad14', '#f5222d', '#722ed1' ),
 				'isPro'     => false,
@@ -986,13 +986,13 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_gradient_direction' => array(
 				'type'      => 'select',
-				'label'     => esc_html__( 'Gradient Direction', 'hashbar' ),
+				'label'     => esc_html__( 'Gradient Direction', 'hashbar-wp-notification-bar' ),
 				'default'   => 'to_bottom',
 				'options'   => array(
-					'to_bottom'       => esc_html__( 'Top to Bottom', 'hashbar' ),
-					'to_right'        => esc_html__( 'Left to Right', 'hashbar' ),
-					'to_bottom_right' => esc_html__( 'Top-Left to Bottom-Right', 'hashbar' ),
-					'to_bottom_left'  => esc_html__( 'Top-Right to Bottom-Left', 'hashbar' ),
+					'to_bottom'       => esc_html__( 'Top to Bottom', 'hashbar-wp-notification-bar' ),
+					'to_right'        => esc_html__( 'Left to Right', 'hashbar-wp-notification-bar' ),
+					'to_bottom_right' => esc_html__( 'Top-Left to Bottom-Right', 'hashbar-wp-notification-bar' ),
+					'to_bottom_left'  => esc_html__( 'Top-Right to Bottom-Left', 'hashbar-wp-notification-bar' ),
 				),
 				'isPro'     => false,
 				'condition' => array(
@@ -1003,7 +1003,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_bg_image' => array(
 				'type'      => 'image',
-				'label'     => esc_html__( 'Background Image', 'hashbar' ),
+				'label'     => esc_html__( 'Background Image', 'hashbar-wp-notification-bar' ),
 				'default'   => array( 'id' => 0, 'url' => '' ),
 				'condition' => array(
 					'key'      => '_wphash_popup_bg_type',
@@ -1013,12 +1013,12 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_bg_image_size' => array(
 				'type'      => 'select',
-				'label'     => esc_html__( 'Background Size', 'hashbar' ),
+				'label'     => esc_html__( 'Background Size', 'hashbar-wp-notification-bar' ),
 				'default'   => 'cover',
 				'options'   => array(
-					'cover'   => esc_html__( 'Cover', 'hashbar' ),
-					'contain' => esc_html__( 'Contain', 'hashbar' ),
-					'auto'    => esc_html__( 'Auto', 'hashbar' ),
+					'cover'   => esc_html__( 'Cover', 'hashbar-wp-notification-bar' ),
+					'contain' => esc_html__( 'Contain', 'hashbar-wp-notification-bar' ),
+					'auto'    => esc_html__( 'Auto', 'hashbar-wp-notification-bar' ),
 				),
 				'condition' => array(
 					'key'      => '_wphash_popup_bg_type',
@@ -1028,18 +1028,18 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_bg_image_position' => array(
 				'type'      => 'select',
-				'label'     => esc_html__( 'Background Position', 'hashbar' ),
+				'label'     => esc_html__( 'Background Position', 'hashbar-wp-notification-bar' ),
 				'default'   => 'center',
 				'options'   => array(
-					'center'       => esc_html__( 'Center', 'hashbar' ),
-					'top'          => esc_html__( 'Top', 'hashbar' ),
-					'bottom'       => esc_html__( 'Bottom', 'hashbar' ),
-					'left'         => esc_html__( 'Left', 'hashbar' ),
-					'right'        => esc_html__( 'Right', 'hashbar' ),
-					'top left'     => esc_html__( 'Top Left', 'hashbar' ),
-					'top right'    => esc_html__( 'Top Right', 'hashbar' ),
-					'bottom left'  => esc_html__( 'Bottom Left', 'hashbar' ),
-					'bottom right' => esc_html__( 'Bottom Right', 'hashbar' ),
+					'center'       => esc_html__( 'Center', 'hashbar-wp-notification-bar' ),
+					'top'          => esc_html__( 'Top', 'hashbar-wp-notification-bar' ),
+					'bottom'       => esc_html__( 'Bottom', 'hashbar-wp-notification-bar' ),
+					'left'         => esc_html__( 'Left', 'hashbar-wp-notification-bar' ),
+					'right'        => esc_html__( 'Right', 'hashbar-wp-notification-bar' ),
+					'top left'     => esc_html__( 'Top Left', 'hashbar-wp-notification-bar' ),
+					'top right'    => esc_html__( 'Top Right', 'hashbar-wp-notification-bar' ),
+					'bottom left'  => esc_html__( 'Bottom Left', 'hashbar-wp-notification-bar' ),
+					'bottom right' => esc_html__( 'Bottom Right', 'hashbar-wp-notification-bar' ),
 				),
 				'condition' => array(
 					'key'      => '_wphash_popup_bg_type',
@@ -1049,25 +1049,25 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_text_color' => array(
 				'type'    => 'color',
-				'label'   => esc_html__( 'Text Color', 'hashbar' ),
+				'label'   => esc_html__( 'Text Color', 'hashbar-wp-notification-bar' ),
 				'default' => '#1a1a1a',
 				'presets' => array( '#1a1a1a', '#333333', '#ffffff', '#666666' ),
 			),
 			'_wphash_popup_heading_color' => array(
 				'type'    => 'color',
-				'label'   => esc_html__( 'Heading Color', 'hashbar' ),
+				'label'   => esc_html__( 'Heading Color', 'hashbar-wp-notification-bar' ),
 				'default' => '#1a1a1a',
 				'presets' => array( '#1a1a1a', '#333333', '#ffffff', '#1890ff' ),
 			),
 			'_wphash_popup_subheading_color' => array(
 				'type'    => 'color',
-				'label'   => esc_html__( 'Subheading Color', 'hashbar' ),
+				'label'   => esc_html__( 'Subheading Color', 'hashbar-wp-notification-bar' ),
 				'default' => '#333333',
 				'presets' => array( '#333333', '#1a1a1a', '#666666', '#ffffff' ),
 			),
 			'_wphash_popup_overlay_color' => array(
 				'type'      => 'color',
-				'label'     => esc_html__( 'Overlay Color', 'hashbar' ),
+				'label'     => esc_html__( 'Overlay Color', 'hashbar-wp-notification-bar' ),
 				'default'   => 'rgba(0, 0, 0, 0.5)',
 				'presets'   => array( 'rgba(0,0,0,0.5)', 'rgba(0,0,0,0.7)', 'rgba(255,255,255,0.8)' ),
 				'condition' => array(
@@ -1078,11 +1078,11 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'section_typography' => array(
 				'type'  => 'section',
-				'label' => esc_html__( 'Typography', 'hashbar' ),
+				'label' => esc_html__( 'Typography', 'hashbar-wp-notification-bar' ),
 			),
 			'_wphash_popup_font_family' => array(
 				'type'    => 'select',
-				'label'   => esc_html__( 'Font Family', 'hashbar' ),
+				'label'   => esc_html__( 'Font Family', 'hashbar-wp-notification-bar' ),
 				'default' => 'system-ui',
 				'options' => array(
 					'system-ui'       => 'System UI',
@@ -1095,7 +1095,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_heading_size' => array(
 				'type'    => 'slider',
-				'label'   => esc_html__( 'Heading Size', 'hashbar' ),
+				'label'   => esc_html__( 'Heading Size', 'hashbar-wp-notification-bar' ),
 				'default' => 24,
 				'min'     => 16,
 				'max'     => 48,
@@ -1103,7 +1103,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_text_size' => array(
 				'type'    => 'slider',
-				'label'   => esc_html__( 'Text Size', 'hashbar' ),
+				'label'   => esc_html__( 'Text Size', 'hashbar-wp-notification-bar' ),
 				'default' => 16,
 				'min'     => 12,
 				'max'     => 24,
@@ -1111,17 +1111,17 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_text_align' => array(
 				'type'    => 'select',
-				'label'   => esc_html__( 'Text Alignment', 'hashbar' ),
+				'label'   => esc_html__( 'Text Alignment', 'hashbar-wp-notification-bar' ),
 				'default' => 'center',
 				'options' => array(
-					'left'   => esc_html__( 'Left', 'hashbar' ),
-					'center' => esc_html__( 'Center', 'hashbar' ),
-					'right'  => esc_html__( 'Right', 'hashbar' ),
+					'left'   => esc_html__( 'Left', 'hashbar-wp-notification-bar' ),
+					'center' => esc_html__( 'Center', 'hashbar-wp-notification-bar' ),
+					'right'  => esc_html__( 'Right', 'hashbar-wp-notification-bar' ),
 				),
 			),
 			'_wphash_popup_subheading_size' => array(
 				'type'    => 'slider',
-				'label'   => esc_html__( 'Subheading Size', 'hashbar' ),
+				'label'   => esc_html__( 'Subheading Size', 'hashbar-wp-notification-bar' ),
 				'default' => 16,
 				'min'     => 12,
 				'max'     => 32,
@@ -1129,45 +1129,45 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_heading_weight' => array(
 				'type'    => 'select',
-				'label'   => esc_html__( 'Heading Font Weight', 'hashbar' ),
+				'label'   => esc_html__( 'Heading Font Weight', 'hashbar-wp-notification-bar' ),
 				'default' => '600',
 				'options' => array(
-					'400' => esc_html__( 'Normal (400)', 'hashbar' ),
-					'500' => esc_html__( 'Medium (500)', 'hashbar' ),
-					'600' => esc_html__( 'Semi Bold (600)', 'hashbar' ),
-					'700' => esc_html__( 'Bold (700)', 'hashbar' ),
-					'800' => esc_html__( 'Extra Bold (800)', 'hashbar' ),
+					'400' => esc_html__( 'Normal (400)', 'hashbar-wp-notification-bar' ),
+					'500' => esc_html__( 'Medium (500)', 'hashbar-wp-notification-bar' ),
+					'600' => esc_html__( 'Semi Bold (600)', 'hashbar-wp-notification-bar' ),
+					'700' => esc_html__( 'Bold (700)', 'hashbar-wp-notification-bar' ),
+					'800' => esc_html__( 'Extra Bold (800)', 'hashbar-wp-notification-bar' ),
 				),
 			),
 			'_wphash_popup_subheading_weight' => array(
 				'type'    => 'select',
-				'label'   => esc_html__( 'Subheading Font Weight', 'hashbar' ),
+				'label'   => esc_html__( 'Subheading Font Weight', 'hashbar-wp-notification-bar' ),
 				'default' => '500',
 				'options' => array(
-					'400' => esc_html__( 'Normal (400)', 'hashbar' ),
-					'500' => esc_html__( 'Medium (500)', 'hashbar' ),
-					'600' => esc_html__( 'Semi Bold (600)', 'hashbar' ),
-					'700' => esc_html__( 'Bold (700)', 'hashbar' ),
+					'400' => esc_html__( 'Normal (400)', 'hashbar-wp-notification-bar' ),
+					'500' => esc_html__( 'Medium (500)', 'hashbar-wp-notification-bar' ),
+					'600' => esc_html__( 'Semi Bold (600)', 'hashbar-wp-notification-bar' ),
+					'700' => esc_html__( 'Bold (700)', 'hashbar-wp-notification-bar' ),
 				),
 			),
 			'_wphash_popup_text_transform' => array(
 				'type'    => 'select',
-				'label'   => esc_html__( 'Text Transform', 'hashbar' ),
+				'label'   => esc_html__( 'Text Transform', 'hashbar-wp-notification-bar' ),
 				'default' => 'none',
 				'options' => array(
-					'none'       => esc_html__( 'None', 'hashbar' ),
-					'uppercase'  => esc_html__( 'UPPERCASE', 'hashbar' ),
-					'lowercase'  => esc_html__( 'lowercase', 'hashbar' ),
-					'capitalize' => esc_html__( 'Capitalize', 'hashbar' ),
+					'none'       => esc_html__( 'None', 'hashbar-wp-notification-bar' ),
+					'uppercase'  => esc_html__( 'UPPERCASE', 'hashbar-wp-notification-bar' ),
+					'lowercase'  => esc_html__( 'lowercase', 'hashbar-wp-notification-bar' ),
+					'capitalize' => esc_html__( 'Capitalize', 'hashbar-wp-notification-bar' ),
 				),
 			),
 			'section_border' => array(
 				'type'  => 'section',
-				'label' => esc_html__( 'Border & Shadow', 'hashbar' ),
+				'label' => esc_html__( 'Border & Shadow', 'hashbar-wp-notification-bar' ),
 			),
 			'_wphash_popup_border_radius' => array(
 				'type'    => 'slider',
-				'label'   => esc_html__( 'Border Radius', 'hashbar' ),
+				'label'   => esc_html__( 'Border Radius', 'hashbar-wp-notification-bar' ),
 				'default' => 12,
 				'min'     => 0,
 				'max'     => 50,
@@ -1175,7 +1175,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_border_width' => array(
 				'type'    => 'slider',
-				'label'   => esc_html__( 'Border Width', 'hashbar' ),
+				'label'   => esc_html__( 'Border Width', 'hashbar-wp-notification-bar' ),
 				'default' => 0,
 				'min'     => 0,
 				'max'     => 10,
@@ -1183,7 +1183,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_border_color' => array(
 				'type'      => 'color',
-				'label'     => esc_html__( 'Border Color', 'hashbar' ),
+				'label'     => esc_html__( 'Border Color', 'hashbar-wp-notification-bar' ),
 				'default'   => '#e8e8e8',
 				'presets'   => array( '#e8e8e8', '#d9d9d9', '#1890ff', '#52c41a' ),
 				'condition' => array(
@@ -1194,46 +1194,46 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_shadow' => array(
 				'type'    => 'select',
-				'label'   => esc_html__( 'Box Shadow', 'hashbar' ),
+				'label'   => esc_html__( 'Box Shadow', 'hashbar-wp-notification-bar' ),
 				'default' => 'large',
 				'options' => array(
-					'none'   => esc_html__( 'None', 'hashbar' ),
-					'small'  => esc_html__( 'Small', 'hashbar' ),
-					'medium' => esc_html__( 'Medium', 'hashbar' ),
-					'large'  => esc_html__( 'Large', 'hashbar' ),
+					'none'   => esc_html__( 'None', 'hashbar-wp-notification-bar' ),
+					'small'  => esc_html__( 'Small', 'hashbar-wp-notification-bar' ),
+					'medium' => esc_html__( 'Medium', 'hashbar-wp-notification-bar' ),
+					'large'  => esc_html__( 'Large', 'hashbar-wp-notification-bar' ),
 				),
 			),
 			'section_button_styling' => array(
 				'type'  => 'section',
-				'label' => esc_html__( 'Button Styling', 'hashbar' ),
+				'label' => esc_html__( 'Button Styling', 'hashbar-wp-notification-bar' ),
 			),
 			'_wphash_popup_btn_bg_color' => array(
 				'type'    => 'color',
-				'label'   => esc_html__( 'Button Background', 'hashbar' ),
+				'label'   => esc_html__( 'Button Background', 'hashbar-wp-notification-bar' ),
 				'default' => '#1890ff',
 				'presets' => array( '#1890ff', '#52c41a', '#faad14', '#f5222d', '#722ed1', '#1a1a1a' ),
 			),
 			'_wphash_popup_btn_text_color' => array(
 				'type'    => 'color',
-				'label'   => esc_html__( 'Button Text Color', 'hashbar' ),
+				'label'   => esc_html__( 'Button Text Color', 'hashbar-wp-notification-bar' ),
 				'default' => '#ffffff',
 				'presets' => array( '#ffffff', '#000000' ),
 			),
 			'_wphash_popup_btn_hover_bg_color' => array(
 				'type'    => 'color',
-				'label'   => esc_html__( 'Button Hover Background', 'hashbar' ),
+				'label'   => esc_html__( 'Button Hover Background', 'hashbar-wp-notification-bar' ),
 				'default' => '#40a9ff',
 				'presets' => array( '#40a9ff', '#73d13d', '#ffc53d', '#ff4d4f', '#9254de' ),
 			),
 			'_wphash_popup_btn_hover_text_color' => array(
 				'type'    => 'color',
-				'label'   => esc_html__( 'Button Hover Text', 'hashbar' ),
+				'label'   => esc_html__( 'Button Hover Text', 'hashbar-wp-notification-bar' ),
 				'default' => '#ffffff',
 				'presets' => array( '#ffffff', '#000000' ),
 			),
 			'_wphash_popup_btn_border_radius' => array(
 				'type'    => 'slider',
-				'label'   => esc_html__( 'Button Border Radius', 'hashbar' ),
+				'label'   => esc_html__( 'Button Border Radius', 'hashbar-wp-notification-bar' ),
 				'default' => 6,
 				'min'     => 0,
 				'max'     => 30,
@@ -1241,7 +1241,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_btn_font_size' => array(
 				'type'    => 'slider',
-				'label'   => esc_html__( 'Button Font Size', 'hashbar' ),
+				'label'   => esc_html__( 'Button Font Size', 'hashbar-wp-notification-bar' ),
 				'default' => 16,
 				'min'     => 12,
 				'max'     => 24,
@@ -1249,17 +1249,17 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_btn_width_type' => array(
 				'type'    => 'select',
-				'label'   => esc_html__( 'Button Width', 'hashbar' ),
+				'label'   => esc_html__( 'Button Width', 'hashbar-wp-notification-bar' ),
 				'default' => 'auto',
 				'options' => array(
-					'auto'       => esc_html__( 'Auto (Fit Content)', 'hashbar' ),
-					'full_width' => esc_html__( 'Full Width', 'hashbar' ),
-					'custom'     => esc_html__( 'Custom', 'hashbar' ),
+					'auto'       => esc_html__( 'Auto (Fit Content)', 'hashbar-wp-notification-bar' ),
+					'full_width' => esc_html__( 'Full Width', 'hashbar-wp-notification-bar' ),
+					'custom'     => esc_html__( 'Custom', 'hashbar-wp-notification-bar' ),
 				),
 			),
 			'_wphash_popup_btn_custom_width' => array(
 				'type'      => 'slider',
-				'label'     => esc_html__( 'Custom Button Width', 'hashbar' ),
+				'label'     => esc_html__( 'Custom Button Width', 'hashbar-wp-notification-bar' ),
 				'default'   => 200,
 				'min'       => 100,
 				'max'       => 500,
@@ -1273,7 +1273,7 @@ class Hashbar_Popup_Campaign_Settings {
 			// Form Input Styling Section
 			'section_form_input_styling' => array(
 				'type'      => 'section',
-				'label'     => esc_html__( 'Form Input Styling', 'hashbar' ),
+				'label'     => esc_html__( 'Form Input Styling', 'hashbar-wp-notification-bar' ),
 				'condition' => array(
 					'key'      => '_wphash_popup_form_enabled',
 					'operator' => '==',
@@ -1282,7 +1282,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_form_input_bg_color' => array(
 				'type'      => 'color',
-				'label'     => esc_html__( 'Input Background', 'hashbar' ),
+				'label'     => esc_html__( 'Input Background', 'hashbar-wp-notification-bar' ),
 				'default'   => '#ffffff',
 				'presets'   => array( '#ffffff', '#f5f5f5', '#fafafa', 'transparent' ),
 				'condition' => array(
@@ -1293,7 +1293,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_form_input_text_color' => array(
 				'type'      => 'color',
-				'label'     => esc_html__( 'Input Text Color', 'hashbar' ),
+				'label'     => esc_html__( 'Input Text Color', 'hashbar-wp-notification-bar' ),
 				'default'   => '#333333',
 				'presets'   => array( '#333333', '#1a1a1a', '#666666', '#000000' ),
 				'condition' => array(
@@ -1304,7 +1304,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_form_input_placeholder_color' => array(
 				'type'      => 'color',
-				'label'     => esc_html__( 'Placeholder Color', 'hashbar' ),
+				'label'     => esc_html__( 'Placeholder Color', 'hashbar-wp-notification-bar' ),
 				'default'   => '#999999',
 				'presets'   => array( '#999999', '#bfbfbf', '#cccccc', '#666666' ),
 				'condition' => array(
@@ -1315,7 +1315,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_form_input_border_color' => array(
 				'type'      => 'color',
-				'label'     => esc_html__( 'Input Border Color', 'hashbar' ),
+				'label'     => esc_html__( 'Input Border Color', 'hashbar-wp-notification-bar' ),
 				'default'   => '#d9d9d9',
 				'presets'   => array( '#d9d9d9', '#e8e8e8', '#bfbfbf', '#cccccc' ),
 				'condition' => array(
@@ -1326,7 +1326,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_form_input_focus_color' => array(
 				'type'      => 'color',
-				'label'     => esc_html__( 'Input Focus Border', 'hashbar' ),
+				'label'     => esc_html__( 'Input Focus Border', 'hashbar-wp-notification-bar' ),
 				'default'   => '#1890ff',
 				'presets'   => array( '#1890ff', '#52c41a', '#722ed1', '#fa8c16' ),
 				'condition' => array(
@@ -1337,7 +1337,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_form_input_border_radius' => array(
 				'type'      => 'slider',
-				'label'     => esc_html__( 'Input Border Radius', 'hashbar' ),
+				'label'     => esc_html__( 'Input Border Radius', 'hashbar-wp-notification-bar' ),
 				'default'   => 6,
 				'min'       => 0,
 				'max'       => 20,
@@ -1350,7 +1350,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_form_input_font_size' => array(
 				'type'      => 'slider',
-				'label'     => esc_html__( 'Input Font Size', 'hashbar' ),
+				'label'     => esc_html__( 'Input Font Size', 'hashbar-wp-notification-bar' ),
 				'default'   => 14,
 				'min'       => 12,
 				'max'       => 18,
@@ -1363,7 +1363,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_form_input_height' => array(
 				'type'      => 'slider',
-				'label'     => esc_html__( 'Input Height', 'hashbar' ),
+				'label'     => esc_html__( 'Input Height', 'hashbar-wp-notification-bar' ),
 				'default'   => 40,
 				'min'       => 32,
 				'max'       => 56,
@@ -1376,7 +1376,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_form_label_color' => array(
 				'type'      => 'color',
-				'label'     => esc_html__( 'Label/Text Color', 'hashbar' ),
+				'label'     => esc_html__( 'Label/Text Color', 'hashbar-wp-notification-bar' ),
 				'default'   => '#333333',
 				'presets'   => array( '#333333', '#666666', '#1a1a1a', '#ffffff' ),
 				'condition' => array(
@@ -1387,7 +1387,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_form_label_font_size' => array(
 				'type'      => 'slider',
-				'label'     => esc_html__( 'Label Font Size', 'hashbar' ),
+				'label'     => esc_html__( 'Label Font Size', 'hashbar-wp-notification-bar' ),
 				'default'   => 12,
 				'min'       => 10,
 				'max'       => 16,
@@ -1400,7 +1400,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_form_checkbox_accent_color' => array(
 				'type'      => 'color',
-				'label'     => esc_html__( 'Checkbox/Radio Accent', 'hashbar' ),
+				'label'     => esc_html__( 'Checkbox/Radio Accent', 'hashbar-wp-notification-bar' ),
 				'default'   => '#1890ff',
 				'presets'   => array( '#1890ff', '#52c41a', '#722ed1', '#fa8c16' ),
 				'condition' => array(
@@ -1411,12 +1411,12 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_form_alignment' => array(
 				'type'      => 'select',
-				'label'     => esc_html__( 'Form Alignment', 'hashbar' ),
+				'label'     => esc_html__( 'Form Alignment', 'hashbar-wp-notification-bar' ),
 				'default'   => 'left',
 				'options'   => array(
-					'left'   => esc_html__( 'Left', 'hashbar' ),
-					'center' => esc_html__( 'Center', 'hashbar' ),
-					'right'  => esc_html__( 'Right', 'hashbar' ),
+					'left'   => esc_html__( 'Left', 'hashbar-wp-notification-bar' ),
+					'center' => esc_html__( 'Center', 'hashbar-wp-notification-bar' ),
+					'right'  => esc_html__( 'Right', 'hashbar-wp-notification-bar' ),
 				),
 				'condition' => array(
 					'key'      => '_wphash_popup_form_enabled',
@@ -1426,7 +1426,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'section_close_styling' => array(
 				'type'      => 'section',
-				'label'     => esc_html__( 'Close Button Styling', 'hashbar' ),
+				'label'     => esc_html__( 'Close Button Styling', 'hashbar-wp-notification-bar' ),
 				'condition' => array(
 					'key'      => '_wphash_popup_close_enabled',
 					'operator' => '==',
@@ -1435,7 +1435,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_close_color' => array(
 				'type'      => 'color',
-				'label'     => esc_html__( 'Close Button Color', 'hashbar' ),
+				'label'     => esc_html__( 'Close Button Color', 'hashbar-wp-notification-bar' ),
 				'default'   => '#8c8c8c',
 				'presets'   => array( '#8c8c8c', '#595959', '#ffffff', '#1890ff' ),
 				'condition' => array(
@@ -1446,7 +1446,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_close_bg_color' => array(
 				'type'      => 'color',
-				'label'     => esc_html__( 'Close Button Background', 'hashbar' ),
+				'label'     => esc_html__( 'Close Button Background', 'hashbar-wp-notification-bar' ),
 				'default'   => 'rgba(0, 0, 0, 0.08)',
 				'presets'   => array( 'rgba(0,0,0,0.08)', 'rgba(0,0,0,0.2)', '#ffffff', '#f5f5f5', 'transparent' ),
 				'condition' => array(
@@ -1457,7 +1457,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_close_hover_color' => array(
 				'type'      => 'color',
-				'label'     => esc_html__( 'Close Button Hover', 'hashbar' ),
+				'label'     => esc_html__( 'Close Button Hover', 'hashbar-wp-notification-bar' ),
 				'default'   => '#1a1a1a',
 				'presets'   => array( '#1a1a1a', '#f5222d', '#ffffff' ),
 				'condition' => array(
@@ -1468,7 +1468,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_close_size' => array(
 				'type'      => 'slider',
-				'label'     => esc_html__( 'Close Button Size', 'hashbar' ),
+				'label'     => esc_html__( 'Close Button Size', 'hashbar-wp-notification-bar' ),
 				'default'   => 24,
 				'min'       => 16,
 				'max'       => 40,
@@ -1481,7 +1481,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_close_border_radius' => array(
 				'type'      => 'slider',
-				'label'     => esc_html__( 'Close Button Border Radius', 'hashbar' ),
+				'label'     => esc_html__( 'Close Button Border Radius', 'hashbar-wp-notification-bar' ),
 				'default'   => 50,
 				'min'       => 0,
 				'max'       => 50,
@@ -1494,24 +1494,24 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'section_content_order' => array(
 				'type'  => 'section',
-				'label' => esc_html__( 'Content Order', 'hashbar' ),
+				'label' => esc_html__( 'Content Order', 'hashbar-wp-notification-bar' ),
 			),
 			'_wphash_popup_content_order' => array(
 				'type'    => 'content_order',
-				'label'   => esc_html__( 'Content Order', 'hashbar' ),
+				'label'   => esc_html__( 'Content Order', 'hashbar-wp-notification-bar' ),
 				'default' => array( 'heading', 'subheading', 'description', 'countdown', 'coupon', 'form_or_buttons' ),
 				'element_labels' => array(
-					'heading'         => esc_html__( 'Heading', 'hashbar' ),
-					'subheading'      => esc_html__( 'Subheading', 'hashbar' ),
-					'description'     => esc_html__( 'Description', 'hashbar' ),
-					'countdown'       => esc_html__( 'Countdown Timer', 'hashbar' ),
-					'coupon'          => esc_html__( 'Coupon Code', 'hashbar' ),
-					'form_or_buttons' => esc_html__( 'Form / Buttons', 'hashbar' ),
+					'heading'         => esc_html__( 'Heading', 'hashbar-wp-notification-bar' ),
+					'subheading'      => esc_html__( 'Subheading', 'hashbar-wp-notification-bar' ),
+					'description'     => esc_html__( 'Description', 'hashbar-wp-notification-bar' ),
+					'countdown'       => esc_html__( 'Countdown Timer', 'hashbar-wp-notification-bar' ),
+					'coupon'          => esc_html__( 'Coupon Code', 'hashbar-wp-notification-bar' ),
+					'form_or_buttons' => esc_html__( 'Form / Buttons', 'hashbar-wp-notification-bar' ),
 				),
 			),
 			'_wphash_popup_element_spacing' => array(
 				'type'    => 'element_spacing',
-				'label'   => esc_html__( 'Element Spacing', 'hashbar' ),
+				'label'   => esc_html__( 'Element Spacing', 'hashbar-wp-notification-bar' ),
 				'default' => array(
 					'heading'         => 6,
 					'subheading'      => 8,
@@ -1523,13 +1523,13 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'section_custom_css' => array(
 				'type'  => 'section',
-				'label' => esc_html__( 'Custom CSS', 'hashbar' ),
+				'label' => esc_html__( 'Custom CSS', 'hashbar-wp-notification-bar' ),
 				'isPro' => true,
 			),
 			'_wphash_popup_custom_css' => array(
 				'type'        => 'textarea',
-				'label'       => esc_html__( 'Custom CSS', 'hashbar' ),
-				'description' => esc_html__( 'Add custom CSS to style your popup. CSS is automatically scoped to this campaign. Available selectors: .hashbar-popup-campaign, .hashbar-popup-container, .hashbar-popup-body, .hashbar-popup-heading, .hashbar-popup-subheading, .hashbar-popup-description, .hashbar-popup-image, .hashbar-popup-close, .hashbar-popup-countdown, .hashbar-popup-coupon, .hashbar-popup-coupon-code, .hashbar-popup-coupon-copy, .hashbar-popup-form, .hashbar-popup-submit, .hashbar-popup-buttons, .hashbar-popup-cta, .hashbar-popup-overlay', 'hashbar' ),
+				'label'       => esc_html__( 'Custom CSS', 'hashbar-wp-notification-bar' ),
+				'description' => esc_html__( 'Add custom CSS to style your popup. CSS is automatically scoped to this campaign. Available selectors: .hashbar-popup-campaign, .hashbar-popup-container, .hashbar-popup-body, .hashbar-popup-heading, .hashbar-popup-subheading, .hashbar-popup-description, .hashbar-popup-image, .hashbar-popup-close, .hashbar-popup-countdown, .hashbar-popup-coupon, .hashbar-popup-coupon-code, .hashbar-popup-coupon-copy, .hashbar-popup-form, .hashbar-popup-submit, .hashbar-popup-buttons, .hashbar-popup-cta, .hashbar-popup-overlay', 'hashbar-wp-notification-bar' ),
 				'default'     => '',
 				'rows'        => 6,
 				'placeholder' => ".hashbar-popup-campaign { }\n.hashbar-popup-container { }\n.hashbar-popup-body { }\n.hashbar-popup-heading { }\n.hashbar-popup-subheading { }\n.hashbar-popup-description { }\n.hashbar-popup-image { }\n.hashbar-popup-countdown { }\n.hashbar-popup-coupon { }\n.hashbar-popup-coupon-code { }\n.hashbar-popup-form { }\n.hashbar-popup-buttons { }\n.hashbar-popup-close { }",
@@ -1547,52 +1547,52 @@ class Hashbar_Popup_Campaign_Settings {
 		return array(
 			'section_trigger_type' => array(
 				'type'        => 'section',
-				'label'       => esc_html__( 'Trigger Type', 'hashbar' ),
-				'description' => esc_html__( 'Choose when your popup should appear', 'hashbar' ),
+				'label'       => esc_html__( 'Trigger Type', 'hashbar-wp-notification-bar' ),
+				'description' => esc_html__( 'Choose when your popup should appear', 'hashbar-wp-notification-bar' ),
 			),
 			'_wphash_popup_trigger_type' => array(
 				'type'    => 'select',
-				'label'   => esc_html__( 'Trigger Type', 'hashbar' ),
+				'label'   => esc_html__( 'Trigger Type', 'hashbar-wp-notification-bar' ),
 				'default' => 'time_delay',
 				'options' => array(
 					'immediate'       => array(
-						'label'       => esc_html__( 'Immediate (On Page Load)', 'hashbar' ),
-						'description' => esc_html__( 'Show popup immediately when page loads', 'hashbar' ),
+						'label'       => esc_html__( 'Immediate (On Page Load)', 'hashbar-wp-notification-bar' ),
+						'description' => esc_html__( 'Show popup immediately when page loads', 'hashbar-wp-notification-bar' ),
 						'icon'        => 'ClockCircleOutlined',
 					),
 					'time_delay'      => array(
-						'label'       => esc_html__( 'Time Delay', 'hashbar' ),
-						'description' => esc_html__( 'Show popup after a specified delay', 'hashbar' ),
+						'label'       => esc_html__( 'Time Delay', 'hashbar-wp-notification-bar' ),
+						'description' => esc_html__( 'Show popup after a specified delay', 'hashbar-wp-notification-bar' ),
 						'icon'        => 'FieldTimeOutlined',
 					),
 					'exit_intent'     => array(
-						'label'       => esc_html__( 'Exit Intent', 'hashbar' ),
-						'description' => esc_html__( 'Show popup when user tries to leave the page', 'hashbar' ),
+						'label'       => esc_html__( 'Exit Intent', 'hashbar-wp-notification-bar' ),
+						'description' => esc_html__( 'Show popup when user tries to leave the page', 'hashbar-wp-notification-bar' ),
 						'icon'        => 'LogoutOutlined',
 					),
 					'scroll_depth'    => array(
-						'label'       => esc_html__( 'Scroll Depth', 'hashbar' ),
-						'description' => esc_html__( 'Show popup when user scrolls to a certain point', 'hashbar' ),
+						'label'       => esc_html__( 'Scroll Depth', 'hashbar-wp-notification-bar' ),
+						'description' => esc_html__( 'Show popup when user scrolls to a certain point', 'hashbar-wp-notification-bar' ),
 						'icon'        => 'VerticalAlignBottomOutlined',
 					),
 					'click'           => array(
-						'label'       => esc_html__( 'On Element Click', 'hashbar' ),
-						'description' => esc_html__( 'Show popup when user clicks a specific element', 'hashbar' ),
+						'label'       => esc_html__( 'On Element Click', 'hashbar-wp-notification-bar' ),
+						'description' => esc_html__( 'Show popup when user clicks a specific element', 'hashbar-wp-notification-bar' ),
 						'icon'        => 'AimOutlined',
 					),
 					'inactivity'      => array(
-						'label'       => esc_html__( 'User Inactivity', 'hashbar' ),
-						'description' => esc_html__( 'Show popup after user becomes inactive', 'hashbar' ),
+						'label'       => esc_html__( 'User Inactivity', 'hashbar-wp-notification-bar' ),
+						'description' => esc_html__( 'Show popup after user becomes inactive', 'hashbar-wp-notification-bar' ),
 						'icon'        => 'CoffeeOutlined',
 					),
 					'element_visible' => array(
-						'label'       => esc_html__( 'Element Becomes Visible', 'hashbar' ),
-						'description' => esc_html__( 'Show popup when an element becomes visible', 'hashbar' ),
+						'label'       => esc_html__( 'Element Becomes Visible', 'hashbar-wp-notification-bar' ),
+						'description' => esc_html__( 'Show popup when an element becomes visible', 'hashbar-wp-notification-bar' ),
 						'icon'        => 'EyeOutlined',
 					),
 					'page_views'      => array(
-						'label'       => esc_html__( 'After X Page Views', 'hashbar' ),
-						'description' => esc_html__( 'Show popup after user visits multiple pages', 'hashbar' ),
+						'label'       => esc_html__( 'After X Page Views', 'hashbar-wp-notification-bar' ),
+						'description' => esc_html__( 'Show popup after user visits multiple pages', 'hashbar-wp-notification-bar' ),
 						'icon'        => 'FileSearchOutlined',
 					),
 				),
@@ -1600,7 +1600,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_trigger_delay' => array(
 				'type'      => 'number',
-				'label'     => esc_html__( 'Delay (seconds)', 'hashbar' ),
+				'label'     => esc_html__( 'Delay (seconds)', 'hashbar-wp-notification-bar' ),
 				'default'   => 5,
 				'min'       => 0,
 				'max'       => 300,
@@ -1612,7 +1612,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_trigger_scroll_percent' => array(
 				'type'      => 'slider',
-				'label'     => esc_html__( 'Scroll Percentage', 'hashbar' ),
+				'label'     => esc_html__( 'Scroll Percentage', 'hashbar-wp-notification-bar' ),
 				'default'   => 50,
 				'min'       => 10,
 				'max'       => 100,
@@ -1626,8 +1626,8 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_trigger_click_selector' => array(
 				'type'        => 'text',
-				'label'       => esc_html__( 'CSS Selector', 'hashbar' ),
-				'placeholder' => esc_html__( 'e.g., #my-button, .trigger-popup', 'hashbar' ),
+				'label'       => esc_html__( 'CSS Selector', 'hashbar-wp-notification-bar' ),
+				'placeholder' => esc_html__( 'e.g., #my-button, .trigger-popup', 'hashbar-wp-notification-bar' ),
 				'isPro'       => true,
 				'condition'   => array(
 					'key'      => '_wphash_popup_trigger_type',
@@ -1637,7 +1637,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_trigger_click_delay' => array(
 				'type'      => 'number',
-				'label'     => esc_html__( 'Delay After Click (seconds)', 'hashbar' ),
+				'label'     => esc_html__( 'Delay After Click (seconds)', 'hashbar-wp-notification-bar' ),
 				'default'   => 0,
 				'min'       => 0,
 				'max'       => 300,
@@ -1650,7 +1650,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_trigger_inactivity_time' => array(
 				'type'      => 'number',
-				'label'     => esc_html__( 'Inactivity Time (seconds)', 'hashbar' ),
+				'label'     => esc_html__( 'Inactivity Time (seconds)', 'hashbar-wp-notification-bar' ),
 				'default'   => 30,
 				'min'       => 5,
 				'max'       => 300,
@@ -1663,8 +1663,8 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_trigger_element_selector' => array(
 				'type'        => 'text',
-				'label'       => esc_html__( 'Element Selector', 'hashbar' ),
-				'placeholder' => esc_html__( 'e.g., #footer, .product-section', 'hashbar' ),
+				'label'       => esc_html__( 'Element Selector', 'hashbar-wp-notification-bar' ),
+				'placeholder' => esc_html__( 'e.g., #footer, .product-section', 'hashbar-wp-notification-bar' ),
 				'isPro'       => true,
 				'condition'   => array(
 					'key'      => '_wphash_popup_trigger_type',
@@ -1674,7 +1674,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_trigger_page_views_count' => array(
 				'type'      => 'number',
-				'label'     => esc_html__( 'Number of Page Views', 'hashbar' ),
+				'label'     => esc_html__( 'Number of Page Views', 'hashbar-wp-notification-bar' ),
 				'default'   => 3,
 				'min'       => 2,
 				'max'       => 20,
@@ -1687,7 +1687,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'section_exit_intent' => array(
 				'type'      => 'section',
-				'label'     => esc_html__( 'Exit Intent Options', 'hashbar' ),
+				'label'     => esc_html__( 'Exit Intent Options', 'hashbar-wp-notification-bar' ),
 				'condition' => array(
 					'key'      => '_wphash_popup_trigger_type',
 					'operator' => '==',
@@ -1696,12 +1696,12 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_exit_sensitivity' => array(
 				'type'      => 'select',
-				'label'     => esc_html__( 'Sensitivity', 'hashbar' ),
+				'label'     => esc_html__( 'Sensitivity', 'hashbar-wp-notification-bar' ),
 				'default'   => 'medium',
 				'options'   => array(
-					'low'    => esc_html__( 'Low (Less Triggers)', 'hashbar' ),
-					'medium' => esc_html__( 'Medium', 'hashbar' ),
-					'high'   => esc_html__( 'High (More Triggers)', 'hashbar' ),
+					'low'    => esc_html__( 'Low (Less Triggers)', 'hashbar-wp-notification-bar' ),
+					'medium' => esc_html__( 'Medium', 'hashbar-wp-notification-bar' ),
+					'high'   => esc_html__( 'High (More Triggers)', 'hashbar-wp-notification-bar' ),
 				),
 				'condition' => array(
 					'key'      => '_wphash_popup_trigger_type',
@@ -1711,8 +1711,8 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_exit_mobile_enabled' => array(
 				'type'      => 'switch',
-				'label'     => esc_html__( 'Enable on Mobile', 'hashbar' ),
-				'desc'      => esc_html__( 'Use alternative triggers for mobile (back button, fast scroll up)', 'hashbar' ),
+				'label'     => esc_html__( 'Enable on Mobile', 'hashbar-wp-notification-bar' ),
+				'desc'      => esc_html__( 'Use alternative triggers for mobile (back button, fast scroll up)', 'hashbar-wp-notification-bar' ),
 				'default'   => false,
 				'isPro'     => false,
 				'condition' => array(
@@ -1733,24 +1733,24 @@ class Hashbar_Popup_Campaign_Settings {
 		return array(
 			'section_page_targeting' => array(
 				'type'  => 'section',
-				'label' => esc_html__( 'Page Targeting', 'hashbar' ),
+				'label' => esc_html__( 'Page Targeting', 'hashbar-wp-notification-bar' ),
 			),
 			'_wphash_popup_target_pages' => array(
 				'type'        => 'radio',
-				'label'       => esc_html__( 'Show On', 'hashbar' ),
-				'description' => esc_html__( 'Choose where your popup will be displayed', 'hashbar' ),
+				'label'       => esc_html__( 'Show On', 'hashbar-wp-notification-bar' ),
+				'description' => esc_html__( 'Choose where your popup will be displayed', 'hashbar-wp-notification-bar' ),
 				'default'     => 'all',
 				'options'     => array(
-					'all'      => esc_html__( 'All Pages', 'hashbar' ),
-					'homepage' => esc_html__( 'Homepage Only', 'hashbar' ),
-					'specific' => esc_html__( 'Specific Pages/Posts', 'hashbar' ),
-					'exclude'  => esc_html__( 'All Except Excluded', 'hashbar' ),
+					'all'      => esc_html__( 'All Pages', 'hashbar-wp-notification-bar' ),
+					'homepage' => esc_html__( 'Homepage Only', 'hashbar-wp-notification-bar' ),
+					'specific' => esc_html__( 'Specific Pages/Posts', 'hashbar-wp-notification-bar' ),
+					'exclude'  => esc_html__( 'All Except Excluded', 'hashbar-wp-notification-bar' ),
 				),
 			),
 			'_wphash_popup_target_page_ids' => array(
 				'type'        => 'multi-select',
-				'label'       => esc_html__( 'Select Pages/Posts', 'hashbar' ),
-				'placeholder' => esc_html__( 'Search and select pages or posts...', 'hashbar' ),
+				'label'       => esc_html__( 'Select Pages/Posts', 'hashbar-wp-notification-bar' ),
+				'placeholder' => esc_html__( 'Search and select pages or posts...', 'hashbar-wp-notification-bar' ),
 				'default'     => array(),
 				'condition'   => array(
 					'key'      => '_wphash_popup_target_pages',
@@ -1760,8 +1760,8 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_exclude_page_ids' => array(
 				'type'        => 'multi-select',
-				'label'       => esc_html__( 'Exclude Pages/Posts', 'hashbar' ),
-				'placeholder' => esc_html__( 'Search and select pages or posts to exclude...', 'hashbar' ),
+				'label'       => esc_html__( 'Exclude Pages/Posts', 'hashbar-wp-notification-bar' ),
+				'placeholder' => esc_html__( 'Search and select pages or posts to exclude...', 'hashbar-wp-notification-bar' ),
 				'default'     => array(),
 				'condition'   => array(
 					'key'      => '_wphash_popup_target_pages',
@@ -1771,82 +1771,83 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'section_device_targeting' => array(
 				'type'  => 'section',
-				'label' => esc_html__( 'Device Targeting', 'hashbar' ),
+				'label' => esc_html__( 'Device Targeting', 'hashbar-wp-notification-bar' ),
 			),
 			'_wphash_popup_target_devices' => array(
 				'type'    => 'checkbox-group',
-				'label'   => esc_html__( 'Show On Devices', 'hashbar' ),
+				'label'   => esc_html__( 'Show On Devices', 'hashbar-wp-notification-bar' ),
 				'default' => array( 'desktop', 'tablet', 'mobile' ),
 				'options' => array(
-					'desktop' => esc_html__( 'Desktop', 'hashbar' ),
-					'tablet'  => esc_html__( 'Tablet', 'hashbar' ),
-					'mobile'  => esc_html__( 'Mobile', 'hashbar' ),
+					'desktop' => esc_html__( 'Desktop', 'hashbar-wp-notification-bar' ),
+					'tablet'  => esc_html__( 'Tablet', 'hashbar-wp-notification-bar' ),
+					'mobile'  => esc_html__( 'Mobile', 'hashbar-wp-notification-bar' ),
 				),
 			),
 			'section_user_targeting' => array(
 				'type'  => 'section',
-				'label' => esc_html__( 'User Targeting', 'hashbar' ),
+				'label' => esc_html__( 'User Targeting', 'hashbar-wp-notification-bar' ),
 			),
 			'_wphash_popup_target_user_status' => array(
 				'type'    => 'select',
-				'label'   => esc_html__( 'Show To', 'hashbar' ),
+				'label'   => esc_html__( 'Show To', 'hashbar-wp-notification-bar' ),
 				'default' => 'all',
 				'options' => array(
-					'all'       => esc_html__( 'All Visitors', 'hashbar' ),
-					'logged_in' => esc_html__( 'Logged In Users Only', 'hashbar' ),
-					'guests'    => esc_html__( 'Guests Only', 'hashbar' ),
+					'all'       => esc_html__( 'All Visitors', 'hashbar-wp-notification-bar' ),
+					'logged_in' => esc_html__( 'Logged In Users Only', 'hashbar-wp-notification-bar' ),
+					'guests'    => esc_html__( 'Guests Only', 'hashbar-wp-notification-bar' ),
 				),
 			),
 			'_wphash_popup_target_new_visitors' => array(
 				'type'    => 'switch',
-				'label'   => esc_html__( 'Only Show to New Visitors', 'hashbar' ),
+				'label'   => esc_html__( 'Only Show to New Visitors', 'hashbar-wp-notification-bar' ),
 				'default' => false,
 				'isPro'   => true,
 			),
 			'_wphash_popup_target_returning_visitors' => array(
 				'type'    => 'switch',
-				'label'   => esc_html__( 'Only Show to Returning Visitors', 'hashbar' ),
+				'label'   => esc_html__( 'Only Show to Returning Visitors', 'hashbar-wp-notification-bar' ),
 				'default' => false,
 				'isPro'   => true,
 			),
 			'section_geographic_targeting' => array(
 				'type'  => 'section',
-				'label' => esc_html__( 'Geographic Targeting', 'hashbar' ),
+				'label' => esc_html__( 'Geographic Targeting', 'hashbar-wp-notification-bar' ),
 			),
 			'_wphash_popup_target_countries' => array(
 				'type'               => 'multi-select',
-				'label'              => esc_html__( 'Target Countries', 'hashbar' ),
-				'description'        => esc_html__( 'Select "All Countries" (Free) or choose specific countries to target (PRO).', 'hashbar' ),
-				'placeholder'        => esc_html__( 'Select countries...', 'hashbar' ),
-				'notFoundContent'    => esc_html__( 'No countries found', 'hashbar' ),
-				'worldwideMessage'   => esc_html__( 'Worldwide - No restrictions, popup displays in all countries', 'hashbar' ),
-				'targetingMessage'   => esc_html__( 'Targeting %d specific %s', 'hashbar' ),
-				'countryLabel'       => esc_html__( 'country', 'hashbar' ),
-				'countriesLabel'     => esc_html__( 'countries', 'hashbar' ),
+				'label'              => esc_html__( 'Target Countries', 'hashbar-wp-notification-bar' ),
+				'description'        => esc_html__( 'Select "All Countries" (Free) or choose specific countries to target (PRO).', 'hashbar-wp-notification-bar' ),
+				'placeholder'        => esc_html__( 'Select countries...', 'hashbar-wp-notification-bar' ),
+				'notFoundContent'    => esc_html__( 'No countries found', 'hashbar-wp-notification-bar' ),
+				'worldwideMessage'   => esc_html__( 'Worldwide - No restrictions, popup displays in all countries', 'hashbar-wp-notification-bar' ),
+				// Uses named tokens (not sprintf) since this string is interpolated client-side in TargetingTab.jsx; order can vary per translation without breaking the JS replace().
+				'targetingMessage'   => esc_html__( 'Targeting {count} specific {noun}', 'hashbar-wp-notification-bar' ),
+				'countryLabel'       => esc_html__( 'country', 'hashbar-wp-notification-bar' ),
+				'countriesLabel'     => esc_html__( 'countries', 'hashbar-wp-notification-bar' ),
 				'default'            => array( 'all' ),
 				'isPro'              => hashbar_get_pro_countries(),
 				'options'            => hashbar_get_countries_list( true ),
 			),
 			'section_referrer_targeting' => array(
 				'type'           => 'section',
-				'label'          => esc_html__( 'Referrer Targeting', 'hashbar' ),
+				'label'          => esc_html__( 'Referrer Targeting', 'hashbar-wp-notification-bar' ),
 				'isPro'          => true,
-				'proLockedMessage' => esc_html__( 'Referrer targeting is a Pro feature', 'hashbar' ),
-				'upgradeLink'    => esc_html__( 'Upgrade to unlock', 'hashbar' ),
+				'proLockedMessage' => esc_html__( 'Referrer targeting is a Pro feature', 'hashbar-wp-notification-bar' ),
+				'upgradeLink'    => esc_html__( 'Upgrade to unlock', 'hashbar-wp-notification-bar' ),
 			),
 			'_wphash_popup_target_referrer_enabled' => array(
 				'type'    => 'switch',
-				'label'   => esc_html__( 'Enable Referrer Targeting', 'hashbar' ),
+				'label'   => esc_html__( 'Enable Referrer Targeting', 'hashbar-wp-notification-bar' ),
 				'default' => false,
 				'isPro'   => true,
 			),
 			'_wphash_popup_target_referrer_type' => array(
 				'type'      => 'select',
-				'label'     => esc_html__( 'Referrer Match Type', 'hashbar' ),
+				'label'     => esc_html__( 'Referrer Match Type', 'hashbar-wp-notification-bar' ),
 				'default'   => 'include',
 				'options'   => array(
-					'include' => esc_html__( 'Show Only From These Sources', 'hashbar' ),
-					'exclude' => esc_html__( 'Hide From These Sources', 'hashbar' ),
+					'include' => esc_html__( 'Show Only From These Sources', 'hashbar-wp-notification-bar' ),
+					'exclude' => esc_html__( 'Hide From These Sources', 'hashbar-wp-notification-bar' ),
 				),
 				'isPro'     => true,
 				'condition' => array(
@@ -1857,8 +1858,8 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_target_referrer_sources' => array(
 				'type'        => 'textarea',
-				'label'       => esc_html__( 'Referrer URLs', 'hashbar' ),
-				'description' => esc_html__( 'Enter one URL per line', 'hashbar' ),
+				'label'       => esc_html__( 'Referrer URLs', 'hashbar-wp-notification-bar' ),
+				'description' => esc_html__( 'Enter one URL per line', 'hashbar-wp-notification-bar' ),
 				'placeholder' => "google.com\nfacebook.com\ntwitter.com",
 				'rows'        => 4,
 				'isPro'       => true,
@@ -1880,26 +1881,26 @@ class Hashbar_Popup_Campaign_Settings {
 		return array(
 			'section_frequency' => array(
 				'type'        => 'section',
-				'label'       => esc_html__( 'Display Frequency', 'hashbar' ),
-				'description' => esc_html__( 'Control how often the popup appears to visitors', 'hashbar' ),
+				'label'       => esc_html__( 'Display Frequency', 'hashbar-wp-notification-bar' ),
+				'description' => esc_html__( 'Control how often the popup appears to visitors', 'hashbar-wp-notification-bar' ),
 			),
 			'_wphash_popup_frequency_type' => array(
 				'type'    => 'select',
-				'label'   => esc_html__( 'Frequency', 'hashbar' ),
+				'label'   => esc_html__( 'Frequency', 'hashbar-wp-notification-bar' ),
 				'default' => 'always',
 				'options' => array(
-					'always'           => esc_html__( 'Every Page Load', 'hashbar' ),
-					'once_per_session' => esc_html__( 'Once Per Session', 'hashbar' ),
-					'once_per_day'     => esc_html__( 'Once Per Day', 'hashbar' ),
-					'once_per_x_days'  => esc_html__( 'Once Every X Days', 'hashbar' ),
-					'once_ever'        => esc_html__( 'Once Ever (Until Cookies Clear)', 'hashbar' ),
-					'x_times_total'    => esc_html__( 'X Times Total', 'hashbar' ),
+					'always'           => esc_html__( 'Every Page Load', 'hashbar-wp-notification-bar' ),
+					'once_per_session' => esc_html__( 'Once Per Session', 'hashbar-wp-notification-bar' ),
+					'once_per_day'     => esc_html__( 'Once Per Day', 'hashbar-wp-notification-bar' ),
+					'once_per_x_days'  => esc_html__( 'Once Every X Days', 'hashbar-wp-notification-bar' ),
+					'once_ever'        => esc_html__( 'Once Ever (Until Cookies Clear)', 'hashbar-wp-notification-bar' ),
+					'x_times_total'    => esc_html__( 'X Times Total', 'hashbar-wp-notification-bar' ),
 				),
 				'isPro'   => array( 'once_per_x_days', 'once_ever', 'x_times_total' ),
 			),
 			'_wphash_popup_frequency_days' => array(
 				'type'      => 'number',
-				'label'     => esc_html__( 'Number of Days', 'hashbar' ),
+				'label'     => esc_html__( 'Number of Days', 'hashbar-wp-notification-bar' ),
 				'default'   => 7,
 				'min'       => 1,
 				'max'       => 365,
@@ -1912,7 +1913,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_frequency_times' => array(
 				'type'      => 'number',
-				'label'     => esc_html__( 'Maximum Times to Show', 'hashbar' ),
+				'label'     => esc_html__( 'Maximum Times to Show', 'hashbar-wp-notification-bar' ),
 				'default'   => 3,
 				'min'       => 1,
 				'max'       => 100,
@@ -1925,23 +1926,23 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'section_after_close' => array(
 				'type'  => 'section',
-				'label' => esc_html__( 'After Close Behavior', 'hashbar' ),
+				'label' => esc_html__( 'After Close Behavior', 'hashbar-wp-notification-bar' ),
 			),
 			'_wphash_popup_after_close' => array(
 				'type'    => 'select',
-				'label'   => esc_html__( 'After User Closes Popup', 'hashbar' ),
+				'label'   => esc_html__( 'After User Closes Popup', 'hashbar-wp-notification-bar' ),
 				'default' => 'respect_frequency',
 				'options' => array(
-					'respect_frequency' => esc_html__( 'Respect Frequency Setting', 'hashbar' ),
-					'dont_show_session' => esc_html__( 'Don\'t Show Again This Session', 'hashbar' ),
-					'dont_show_x_days'  => esc_html__( 'Don\'t Show for X Days', 'hashbar' ),
-					'dont_show_ever'    => esc_html__( 'Never Show Again', 'hashbar' ),
+					'respect_frequency' => esc_html__( 'Respect Frequency Setting', 'hashbar-wp-notification-bar' ),
+					'dont_show_session' => esc_html__( 'Don\'t Show Again This Session', 'hashbar-wp-notification-bar' ),
+					'dont_show_x_days'  => esc_html__( 'Don\'t Show for X Days', 'hashbar-wp-notification-bar' ),
+					'dont_show_ever'    => esc_html__( 'Never Show Again', 'hashbar-wp-notification-bar' ),
 				),
 				'isPro'   => array( 'dont_show_x_days', 'dont_show_ever' ),
 			),
 			'_wphash_popup_after_close_days' => array(
 				'type'      => 'number',
-				'label'     => esc_html__( 'Days to Hide After Close', 'hashbar' ),
+				'label'     => esc_html__( 'Days to Hide After Close', 'hashbar-wp-notification-bar' ),
 				'default'   => 7,
 				'min'       => 1,
 				'max'       => 365,
@@ -1954,21 +1955,21 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'section_after_convert' => array(
 				'type'  => 'section',
-				'label' => esc_html__( 'After Conversion Behavior', 'hashbar' ),
+				'label' => esc_html__( 'After Conversion Behavior', 'hashbar-wp-notification-bar' ),
 			),
 			'_wphash_popup_after_convert' => array(
 				'type'    => 'select',
-				'label'   => esc_html__( 'After User Submits Form', 'hashbar' ),
+				'label'   => esc_html__( 'After User Submits Form', 'hashbar-wp-notification-bar' ),
 				'default' => 'never_show',
 				'options' => array(
-					'never_show'      => esc_html__( 'Never Show Again', 'hashbar' ),
-					'show_after_days' => esc_html__( 'Show Again After X Days', 'hashbar' ),
-					'always_show'     => esc_html__( 'Continue Showing Normally', 'hashbar' ),
+					'never_show'      => esc_html__( 'Never Show Again', 'hashbar-wp-notification-bar' ),
+					'show_after_days' => esc_html__( 'Show Again After X Days', 'hashbar-wp-notification-bar' ),
+					'always_show'     => esc_html__( 'Continue Showing Normally', 'hashbar-wp-notification-bar' ),
 				),
 			),
 			'_wphash_popup_after_convert_days' => array(
 				'type'      => 'number',
-				'label'     => esc_html__( 'Days to Hide After Conversion', 'hashbar' ),
+				'label'     => esc_html__( 'Days to Hide After Conversion', 'hashbar-wp-notification-bar' ),
 				'default'   => 30,
 				'min'       => 1,
 				'max'       => 365,
@@ -1990,42 +1991,42 @@ class Hashbar_Popup_Campaign_Settings {
 		return array(
 			'section_animation' => array(
 				'type'  => 'section',
-				'label' => esc_html__( 'Animation', 'hashbar' ),
+				'label' => esc_html__( 'Animation', 'hashbar-wp-notification-bar' ),
 			),
 			'_wphash_popup_animation_entry' => array(
 				'type'    => 'select',
-				'label'   => esc_html__( 'Entry Animation', 'hashbar' ),
+				'label'   => esc_html__( 'Entry Animation', 'hashbar-wp-notification-bar' ),
 				'default' => 'fadeIn',
 				'options' => array(
-					'fadeIn'       => esc_html__( 'Fade In', 'hashbar' ),
-					'slideInDown'  => esc_html__( 'Slide Down', 'hashbar' ),
-					'slideInUp'    => esc_html__( 'Slide Up', 'hashbar' ),
-					'slideInLeft'  => esc_html__( 'Slide Left', 'hashbar' ),
-					'slideInRight' => esc_html__( 'Slide Right', 'hashbar' ),
-					'zoomIn'       => esc_html__( 'Zoom In', 'hashbar' ),
-					'bounceIn'     => esc_html__( 'Bounce In', 'hashbar' ),
-					'flipIn'       => esc_html__( 'Flip In', 'hashbar' ),
+					'fadeIn'       => esc_html__( 'Fade In', 'hashbar-wp-notification-bar' ),
+					'slideInDown'  => esc_html__( 'Slide Down', 'hashbar-wp-notification-bar' ),
+					'slideInUp'    => esc_html__( 'Slide Up', 'hashbar-wp-notification-bar' ),
+					'slideInLeft'  => esc_html__( 'Slide Left', 'hashbar-wp-notification-bar' ),
+					'slideInRight' => esc_html__( 'Slide Right', 'hashbar-wp-notification-bar' ),
+					'zoomIn'       => esc_html__( 'Zoom In', 'hashbar-wp-notification-bar' ),
+					'bounceIn'     => esc_html__( 'Bounce In', 'hashbar-wp-notification-bar' ),
+					'flipIn'       => esc_html__( 'Flip In', 'hashbar-wp-notification-bar' ),
 				),
 				'isPro'   => array( 'slideInLeft', 'slideInRight', 'zoomIn', 'bounceIn', 'flipIn' ),
 			),
 			'_wphash_popup_animation_exit' => array(
 				'type'    => 'select',
-				'label'   => esc_html__( 'Exit Animation', 'hashbar' ),
+				'label'   => esc_html__( 'Exit Animation', 'hashbar-wp-notification-bar' ),
 				'default' => 'fadeOut',
 				'options' => array(
-					'fadeOut'       => esc_html__( 'Fade Out', 'hashbar' ),
-					'slideOutUp'    => esc_html__( 'Slide Up', 'hashbar' ),
-					'slideOutDown'  => esc_html__( 'Slide Down', 'hashbar' ),
-					'slideOutLeft'  => esc_html__( 'Slide Left', 'hashbar' ),
-					'slideOutRight' => esc_html__( 'Slide Right', 'hashbar' ),
-					'zoomOut'       => esc_html__( 'Zoom Out', 'hashbar' ),
-					'bounceOut'     => esc_html__( 'Bounce Out', 'hashbar' ),
+					'fadeOut'       => esc_html__( 'Fade Out', 'hashbar-wp-notification-bar' ),
+					'slideOutUp'    => esc_html__( 'Slide Up', 'hashbar-wp-notification-bar' ),
+					'slideOutDown'  => esc_html__( 'Slide Down', 'hashbar-wp-notification-bar' ),
+					'slideOutLeft'  => esc_html__( 'Slide Left', 'hashbar-wp-notification-bar' ),
+					'slideOutRight' => esc_html__( 'Slide Right', 'hashbar-wp-notification-bar' ),
+					'zoomOut'       => esc_html__( 'Zoom Out', 'hashbar-wp-notification-bar' ),
+					'bounceOut'     => esc_html__( 'Bounce Out', 'hashbar-wp-notification-bar' ),
 				),
 				'isPro'   => array( 'slideOutLeft', 'slideOutRight', 'zoomOut', 'bounceOut' ),
 			),
 			'_wphash_popup_animation_duration' => array(
 				'type'    => 'slider',
-				'label'   => esc_html__( 'Animation Duration', 'hashbar' ),
+				'label'   => esc_html__( 'Animation Duration', 'hashbar-wp-notification-bar' ),
 				'default' => 300,
 				'min'     => 100,
 				'max'     => 1000,
@@ -2034,7 +2035,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_animation_delay' => array(
 				'type'    => 'slider',
-				'label'   => esc_html__( 'Animation Delay', 'hashbar' ),
+				'label'   => esc_html__( 'Animation Delay', 'hashbar-wp-notification-bar' ),
 				'default' => 0,
 				'min'     => 0,
 				'max'     => 2000,
@@ -2053,22 +2054,22 @@ class Hashbar_Popup_Campaign_Settings {
 		return array(
 			'section_countdown' => array(
 				'type'        => 'section',
-				'label'       => esc_html__( 'Countdown Timer', 'hashbar' ),
-				'description' => esc_html__( 'Add urgency with a countdown timer', 'hashbar' ),
+				'label'       => esc_html__( 'Countdown Timer', 'hashbar-wp-notification-bar' ),
+				'description' => esc_html__( 'Add urgency with a countdown timer', 'hashbar-wp-notification-bar' ),
 			),
 			'_wphash_popup_countdown_enabled' => array(
 				'type'    => 'switch',
-				'label'   => esc_html__( 'Enable Countdown', 'hashbar' ),
+				'label'   => esc_html__( 'Enable Countdown', 'hashbar-wp-notification-bar' ),
 				'default' => false,
 			),
 			'_wphash_popup_countdown_type' => array(
 				'type'      => 'select',
-				'label'     => esc_html__( 'Countdown Type', 'hashbar' ),
+				'label'     => esc_html__( 'Countdown Type', 'hashbar-wp-notification-bar' ),
 				'default'   => 'fixed_date',
 				'options'   => array(
-					'fixed_date'      => esc_html__( 'Fixed Date', 'hashbar' ),
-					'evergreen'       => esc_html__( 'Evergreen (Per Visitor)', 'hashbar' ),
-					'daily_recurring' => esc_html__( 'Daily Recurring', 'hashbar' ),
+					'fixed_date'      => esc_html__( 'Fixed Date', 'hashbar-wp-notification-bar' ),
+					'evergreen'       => esc_html__( 'Evergreen (Per Visitor)', 'hashbar-wp-notification-bar' ),
+					'daily_recurring' => esc_html__( 'Daily Recurring', 'hashbar-wp-notification-bar' ),
 				),
 				'isPro'     => array( 'evergreen', 'daily_recurring' ),
 				'condition' => array(
@@ -2079,7 +2080,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_countdown_end_date' => array(
 				'type'      => 'datetime',
-				'label'     => esc_html__( 'End Date & Time', 'hashbar' ),
+				'label'     => esc_html__( 'End Date & Time', 'hashbar-wp-notification-bar' ),
 				'default'   => '',
 				'condition' => array(
 					'key'      => '_wphash_popup_countdown_type',
@@ -2089,7 +2090,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_countdown_duration' => array(
 				'type'      => 'number',
-				'label'     => esc_html__( 'Duration (hours)', 'hashbar' ),
+				'label'     => esc_html__( 'Duration (hours)', 'hashbar-wp-notification-bar' ),
 				'default'   => 24,
 				'min'       => 1,
 				'max'       => 8760,
@@ -2102,7 +2103,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_countdown_daily_time' => array(
 				'type'      => 'time',
-				'label'     => esc_html__( 'Reset Time', 'hashbar' ),
+				'label'     => esc_html__( 'Reset Time', 'hashbar-wp-notification-bar' ),
 				'default'   => '23:59',
 				'isPro'     => false,
 				'condition' => array(
@@ -2113,16 +2114,16 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_countdown_recurring_days' => array(
 				'type'      => 'checkbox_group',
-				'label'     => esc_html__( 'Reset on these days', 'hashbar' ),
+				'label'     => esc_html__( 'Reset on these days', 'hashbar-wp-notification-bar' ),
 				'default'   => array( 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat' ),
 				'options'   => array(
-					'sun' => esc_html__( 'Sun', 'hashbar' ),
-					'mon' => esc_html__( 'Mon', 'hashbar' ),
-					'tue' => esc_html__( 'Tue', 'hashbar' ),
-					'wed' => esc_html__( 'Wed', 'hashbar' ),
-					'thu' => esc_html__( 'Thu', 'hashbar' ),
-					'fri' => esc_html__( 'Fri', 'hashbar' ),
-					'sat' => esc_html__( 'Sat', 'hashbar' ),
+					'sun' => esc_html__( 'Sun', 'hashbar-wp-notification-bar' ),
+					'mon' => esc_html__( 'Mon', 'hashbar-wp-notification-bar' ),
+					'tue' => esc_html__( 'Tue', 'hashbar-wp-notification-bar' ),
+					'wed' => esc_html__( 'Wed', 'hashbar-wp-notification-bar' ),
+					'thu' => esc_html__( 'Thu', 'hashbar-wp-notification-bar' ),
+					'fri' => esc_html__( 'Fri', 'hashbar-wp-notification-bar' ),
+					'sat' => esc_html__( 'Sat', 'hashbar-wp-notification-bar' ),
 				),
 				'isPro'     => false,
 				'condition' => array(
@@ -2133,11 +2134,11 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_countdown_timezone' => array(
 				'type'      => 'select',
-				'label'     => esc_html__( 'Timezone', 'hashbar' ),
+				'label'     => esc_html__( 'Timezone', 'hashbar-wp-notification-bar' ),
 				'default'   => 'site',
 				'options'   => array(
-					'site'    => esc_html__( 'Site Timezone', 'hashbar' ),
-					'visitor' => esc_html__( 'Visitor Timezone', 'hashbar' ),
+					'site'    => esc_html__( 'Site Timezone', 'hashbar-wp-notification-bar' ),
+					'visitor' => esc_html__( 'Visitor Timezone', 'hashbar-wp-notification-bar' ),
 				),
 				'condition' => array(
 					'key'      => '_wphash_popup_countdown_enabled',
@@ -2147,7 +2148,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'section_countdown_display' => array(
 				'type'      => 'section',
-				'label'     => esc_html__( 'Display Options', 'hashbar' ),
+				'label'     => esc_html__( 'Display Options', 'hashbar-wp-notification-bar' ),
 				'condition' => array(
 					'key'      => '_wphash_popup_countdown_enabled',
 					'operator' => '==',
@@ -2156,7 +2157,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_countdown_show_days' => array(
 				'type'      => 'switch',
-				'label'     => esc_html__( 'Show Days', 'hashbar' ),
+				'label'     => esc_html__( 'Show Days', 'hashbar-wp-notification-bar' ),
 				'default'   => true,
 				'condition' => array(
 					'key'      => '_wphash_popup_countdown_enabled',
@@ -2166,7 +2167,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_countdown_show_hours' => array(
 				'type'      => 'switch',
-				'label'     => esc_html__( 'Show Hours', 'hashbar' ),
+				'label'     => esc_html__( 'Show Hours', 'hashbar-wp-notification-bar' ),
 				'default'   => true,
 				'condition' => array(
 					'key'      => '_wphash_popup_countdown_enabled',
@@ -2176,7 +2177,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_countdown_show_minutes' => array(
 				'type'      => 'switch',
-				'label'     => esc_html__( 'Show Minutes', 'hashbar' ),
+				'label'     => esc_html__( 'Show Minutes', 'hashbar-wp-notification-bar' ),
 				'default'   => true,
 				'condition' => array(
 					'key'      => '_wphash_popup_countdown_enabled',
@@ -2186,7 +2187,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_countdown_show_seconds' => array(
 				'type'      => 'switch',
-				'label'     => esc_html__( 'Show Seconds', 'hashbar' ),
+				'label'     => esc_html__( 'Show Seconds', 'hashbar-wp-notification-bar' ),
 				'default'   => true,
 				'condition' => array(
 					'key'      => '_wphash_popup_countdown_enabled',
@@ -2196,8 +2197,8 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_countdown_label_days' => array(
 				'type'      => 'text',
-				'label'     => esc_html__( 'Days Label', 'hashbar' ),
-				'default'   => esc_html__( 'Days', 'hashbar' ),
+				'label'     => esc_html__( 'Days Label', 'hashbar-wp-notification-bar' ),
+				'default'   => esc_html__( 'Days', 'hashbar-wp-notification-bar' ),
 				'condition' => array(
 					'key'      => '_wphash_popup_countdown_show_days',
 					'operator' => '==',
@@ -2206,8 +2207,8 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_countdown_label_hours' => array(
 				'type'      => 'text',
-				'label'     => esc_html__( 'Hours Label', 'hashbar' ),
-				'default'   => esc_html__( 'Hours', 'hashbar' ),
+				'label'     => esc_html__( 'Hours Label', 'hashbar-wp-notification-bar' ),
+				'default'   => esc_html__( 'Hours', 'hashbar-wp-notification-bar' ),
 				'condition' => array(
 					'key'      => '_wphash_popup_countdown_show_hours',
 					'operator' => '==',
@@ -2216,8 +2217,8 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_countdown_label_minutes' => array(
 				'type'      => 'text',
-				'label'     => esc_html__( 'Minutes Label', 'hashbar' ),
-				'default'   => esc_html__( 'Minutes', 'hashbar' ),
+				'label'     => esc_html__( 'Minutes Label', 'hashbar-wp-notification-bar' ),
+				'default'   => esc_html__( 'Minutes', 'hashbar-wp-notification-bar' ),
 				'condition' => array(
 					'key'      => '_wphash_popup_countdown_show_minutes',
 					'operator' => '==',
@@ -2226,8 +2227,8 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_countdown_label_seconds' => array(
 				'type'      => 'text',
-				'label'     => esc_html__( 'Seconds Label', 'hashbar' ),
-				'default'   => esc_html__( 'Seconds', 'hashbar' ),
+				'label'     => esc_html__( 'Seconds Label', 'hashbar-wp-notification-bar' ),
+				'default'   => esc_html__( 'Seconds', 'hashbar-wp-notification-bar' ),
 				'condition' => array(
 					'key'      => '_wphash_popup_countdown_show_seconds',
 					'operator' => '==',
@@ -2236,7 +2237,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'section_countdown_style' => array(
 				'type'      => 'section',
-				'label'     => esc_html__( 'Style', 'hashbar' ),
+				'label'     => esc_html__( 'Style', 'hashbar-wp-notification-bar' ),
 				'condition' => array(
 					'key'      => '_wphash_popup_countdown_enabled',
 					'operator' => '==',
@@ -2245,13 +2246,13 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_countdown_style' => array(
 				'type'      => 'select',
-				'label'     => esc_html__( 'Countdown Style', 'hashbar' ),
+				'label'     => esc_html__( 'Countdown Style', 'hashbar-wp-notification-bar' ),
 				'default'   => 'boxes',
 				'options'   => array(
-					'inline'  => esc_html__( 'Inline', 'hashbar' ),
-					'boxes'   => esc_html__( 'Boxes', 'hashbar' ),
-					'circles' => esc_html__( 'Circles', 'hashbar' ),
-					'digital' => esc_html__( 'Digital', 'hashbar' ),
+					'inline'  => esc_html__( 'Inline', 'hashbar-wp-notification-bar' ),
+					'boxes'   => esc_html__( 'Boxes', 'hashbar-wp-notification-bar' ),
+					'circles' => esc_html__( 'Circles', 'hashbar-wp-notification-bar' ),
+					'digital' => esc_html__( 'Digital', 'hashbar-wp-notification-bar' ),
 				),
 				'isPro'     => array( 'circles', 'flip' ),
 				'condition' => array(
@@ -2262,12 +2263,12 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_countdown_size' => array(
 				'type'      => 'select',
-				'label'     => esc_html__( 'Size', 'hashbar' ),
+				'label'     => esc_html__( 'Size', 'hashbar-wp-notification-bar' ),
 				'default'   => 'medium',
 				'options'   => array(
-					'small'  => esc_html__( 'Small', 'hashbar' ),
-					'medium' => esc_html__( 'Medium', 'hashbar' ),
-					'large'  => esc_html__( 'Large', 'hashbar' ),
+					'small'  => esc_html__( 'Small', 'hashbar-wp-notification-bar' ),
+					'medium' => esc_html__( 'Medium', 'hashbar-wp-notification-bar' ),
+					'large'  => esc_html__( 'Large', 'hashbar-wp-notification-bar' ),
 				),
 				'condition' => array(
 					'key'      => '_wphash_popup_countdown_enabled',
@@ -2277,7 +2278,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_countdown_bg_color' => array(
 				'type'      => 'color',
-				'label'     => esc_html__( 'Background Color', 'hashbar' ),
+				'label'     => esc_html__( 'Background Color', 'hashbar-wp-notification-bar' ),
 				'default'   => '#1890ff',
 				'condition' => array(
 					'key'      => '_wphash_popup_countdown_enabled',
@@ -2287,7 +2288,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_countdown_text_color' => array(
 				'type'      => 'color',
-				'label'     => esc_html__( 'Number Color', 'hashbar' ),
+				'label'     => esc_html__( 'Number Color', 'hashbar-wp-notification-bar' ),
 				'default'   => '#ffffff',
 				'condition' => array(
 					'key'      => '_wphash_popup_countdown_enabled',
@@ -2297,7 +2298,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_countdown_label_color' => array(
 				'type'      => 'color',
-				'label'     => esc_html__( 'Label Color', 'hashbar' ),
+				'label'     => esc_html__( 'Label Color', 'hashbar-wp-notification-bar' ),
 				'default'   => '#666666',
 				'condition' => array(
 					'key'      => '_wphash_popup_countdown_enabled',
@@ -2307,7 +2308,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'section_countdown_expiry' => array(
 				'type'      => 'section',
-				'label'     => esc_html__( 'When Countdown Expires', 'hashbar' ),
+				'label'     => esc_html__( 'When Countdown Expires', 'hashbar-wp-notification-bar' ),
 				'condition' => array(
 					'key'      => '_wphash_popup_countdown_enabled',
 					'operator' => '==',
@@ -2316,12 +2317,12 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_countdown_expired_action' => array(
 				'type'      => 'select',
-				'label'     => esc_html__( 'Expiry Action', 'hashbar' ),
+				'label'     => esc_html__( 'Expiry Action', 'hashbar-wp-notification-bar' ),
 				'default'   => 'hide_popup',
 				'options'   => array(
-					'hide_popup'   => esc_html__( 'Hide Popup', 'hashbar' ),
-					'show_message' => esc_html__( 'Show Message', 'hashbar' ),
-					'redirect'     => esc_html__( 'Redirect to URL', 'hashbar' ),
+					'hide_popup'   => esc_html__( 'Hide Popup', 'hashbar-wp-notification-bar' ),
+					'show_message' => esc_html__( 'Show Message', 'hashbar-wp-notification-bar' ),
+					'redirect'     => esc_html__( 'Redirect to URL', 'hashbar-wp-notification-bar' ),
 				),
 				'isPro'     => array( 'show_message', 'redirect' ),
 				'condition' => array(
@@ -2332,8 +2333,8 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_countdown_expired_message' => array(
 				'type'      => 'textarea',
-				'label'     => esc_html__( 'Expired Message', 'hashbar' ),
-				'default'   => esc_html__( 'This offer has expired!', 'hashbar' ),
+				'label'     => esc_html__( 'Expired Message', 'hashbar-wp-notification-bar' ),
+				'default'   => esc_html__( 'This offer has expired!', 'hashbar-wp-notification-bar' ),
 				'isPro'     => false,
 				'condition' => array(
 					'key'      => '_wphash_popup_countdown_expired_action',
@@ -2343,7 +2344,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_countdown_expired_redirect' => array(
 				'type'      => 'text',
-				'label'     => esc_html__( 'Redirect URL', 'hashbar' ),
+				'label'     => esc_html__( 'Redirect URL', 'hashbar-wp-notification-bar' ),
 				'default'   => '',
 				'isPro'     => false,
 				'condition' => array(
@@ -2364,17 +2365,17 @@ class Hashbar_Popup_Campaign_Settings {
 		return array(
 			'section_coupon' => array(
 				'type'        => 'section',
-				'label'       => esc_html__( 'Coupon Code', 'hashbar' ),
-				'description' => esc_html__( 'Display a coupon code with copy functionality', 'hashbar' ),
+				'label'       => esc_html__( 'Coupon Code', 'hashbar-wp-notification-bar' ),
+				'description' => esc_html__( 'Display a coupon code with copy functionality', 'hashbar-wp-notification-bar' ),
 			),
 			'_wphash_popup_coupon_enabled' => array(
 				'type'    => 'switch',
-				'label'   => esc_html__( 'Enable Coupon', 'hashbar' ),
+				'label'   => esc_html__( 'Enable Coupon', 'hashbar-wp-notification-bar' ),
 				'default' => false,
 			),
 			'_wphash_popup_coupon_code' => array(
 				'type'      => 'text',
-				'label'     => esc_html__( 'Coupon Code', 'hashbar' ),
+				'label'     => esc_html__( 'Coupon Code', 'hashbar-wp-notification-bar' ),
 				'default'   => 'SAVE20',
 				'condition' => array(
 					'key'      => '_wphash_popup_coupon_enabled',
@@ -2384,8 +2385,8 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_coupon_label' => array(
 				'type'      => 'text',
-				'label'     => esc_html__( 'Label Above Code', 'hashbar' ),
-				'default'   => esc_html__( 'Use code:', 'hashbar' ),
+				'label'     => esc_html__( 'Label Above Code', 'hashbar-wp-notification-bar' ),
+				'default'   => esc_html__( 'Use code:', 'hashbar-wp-notification-bar' ),
 				'condition' => array(
 					'key'      => '_wphash_popup_coupon_enabled',
 					'operator' => '==',
@@ -2394,7 +2395,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_coupon_description' => array(
 				'type'      => 'textarea',
-				'label'     => esc_html__( 'Description', 'hashbar' ),
+				'label'     => esc_html__( 'Description', 'hashbar-wp-notification-bar' ),
 				'default'   => '',
 				'condition' => array(
 					'key'      => '_wphash_popup_coupon_enabled',
@@ -2404,7 +2405,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'section_coupon_copy' => array(
 				'type'      => 'section',
-				'label'     => esc_html__( 'Copy Button', 'hashbar' ),
+				'label'     => esc_html__( 'Copy Button', 'hashbar-wp-notification-bar' ),
 				'condition' => array(
 					'key'      => '_wphash_popup_coupon_enabled',
 					'operator' => '==',
@@ -2413,7 +2414,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_coupon_copy_button' => array(
 				'type'      => 'switch',
-				'label'     => esc_html__( 'Show Copy Button', 'hashbar' ),
+				'label'     => esc_html__( 'Show Copy Button', 'hashbar-wp-notification-bar' ),
 				'default'   => true,
 				'condition' => array(
 					'key'      => '_wphash_popup_coupon_enabled',
@@ -2423,8 +2424,8 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_coupon_copy_text' => array(
 				'type'      => 'text',
-				'label'     => esc_html__( 'Copy Button Text', 'hashbar' ),
-				'default'   => esc_html__( 'Copy', 'hashbar' ),
+				'label'     => esc_html__( 'Copy Button Text', 'hashbar-wp-notification-bar' ),
+				'default'   => esc_html__( 'Copy', 'hashbar-wp-notification-bar' ),
 				'condition' => array(
 					'key'      => '_wphash_popup_coupon_copy_button',
 					'operator' => '==',
@@ -2433,8 +2434,8 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_coupon_copied_text' => array(
 				'type'      => 'text',
-				'label'     => esc_html__( 'Copied Text', 'hashbar' ),
-				'default'   => esc_html__( 'Copied!', 'hashbar' ),
+				'label'     => esc_html__( 'Copied Text', 'hashbar-wp-notification-bar' ),
+				'default'   => esc_html__( 'Copied!', 'hashbar-wp-notification-bar' ),
 				'condition' => array(
 					'key'      => '_wphash_popup_coupon_copy_button',
 					'operator' => '==',
@@ -2443,7 +2444,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_coupon_copied_bg_color' => array(
 				'type'      => 'color',
-				'label'     => esc_html__( 'Copied Background Color', 'hashbar' ),
+				'label'     => esc_html__( 'Copied Background Color', 'hashbar-wp-notification-bar' ),
 				'default'   => '#52c41a',
 				'condition' => array(
 					'key'      => '_wphash_popup_coupon_copy_button',
@@ -2453,8 +2454,8 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_coupon_autocopy_on_click' => array(
 				'type'        => 'switch',
-				'label'       => esc_html__( 'Automatically copy the code', 'hashbar' ),
-				'description' => esc_html__( 'Automatically copy the code when users click on it', 'hashbar' ),
+				'label'       => esc_html__( 'Automatically copy the code', 'hashbar-wp-notification-bar' ),
+				'description' => esc_html__( 'Automatically copy the code when users click on it', 'hashbar-wp-notification-bar' ),
 				'default'     => false,
 				'isPro'       => true,
 				'condition'   => array(
@@ -2465,9 +2466,9 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_coupon_click_to_copy_text' => array(
 				'type'        => 'text',
-				'label'       => esc_html__( 'Click to Copy Text', 'hashbar' ),
-				'placeholder' => esc_html__( 'e.g., Click to copy', 'hashbar' ),
-				'default'     => esc_html__( 'Click to copy', 'hashbar' ),
+				'label'       => esc_html__( 'Click to Copy Text', 'hashbar-wp-notification-bar' ),
+				'placeholder' => esc_html__( 'e.g., Click to copy', 'hashbar-wp-notification-bar' ),
+				'default'     => esc_html__( 'Click to copy', 'hashbar-wp-notification-bar' ),
 				'isPro'       => true,
 				'condition'   => array(
 					'key'      => '_wphash_popup_coupon_autocopy_on_click',
@@ -2477,7 +2478,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'section_coupon_style' => array(
 				'type'      => 'section',
-				'label'     => esc_html__( 'Style', 'hashbar' ),
+				'label'     => esc_html__( 'Style', 'hashbar-wp-notification-bar' ),
 				'condition' => array(
 					'key'      => '_wphash_popup_coupon_enabled',
 					'operator' => '==',
@@ -2486,13 +2487,13 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_coupon_style' => array(
 				'type'      => 'select',
-				'label'     => esc_html__( 'Coupon Style', 'hashbar' ),
+				'label'     => esc_html__( 'Coupon Style', 'hashbar-wp-notification-bar' ),
 				'default'   => 'dashed',
 				'options'   => array(
-					'simple'   => esc_html__( 'Simple', 'hashbar' ),
-					'dashed'   => esc_html__( 'Dashed Border', 'hashbar' ),
-					'ticket'   => esc_html__( 'Ticket', 'hashbar' ),
-					'gradient' => esc_html__( 'Gradient', 'hashbar' ),
+					'simple'   => esc_html__( 'Simple', 'hashbar-wp-notification-bar' ),
+					'dashed'   => esc_html__( 'Dashed Border', 'hashbar-wp-notification-bar' ),
+					'ticket'   => esc_html__( 'Ticket', 'hashbar-wp-notification-bar' ),
+					'gradient' => esc_html__( 'Gradient', 'hashbar-wp-notification-bar' ),
 				),
 				'isPro'     => array( 'ticket', 'gradient' ),
 				'condition' => array(
@@ -2503,7 +2504,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_coupon_bg_color' => array(
 				'type'      => 'color',
-				'label'     => esc_html__( 'Background Color', 'hashbar' ),
+				'label'     => esc_html__( 'Background Color', 'hashbar-wp-notification-bar' ),
 				'default'   => '#f5f5f5',
 				'condition' => array(
 					'key'      => '_wphash_popup_coupon_enabled',
@@ -2513,7 +2514,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_coupon_text_color' => array(
 				'type'      => 'color',
-				'label'     => esc_html__( 'Code Text Color', 'hashbar' ),
+				'label'     => esc_html__( 'Code Text Color', 'hashbar-wp-notification-bar' ),
 				'default'   => '#1890ff',
 				'condition' => array(
 					'key'      => '_wphash_popup_coupon_enabled',
@@ -2523,7 +2524,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_coupon_border_color' => array(
 				'type'      => 'color',
-				'label'     => esc_html__( 'Border Color', 'hashbar' ),
+				'label'     => esc_html__( 'Border Color', 'hashbar-wp-notification-bar' ),
 				'default'   => '#1890ff',
 				'condition' => array(
 					'key'      => '_wphash_popup_coupon_enabled',
@@ -2533,7 +2534,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_coupon_font_size' => array(
 				'type'      => 'slider',
-				'label'     => esc_html__( 'Code Font Size', 'hashbar' ),
+				'label'     => esc_html__( 'Code Font Size', 'hashbar-wp-notification-bar' ),
 				'default'   => 18,
 				'min'       => 12,
 				'max'       => 60,
@@ -2546,7 +2547,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_coupon_label_font_size' => array(
 				'type'      => 'slider',
-				'label'     => esc_html__( 'Label Font Size', 'hashbar' ),
+				'label'     => esc_html__( 'Label Font Size', 'hashbar-wp-notification-bar' ),
 				'default'   => 14,
 				'min'       => 10,
 				'max'       => 40,
@@ -2559,7 +2560,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_coupon_button_font_size' => array(
 				'type'      => 'slider',
-				'label'     => esc_html__( 'Button Font Size', 'hashbar' ),
+				'label'     => esc_html__( 'Button Font Size', 'hashbar-wp-notification-bar' ),
 				'default'   => 14,
 				'min'       => 10,
 				'max'       => 30,
@@ -2572,7 +2573,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_coupon_gradient_start' => array(
 				'type'      => 'color',
-				'label'     => esc_html__( 'Gradient Start', 'hashbar' ),
+				'label'     => esc_html__( 'Gradient Start', 'hashbar-wp-notification-bar' ),
 				'default'   => '#667eea',
 				'condition' => array(
 					'key'      => '_wphash_popup_coupon_style',
@@ -2582,7 +2583,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_coupon_gradient_end' => array(
 				'type'      => 'color',
-				'label'     => esc_html__( 'Gradient End', 'hashbar' ),
+				'label'     => esc_html__( 'Gradient End', 'hashbar-wp-notification-bar' ),
 				'default'   => '#764ba2',
 				'condition' => array(
 					'key'      => '_wphash_popup_coupon_style',
@@ -2592,7 +2593,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_coupon_label_color' => array(
 				'type'      => 'color',
-				'label'     => esc_html__( 'Label Color', 'hashbar' ),
+				'label'     => esc_html__( 'Label Color', 'hashbar-wp-notification-bar' ),
 				'default'   => '#666666',
 				'condition' => array(
 					'key'      => '_wphash_popup_coupon_enabled',
@@ -2602,7 +2603,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_coupon_description_color' => array(
 				'type'      => 'color',
-				'label'     => esc_html__( 'Description Color', 'hashbar' ),
+				'label'     => esc_html__( 'Description Color', 'hashbar-wp-notification-bar' ),
 				'default'   => '#888888',
 				'condition' => array(
 					'key'      => '_wphash_popup_coupon_enabled',
@@ -2612,7 +2613,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_coupon_button_bg_color' => array(
 				'type'      => 'color',
-				'label'     => esc_html__( 'Button Background', 'hashbar' ),
+				'label'     => esc_html__( 'Button Background', 'hashbar-wp-notification-bar' ),
 				'default'   => '#1890ff',
 				'condition' => array(
 					'key'      => '_wphash_popup_coupon_copy_button',
@@ -2622,7 +2623,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_coupon_button_text_color' => array(
 				'type'      => 'color',
-				'label'     => esc_html__( 'Button Text Color', 'hashbar' ),
+				'label'     => esc_html__( 'Button Text Color', 'hashbar-wp-notification-bar' ),
 				'default'   => '#ffffff',
 				'condition' => array(
 					'key'      => '_wphash_popup_coupon_copy_button',
@@ -2632,8 +2633,8 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'section_coupon_woo' => array(
 				'type'        => 'section',
-				'label'       => esc_html__( 'WooCommerce Integration', 'hashbar' ),
-				'description' => esc_html__( 'Link to WooCommerce coupons', 'hashbar' ),
+				'label'       => esc_html__( 'WooCommerce Integration', 'hashbar-wp-notification-bar' ),
+				'description' => esc_html__( 'Link to WooCommerce coupons', 'hashbar-wp-notification-bar' ),
 				'isPro'       => true,
 				'condition'   => array(
 					'key'      => '_wphash_popup_coupon_enabled',
@@ -2643,7 +2644,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_coupon_woo_integration' => array(
 				'type'      => 'switch',
-				'label'     => esc_html__( 'Link to WooCommerce Coupon', 'hashbar' ),
+				'label'     => esc_html__( 'Link to WooCommerce Coupon', 'hashbar-wp-notification-bar' ),
 				'default'   => false,
 				'isPro'     => true,
 				'condition' => array(
@@ -2654,8 +2655,8 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_coupon_woo_coupon_id' => array(
 				'type'        => 'select',
-				'label'       => esc_html__( 'Select WooCommerce Coupon', 'hashbar' ),
-				'description' => esc_html__( 'Select a coupon from WooCommerce to use', 'hashbar' ),
+				'label'       => esc_html__( 'Select WooCommerce Coupon', 'hashbar-wp-notification-bar' ),
+				'description' => esc_html__( 'Select a coupon from WooCommerce to use', 'hashbar-wp-notification-bar' ),
 				'default'     => '',
 				'options'     => array(), // Options loaded dynamically
 				'condition'   => array(
@@ -2676,17 +2677,17 @@ class Hashbar_Popup_Campaign_Settings {
 		return array(
 			'section_schedule' => array(
 				'type'        => 'section',
-				'label'       => esc_html__( 'Schedule', 'hashbar' ),
-				'description' => esc_html__( 'Control when your popup is active', 'hashbar' ),
+				'label'       => esc_html__( 'Schedule', 'hashbar-wp-notification-bar' ),
+				'description' => esc_html__( 'Control when your popup is active', 'hashbar-wp-notification-bar' ),
 			),
 			'_wphash_popup_schedule_enabled' => array(
 				'type'    => 'switch',
-				'label'   => esc_html__( 'Enable Schedule', 'hashbar' ),
+				'label'   => esc_html__( 'Enable Schedule', 'hashbar-wp-notification-bar' ),
 				'default' => false,
 			),
 			'_wphash_popup_schedule_start_date' => array(
 				'type'      => 'datetime',
-				'label'     => esc_html__( 'Start Date & Time', 'hashbar' ),
+				'label'     => esc_html__( 'Start Date & Time', 'hashbar-wp-notification-bar' ),
 				'default'   => '',
 				'condition' => array(
 					'key'      => '_wphash_popup_schedule_enabled',
@@ -2696,7 +2697,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_schedule_end_date' => array(
 				'type'      => 'datetime',
-				'label'     => esc_html__( 'End Date & Time', 'hashbar' ),
+				'label'     => esc_html__( 'End Date & Time', 'hashbar-wp-notification-bar' ),
 				'default'   => '',
 				'condition' => array(
 					'key'      => '_wphash_popup_schedule_enabled',
@@ -2706,11 +2707,11 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_schedule_timezone' => array(
 				'type'      => 'select',
-				'label'     => esc_html__( 'Timezone', 'hashbar' ),
+				'label'     => esc_html__( 'Timezone', 'hashbar-wp-notification-bar' ),
 				'default'   => 'site',
 				'options'   => array(
-					'site'    => esc_html__( 'Site Timezone', 'hashbar' ),
-					'visitor' => esc_html__( 'Visitor Timezone', 'hashbar' ),
+					'site'    => esc_html__( 'Site Timezone', 'hashbar-wp-notification-bar' ),
+					'visitor' => esc_html__( 'Visitor Timezone', 'hashbar-wp-notification-bar' ),
 				),
 				'condition' => array(
 					'key'      => '_wphash_popup_schedule_enabled',
@@ -2720,9 +2721,9 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'section_schedule_days' => array(
 				'type'            => 'section',
-				'label'           => esc_html__( 'Day & Time Restrictions', 'hashbar' ),
+				'label'           => esc_html__( 'Day & Time Restrictions', 'hashbar-wp-notification-bar' ),
 				'isPro'           => true,
-				'proLockedMessage' => esc_html__( 'Upgrade to Pro to unlock day & time restrictions', 'hashbar' ),
+				'proLockedMessage' => esc_html__( 'Upgrade to Pro to unlock day & time restrictions', 'hashbar-wp-notification-bar' ),
 				'condition'       => array(
 					'key'      => '_wphash_popup_schedule_enabled',
 					'operator' => '==',
@@ -2731,7 +2732,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_schedule_days_enabled' => array(
 				'type'      => 'switch',
-				'label'     => esc_html__( 'Show Only on Specific Days', 'hashbar' ),
+				'label'     => esc_html__( 'Show Only on Specific Days', 'hashbar-wp-notification-bar' ),
 				'default'   => false,
 				'isPro'     => true,
 				'condition' => array(
@@ -2742,16 +2743,16 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_schedule_days' => array(
 				'type'      => 'checkbox_group',
-				'label'     => esc_html__( 'Days of Week', 'hashbar' ),
+				'label'     => esc_html__( 'Days of Week', 'hashbar-wp-notification-bar' ),
 				'default'   => array( 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday' ),
 				'options'   => array(
-					'monday'    => esc_html__( 'Monday', 'hashbar' ),
-					'tuesday'   => esc_html__( 'Tuesday', 'hashbar' ),
-					'wednesday' => esc_html__( 'Wednesday', 'hashbar' ),
-					'thursday'  => esc_html__( 'Thursday', 'hashbar' ),
-					'friday'    => esc_html__( 'Friday', 'hashbar' ),
-					'saturday'  => esc_html__( 'Saturday', 'hashbar' ),
-					'sunday'    => esc_html__( 'Sunday', 'hashbar' ),
+					'monday'    => esc_html__( 'Monday', 'hashbar-wp-notification-bar' ),
+					'tuesday'   => esc_html__( 'Tuesday', 'hashbar-wp-notification-bar' ),
+					'wednesday' => esc_html__( 'Wednesday', 'hashbar-wp-notification-bar' ),
+					'thursday'  => esc_html__( 'Thursday', 'hashbar-wp-notification-bar' ),
+					'friday'    => esc_html__( 'Friday', 'hashbar-wp-notification-bar' ),
+					'saturday'  => esc_html__( 'Saturday', 'hashbar-wp-notification-bar' ),
+					'sunday'    => esc_html__( 'Sunday', 'hashbar-wp-notification-bar' ),
 				),
 				'isPro'     => true,
 				'condition' => array(
@@ -2762,7 +2763,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_schedule_time_enabled' => array(
 				'type'      => 'switch',
-				'label'     => esc_html__( 'Show Only During Specific Hours', 'hashbar' ),
+				'label'     => esc_html__( 'Show Only During Specific Hours', 'hashbar-wp-notification-bar' ),
 				'default'   => false,
 				'isPro'     => true,
 				'condition' => array(
@@ -2773,7 +2774,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_schedule_time_start' => array(
 				'type'      => 'time',
-				'label'     => esc_html__( 'Start Time', 'hashbar' ),
+				'label'     => esc_html__( 'Start Time', 'hashbar-wp-notification-bar' ),
 				'default'   => '09:00',
 				'isPro'     => true,
 				'condition' => array(
@@ -2784,7 +2785,7 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			'_wphash_popup_schedule_time_end' => array(
 				'type'      => 'time',
-				'label'     => esc_html__( 'End Time', 'hashbar' ),
+				'label'     => esc_html__( 'End Time', 'hashbar-wp-notification-bar' ),
 				'default'   => '21:00',
 				'isPro'     => true,
 				'condition' => array(
@@ -2804,32 +2805,32 @@ class Hashbar_Popup_Campaign_Settings {
 	public static function get_form_plugin_info() {
 		return array(
 			'cf7' => array(
-				'name'       => esc_html__( 'Contact Form 7', 'hashbar' ),
+				'name'       => esc_html__( 'Contact Form 7', 'hashbar-wp-notification-bar' ),
 				'fieldKey'   => '_wphash_popup_cf7_form_id',
 				'pluginSlug' => 'contact-form-7',
 			),
 			'wpforms' => array(
-				'name'       => esc_html__( 'WPForms', 'hashbar' ),
+				'name'       => esc_html__( 'WPForms', 'hashbar-wp-notification-bar' ),
 				'fieldKey'   => '_wphash_popup_wpforms_form_id',
 				'pluginSlug' => 'wpforms-lite',
 			),
 			'ninja_forms' => array(
-				'name'       => esc_html__( 'Ninja Forms', 'hashbar' ),
+				'name'       => esc_html__( 'Ninja Forms', 'hashbar-wp-notification-bar' ),
 				'fieldKey'   => '_wphash_popup_ninja_form_id',
 				'pluginSlug' => 'ninja-forms',
 			),
 			'gravity_forms' => array(
-				'name'       => esc_html__( 'Gravity Forms', 'hashbar' ),
+				'name'       => esc_html__( 'Gravity Forms', 'hashbar-wp-notification-bar' ),
 				'fieldKey'   => '_wphash_popup_gravity_form_id',
 				'pluginSlug' => 'gravityforms',
 			),
 			'fluent_forms' => array(
-				'name'       => esc_html__( 'Fluent Forms', 'hashbar' ),
+				'name'       => esc_html__( 'Fluent Forms', 'hashbar-wp-notification-bar' ),
 				'fieldKey'   => '_wphash_popup_fluent_form_id',
 				'pluginSlug' => 'fluentform',
 			),
 			'ht_form' => array(
-				'name'       => esc_html__( 'HT Contact Form', 'hashbar' ),
+				'name'       => esc_html__( 'HT Contact Form', 'hashbar-wp-notification-bar' ),
 				'fieldKey'   => '_wphash_popup_ht_form_id',
 				'pluginSlug' => 'ht-contactform',
 			),
@@ -2844,141 +2845,141 @@ class Hashbar_Popup_Campaign_Settings {
 	public static function get_labels() {
 		return array(
 			// Editor UI
-			'editor_title'              => esc_html__( 'Edit Popup Campaign', 'hashbar' ),
-			'create_new'                => esc_html__( 'Create New Popup Campaign', 'hashbar' ),
-			'save'                      => esc_html__( 'Save', 'hashbar' ),
-			'cancel'                    => esc_html__( 'Cancel', 'hashbar' ),
-			'back'                      => esc_html__( 'Back', 'hashbar' ),
-			'delete'                    => esc_html__( 'Delete', 'hashbar' ),
-			'pro_feature'               => esc_html__( 'Pro Feature', 'hashbar' ),
-			'pro_badge'                 => esc_html__( 'PRO', 'hashbar' ),
+			'editor_title'              => esc_html__( 'Edit Popup Campaign', 'hashbar-wp-notification-bar' ),
+			'create_new'                => esc_html__( 'Create New Popup Campaign', 'hashbar-wp-notification-bar' ),
+			'save'                      => esc_html__( 'Save', 'hashbar-wp-notification-bar' ),
+			'cancel'                    => esc_html__( 'Cancel', 'hashbar-wp-notification-bar' ),
+			'back'                      => esc_html__( 'Back', 'hashbar-wp-notification-bar' ),
+			'delete'                    => esc_html__( 'Delete', 'hashbar-wp-notification-bar' ),
+			'pro_feature'               => esc_html__( 'Pro Feature', 'hashbar-wp-notification-bar' ),
+			'pro_badge'                 => esc_html__( 'PRO', 'hashbar-wp-notification-bar' ),
 
 			// List page UI
-			'list_all_popups'           => esc_html__( 'Popup Campaigns', 'hashbar' ),
-			'list_create_new'           => esc_html__( 'Create New', 'hashbar' ),
-			'list_search_placeholder'   => esc_html__( 'Search popup campaigns...', 'hashbar' ),
-			'list_no_popups_found'      => esc_html__( 'No popup campaigns found', 'hashbar' ),
-			'list_create_first'         => esc_html__( 'No popup campaigns yet', 'hashbar' ),
-			'list_duplicate'            => esc_html__( 'Duplicate', 'hashbar' ),
-			'list_delete_title'         => esc_html__( 'Delete Popup Campaign', 'hashbar' ),
-			'list_delete_confirm'       => esc_html__( 'Are you sure you want to delete this popup campaign?', 'hashbar' ),
-			'list_untitled'             => esc_html__( 'Untitled', 'hashbar' ),
-			'list_published'            => esc_html__( 'Published', 'hashbar' ),
-			'list_draft'                => esc_html__( 'Draft', 'hashbar' ),
-			'list_save_as_draft'        => esc_html__( 'Save as Draft', 'hashbar' ),
-			'list_publish'              => esc_html__( 'Publish', 'hashbar' ),
+			'list_all_popups'           => esc_html__( 'Popup Campaigns', 'hashbar-wp-notification-bar' ),
+			'list_create_new'           => esc_html__( 'Create New', 'hashbar-wp-notification-bar' ),
+			'list_search_placeholder'   => esc_html__( 'Search popup campaigns...', 'hashbar-wp-notification-bar' ),
+			'list_no_popups_found'      => esc_html__( 'No popup campaigns found', 'hashbar-wp-notification-bar' ),
+			'list_create_first'         => esc_html__( 'No popup campaigns yet', 'hashbar-wp-notification-bar' ),
+			'list_duplicate'            => esc_html__( 'Duplicate', 'hashbar-wp-notification-bar' ),
+			'list_delete_title'         => esc_html__( 'Delete Popup Campaign', 'hashbar-wp-notification-bar' ),
+			'list_delete_confirm'       => esc_html__( 'Are you sure you want to delete this popup campaign?', 'hashbar-wp-notification-bar' ),
+			'list_untitled'             => esc_html__( 'Untitled', 'hashbar-wp-notification-bar' ),
+			'list_published'            => esc_html__( 'Published', 'hashbar-wp-notification-bar' ),
+			'list_draft'                => esc_html__( 'Draft', 'hashbar-wp-notification-bar' ),
+			'list_save_as_draft'        => esc_html__( 'Save as Draft', 'hashbar-wp-notification-bar' ),
+			'list_publish'              => esc_html__( 'Publish', 'hashbar-wp-notification-bar' ),
 
 			// Live Preview UI
-			'preview_mode'              => esc_html__( 'Preview Mode', 'hashbar' ),
-			'preview_exit'              => esc_html__( 'Exit Preview', 'hashbar' ),
-			'preview_mobile'            => esc_html__( 'Mobile Preview', 'hashbar' ),
-			'preview_desktop'           => esc_html__( 'Desktop Preview', 'hashbar' ),
-			'preview_tablet'            => esc_html__( 'Tablet Preview', 'hashbar' ),
+			'preview_mode'              => esc_html__( 'Preview Mode', 'hashbar-wp-notification-bar' ),
+			'preview_exit'              => esc_html__( 'Exit Preview', 'hashbar-wp-notification-bar' ),
+			'preview_mobile'            => esc_html__( 'Mobile Preview', 'hashbar-wp-notification-bar' ),
+			'preview_desktop'           => esc_html__( 'Desktop Preview', 'hashbar-wp-notification-bar' ),
+			'preview_tablet'            => esc_html__( 'Tablet Preview', 'hashbar-wp-notification-bar' ),
 
 			// Form UI
-			'form_field_label'          => esc_html__( 'Field Label', 'hashbar' ),
-			'form_field_placeholder'    => esc_html__( 'Placeholder', 'hashbar' ),
-			'form_field_required'       => esc_html__( 'Required', 'hashbar' ),
-			'form_field_width'          => esc_html__( 'Field Width', 'hashbar' ),
-			'form_add_field'            => esc_html__( 'Add Field', 'hashbar' ),
-			'form_remove_field'         => esc_html__( 'Remove', 'hashbar' ),
+			'form_field_label'          => esc_html__( 'Field Label', 'hashbar-wp-notification-bar' ),
+			'form_field_placeholder'    => esc_html__( 'Placeholder', 'hashbar-wp-notification-bar' ),
+			'form_field_required'       => esc_html__( 'Required', 'hashbar-wp-notification-bar' ),
+			'form_field_width'          => esc_html__( 'Field Width', 'hashbar-wp-notification-bar' ),
+			'form_add_field'            => esc_html__( 'Add Field', 'hashbar-wp-notification-bar' ),
+			'form_remove_field'         => esc_html__( 'Remove', 'hashbar-wp-notification-bar' ),
 
 			// Analytics UI
-			'analytics_impressions'          => esc_html__( 'Impressions', 'hashbar' ),
-			'analytics_views'                => esc_html__( 'Views', 'hashbar' ),
-			'analytics_submissions'          => esc_html__( 'Submissions', 'hashbar' ),
-			'analytics_conversion_rate'      => esc_html__( 'Conversion Rate', 'hashbar' ),
-			'analytics_closes'               => esc_html__( 'Closes', 'hashbar' ),
-			'analytics_clicks'               => esc_html__( 'Clicks', 'hashbar' ),
-			'analytics_ctr'                  => esc_html__( 'Click-Through Rate', 'hashbar' ),
-			'analytics_conversions'          => esc_html__( 'Conversions', 'hashbar' ),
-			'analytics_data'                 => esc_html__( 'Analytics Data', 'hashbar' ),
-			'analytics_data_description'     => esc_html__( 'Real-time analytics for your popup campaigns. Data is collected from impressions, button clicks, form submissions, and user interactions.', 'hashbar' ),
-			'analytics_popup_campaign'       => esc_html__( 'Popup Campaign', 'hashbar' ),
-			'analytics_date_range'           => esc_html__( 'Date Range', 'hashbar' ),
-			'analytics_granularity'          => esc_html__( 'Granularity', 'hashbar' ),
-			'analytics_daily'                => esc_html__( 'Daily', 'hashbar' ),
-			'analytics_weekly'               => esc_html__( 'Weekly', 'hashbar' ),
-			'analytics_monthly'              => esc_html__( 'Monthly', 'hashbar' ),
-			'analytics_refresh'              => esc_html__( 'Refresh', 'hashbar' ),
-			'analytics_export'               => esc_html__( 'Export', 'hashbar' ),
-			'analytics_performance_over_time' => esc_html__( 'Performance Over Time', 'hashbar' ),
-			'analytics_device_distribution'  => esc_html__( 'Device Distribution', 'hashbar' ),
-			'analytics_top_countries'        => esc_html__( 'Top Countries', 'hashbar' ),
-			'analytics_page_performance'     => esc_html__( 'Page Performance', 'hashbar' ),
-			'analytics_no_data'              => esc_html__( 'No analytics data available yet. Views and clicks will appear here as visitors interact with your popup campaigns.', 'hashbar' ),
-			'analytics_date'                 => esc_html__( 'Date', 'hashbar' ),
-			'analytics_device'               => esc_html__( 'Device', 'hashbar' ),
-			'analytics_country'              => esc_html__( 'Country', 'hashbar' ),
-			'analytics_page_url'             => esc_html__( 'Page URL', 'hashbar' ),
-			'analytics_page_type'            => esc_html__( 'Type', 'hashbar' ),
-			'analytics_start_date'           => esc_html__( 'Start date', 'hashbar' ),
-			'analytics_end_date'             => esc_html__( 'End date', 'hashbar' ),
-			'analytics_all_popups'           => esc_html__( 'All Popup Campaigns', 'hashbar' ),
-			'analytics_select_popup'         => esc_html__( 'Select popup campaign', 'hashbar' ),
+			'analytics_impressions'          => esc_html__( 'Impressions', 'hashbar-wp-notification-bar' ),
+			'analytics_views'                => esc_html__( 'Views', 'hashbar-wp-notification-bar' ),
+			'analytics_submissions'          => esc_html__( 'Submissions', 'hashbar-wp-notification-bar' ),
+			'analytics_conversion_rate'      => esc_html__( 'Conversion Rate', 'hashbar-wp-notification-bar' ),
+			'analytics_closes'               => esc_html__( 'Closes', 'hashbar-wp-notification-bar' ),
+			'analytics_clicks'               => esc_html__( 'Clicks', 'hashbar-wp-notification-bar' ),
+			'analytics_ctr'                  => esc_html__( 'Click-Through Rate', 'hashbar-wp-notification-bar' ),
+			'analytics_conversions'          => esc_html__( 'Conversions', 'hashbar-wp-notification-bar' ),
+			'analytics_data'                 => esc_html__( 'Analytics Data', 'hashbar-wp-notification-bar' ),
+			'analytics_data_description'     => esc_html__( 'Real-time analytics for your popup campaigns. Data is collected from impressions, button clicks, form submissions, and user interactions.', 'hashbar-wp-notification-bar' ),
+			'analytics_popup_campaign'       => esc_html__( 'Popup Campaign', 'hashbar-wp-notification-bar' ),
+			'analytics_date_range'           => esc_html__( 'Date Range', 'hashbar-wp-notification-bar' ),
+			'analytics_granularity'          => esc_html__( 'Granularity', 'hashbar-wp-notification-bar' ),
+			'analytics_daily'                => esc_html__( 'Daily', 'hashbar-wp-notification-bar' ),
+			'analytics_weekly'               => esc_html__( 'Weekly', 'hashbar-wp-notification-bar' ),
+			'analytics_monthly'              => esc_html__( 'Monthly', 'hashbar-wp-notification-bar' ),
+			'analytics_refresh'              => esc_html__( 'Refresh', 'hashbar-wp-notification-bar' ),
+			'analytics_export'               => esc_html__( 'Export', 'hashbar-wp-notification-bar' ),
+			'analytics_performance_over_time' => esc_html__( 'Performance Over Time', 'hashbar-wp-notification-bar' ),
+			'analytics_device_distribution'  => esc_html__( 'Device Distribution', 'hashbar-wp-notification-bar' ),
+			'analytics_top_countries'        => esc_html__( 'Top Countries', 'hashbar-wp-notification-bar' ),
+			'analytics_page_performance'     => esc_html__( 'Page Performance', 'hashbar-wp-notification-bar' ),
+			'analytics_no_data'              => esc_html__( 'No analytics data available yet. Views and clicks will appear here as visitors interact with your popup campaigns.', 'hashbar-wp-notification-bar' ),
+			'analytics_date'                 => esc_html__( 'Date', 'hashbar-wp-notification-bar' ),
+			'analytics_device'               => esc_html__( 'Device', 'hashbar-wp-notification-bar' ),
+			'analytics_country'              => esc_html__( 'Country', 'hashbar-wp-notification-bar' ),
+			'analytics_page_url'             => esc_html__( 'Page URL', 'hashbar-wp-notification-bar' ),
+			'analytics_page_type'            => esc_html__( 'Type', 'hashbar-wp-notification-bar' ),
+			'analytics_start_date'           => esc_html__( 'Start date', 'hashbar-wp-notification-bar' ),
+			'analytics_end_date'             => esc_html__( 'End date', 'hashbar-wp-notification-bar' ),
+			'analytics_all_popups'           => esc_html__( 'All Popup Campaigns', 'hashbar-wp-notification-bar' ),
+			'analytics_select_popup'         => esc_html__( 'Select popup campaign', 'hashbar-wp-notification-bar' ),
 
 			// Analytics Tab Labels
-			'analytics_tab_announcement'     => esc_html__( 'Announcement', 'hashbar' ),
-			'analytics_tab_popup'            => esc_html__( 'Popup Campaign', 'hashbar' ),
-			'analytics_tab_notification'     => esc_html__( 'Notification', 'hashbar' ),
+			'analytics_tab_announcement'     => esc_html__( 'Announcement', 'hashbar-wp-notification-bar' ),
+			'analytics_tab_popup'            => esc_html__( 'Popup Campaign', 'hashbar-wp-notification-bar' ),
+			'analytics_tab_notification'     => esc_html__( 'Notification', 'hashbar-wp-notification-bar' ),
 
 			// A/B Testing UI
-			'ab_testing'                     => esc_html__( 'A/B Testing', 'hashbar' ),
-			'ab_testing_description'         => esc_html__( 'Test different variations of your popup campaigns to optimize performance.', 'hashbar' ),
-			'ab_testing_announcement'        => esc_html__( 'Announcement Bar', 'hashbar' ),
-			'ab_testing_popup'               => esc_html__( 'Popup Campaign', 'hashbar' ),
-			'ab_testing_enable'              => esc_html__( 'Enable A/B Testing', 'hashbar' ),
-			'ab_testing_enable_description'  => esc_html__( 'Enable A/B testing for this popup campaign', 'hashbar' ),
-			'ab_testing_control_variant'     => esc_html__( 'Control Variant (Original)', 'hashbar' ),
-			'ab_testing_control_description' => esc_html__( 'The original popup settings. Visitors not assigned to test variants will see this.', 'hashbar' ),
-			'ab_testing_test_variants'       => esc_html__( 'Test Variants', 'hashbar' ),
-			'ab_testing_no_variants'         => esc_html__( 'No variants yet', 'hashbar' ),
-			'ab_testing_add_variant_hint'    => esc_html__( 'Add a variant to start testing different versions of your popup.', 'hashbar' ),
-			'ab_testing_variant_name'        => esc_html__( 'Variant Name', 'hashbar' ),
-			'ab_testing_traffic_split'       => esc_html__( 'Traffic Split', 'hashbar' ),
-			'ab_testing_quick_settings'      => esc_html__( 'Quick Settings', 'hashbar' ),
-			'ab_testing_button_text'         => esc_html__( 'Button Text', 'hashbar' ),
-			'ab_testing_title_text'          => esc_html__( 'Title Text', 'hashbar' ),
-			'ab_testing_fields_customized'   => esc_html__( 'fields customized', 'hashbar' ),
-			'ab_testing_field_customized'    => esc_html__( 'field customized', 'hashbar' ),
-			'ab_testing_add_variant'         => esc_html__( 'Add Variant', 'hashbar' ),
-			'ab_testing_add_variant_hint2'   => esc_html__( 'Create a new variant to test different configurations', 'hashbar' ),
-			'ab_testing_setup'               => esc_html__( 'Setup', 'hashbar' ),
-			'ab_testing_statistics'          => esc_html__( 'Statistics', 'hashbar' ),
-			'ab_testing_stats_title'         => esc_html__( 'A/B Test Statistics', 'hashbar' ),
-			'ab_testing_total_visitors'      => esc_html__( 'Total Visitors', 'hashbar' ),
-			'ab_testing_variant'             => esc_html__( 'Variant', 'hashbar' ),
-			'ab_testing_control'             => esc_html__( 'Control', 'hashbar' ),
-			'ab_testing_winner'              => esc_html__( 'Winner', 'hashbar' ),
-			'ab_testing_conv_rate'           => esc_html__( 'Conv. Rate', 'hashbar' ),
-			'ab_testing_no_stats'            => esc_html__( 'No statistics available yet. Statistics will appear as visitors interact with your popup.', 'hashbar' ),
-			'ab_testing_save_first'          => esc_html__( 'Save the popup campaign to view statistics', 'hashbar' ),
-			'ab_testing_pro_feature'         => esc_html__( 'A/B Testing is available exclusively for HashBar Pro users. Make sure HashBar Pro plugin is installed and activated. Upgrade now to unlock this powerful feature and maximize your popup campaign performance.', 'hashbar' ),
-			'ab_testing_select_popup'        => esc_html__( 'Select Popup Campaign', 'hashbar' ),
-			'ab_testing_select_bar'          => esc_html__( 'Select Announcement Bar', 'hashbar' ),
-			'ab_testing_create_new_popup'    => esc_html__( 'Create New Popup', 'hashbar' ),
-			'ab_testing_create_new_bar'      => esc_html__( 'Create New Bar', 'hashbar' ),
-			'ab_testing_edit_popup'          => esc_html__( 'Edit Popup', 'hashbar' ),
-			'ab_testing_edit_bar'            => esc_html__( 'Edit Bar', 'hashbar' ),
-			'ab_testing_save_changes'        => esc_html__( 'Save Changes', 'hashbar' ),
-			'ab_testing_saved_success'       => esc_html__( 'A/B test configuration saved successfully', 'hashbar' ),
-			'ab_testing_saved_error'         => esc_html__( 'Failed to save A/B test configuration', 'hashbar' ),
-			'ab_testing_no_popups'           => esc_html__( 'No popup campaigns found', 'hashbar' ),
-			'ab_testing_no_bars'             => esc_html__( 'No announcement bars found', 'hashbar' ),
-			'ab_testing_create_first_popup'  => esc_html__( 'Create a popup campaign first to set up A/B tests.', 'hashbar' ),
-			'ab_testing_create_first_bar'    => esc_html__( 'Create an announcement bar first to set up A/B tests.', 'hashbar' ),
-			'ab_testing_select_to_configure' => esc_html__( 'Please select a popup campaign to configure A/B testing', 'hashbar' ),
+			'ab_testing'                     => esc_html__( 'A/B Testing', 'hashbar-wp-notification-bar' ),
+			'ab_testing_description'         => esc_html__( 'Test different variations of your popup campaigns to optimize performance.', 'hashbar-wp-notification-bar' ),
+			'ab_testing_announcement'        => esc_html__( 'Announcement Bar', 'hashbar-wp-notification-bar' ),
+			'ab_testing_popup'               => esc_html__( 'Popup Campaign', 'hashbar-wp-notification-bar' ),
+			'ab_testing_enable'              => esc_html__( 'Enable A/B Testing', 'hashbar-wp-notification-bar' ),
+			'ab_testing_enable_description'  => esc_html__( 'Enable A/B testing for this popup campaign', 'hashbar-wp-notification-bar' ),
+			'ab_testing_control_variant'     => esc_html__( 'Control Variant (Original)', 'hashbar-wp-notification-bar' ),
+			'ab_testing_control_description' => esc_html__( 'The original popup settings. Visitors not assigned to test variants will see this.', 'hashbar-wp-notification-bar' ),
+			'ab_testing_test_variants'       => esc_html__( 'Test Variants', 'hashbar-wp-notification-bar' ),
+			'ab_testing_no_variants'         => esc_html__( 'No variants yet', 'hashbar-wp-notification-bar' ),
+			'ab_testing_add_variant_hint'    => esc_html__( 'Add a variant to start testing different versions of your popup.', 'hashbar-wp-notification-bar' ),
+			'ab_testing_variant_name'        => esc_html__( 'Variant Name', 'hashbar-wp-notification-bar' ),
+			'ab_testing_traffic_split'       => esc_html__( 'Traffic Split', 'hashbar-wp-notification-bar' ),
+			'ab_testing_quick_settings'      => esc_html__( 'Quick Settings', 'hashbar-wp-notification-bar' ),
+			'ab_testing_button_text'         => esc_html__( 'Button Text', 'hashbar-wp-notification-bar' ),
+			'ab_testing_title_text'          => esc_html__( 'Title Text', 'hashbar-wp-notification-bar' ),
+			'ab_testing_fields_customized'   => esc_html__( 'fields customized', 'hashbar-wp-notification-bar' ),
+			'ab_testing_field_customized'    => esc_html__( 'field customized', 'hashbar-wp-notification-bar' ),
+			'ab_testing_add_variant'         => esc_html__( 'Add Variant', 'hashbar-wp-notification-bar' ),
+			'ab_testing_add_variant_hint2'   => esc_html__( 'Create a new variant to test different configurations', 'hashbar-wp-notification-bar' ),
+			'ab_testing_setup'               => esc_html__( 'Setup', 'hashbar-wp-notification-bar' ),
+			'ab_testing_statistics'          => esc_html__( 'Statistics', 'hashbar-wp-notification-bar' ),
+			'ab_testing_stats_title'         => esc_html__( 'A/B Test Statistics', 'hashbar-wp-notification-bar' ),
+			'ab_testing_total_visitors'      => esc_html__( 'Total Visitors', 'hashbar-wp-notification-bar' ),
+			'ab_testing_variant'             => esc_html__( 'Variant', 'hashbar-wp-notification-bar' ),
+			'ab_testing_control'             => esc_html__( 'Control', 'hashbar-wp-notification-bar' ),
+			'ab_testing_winner'              => esc_html__( 'Winner', 'hashbar-wp-notification-bar' ),
+			'ab_testing_conv_rate'           => esc_html__( 'Conv. Rate', 'hashbar-wp-notification-bar' ),
+			'ab_testing_no_stats'            => esc_html__( 'No statistics available yet. Statistics will appear as visitors interact with your popup.', 'hashbar-wp-notification-bar' ),
+			'ab_testing_save_first'          => esc_html__( 'Save the popup campaign to view statistics', 'hashbar-wp-notification-bar' ),
+			'ab_testing_pro_feature'         => esc_html__( 'A/B Testing is available exclusively for HashBar Pro users. Make sure HashBar Pro plugin is installed and activated. Upgrade now to unlock this powerful feature and maximize your popup campaign performance.', 'hashbar-wp-notification-bar' ),
+			'ab_testing_select_popup'        => esc_html__( 'Select Popup Campaign', 'hashbar-wp-notification-bar' ),
+			'ab_testing_select_bar'          => esc_html__( 'Select Announcement Bar', 'hashbar-wp-notification-bar' ),
+			'ab_testing_create_new_popup'    => esc_html__( 'Create New Popup', 'hashbar-wp-notification-bar' ),
+			'ab_testing_create_new_bar'      => esc_html__( 'Create New Bar', 'hashbar-wp-notification-bar' ),
+			'ab_testing_edit_popup'          => esc_html__( 'Edit Popup', 'hashbar-wp-notification-bar' ),
+			'ab_testing_edit_bar'            => esc_html__( 'Edit Bar', 'hashbar-wp-notification-bar' ),
+			'ab_testing_save_changes'        => esc_html__( 'Save Changes', 'hashbar-wp-notification-bar' ),
+			'ab_testing_saved_success'       => esc_html__( 'A/B test configuration saved successfully', 'hashbar-wp-notification-bar' ),
+			'ab_testing_saved_error'         => esc_html__( 'Failed to save A/B test configuration', 'hashbar-wp-notification-bar' ),
+			'ab_testing_no_popups'           => esc_html__( 'No popup campaigns found', 'hashbar-wp-notification-bar' ),
+			'ab_testing_no_bars'             => esc_html__( 'No announcement bars found', 'hashbar-wp-notification-bar' ),
+			'ab_testing_create_first_popup'  => esc_html__( 'Create a popup campaign first to set up A/B tests.', 'hashbar-wp-notification-bar' ),
+			'ab_testing_create_first_bar'    => esc_html__( 'Create an announcement bar first to set up A/B tests.', 'hashbar-wp-notification-bar' ),
+			'ab_testing_select_to_configure' => esc_html__( 'Please select a popup campaign to configure A/B testing', 'hashbar-wp-notification-bar' ),
 
 			// Common actions
-			'edit'                      => esc_html__( 'Edit', 'hashbar' ),
-			'duplicate'                 => esc_html__( 'Duplicate', 'hashbar' ),
-			'close'                     => esc_html__( 'Close', 'hashbar' ),
-			'loading'                   => esc_html__( 'Loading...', 'hashbar' ),
-			'success'                   => esc_html__( 'Success', 'hashbar' ),
-			'error'                     => esc_html__( 'Error', 'hashbar' ),
-			'confirm'                   => esc_html__( 'Confirm', 'hashbar' ),
-			'yes'                       => esc_html__( 'Yes', 'hashbar' ),
-			'no'                        => esc_html__( 'No', 'hashbar' ),
+			'edit'                      => esc_html__( 'Edit', 'hashbar-wp-notification-bar' ),
+			'duplicate'                 => esc_html__( 'Duplicate', 'hashbar-wp-notification-bar' ),
+			'close'                     => esc_html__( 'Close', 'hashbar-wp-notification-bar' ),
+			'loading'                   => esc_html__( 'Loading...', 'hashbar-wp-notification-bar' ),
+			'success'                   => esc_html__( 'Success', 'hashbar-wp-notification-bar' ),
+			'error'                     => esc_html__( 'Error', 'hashbar-wp-notification-bar' ),
+			'confirm'                   => esc_html__( 'Confirm', 'hashbar-wp-notification-bar' ),
+			'yes'                       => esc_html__( 'Yes', 'hashbar-wp-notification-bar' ),
+			'no'                        => esc_html__( 'No', 'hashbar-wp-notification-bar' ),
 		);
 	}
 
@@ -2994,7 +2995,7 @@ class Hashbar_Popup_Campaign_Settings {
 	 */
 	public static function get_video_guide() {
 		return array(
-			'label' => esc_html__( 'Video Guide', 'hashbar' ),
+			'label' => esc_html__( 'Video Guide', 'hashbar-wp-notification-bar' ),
 			'url'   => 'https://www.youtube.com/watch?v=2sfpzqQ7OUU',
 		);
 	}
@@ -3050,8 +3051,8 @@ class Hashbar_Popup_Campaign_Settings {
 		return array(
 			array(
 				'id'          => 'blank',
-				'name'        => esc_html__( 'Blank', 'hashbar' ),
-				'description' => esc_html__( 'Start from scratch with a blank canvas', 'hashbar' ),
+				'name'        => esc_html__( 'Blank', 'hashbar-wp-notification-bar' ),
+				'description' => esc_html__( 'Start from scratch with a blank canvas', 'hashbar-wp-notification-bar' ),
 				'category'    => 'free',
 				'tags'        => array( 'Starter', 'Center' ),
 				'preview'     => '',
@@ -3059,17 +3060,17 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			array(
 				'id'          => 'newsletter_classic',
-				'name'        => __( 'Newsletter Classic', 'hashbar' ),
-				'description' => __( 'Simple and effective newsletter signup popup', 'hashbar' ),
+				'name'        => __( 'Newsletter Classic', 'hashbar-wp-notification-bar' ),
+				'description' => __( 'Simple and effective newsletter signup popup', 'hashbar-wp-notification-bar' ),
 				'category'    => 'free',
 				'tags'        => array( 'Lead Capture', 'Center' ),
 				'preview'     => '',
 				'config'      => array(
 					'_wphash_popup_position'         => 'center',
 					'_wphash_popup_campaign_type'    => 'lead_capture',
-					'_wphash_popup_heading'          => __( 'Join Our Newsletter', 'hashbar' ),
-					'_wphash_popup_description'      => __( 'Subscribe to get special offers, free giveaways, and updates', 'hashbar' ),
-					'_wphash_popup_form_submit_text' => __( 'Subscribe', 'hashbar' ),
+					'_wphash_popup_heading'          => __( 'Join Our Newsletter', 'hashbar-wp-notification-bar' ),
+					'_wphash_popup_description'      => __( 'Subscribe to get special offers, free giveaways, and updates', 'hashbar-wp-notification-bar' ),
+					'_wphash_popup_form_submit_text' => __( 'Subscribe', 'hashbar-wp-notification-bar' ),
 					'_wphash_popup_form_enabled'     => true,
 					'_wphash_popup_text_align'       => 'center',
 					'_wphash_popup_form_alignment'   => 'left',
@@ -3082,8 +3083,8 @@ class Hashbar_Popup_Campaign_Settings {
 			// Split E-commerce Template
 			array(
 				'id'          => 'split_ecommerce',
-				'name'        => __( 'Split E-commerce', 'hashbar' ),
-				'description' => __( 'E-commerce popup with split image layout and newsletter signup', 'hashbar' ),
+				'name'        => __( 'Split E-commerce', 'hashbar-wp-notification-bar' ),
+				'description' => __( 'E-commerce popup with split image layout and newsletter signup', 'hashbar-wp-notification-bar' ),
 				'category'    => 'pro',
 				'tags'        => array( 'E-commerce', 'Lead Capture', 'Center' ),
 				'preview'     => self::get_template_preview_url( 'split-e-commerce.png' ),
@@ -3093,7 +3094,7 @@ class Hashbar_Popup_Campaign_Settings {
 					'_wphash_popup_campaign_type'         => 'welcome',
 					// Content
 					'_wphash_popup_heading'               => 'Unlock <br><span style="color:#ff4757">20% OFF</span>',
-					'_wphash_popup_description'           => __( 'Sign up to our newsletter and get a discount code instantly in your inbox.', 'hashbar' ),
+					'_wphash_popup_description'           => __( 'Sign up to our newsletter and get a discount code instantly in your inbox.', 'hashbar-wp-notification-bar' ),
 					// Image
 					'_wphash_popup_image'                 => array(
 						'url' => self::get_template_image_url( 'split-ecommerce-left-side.png' ),
@@ -3105,14 +3106,14 @@ class Hashbar_Popup_Campaign_Settings {
 					'_wphash_popup_image_alignment'       => 'center',
 					// Form
 					'_wphash_popup_form_enabled'          => true,
-					'_wphash_popup_form_submit_text'      => __( 'Subscribe', 'hashbar' ),
+					'_wphash_popup_form_submit_text'      => __( 'Subscribe', 'hashbar-wp-notification-bar' ),
 					'_wphash_popup_form_alignment'        => 'left',
 					'_wphash_popup_form_fields'           => array(
 						array(
 							'id'          => 'email_1',
 							'type'        => 'email',
 							'label'       => '',
-							'placeholder' => __( 'Email Address', 'hashbar' ),
+							'placeholder' => __( 'Email Address', 'hashbar-wp-notification-bar' ),
 							'required'    => true,
 						),
 					),
@@ -3146,17 +3147,17 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			array(
 				'id'          => 'discount_offer',
-				'name'        => __( 'Discount Offer', 'hashbar' ),
-				'description' => __( 'Eye-catching discount popup to boost conversions', 'hashbar' ),
+				'name'        => __( 'Discount Offer', 'hashbar-wp-notification-bar' ),
+				'description' => __( 'Eye-catching discount popup to boost conversions', 'hashbar-wp-notification-bar' ),
 				'category'    => 'free',
 				'tags'        => array( 'Promotional', 'Center' ),
 				'preview'     => '',
 				'config'      => array(
 					'_wphash_popup_position'         => 'center',
 					'_wphash_popup_campaign_type'    => 'promotion',
-					'_wphash_popup_heading'          => __( 'Get 15% OFF Your First Order!', 'hashbar' ),
-					'_wphash_popup_description'      => __( 'Join our mailing list and unlock your exclusive discount code', 'hashbar' ),
-					'_wphash_popup_form_submit_text' => __( 'Get My Discount', 'hashbar' ),
+					'_wphash_popup_heading'          => __( 'Get 15% OFF Your First Order!', 'hashbar-wp-notification-bar' ),
+					'_wphash_popup_description'      => __( 'Join our mailing list and unlock your exclusive discount code', 'hashbar-wp-notification-bar' ),
+					'_wphash_popup_form_submit_text' => __( 'Get My Discount', 'hashbar-wp-notification-bar' ),
 					'_wphash_popup_form_enabled'     => true,
 					'_wphash_popup_text_align'       => 'center',
 					'_wphash_popup_form_alignment'   => 'left',
@@ -3170,8 +3171,8 @@ class Hashbar_Popup_Campaign_Settings {
 			// Discount Coupon Template
 			array(
 				'id'          => 'discount_coupon',
-				'name'        => __( 'Discount Coupon', 'hashbar' ),
-				'description' => __( 'Eye-catching coupon design with bold discount display', 'hashbar' ),
+				'name'        => __( 'Discount Coupon', 'hashbar-wp-notification-bar' ),
+				'description' => __( 'Eye-catching coupon design with bold discount display', 'hashbar-wp-notification-bar' ),
 				'category'    => 'pro',
 				'tags'        => array( 'Coupon', 'Discount', 'E-commerce' ),
 				'preview'     => self::get_template_preview_url( 'discount-coupon.png' ),
@@ -3179,8 +3180,8 @@ class Hashbar_Popup_Campaign_Settings {
 					'_wphash_popup_position'            => 'center',
 					'_wphash_popup_content_type'        => 'custom',
 					'_wphash_popup_campaign_type'       => 'promotion',
-					'_wphash_popup_heading'             => __( "Don't miss out on savings!", 'hashbar' ),
-					'_wphash_popup_description'         => __( "Grab this coupon before it's gone.", 'hashbar' ),
+					'_wphash_popup_heading'             => __( "Don't miss out on savings!", 'hashbar-wp-notification-bar' ),
+					'_wphash_popup_description'         => __( "Grab this coupon before it's gone.", 'hashbar-wp-notification-bar' ),
 					// Coupon settings
 					'_wphash_popup_coupon_enabled'      => true,
 					'_wphash_popup_coupon_code'         => 'SAVE50',
@@ -3189,13 +3190,13 @@ class Hashbar_Popup_Campaign_Settings {
 					'_wphash_popup_coupon_text_color'   => '#ffffff',
 					'_wphash_popup_coupon_border_color' => '#555555',
 					'_wphash_popup_coupon_copy_button'  => true,
-					'_wphash_popup_coupon_copy_text'    => __( 'Copy', 'hashbar' ),
+					'_wphash_popup_coupon_copy_text'    => __( 'Copy', 'hashbar-wp-notification-bar' ),
 					'_wphash_popup_coupon_button_bg_color'   => '#ff4444',
 					'_wphash_popup_coupon_button_text_color' => '#ffffff',
 					// CTA Button
 					'_wphash_popup_cta_enabled'         => true,
-					'_wphash_popup_cta_text'            => __( 'CLAIM MY DISCOUNT', 'hashbar' ),
-					'_wphash_popup_close_text'          => __( "No thanks, I don't want a discount", 'hashbar' ),
+					'_wphash_popup_cta_text'            => __( 'CLAIM MY DISCOUNT', 'hashbar-wp-notification-bar' ),
+					'_wphash_popup_close_text'          => __( "No thanks, I don't want a discount", 'hashbar-wp-notification-bar' ),
 					// Colors - dark theme
 					'_wphash_popup_bg_color'            => '#2d2d2d',
 					'_wphash_popup_heading_color'       => '#ff4444',
@@ -3214,17 +3215,17 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			array(
 				'id'          => 'welcome_popup',
-				'name'        => __( 'Welcome Popup', 'hashbar' ),
-				'description' => __( 'Warm welcome message for first-time visitors', 'hashbar' ),
+				'name'        => __( 'Welcome Popup', 'hashbar-wp-notification-bar' ),
+				'description' => __( 'Warm welcome message for first-time visitors', 'hashbar-wp-notification-bar' ),
 				'category'    => 'free',
 				'tags'        => array( 'Welcome', 'Center' ),
 				'preview'     => '',
 				'config'      => array(
 					'_wphash_popup_position'       => 'center',
 					'_wphash_popup_campaign_type'  => 'welcome',
-					'_wphash_popup_heading'        => __( 'Welcome to Our Store!', 'hashbar' ),
-					'_wphash_popup_description'    => __( 'Discover our curated collection of premium products', 'hashbar' ),
-					'_wphash_popup_cta_text'       => __( 'Start Shopping', 'hashbar' ),
+					'_wphash_popup_heading'        => __( 'Welcome to Our Store!', 'hashbar-wp-notification-bar' ),
+					'_wphash_popup_description'    => __( 'Discover our curated collection of premium products', 'hashbar-wp-notification-bar' ),
+					'_wphash_popup_cta_text'       => __( 'Start Shopping', 'hashbar-wp-notification-bar' ),
 					'_wphash_popup_cta_enabled'    => true,
 					'_wphash_popup_form_enabled'   => false,
 					'_wphash_popup_bg_color'       => '#f0f5ff',
@@ -3237,8 +3238,8 @@ class Hashbar_Popup_Campaign_Settings {
 			// Flash Sale Template
 			array(
 				'id'          => 'flash_sale',
-				'name'        => __( 'Flash Sale', 'hashbar' ),
-				'description' => __( 'Urgent flash sale popup with countdown timer and coupon code', 'hashbar' ),
+				'name'        => __( 'Flash Sale', 'hashbar-wp-notification-bar' ),
+				'description' => __( 'Urgent flash sale popup with countdown timer and coupon code', 'hashbar-wp-notification-bar' ),
 				'category'    => 'pro',
 				'tags'        => array( 'Countdown', 'Coupon', 'Promotional' ),
 				'preview'     => self::get_template_preview_url( 'flash-sale.png' ),
@@ -3247,9 +3248,9 @@ class Hashbar_Popup_Campaign_Settings {
 					'_wphash_popup_position'              => 'center',
 					'_wphash_popup_campaign_type'         => 'promotion',
 					// Content
-					'_wphash_popup_subheading'            => __( 'LIMITED TIME OFFER', 'hashbar' ),
-					'_wphash_popup_heading'               => __( 'FLASH SALE', 'hashbar' ),
-					'_wphash_popup_description'           => __( 'Get an extra 10% off using the code below', 'hashbar' ),
+					'_wphash_popup_subheading'            => __( 'LIMITED TIME OFFER', 'hashbar-wp-notification-bar' ),
+					'_wphash_popup_heading'               => __( 'FLASH SALE', 'hashbar-wp-notification-bar' ),
+					'_wphash_popup_description'           => __( 'Get an extra 10% off using the code below', 'hashbar-wp-notification-bar' ),
 					// Countdown Timer
 					'_wphash_popup_countdown_enabled'     => true,
 					'_wphash_popup_countdown_type'        => 'evergreen',
@@ -3311,8 +3312,8 @@ class Hashbar_Popup_Campaign_Settings {
 			// Cyber Monday Template
 			array(
 				'id'          => 'cyber_monday',
-				'name'        => __( 'Cyber Monday', 'hashbar' ),
-				'description' => __( 'Cyber Monday deal popup with side image and coupon code', 'hashbar' ),
+				'name'        => __( 'Cyber Monday', 'hashbar-wp-notification-bar' ),
+				'description' => __( 'Cyber Monday deal popup with side image and coupon code', 'hashbar-wp-notification-bar' ),
 				'category'    => 'pro',
 				'tags'        => array( 'Coupon', 'Promotional', 'Center' ),
 				'preview'     => self::get_template_preview_url( 'cyber-moday.png' ),
@@ -3322,8 +3323,8 @@ class Hashbar_Popup_Campaign_Settings {
 					'_wphash_popup_campaign_type'         => 'promotion',
 					// Content
 					'_wphash_popup_heading'               => 'CYBER <br>MONDAY',
-					'_wphash_popup_subheading'            => __( '*Valid for the next 24 hours only.', 'hashbar' ),
-					'_wphash_popup_description'           => __( 'Upgrade your tech game with exclusive deals on all electronics.', 'hashbar' ),
+					'_wphash_popup_subheading'            => __( '*Valid for the next 24 hours only.', 'hashbar-wp-notification-bar' ),
+					'_wphash_popup_description'           => __( 'Upgrade your tech game with exclusive deals on all electronics.', 'hashbar-wp-notification-bar' ),
 					// Image
 					'_wphash_popup_image'                 => array(
 						'url' => self::get_template_image_url( 'cyber-monday-lef-side.png' ),
@@ -3344,7 +3345,7 @@ class Hashbar_Popup_Campaign_Settings {
 					'_wphash_popup_coupon_autocopy_on_click'  => true,
 					'_wphash_popup_coupon_label'              => '',
 					'_wphash_popup_coupon_font_size'          => 24,
-					'_wphash_popup_coupon_copy_text'          => __( 'COPY', 'hashbar' ),
+					'_wphash_popup_coupon_copy_text'          => __( 'COPY', 'hashbar-wp-notification-bar' ),
 					'_wphash_popup_coupon_button_bg_color'    => '#00f2ff',
 					'_wphash_popup_coupon_button_text_color'  => '#000000',
 					// Design
@@ -3390,8 +3391,8 @@ class Hashbar_Popup_Campaign_Settings {
 			// Countdown Promotion Template
 			array(
 				'id'          => 'countdown_promo',
-				'name'        => __( 'Countdown Promotion', 'hashbar' ),
-				'description' => __( 'Create urgency with a countdown timer and promotional offer', 'hashbar' ),
+				'name'        => __( 'Countdown Promotion', 'hashbar-wp-notification-bar' ),
+				'description' => __( 'Create urgency with a countdown timer and promotional offer', 'hashbar-wp-notification-bar' ),
 				'category'    => 'free',
 				'tags'        => array( 'Countdown', 'Promotional', 'Center' ),
 				'preview'     => '',
@@ -3400,8 +3401,8 @@ class Hashbar_Popup_Campaign_Settings {
 					'_wphash_popup_position'           => 'center',
 					'_wphash_popup_campaign_type'      => 'promotion',
 					// Content
-					'_wphash_popup_heading'            => __( 'Limited Time Offer!', 'hashbar' ),
-					'_wphash_popup_description'        => __( 'Subscribe below to unlock your exclusive discount code', 'hashbar' ),
+					'_wphash_popup_heading'            => __( 'Limited Time Offer!', 'hashbar-wp-notification-bar' ),
+					'_wphash_popup_description'        => __( 'Subscribe below to unlock your exclusive discount code', 'hashbar-wp-notification-bar' ),
 					// Countdown Timer
 					'_wphash_popup_countdown_enabled'     => true,
 					'_wphash_popup_countdown_type'        => 'evergreen',
@@ -3415,10 +3416,10 @@ class Hashbar_Popup_Campaign_Settings {
 					'_wphash_popup_countdown_label_color' => '#b0b0b0',
 					// CTA Button
 					'_wphash_popup_cta_enabled'        => true,
-					'_wphash_popup_cta_text'           => __( 'Yes, I Want to Save!', 'hashbar' ),
+					'_wphash_popup_cta_text'           => __( 'Yes, I Want to Save!', 'hashbar-wp-notification-bar' ),
 					'_wphash_popup_cta_url'            => '#',
 					// Close/Decline Link
-					'_wphash_popup_close_text'         => __( 'No thanks, I don\'t want to save', 'hashbar' ),
+					'_wphash_popup_close_text'         => __( 'No thanks, I don\'t want to save', 'hashbar-wp-notification-bar' ),
 					// Colors - Dark theme
 					'_wphash_popup_bg_color'           => '#2d3e50',
 					'_wphash_popup_heading_color'      => '#ffffff',
@@ -3435,16 +3436,16 @@ class Hashbar_Popup_Campaign_Settings {
 			// Spooky Savings Template
 			array(
 				'id'          => 'spooky_savings',
-				'name'        => __( 'Spooky Savings', 'hashbar' ),
-				'description' => __( 'Halloween-themed countdown promotion', 'hashbar' ),
+				'name'        => __( 'Spooky Savings', 'hashbar-wp-notification-bar' ),
+				'description' => __( 'Halloween-themed countdown promotion', 'hashbar-wp-notification-bar' ),
 				'category'    => 'pro',
 				'tags'        => array( 'Halloween', 'Countdown', 'Promotional' ),
 				'preview'     => '',
 				'config'      => array(
 					'_wphash_popup_position'              => 'center',
 					'_wphash_popup_campaign_type'         => 'promotion',
-					'_wphash_popup_heading'               => __( 'Spooky Savings!', 'hashbar' ),
-					'_wphash_popup_description'           => __( 'Subscribe below to unearth our limited time offer.', 'hashbar' ),
+					'_wphash_popup_heading'               => __( 'Spooky Savings!', 'hashbar-wp-notification-bar' ),
+					'_wphash_popup_description'           => __( 'Subscribe below to unearth our limited time offer.', 'hashbar-wp-notification-bar' ),
 					'_wphash_popup_countdown_enabled'     => true,
 					'_wphash_popup_countdown_type'        => 'evergreen',
 					'_wphash_popup_countdown_hours'       => 48,
@@ -3453,8 +3454,8 @@ class Hashbar_Popup_Campaign_Settings {
 					'_wphash_popup_countdown_text_color'  => '#ffffff',
 					'_wphash_popup_countdown_label_color' => '#b0b0b0',
 					'_wphash_popup_cta_enabled'           => true,
-					'_wphash_popup_cta_text'              => __( 'Yes, I Want to Save!', 'hashbar' ),
-					'_wphash_popup_close_text'            => __( 'No thanks, I don\'t want to save', 'hashbar' ),
+					'_wphash_popup_cta_text'              => __( 'Yes, I Want to Save!', 'hashbar-wp-notification-bar' ),
+					'_wphash_popup_close_text'            => __( 'No thanks, I don\'t want to save', 'hashbar-wp-notification-bar' ),
 					'_wphash_popup_bg_color'              => '#2d3e50',
 					'_wphash_popup_heading_color'         => '#ffffff',
 					'_wphash_popup_text_color'            => '#e0e0e0',
@@ -3468,8 +3469,8 @@ class Hashbar_Popup_Campaign_Settings {
 			// Free Shipping Template
 			array(
 				'id'          => 'free_shipping',
-				'name'        => __( 'Free Shipping', 'hashbar' ),
-				'description' => __( 'Promote free shipping offers', 'hashbar' ),
+				'name'        => __( 'Free Shipping', 'hashbar-wp-notification-bar' ),
+				'description' => __( 'Promote free shipping offers', 'hashbar-wp-notification-bar' ),
 				'category'    => 'free',
 				'tags'        => array( 'Shipping', 'E-commerce', 'Promotional' ),
 				'preview'     => '',
@@ -3477,12 +3478,12 @@ class Hashbar_Popup_Campaign_Settings {
 					'_wphash_popup_position'           => 'center',
 					'_wphash_popup_content_type'       => 'custom',
 					'_wphash_popup_campaign_type'      => 'promotion',
-					'_wphash_popup_heading'            => __( 'Free Shipping!', 'hashbar' ),
-					'_wphash_popup_subheading'         => __( 'On orders over $75', 'hashbar' ),
-					'_wphash_popup_description'        => __( 'Code will be applied automatically at checkout.', 'hashbar' ),
+					'_wphash_popup_heading'            => __( 'Free Shipping!', 'hashbar-wp-notification-bar' ),
+					'_wphash_popup_subheading'         => __( 'On orders over $75', 'hashbar-wp-notification-bar' ),
+					'_wphash_popup_description'        => __( 'Code will be applied automatically at checkout.', 'hashbar-wp-notification-bar' ),
 					'_wphash_popup_cta_enabled'        => true,
-					'_wphash_popup_cta_text'           => __( 'Continue Shopping', 'hashbar' ),
-					'_wphash_popup_close_text'         => __( "No thanks, I'll pay for shipping", 'hashbar' ),
+					'_wphash_popup_cta_text'           => __( 'Continue Shopping', 'hashbar-wp-notification-bar' ),
+					'_wphash_popup_close_text'         => __( "No thanks, I'll pay for shipping", 'hashbar-wp-notification-bar' ),
 					'_wphash_popup_bg_color'           => '#ffffff',
 					'_wphash_popup_heading_color'      => '#2d3a4b',
 					'_wphash_popup_text_color'         => '#666666',
@@ -3496,8 +3497,8 @@ class Hashbar_Popup_Campaign_Settings {
 			// Newsletter Signup Template
 			array(
 				'id'          => 'newsletter_signup',
-				'name'        => __( 'Newsletter Signup', 'hashbar' ),
-				'description' => __( 'Clean newsletter signup popup', 'hashbar' ),
+				'name'        => __( 'Newsletter Signup', 'hashbar-wp-notification-bar' ),
+				'description' => __( 'Clean newsletter signup popup', 'hashbar-wp-notification-bar' ),
 				'category'    => 'free',
 				'tags'        => array( 'Newsletter', 'Email', 'Subscription' ),
 				'preview'     => '',
@@ -3505,11 +3506,11 @@ class Hashbar_Popup_Campaign_Settings {
 					'_wphash_popup_position'           => 'center',
 					'_wphash_popup_content_type'       => 'custom',
 					'_wphash_popup_campaign_type'      => 'newsletter',
-					'_wphash_popup_heading'            => __( "Don't miss our latest news!", 'hashbar' ),
-					'_wphash_popup_description'        => __( 'Sign up today for our free newsletter and stay updated.', 'hashbar' ),
+					'_wphash_popup_heading'            => __( "Don't miss our latest news!", 'hashbar-wp-notification-bar' ),
+					'_wphash_popup_description'        => __( 'Sign up today for our free newsletter and stay updated.', 'hashbar-wp-notification-bar' ),
 					'_wphash_popup_cta_enabled'        => true,
-					'_wphash_popup_cta_text'           => __( "YES, I'M INTERESTED!", 'hashbar' ),
-					'_wphash_popup_close_text'         => __( 'No thanks', 'hashbar' ),
+					'_wphash_popup_cta_text'           => __( "YES, I'M INTERESTED!", 'hashbar-wp-notification-bar' ),
+					'_wphash_popup_close_text'         => __( 'No thanks', 'hashbar-wp-notification-bar' ),
 					'_wphash_popup_bg_color'           => '#ffffff',
 					'_wphash_popup_heading_color'      => '#e65100',
 					'_wphash_popup_text_color'         => '#666666',
@@ -3522,17 +3523,17 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			array(
 				'id'          => 'exit_intent',
-				'name'        => __( 'Exit Intent', 'hashbar' ),
-				'description' => __( 'Catch visitors before they leave with a compelling offer', 'hashbar' ),
+				'name'        => __( 'Exit Intent', 'hashbar-wp-notification-bar' ),
+				'description' => __( 'Catch visitors before they leave with a compelling offer', 'hashbar-wp-notification-bar' ),
 				'category'    => 'free',
 				'tags'        => array( 'Exit Intent', 'Center' ),
 				'preview'     => '',
 				'config'      => array(
 					'_wphash_popup_position'         => 'center',
 					'_wphash_popup_campaign_type'    => 'exit_intent',
-					'_wphash_popup_heading'          => __( "Wait! Don't Go Yet!", 'hashbar' ),
-					'_wphash_popup_description'      => __( 'Get 20% off your first order. Limited time offer!', 'hashbar' ),
-					'_wphash_popup_form_submit_text' => __( 'Claim My Offer', 'hashbar' ),
+					'_wphash_popup_heading'          => __( "Wait! Don't Go Yet!", 'hashbar-wp-notification-bar' ),
+					'_wphash_popup_description'      => __( 'Get 20% off your first order. Limited time offer!', 'hashbar-wp-notification-bar' ),
+					'_wphash_popup_form_submit_text' => __( 'Claim My Offer', 'hashbar-wp-notification-bar' ),
 					'_wphash_popup_form_enabled'     => true,
 					'_wphash_popup_text_align'       => 'center',
 					'_wphash_popup_form_alignment'   => 'left',
@@ -3545,17 +3546,17 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			array(
 				'id'          => 'slide_in_right',
-				'name'        => __( 'Slide-In Right', 'hashbar' ),
-				'description' => __( 'Non-intrusive slide-in popup from the bottom right', 'hashbar' ),
+				'name'        => __( 'Slide-In Right', 'hashbar-wp-notification-bar' ),
+				'description' => __( 'Non-intrusive slide-in popup from the bottom right', 'hashbar-wp-notification-bar' ),
 				'category'    => 'pro',
 				'tags'        => array( 'Slide-In', 'Bottom Right' ),
 				'preview'     => '',
 				'config'      => array(
 					'_wphash_popup_position'        => 'bottom_right',
 					'_wphash_popup_campaign_type'   => 'announcement',
-					'_wphash_popup_heading'         => __( 'Special Offer', 'hashbar' ),
-					'_wphash_popup_description'     => __( "Limited time deal - don't miss out!", 'hashbar' ),
-					'_wphash_popup_cta_text'        => __( 'Shop Now', 'hashbar' ),
+					'_wphash_popup_heading'         => __( 'Special Offer', 'hashbar-wp-notification-bar' ),
+					'_wphash_popup_description'     => __( "Limited time deal - don't miss out!", 'hashbar-wp-notification-bar' ),
+					'_wphash_popup_cta_text'        => __( 'Shop Now', 'hashbar-wp-notification-bar' ),
 					'_wphash_popup_cta_enabled'     => true,
 					'_wphash_popup_bg_color'        => '#ffffff',
 					'_wphash_popup_heading_color'   => '#1a1a1a',
@@ -3568,17 +3569,17 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			array(
 				'id'          => 'fullscreen_takeover',
-				'name'        => __( 'Fullscreen Takeover', 'hashbar' ),
-				'description' => __( 'Bold fullscreen popup for maximum impact', 'hashbar' ),
+				'name'        => __( 'Fullscreen Takeover', 'hashbar-wp-notification-bar' ),
+				'description' => __( 'Bold fullscreen popup for maximum impact', 'hashbar-wp-notification-bar' ),
 				'category'    => 'pro',
 				'tags'        => array( 'Fullscreen', 'Promotional' ),
 				'preview'     => '',
 				'config'      => array(
 					'_wphash_popup_position'       => 'fullscreen',
 					'_wphash_popup_campaign_type'  => 'promotion',
-					'_wphash_popup_heading'        => __( 'Black Friday Sale', 'hashbar' ),
-					'_wphash_popup_description'    => __( 'Up to 70% off everything! Limited time only.', 'hashbar' ),
-					'_wphash_popup_cta_text'       => __( 'Shop the Sale', 'hashbar' ),
+					'_wphash_popup_heading'        => __( 'Black Friday Sale', 'hashbar-wp-notification-bar' ),
+					'_wphash_popup_description'    => __( 'Up to 70% off everything! Limited time only.', 'hashbar-wp-notification-bar' ),
+					'_wphash_popup_cta_text'       => __( 'Shop the Sale', 'hashbar-wp-notification-bar' ),
 					'_wphash_popup_cta_enabled'    => true,
 					'_wphash_popup_bg_color'       => '#1a1a2e',
 					'_wphash_popup_heading_color'  => '#ffffff',
@@ -3590,17 +3591,17 @@ class Hashbar_Popup_Campaign_Settings {
 			),
 			array(
 				'id'          => 'side_panel',
-				'name'        => __( 'Side Panel', 'hashbar' ),
-				'description' => __( 'Elegant side panel popup for detailed content', 'hashbar' ),
+				'name'        => __( 'Side Panel', 'hashbar-wp-notification-bar' ),
+				'description' => __( 'Elegant side panel popup for detailed content', 'hashbar-wp-notification-bar' ),
 				'category'    => 'pro',
 				'tags'        => array( 'Side Panel', 'Right' ),
 				'preview'     => '',
 				'config'      => array(
 					'_wphash_popup_position'        => 'side_right',
 					'_wphash_popup_campaign_type'   => 'announcement',
-					'_wphash_popup_heading'         => __( 'Quick View', 'hashbar' ),
-					'_wphash_popup_description'     => __( 'Check out our latest products and offers', 'hashbar' ),
-					'_wphash_popup_cta_text'        => __( 'View All', 'hashbar' ),
+					'_wphash_popup_heading'         => __( 'Quick View', 'hashbar-wp-notification-bar' ),
+					'_wphash_popup_description'     => __( 'Check out our latest products and offers', 'hashbar-wp-notification-bar' ),
+					'_wphash_popup_cta_text'        => __( 'View All', 'hashbar-wp-notification-bar' ),
 					'_wphash_popup_cta_enabled'     => true,
 					'_wphash_popup_bg_color'        => '#ffffff',
 					'_wphash_popup_heading_color'   => '#1a1a1a',
@@ -3614,18 +3615,18 @@ class Hashbar_Popup_Campaign_Settings {
 			// Exit Survey Template
 			array(
 				'id'          => 'exit_survey',
-				'name'        => __( 'Exit Survey', 'hashbar' ),
-				'description' => __( 'Collect feedback when visitors are leaving your site', 'hashbar' ),
+				'name'        => __( 'Exit Survey', 'hashbar-wp-notification-bar' ),
+				'description' => __( 'Collect feedback when visitors are leaving your site', 'hashbar-wp-notification-bar' ),
 				'category'    => 'free',
 				'tags'        => array( 'Survey', 'Feedback', 'Exit Intent' ),
 				'preview'     => '',
 				'config'      => array(
 					'_wphash_popup_position'           => 'center',
 					'_wphash_popup_campaign_type'      => 'feedback',
-					'_wphash_popup_heading'            => __( "We're sorry to see you go. What's your reason for leaving?", 'hashbar' ),
-					'_wphash_popup_description'        => __( 'Your feedback helps us improve.', 'hashbar' ),
+					'_wphash_popup_heading'            => __( "We're sorry to see you go. What's your reason for leaving?", 'hashbar-wp-notification-bar' ),
+					'_wphash_popup_description'        => __( 'Your feedback helps us improve.', 'hashbar-wp-notification-bar' ),
 					'_wphash_popup_form_enabled'       => true,
-					'_wphash_popup_form_submit_text'   => __( 'Send Your Thoughts', 'hashbar' ),
+					'_wphash_popup_form_submit_text'   => __( 'Send Your Thoughts', 'hashbar-wp-notification-bar' ),
 					'_wphash_popup_form_alignment'     => 'left',
 					'_wphash_popup_bg_color'           => '#ffffff',
 					'_wphash_popup_heading_color'      => '#1a1a1a',
@@ -3640,18 +3641,18 @@ class Hashbar_Popup_Campaign_Settings {
 			// Feedback Form Template
 			array(
 				'id'          => 'feedback_form',
-				'name'        => __( 'Feedback Form', 'hashbar' ),
-				'description' => __( 'Gather user feedback with a friendly form', 'hashbar' ),
+				'name'        => __( 'Feedback Form', 'hashbar-wp-notification-bar' ),
+				'description' => __( 'Gather user feedback with a friendly form', 'hashbar-wp-notification-bar' ),
 				'category'    => 'free',
 				'tags'        => array( 'Feedback', 'Form', 'Center' ),
 				'preview'     => '',
 				'config'      => array(
 					'_wphash_popup_position'           => 'center',
 					'_wphash_popup_campaign_type'      => 'feedback',
-					'_wphash_popup_heading'            => __( 'What could we do to improve?', 'hashbar' ),
-					'_wphash_popup_description'        => __( 'We value your opinion and would love to hear your thoughts.', 'hashbar' ),
+					'_wphash_popup_heading'            => __( 'What could we do to improve?', 'hashbar-wp-notification-bar' ),
+					'_wphash_popup_description'        => __( 'We value your opinion and would love to hear your thoughts.', 'hashbar-wp-notification-bar' ),
 					'_wphash_popup_form_enabled'       => true,
-					'_wphash_popup_form_submit_text'   => __( 'Submit Feedback', 'hashbar' ),
+					'_wphash_popup_form_submit_text'   => __( 'Submit Feedback', 'hashbar-wp-notification-bar' ),
 					'_wphash_popup_form_alignment'     => 'left',
 					'_wphash_popup_bg_color'           => '#fffbeb',
 					'_wphash_popup_heading_color'      => '#1a1a1a',
