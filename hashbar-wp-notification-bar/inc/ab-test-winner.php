@@ -149,7 +149,7 @@ function hashbar_ab_test_calculate_significance( $variant_a, $variant_b ) {
 	// Standard error
 	$se = sqrt( $p_pool * ( 1 - $p_pool ) * ( 1 / $n1 + 1 / $n2 ) );
 
-	if ( $se === 0 ) {
+	if ( $se <= 0 ) {
 		return array(
 			'z_score' => 0,
 			'p_value' => 1.0,

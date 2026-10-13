@@ -252,7 +252,7 @@ function hashbar_wpnb_analytics_page(){
 	$trk_lenght   = count($total_traking);
 	$total_clicks = $trk_lenght > 0 ? $total_traking[0]['totalclicks'] : 0;
 	$total_views  = $trk_lenght > 0 ? $total_traking[0]['totalviews'] : 0;
-	$total_clthrt = $trk_lenght > 0 ? round(($total_traking[0]['totalclicks']/$total_traking[0]['totalviews'])*100, 2) : 0;
+	$total_clthrt = ( $trk_lenght > 0 && $total_traking[0]['totalviews'] > 0 ) ? round(($total_traking[0]['totalclicks']/$total_traking[0]['totalviews'])*100, 2) : 0;
 
 	?>
 	<div class="hthb--site-wrapper-reveal">
@@ -344,7 +344,7 @@ function hashbar_wpnb_analytics_page(){
 			                                    <?php echo esc_html( $postwise_count['totalclicks'] ); ?>
 			                                </div>
 			                                <div class="hthb-traking__item hthb-traking__item--through-rate-numbmer">
-			                                    <?php echo esc_html( round(($postwise_count['totalclicks']/$postwise_count['totalviews'])*100, 2) ); ?> %
+			                                    <?php echo esc_html( $postwise_count['totalviews'] > 0 ? round(($postwise_count['totalclicks']/$postwise_count['totalviews'])*100, 2) : 0 ); ?> %
 			                                </div>
 			                            </div>
 			                        <?php endif; ?>

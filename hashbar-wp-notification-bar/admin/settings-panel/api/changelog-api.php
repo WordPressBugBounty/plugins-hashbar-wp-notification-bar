@@ -186,6 +186,24 @@ class ChangeLog extends WP_REST_Controller {
     private function get_changelog_data() {
         return [
             [
+                'version' => '2.0.5',
+                'date'    => '2026-10-13',
+                'changes' => [
+                    'Added' => [
+                        'A few more fonts in the Font Family list for Notification Bars and Popup Campaigns.',
+                    ],
+                    'Fixed' => [
+                        'Font Family changes not showing in the Notification Bar editor preview.',
+                        'Fatal error on PHP 8 in the Analytics page and dashboard stats when there are no views yet.',
+                        'Fatal error on PHP 8 when analytics tracking or popup form submissions receive malformed (array) values.',
+                        'Non-functional "Apply" button shown next to the coupon code on WooCommerce cart and checkout pages.',
+                    ],
+                    'Tested' => [
+                        'Compatibility with the latest version of WordPress and PHP 8.x.',
+                    ],
+                ],
+            ],
+            [
                 'version' => '2.0.4',
                 'date'    => '2026-09-21',
                 'changes' => [

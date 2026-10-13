@@ -13,6 +13,81 @@ function hashbar_wpnb_get_opt($opt_key){
   }
 }
 
+/**
+ * Font families available for announcement bars and popups.
+ *
+ * System / web-safe fonts only (nothing is downloaded). Key = stored value,
+ * value = CSS font stack with generic fallbacks for platforms missing the font.
+ * Keep in sync with FONT_STACKS in admin/settings-panel/src/utils/helpers.js.
+ *
+ * @return array<string,string>
+ */
+function hashbar_wpnb_font_stacks() {
+	return array(
+		'system-ui'       => "system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+		'Arial'           => "Arial, 'Helvetica Neue', Helvetica, sans-serif",
+		'Helvetica'       => "'Helvetica Neue', Helvetica, Arial, sans-serif",
+		'Verdana'         => 'Verdana, Geneva, sans-serif',
+		'Tahoma'          => 'Tahoma, Verdana, Geneva, sans-serif',
+		'Segoe UI'        => "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+		'Calibri'         => "Calibri, Candara, 'Segoe UI', Optima, Arial, sans-serif",
+		'Trebuchet MS'    => "'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, sans-serif",
+		'Lucida Sans'     => "'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif",
+		'Impact'          => "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif",
+		'Georgia'         => "Georgia, 'Times New Roman', Times, serif",
+		'Times New Roman' => "'Times New Roman', Times, Georgia, serif",
+		'Palatino'        => "'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif",
+		'Book Antiqua'    => "'Book Antiqua', Palatino, 'Palatino Linotype', Georgia, serif",
+		'Garamond'        => "Garamond, 'Times New Roman', Times, serif",
+		'Courier New'     => "'Courier New', Courier, monospace",
+		'Consolas'        => "Consolas, 'Lucida Console', Monaco, 'Courier New', monospace",
+		'Monaco'          => "Monaco, Consolas, 'Lucida Console', 'Courier New', monospace",
+	);
+}
+
+/**
+ * Font family options for the editor dropdowns (value => label).
+ *
+ * @return array<string,string>
+ */
+function hashbar_wpnb_font_family_options() {
+	$options = array();
+	foreach ( array_keys( hashbar_wpnb_font_stacks() ) as $key ) {
+		$options[ $key ] = ( 'system-ui' === $key ) ? 'System UI' : $key;
+	}
+	return $options;
+}
+
+/**
+ * Resolve a stored font family value to a CSS font stack.
+ *
+ * Unknown values (older or custom data) are passed through with everything
+ * except font-name characters stripped, so output stays safe inside CSS.
+ *
+ * @param string $value Stored font family.
+ * @return string
+ */
+function hashbar_wpnb_get_font_stack( $value ) {
+	$stacks = hashbar_wpnb_font_stacks();
+	$value  = is_string( $value ) ? trim( $value ) : '';
+	if ( isset( $stacks[ $value ] ) ) {
+		return $stacks[ $value ];
+	}
+	$value = preg_replace( "/[^A-Za-z0-9 ,'\"_-]/", '', $value );
+	return '' !== $value ? $value : $stacks['system-ui'];
+}
+
+/**
+ * Sanitize callback for the font family post meta: only known fonts are stored.
+ *
+ * @param mixed $value Submitted value.
+ * @return string
+ */
+function hashbar_wpnb_sanitize_font_family( $value ) {
+	$value = is_string( $value ) ? trim( $value ) : '';
+	return isset( hashbar_wpnb_font_stacks()[ $value ] ) ? $value : 'system-ui';
+}
+
 function hashbar_wpnb_allporduct_by_cat( $terms = array(), $field = 'slug' ){
   $get_products = get_posts( array(
     'post_type'   => 'product',

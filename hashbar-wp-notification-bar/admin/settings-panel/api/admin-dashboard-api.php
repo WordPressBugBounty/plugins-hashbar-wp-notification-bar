@@ -451,7 +451,7 @@ function hashbar_get_analytics_data() {
     $trk_length = count($total_tracking);
     $total_clicks = $trk_length > 0 ? $total_tracking[0]['totalclicks'] : 0;
     $total_views = $trk_length > 0 ? $total_tracking[0]['totalviews'] : 0;
-    $total_click_through_rate = $trk_length > 0 ? round(($total_tracking[0]['totalclicks']/$total_tracking[0]['totalviews'])*100, 2) : 0;
+    $total_click_through_rate = ( $trk_length > 0 && $total_tracking[0]['totalviews'] > 0 ) ? round(($total_tracking[0]['totalclicks']/$total_tracking[0]['totalviews'])*100, 2) : 0;
 
     // Format postwise tracking data
     $notification_stats = array();
@@ -461,7 +461,7 @@ function hashbar_get_analytics_data() {
                 'title' => get_the_title($tracking['post_id']),
                 'views' => $tracking['totalviews'],
                 'clicks' => $tracking['totalclicks'],
-                'through_rate' => round(($tracking['totalclicks']/$tracking['totalviews'])*100, 2)
+                'through_rate' => $tracking['totalviews'] > 0 ? round(($tracking['totalclicks']/$tracking['totalviews'])*100, 2) : 0
             );
         }
     }

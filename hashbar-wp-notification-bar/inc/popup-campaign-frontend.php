@@ -1280,7 +1280,7 @@ class Frontend {
 				padding: <?php echo esc_attr( $padding_str ); ?>;
 				background: <?php echo esc_attr( $background_css ); ?>;
 				color: <?php echo esc_attr( $settings['text_color'] ); ?>;
-				font-family: <?php echo esc_attr( $settings['font_family'] ); ?>;
+				font-family: <?php echo esc_attr( hashbar_wpnb_get_font_stack( $settings['font_family'] ) ); ?>;
 				font-size: <?php echo esc_attr( $settings['text_size'] ); ?>px;
 				text-align: <?php echo esc_attr( $settings['text_align'] ); ?>;
 				border-radius: <?php echo esc_attr( $settings['border_radius'] ); ?>px;

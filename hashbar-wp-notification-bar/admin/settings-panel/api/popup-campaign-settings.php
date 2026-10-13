@@ -1084,14 +1084,7 @@ class Hashbar_Popup_Campaign_Settings {
 				'type'    => 'select',
 				'label'   => esc_html__( 'Font Family', 'hashbar-wp-notification-bar' ),
 				'default' => 'system-ui',
-				'options' => array(
-					'system-ui'       => 'System UI',
-					'Arial'           => 'Arial',
-					'Georgia'         => 'Georgia',
-					'Courier New'     => 'Courier New',
-					'Trebuchet MS'    => 'Trebuchet MS',
-					'Times New Roman' => 'Times New Roman',
-				),
+				'options' => hashbar_wpnb_font_family_options(),
 			),
 			'_wphash_popup_heading_size' => array(
 				'type'    => 'slider',

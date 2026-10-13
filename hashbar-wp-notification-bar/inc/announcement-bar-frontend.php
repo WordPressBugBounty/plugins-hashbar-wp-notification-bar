@@ -1193,7 +1193,7 @@ function hashbar_render_single_bar( $bar ) {
 		'right'          => $sticky_position === 'fixed' ? '0' : 'auto',
 		'background'     => $background_css,
 		'color'          => $text_color,
-		'font-family'    => $font_family,
+		'font-family'    => hashbar_wpnb_get_font_stack( $font_family ),
 		'font-size'      => $font_size . 'px',
 		'font-weight'    => $font_weight,
 		'text-align'     => $text_align,
@@ -1251,7 +1251,7 @@ function hashbar_render_single_bar( $bar ) {
 	// theme stylesheet rules do not override the bar's Design settings. Inline styles in user
 	// content still win (normal cascade). See announcement-bar-frontend.css.
 	$bar_styles['--hashbar-announcement-color']       = $text_color;
-	$bar_styles['--hashbar-announcement-font-family'] = $font_family;
+	$bar_styles['--hashbar-announcement-font-family'] = hashbar_wpnb_get_font_stack( $font_family );
 	$bar_styles['--hashbar-announcement-font-size']   = is_numeric( $font_size ) ? ( (string) (int) $font_size ) . 'px' : $font_size;
 	$bar_styles['--hashbar-announcement-font-weight'] = is_numeric( $font_weight ) ? (string) (int) $font_weight : $font_weight;
 

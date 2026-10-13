@@ -591,6 +591,7 @@ function hashbar_register_popup_campaign_meta() {
 		'single'            => true,
 		'show_in_rest'      => true,
 		'default'           => 'system-ui',
+		'sanitize_callback' => 'hashbar_wpnb_sanitize_font_family',
 	) );
 
 	register_post_meta( 'wphash_popup', '_wphash_popup_heading_size', array(

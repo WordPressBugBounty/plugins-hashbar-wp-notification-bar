@@ -236,6 +236,13 @@ class Popup_Analytics_Processor {
 			return false;
 		}
 
+		// Array values throw a TypeError on PHP 8 in the string functions below.
+		foreach ( array( 'page_url', 'user_agent', 'referrer_url' ) as $string_key ) {
+			if ( isset( $event[ $string_key ] ) && is_array( $event[ $string_key ] ) ) {
+				$event[ $string_key ] = '';
+			}
+		}
+
 		// Validate event type (allow common event types)
 		$valid_event_types = array( 'view', 'impression', 'click', 'conversion', 'close', 'form_submit', 'cta', 'secondary', 'submit' );
 		$event_type = sanitize_text_field( $event['event_type'] );

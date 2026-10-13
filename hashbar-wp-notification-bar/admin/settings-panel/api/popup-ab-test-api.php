@@ -206,6 +206,10 @@ class PopupABTestAPI {
 				);
 			}
 
+			// An array page_url throws a TypeError on PHP 8.
+			$page_url = $request->get_param( 'page_url' );
+			$page_url = is_array( $page_url ) ? '' : ( $page_url ?: '' );
+
 			// Insert event - use campaign_id to match analytics processor schema
 			$result = $wpdb->insert(
 				$table,
@@ -217,7 +221,7 @@ class PopupABTestAPI {
 					'session_id'    => $session_id,
 					'ip_address'    => self::get_client_ip(),
 					'device_type'   => sanitize_text_field( $request->get_param( 'device_type' ) ?: 'unknown' ),
-					'page_url'      => esc_url_raw( $request->get_param( 'page_url' ) ?: '' ),
+					'page_url'      => esc_url_raw( $page_url ),
 				)
 			);
 

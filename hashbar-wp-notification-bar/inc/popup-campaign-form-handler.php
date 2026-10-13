@@ -266,14 +266,14 @@ class Hashbar_Popup_Campaign_Form_Handler {
 			// Type-specific validation
 			switch ( $field_type ) {
 				case 'email':
-					if ( ! is_email( $value ) ) {
+					if ( is_array( $value ) || ! is_email( $value ) ) {
 						$errors[ $field_id ] = esc_html__( 'Please enter a valid email address', 'hashbar-wp-notification-bar' );
 					}
 					break;
 
 				case 'phone':
 					// Basic phone validation - allow digits, spaces, dashes, parentheses, plus
-					if ( ! preg_match( '/^[0-9\s\-\(\)\+]+$/', $value ) ) {
+					if ( is_array( $value ) || ! preg_match( '/^[0-9\s\-\(\)\+]+$/', $value ) ) {
 						$errors[ $field_id ] = esc_html__( 'Please enter a valid phone number', 'hashbar-wp-notification-bar' );
 					}
 					break;

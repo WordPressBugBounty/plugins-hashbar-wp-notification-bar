@@ -3,7 +3,7 @@ Contributors: devitemsllc, htplugins, hasthemes, zenaulislam, aslamhasib, yeasin
 Tags: notification bar, popup, announcement bar, lead capture, countdown timer
 Requires at least: 5.3
 Tested up to: 7.1
-Stable tag: 2.0.4
+Stable tag: 2.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -584,6 +584,14 @@ Yes! 30-day money-back guarantee on Pro purchases.
 11. **A/B Testing & Analytics** - Compare variants, split traffic, and pick a winner automatically
 
 == Changelog ==
+
+= Version: 2.0.5 - Date: 13 Oct 2026 =
+* Added: A few more fonts in the Font Family list for Notification Bars and Popup Campaigns.
+* Fixed: Font Family changes not showing in the Notification Bar editor preview.
+* Fixed: Fatal error on PHP 8 in the Analytics page and dashboard stats when there are no views yet.
+* Fixed: Fatal error on PHP 8 when analytics tracking or popup form submissions receive malformed (array) values.
+* Fixed: Non-functional "Apply" button shown next to the coupon code on WooCommerce cart and checkout pages.
+* Tested: Compatibility with the latest version of WordPress and PHP 8.x.
 
 = Version: 2.0.4 - Date: 21 Sep 2026 =
 * Security: Hardened the Notification Bar duplicate action and the page/post search endpoint against malicious requests.

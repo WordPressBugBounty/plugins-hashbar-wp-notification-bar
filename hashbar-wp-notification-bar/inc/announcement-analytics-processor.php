@@ -152,6 +152,13 @@ class Analytics_Processor {
 			return false;
 		}
 
+		// Array values throw a TypeError on PHP 8 in the string functions below.
+		foreach ( array( 'page_url', 'user_agent', 'referrer_url' ) as $string_key ) {
+			if ( isset( $event[ $string_key ] ) && is_array( $event[ $string_key ] ) ) {
+				$event[ $string_key ] = '';
+			}
+		}
+
 		// Get country from IP
 		$country_data = $this->get_country_from_ip( $this->get_client_ip() );
 

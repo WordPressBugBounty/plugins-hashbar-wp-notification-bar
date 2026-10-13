@@ -1,7 +1,7 @@
 /**
  * Announcement Bar Pro Features
  *
- * Advanced features for pro version: coupon auto-apply, advanced countdown,
+ * Advanced features for pro version: advanced countdown,
  * A/B testing integration, and analytics tracking.
  */
 
@@ -28,11 +28,6 @@
     bars.forEach(function(bar) {
       const barId = bar.getAttribute('data-bar-id');
 
-      // Initialize coupon auto-apply for WooCommerce
-      if (bar.getAttribute('data-coupon-enabled') === 'true') {
-        initializeCouponAutoApply(bar, barId);
-      }
-
       // Note: Countdown is already initialized in announcement-bar-frontend.js
       // Do not initialize it here to avoid double intervals
 
@@ -41,95 +36,6 @@
         initializeABTestTracking(bar, barId);
       }
     });
-  }
-
-  /**
-   * Initialize coupon auto-apply for WooCommerce
-   */
-  function initializeCouponAutoApply(bar, barId) {
-    const couponCode = bar.getAttribute('data-coupon-code');
-    const couponDisplay = bar.querySelector('.hashbar-coupon-display');
-
-    if (!couponCode || !couponDisplay) {
-      return;
-    }
-
-    // Check if WooCommerce is active
-    if (typeof wc === 'undefined' || !wc.blocksCheckout) {
-      // Not using new WooCommerce Blocks, skip auto-apply
-      return;
-    }
-
-    // Add auto-apply button
-    const applyBtn = document.createElement('button');
-    applyBtn.className = 'hashbar-coupon-apply-btn';
-    applyBtn.textContent = 'Apply';
-    applyBtn.style.cssText = 'margin-left: 8px; cursor: pointer; padding: 4px 12px; background: #0073aa; color: white; border: none; border-radius: 3px; font-size: 12px; font-weight: 600;';
-
-    applyBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      applyCouponToCart(couponCode, applyBtn);
-    });
-
-    couponDisplay.appendChild(applyBtn);
-  }
-
-  /**
-   * Apply coupon to WooCommerce cart
-   */
-  function applyCouponToCart(couponCode, button) {
-    if (!couponCode || typeof jQuery === 'undefined') {
-      return;
-    }
-
-    button.disabled = true;
-    button.textContent = 'Applying...';
-
-    // Use WooCommerce REST API to apply coupon
-    fetch(window.HashbarAnnouncementData.restUrl + 'apply-coupon', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-WP-Nonce': window.HashbarAnnouncementData.nonce,
-      },
-      body: JSON.stringify({
-        coupon_code: couponCode,
-      }),
-    })
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(data) {
-        if (data.success) {
-          button.textContent = 'Applied!';
-          button.style.background = '#008000';
-
-          // Notify user
-          if (typeof wc !== 'undefined' && wc.store && wc.store.dispatch) {
-            // Show success notice in new WooCommerce blocks
-          }
-
-          setTimeout(function() {
-            button.textContent = 'Apply';
-            button.style.background = '#0073aa';
-            button.disabled = false;
-          }, 3000);
-        } else {
-          button.textContent = 'Error';
-          button.style.background = '#dc3545';
-
-          setTimeout(function() {
-            button.textContent = 'Apply';
-            button.style.background = '#0073aa';
-            button.disabled = false;
-          }, 3000);
-        }
-      })
-      .catch(function(error) {
-        button.textContent = 'Error';
-        button.style.background = '#dc3545';
-        button.disabled = false;
-      });
   }
 
   /**
