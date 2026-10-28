@@ -885,6 +885,30 @@ function hashbar_register_popup_campaign_meta() {
 		),
 	) );
 
+	register_post_meta( 'wphash_popup', '_wphash_popup_target_post_types', array(
+		'type'              => 'array',
+		'description'       => __( 'Post types to target (all posts of the type)', 'hashbar-wp-notification-bar' ),
+		'single'            => true,
+		'show_in_rest'      => array(
+			'schema' => array(
+				'type'  => 'array',
+				'items' => array( 'type' => 'string' ),
+			),
+		),
+	) );
+
+	register_post_meta( 'wphash_popup', '_wphash_popup_exclude_post_types', array(
+		'type'              => 'array',
+		'description'       => __( 'Post types to exclude (all posts of the type)', 'hashbar-wp-notification-bar' ),
+		'single'            => true,
+		'show_in_rest'      => array(
+			'schema' => array(
+				'type'  => 'array',
+				'items' => array( 'type' => 'string' ),
+			),
+		),
+	) );
+
 	register_post_meta( 'wphash_popup', '_wphash_popup_target_devices', array(
 		'type'              => 'array',
 		'description'       => __( 'Target devices', 'hashbar-wp-notification-bar' ),

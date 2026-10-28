@@ -466,6 +466,31 @@ class Hashbar_Settings_Panel_Settings {
                 'reset_error_message' => __('Failed to reset settings', 'hashbar-wp-notification-bar'),
             ],
 
+            // Page targeting: custom post type selects
+            'targeting_post_types' => [
+                'post_types' => __('Post Types', 'hashbar-wp-notification-bar'),
+                'select_post_types' => __('Select post types', 'hashbar-wp-notification-bar'),
+                /* translators: %s: post type name, e.g. Pages */
+                'select_type_show_on' => __('Select %s to Show On', 'hashbar-wp-notification-bar'),
+                /* translators: %s: post type name, e.g. Pages */
+                'select_type_exclude' => __('Select %s to Exclude', 'hashbar-wp-notification-bar'),
+                /* translators: %s: post type name, e.g. Pages */
+                'select_type' => __('Select %s', 'hashbar-wp-notification-bar'),
+                /* translators: %s: post type name, e.g. Pages */
+                'exclude_type' => __('Exclude %s', 'hashbar-wp-notification-bar'),
+                /* translators: %s: post type name, e.g. Pages */
+                'search_type' => __('Search and select %s...', 'hashbar-wp-notification-bar'),
+                'loading' => __('Loading...', 'hashbar-wp-notification-bar'),
+                'loading_items' => __('Loading pages and posts...', 'hashbar-wp-notification-bar'),
+                'searching' => __('Searching...', 'hashbar-wp-notification-bar'),
+                'no_matches' => __('No matching results', 'hashbar-wp-notification-bar'),
+                /* translators: %s: post type name, e.g. Gallery */
+                'no_type_items' => __('No %s found', 'hashbar-wp-notification-bar'),
+                /* translators: %s: post type name, e.g. Pages */
+                'all_type_selected' => __('All %s', 'hashbar-wp-notification-bar'),
+                'no_items' => __('No pages or posts available', 'hashbar-wp-notification-bar'),
+            ],
+
             // Notification Bar Settings Drawer
             'notification_bar_settings' => [
                 'title' => __('Notification Bar Settings', 'hashbar-wp-notification-bar'),

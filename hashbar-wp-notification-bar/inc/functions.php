@@ -14,6 +14,27 @@ function hashbar_wpnb_get_opt($opt_key){
 }
 
 /**
+ * Public custom post types that can be offered in the targeting dropdowns.
+ * Core types (pages, posts, attachments) and HashBar's own CPTs are left out.
+ *
+ * @return array slug => label
+ */
+function hashbar_get_targetable_post_types() {
+	$excluded = array( 'post', 'page', 'attachment', 'wphash_ntf_bar', 'wphash_popup', 'wphash_announcement' );
+	$types    = array();
+
+	foreach ( get_post_types( array( 'public' => true ), 'objects' ) as $slug => $type_obj ) {
+		// Builder/template types (not shown in nav menus) cannot be targeted as pages
+		if ( in_array( $slug, $excluded, true ) || ! $type_obj->show_in_nav_menus ) {
+			continue;
+		}
+		$types[ $slug ] = $type_obj->labels->singular_name;
+	}
+
+	return apply_filters( 'hashbar_targetable_post_types', $types );
+}
+
+/**
  * Font families available for announcement bars and popups.
  *
  * System / web-safe fonts only (nothing is downloaded). Key = stored value,
@@ -351,4 +372,42 @@ if ( !function_exists( 'hashbar_post_list' ) ){
         return $options;
     }
   }
+}
+
+if ( ! function_exists( 'hashbar_get_target_post_types' ) ) {
+	/**
+	 * Post types saved as "all posts of this type" for a targeting rule.
+	 *
+	 * @param int    $post_id  Announcement bar / popup ID.
+	 * @param string $meta_key Meta key holding the post type slugs (JSON array).
+	 * @return string[] Post type slugs.
+	 */
+	function hashbar_get_target_post_types( $post_id, $meta_key ) {
+		$types = get_post_meta( $post_id, $meta_key, true );
+
+		if ( is_string( $types ) ) {
+			$types = json_decode( $types, true );
+		}
+		if ( empty( $types ) || ! is_array( $types ) ) {
+			return array();
+		}
+
+		return array_values( array_unique( array_filter( array_map( 'sanitize_key', $types ) ) ) );
+	}
+}
+
+if ( ! function_exists( 'hashbar_current_post_type_in' ) ) {
+	/**
+	 * Whether the current singular page belongs to one of the given post types.
+	 *
+	 * @param string[] $types Post type slugs.
+	 * @return bool
+	 */
+	function hashbar_current_post_type_in( $types ) {
+		if ( empty( $types ) || ! is_singular() ) {
+			return false;
+		}
+
+		return in_array( get_post_type( get_queried_object_id() ), $types, true );
+	}
 }

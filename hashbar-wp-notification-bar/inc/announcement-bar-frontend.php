@@ -465,14 +465,17 @@ function hashbar_check_page_targeting( $bar_id ) {
 			}
 		}
 
-		if ( empty( $page_ids ) || ! is_array( $page_ids ) ) {
+		$post_types = hashbar_get_target_post_types( $bar_id, '_wphash_ab_target_post_types' );
+
+		if ( ( empty( $page_ids ) || ! is_array( $page_ids ) ) && empty( $post_types ) ) {
 			return false;
 		}
 
 		$page_ids        = hashbar_normalize_target_page_ids( $page_ids );
 		$current_page_id = absint( get_queried_object_id() );
 
-		return $current_page_id > 0 && in_array( $current_page_id, $page_ids, true );
+		return ( $current_page_id > 0 && in_array( $current_page_id, $page_ids, true ) )
+			|| hashbar_current_post_type_in( $post_types );
 	}
 
 	if ( $targeting_type === 'exclude' ) {
@@ -490,14 +493,17 @@ function hashbar_check_page_targeting( $bar_id ) {
 			}
 		}
 
-		if ( empty( $excluded_ids ) || ! is_array( $excluded_ids ) ) {
+		$post_types = hashbar_get_target_post_types( $bar_id, '_wphash_ab_exclude_post_types' );
+
+		if ( ( empty( $excluded_ids ) || ! is_array( $excluded_ids ) ) && empty( $post_types ) ) {
 			return true;
 		}
 
 		$excluded_ids    = hashbar_normalize_target_page_ids( $excluded_ids );
 		$current_page_id = absint( get_queried_object_id() );
 
-		return ! ( $current_page_id > 0 && in_array( $current_page_id, $excluded_ids, true ) );
+		return ! ( ( $current_page_id > 0 && in_array( $current_page_id, $excluded_ids, true ) )
+			|| hashbar_current_post_type_in( $post_types ) );
 	}
 
 	return true;

@@ -266,7 +266,7 @@ class AnnouncementBar {
 						$value = $value ? '1' : '0';
 					}
 					// Handle complex arrays - JSON encode them for storage
-					elseif (is_array($value) && in_array($key, ['_wphash_ab_target_page_ids', '_wphash_ab_exclude_page_ids', '_wphash_ab_target_devices', '_wphash_ab_target_countries', '_wphash_ab_countdown_reset_days', '_wphash_ab_bg_image'], true)) {
+					elseif (is_array($value) && in_array($key, ['_wphash_ab_target_page_ids', '_wphash_ab_exclude_page_ids', '_wphash_ab_target_post_types', '_wphash_ab_exclude_post_types', '_wphash_ab_target_devices', '_wphash_ab_target_countries', '_wphash_ab_countdown_reset_days', '_wphash_ab_bg_image'], true)) {
 						$value = wp_json_encode($value, JSON_UNESCAPED_UNICODE);
 					}
 					update_post_meta($post_id, $key, $value);
@@ -345,7 +345,7 @@ class AnnouncementBar {
 						$value = $value ? '1' : '0';
 					}
 					// Handle complex arrays - JSON encode them for storage
-					elseif (is_array($value) && in_array($key, ['_wphash_ab_target_page_ids', '_wphash_ab_exclude_page_ids', '_wphash_ab_target_devices', '_wphash_ab_target_countries', '_wphash_ab_countdown_reset_days', '_wphash_ab_bg_image'], true)) {
+					elseif (is_array($value) && in_array($key, ['_wphash_ab_target_page_ids', '_wphash_ab_exclude_page_ids', '_wphash_ab_target_post_types', '_wphash_ab_exclude_post_types', '_wphash_ab_target_devices', '_wphash_ab_target_countries', '_wphash_ab_countdown_reset_days', '_wphash_ab_bg_image'], true)) {
 						$value = wp_json_encode($value, JSON_UNESCAPED_UNICODE);
 					}
 					update_post_meta($post_id, $key, $value);
@@ -631,7 +631,7 @@ class AnnouncementBar {
 			], true)) {
 				// Convert '1' to true, empty string or '0' to false
 				$meta[$key] = !empty($value) && $value !== '0' ? true : false;
-			} else if (in_array($key, ['_wphash_ab_target_devices', '_wphash_ab_target_countries', '_wphash_ab_target_page_ids', '_wphash_ab_exclude_page_ids', '_wphash_ab_countdown_reset_days', '_wphash_ab_schedule_recurring_days'], true)) {
+			} else if (in_array($key, ['_wphash_ab_target_devices', '_wphash_ab_target_countries', '_wphash_ab_target_page_ids', '_wphash_ab_exclude_page_ids', '_wphash_ab_target_post_types', '_wphash_ab_exclude_post_types', '_wphash_ab_countdown_reset_days', '_wphash_ab_schedule_recurring_days'], true)) {
 				// Unserialize array data (handle JSON, PHP serialized, and comma-separated formats)
 				if (is_array($value)) {
 					// Already an array

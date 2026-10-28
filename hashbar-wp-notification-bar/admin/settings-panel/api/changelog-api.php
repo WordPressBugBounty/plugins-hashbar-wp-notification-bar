@@ -186,6 +186,20 @@ class ChangeLog extends WP_REST_Controller {
     private function get_changelog_data() {
         return [
             [
+                'version' => '2.0.6',
+                'date'    => '2026-10-28',
+                'changes' => [
+                    'Added' => [
+                        'Custom post type support in Page Targeting: choose post types in the Targeting tab of Announcement Bars and Popup Campaigns, then pick the posts of each type to show on or exclude. Pages, Posts and Products are included in the free version; other custom post types are available in Pro.',
+                        '"All" option in Page Targeting (for example "All Pages" or "All Posts") to show on or exclude an entire post type, including posts created later.',
+                    ],
+                    'Improved' => [
+                        'Page Targeting now has a separate list for each post type, loads a type\'s posts only when it is chosen, and shows the titles of already selected items.',
+                        'Faster page/post search in the Targeting tab with fewer database queries.',
+                    ],
+                ],
+            ],
+            [
                 'version' => '2.0.5',
                 'date'    => '2026-10-13',
                 'changes' => [

@@ -44,12 +44,48 @@ class PagesPostsAJAX {
         // When searching, use a higher limit to find matches beyond the initial load
         $is_searching = !empty($search);
 
-        // Determine which post types to query
+        // Pages, posts and every targetable custom post type (names only, no queries)
+        $custom_types  = function_exists('hashbar_get_targetable_post_types') ? hashbar_get_targetable_post_types() : [];
+        $post_type_map = ['page' => __('Pages', 'hashbar-wp-notification-bar'), 'post' => __('Posts', 'hashbar-wp-notification-bar')] + $custom_types;
+
+        // Determine which post types to query: a single requested type, else pages + posts
+        // Pages, posts and products are free; other post types are Pro-only
         $allowed_types = ['post', 'page', 'product'];
-        if ($post_type && in_array($post_type, $allowed_types)) {
+        if (defined('HASHBAR_WPNBP_VERSION')) {
+            $allowed_types = array_values(array_unique(array_merge($allowed_types, array_keys($custom_types))));
+        }
+        if ($post_type && in_array($post_type, $allowed_types, true)) {
             $types_to_query = [$post_type];
         } else {
             $types_to_query = ['page', 'post'];
+        }
+
+        // Resolve specific post IDs (already-selected items) to labels and types
+        $ids = isset($_POST['ids']) ? array_filter(array_map('absint', explode(',', sanitize_text_field(wp_unslash($_POST['ids']))))) : [];
+        if ($ids) {
+            $resolved = [];
+            $id_query = new WP_Query([
+                'post_type'      => $allowed_types,
+                'post__in'       => $ids,
+                'posts_per_page' => count($ids),
+                'post_status'    => 'publish',
+                'orderby'        => 'post__in',
+                'no_found_rows'          => true,
+                'update_post_meta_cache' => false,
+                'update_post_term_cache' => false,
+            ]);
+            foreach ($id_query->posts as $post) {
+                $type_obj   = get_post_type_object($post->post_type);
+                $type_label = $type_obj ? $type_obj->labels->singular_name : ucfirst($post->post_type);
+                $resolved[] = [
+                    'value' => (string)$post->ID,
+                    'label' => '[' . $type_label . '] ' . sanitize_text_field($post->post_title),
+                    'title' => sanitize_text_field($post->post_title),
+                    'type'  => $post->post_type,
+                ];
+            }
+            echo json_encode(['success' => true, 'data' => $resolved, 'total' => count($resolved), 'post_types' => $post_type_map]);
+            wp_die();
         }
 
         try {
@@ -58,7 +94,7 @@ class PagesPostsAJAX {
 
             foreach ($types_to_query as $type) {
                 // Use saved limit for initial load, 100 for search
-                $per_page = $is_searching ? 100 : $limits[$type];
+                $per_page = $is_searching ? 100 : ($limits[$type] ?? 20);
 
                 $args = [
                     'post_type'      => $type,
@@ -66,6 +102,9 @@ class PagesPostsAJAX {
                     'post_status'    => 'publish',
                     'orderby'        => 'title',
                     'order'          => 'ASC',
+                    'no_found_rows'          => true,
+                    'update_post_meta_cache' => false,
+                    'update_post_term_cache' => false,
                 ];
 
                 if ($search) {
@@ -76,13 +115,17 @@ class PagesPostsAJAX {
 
                 if ($query->have_posts()) {
                     foreach ($query->posts as $post) {
+                        $type_obj   = get_post_type_object($type);
+                        $type_label = $type_obj ? $type_obj->labels->singular_name : ucfirst($type);
                         $label = $show_type_prefix
-                            ? '[' . ucfirst($type) . '] ' . sanitize_text_field($post->post_title)
+                            ? '[' . $type_label . '] ' . sanitize_text_field($post->post_title)
                             : sanitize_text_field($post->post_title);
 
                         $items[] = [
                             'value' => (string)$post->ID,
                             'label' => $label,
+                            'title' => sanitize_text_field($post->post_title),
+                            'type'  => $type,
                         ];
                     }
                 }
@@ -98,6 +141,7 @@ class PagesPostsAJAX {
                 'success' => true,
                 'data'    => $items,
                 'total'   => count($items),
+                'post_types' => $post_type_map,
             ]);
             wp_die();
 

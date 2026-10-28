@@ -957,6 +957,8 @@ class PopupCampaign {
 		$array_fields = array(
 			'_wphash_popup_target_page_ids',
 			'_wphash_popup_exclude_page_ids',
+			'_wphash_popup_target_post_types',
+			'_wphash_popup_exclude_post_types',
 			'_wphash_popup_target_devices',
 			'_wphash_popup_form_fields',
 			'_wphash_popup_spinwheel_segments',
@@ -1030,6 +1032,8 @@ class PopupCampaign {
 		$array_fields = array(
 			'_wphash_popup_target_page_ids',
 			'_wphash_popup_exclude_page_ids',
+			'_wphash_popup_target_post_types',
+			'_wphash_popup_exclude_post_types',
 			'_wphash_popup_target_devices',
 			'_wphash_popup_form_fields',
 			'_wphash_popup_spinwheel_segments',

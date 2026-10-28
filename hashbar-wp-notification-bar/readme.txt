@@ -3,7 +3,7 @@ Contributors: devitemsllc, htplugins, hasthemes, zenaulislam, aslamhasib, yeasin
 Tags: notification bar, popup, announcement bar, lead capture, countdown timer
 Requires at least: 5.3
 Tested up to: 7.1
-Stable tag: 2.0.5
+Stable tag: 2.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,7 +29,7 @@ https://www.youtube.com/watch?v=wLIydNL3Ei4
 * 📊 **A/B Testing** - Test multiple variations to find the winning design
 * 🎬 **15 Smooth Animations** - Multiple entry and exit animation options
 * 📈 **Comprehensive Analytics** - Track impressions, clicks, conversions, and CTR
-* 🎯 **Smart Targeting** - Display based on pages, devices, countries, and user behavior
+* 🎯 **Smart Targeting** - Display based on pages, posts, custom post types, devices, countries, and user behavior
 * ⏱️ **Countdown Timers** - Fixed, recurring, or evergreen timers for urgency
 * 📝 **Lead Capture Forms** - 11 field types with FREE Mailchimp integration
 * ⚡ **8 Smart Triggers** - Exit intent, scroll depth, time delay, and more
@@ -300,6 +300,8 @@ Show your bars and popups to the right audience.
 * ✅ All Pages
 * ✅ Homepage Only
 * ✅ Specific Pages/Posts
+* ✅ Custom Post Type Support - Pick a post type (Pages, Posts, Products free; other custom post types in Pro), then choose the posts to show on or exclude
+* ✅ "All" Option - Target or exclude an entire post type (e.g. All Pages, All Products), including posts added later
 * ✅ All Except Excluded
 
 **📱 Device Targeting:**
@@ -545,6 +547,10 @@ Yes! Built-in analytics tracks impressions, clicks, CTR, and conversions.
 
 Yes! Target specific products, categories, or shop pages. Coupons can auto-apply to cart.
 
+= Can I target custom post types? =
+
+Yes! In the Targeting tab, choose one or more post types, then select the posts of each type to show on or exclude. You can also pick "All" (for example "All Products") to cover every post of that type, including ones published later. Pages, Posts and Products are included in the free version; other custom post types are available in Pro.
+
 = Is WPML supported? =
 
 Yes! Full WPML compatibility for multilingual sites.
@@ -584,6 +590,12 @@ Yes! 30-day money-back guarantee on Pro purchases.
 11. **A/B Testing & Analytics** - Compare variants, split traffic, and pick a winner automatically
 
 == Changelog ==
+
+= Version: 2.0.6 - Date: 28 Oct 2026 =
+* Added: Custom post type support in Page Targeting: choose post types in the Targeting tab of Announcement Bars and Popup Campaigns, then pick the posts of each type to show on or exclude. Pages, Posts and Products are included in the free version; other custom post types are available in Pro.
+* Added: "All" option in Page Targeting (for example "All Pages" or "All Posts") to show on or exclude an entire post type, including posts created later.
+* Improved: Page Targeting now has a separate list for each post type, loads a type's posts only when it is chosen, and shows the titles of already selected items.
+* Improved: Faster page/post search in the Targeting tab with fewer database queries.
 
 = Version: 2.0.5 - Date: 13 Oct 2026 =
 * Added: A few more fonts in the Font Family list for Notification Bars and Popup Campaigns.
