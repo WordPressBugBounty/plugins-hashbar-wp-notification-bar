@@ -3,7 +3,7 @@ Contributors: devitemsllc, htplugins, hasthemes, zenaulislam, aslamhasib, yeasin
 Tags: notification bar, popup, announcement bar, lead capture, countdown timer
 Requires at least: 5.3
 Tested up to: 7.1
-Stable tag: 2.0.6
+Stable tag: 2.0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -590,6 +590,12 @@ Yes! 30-day money-back guarantee on Pro purchases.
 11. **A/B Testing & Analytics** - Compare variants, split traffic, and pick a winner automatically
 
 == Changelog ==
+
+= Version: 2.0.7 - Date: 17 Nov 2026 =
+* Fixed: Duplicated Popup Campaigns not appearing on the site after clicking Publish in the editor. They only appeared after switching back to Draft and publishing again.
+* Fixed: Announcement Bars and Popup Campaigns saved as Draft not appearing on the site after clicking Publish in the editor.
+* Fixed: Duplicating a Popup Campaign could corrupt some of its settings, such as targeting lists and padding.
+* Tested: Compatibility with the latest version of WordPress.
 
 = Version: 2.0.6 - Date: 28 Oct 2026 =
 * Added: Custom post type support in Page Targeting: choose post types in the Targeting tab of Announcement Bars and Popup Campaigns, then pick the posts of each type to show on or exclude. Pages, Posts and Products are included in the free version; other custom post types are available in Pro.

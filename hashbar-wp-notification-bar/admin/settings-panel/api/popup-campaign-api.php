@@ -485,12 +485,25 @@ class PopupCampaign {
 				);
 			}
 
-			// Copy all post meta
-			$post_metas = get_post_meta( $post_id );
-			foreach ( $post_metas as $meta_key => $meta_values ) {
-				foreach ( $meta_values as $meta_value ) {
-					add_post_meta( $new_post_id, $meta_key, maybe_unserialize( $meta_value ) );
+			// Copy all post meta as raw rows (bypass add_post_meta/maybe_serialize).
+			// get_post_meta() returns stored values as-is (e.g. a serialized array
+			// string); passing that back through add_post_meta() would serialize it a
+			// second time and corrupt array meta such as targeting lists and padding.
+			global $wpdb;
+			$skip_meta_keys = array( '_edit_lock', '_edit_last' );
+			$meta_rows      = $wpdb->get_results( $wpdb->prepare( "SELECT meta_key, meta_value FROM {$wpdb->postmeta} WHERE post_id = %d", $post_id ) );
+			foreach ( $meta_rows as $meta_row ) {
+				if ( in_array( $meta_row->meta_key, $skip_meta_keys, true ) ) {
+					continue;
 				}
+				$wpdb->insert(
+					$wpdb->postmeta,
+					array(
+						'post_id'    => $new_post_id,
+						'meta_key'   => $meta_row->meta_key,
+						'meta_value' => $meta_row->meta_value,
+					)
+				);
 			}
 
 			// Set status to inactive for the duplicate
@@ -973,6 +986,13 @@ class PopupCampaign {
 		);
 
 		foreach ( $meta_data as $key => $value ) {
+			// Status meta is derived from post_status by the create/update handlers.
+			// The editor echoes back the value it loaded, which can be stale (e.g. a
+			// duplicate starts as 'inactive') and would override the status just set.
+			if ( '_wphash_popup_status' === $key ) {
+				continue;
+			}
+
 			// Handle boolean values
 			if ( is_bool( $value ) ) {
 				$value = $value ? '1' : '0';

@@ -186,6 +186,20 @@ class ChangeLog extends WP_REST_Controller {
     private function get_changelog_data() {
         return [
             [
+                'version' => '2.0.7',
+                'date'    => '2026-11-17',
+                'changes' => [
+                    'Fixed' => [
+                        'Duplicated Popup Campaigns not appearing on the site after clicking Publish in the editor. They only appeared after switching back to Draft and publishing again.',
+                        'Announcement Bars and Popup Campaigns saved as Draft not appearing on the site after clicking Publish in the editor.',
+                        'Duplicating a Popup Campaign could corrupt some of its settings, such as targeting lists and padding.',
+                    ],
+                    'Tested' => [
+                        'Compatibility with the latest version of WordPress.',
+                    ],
+                ],
+            ],
+            [
                 'version' => '2.0.6',
                 'date'    => '2026-10-28',
                 'changes' => [

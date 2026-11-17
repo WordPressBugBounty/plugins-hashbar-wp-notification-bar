@@ -261,6 +261,11 @@ class AnnouncementBar {
 			$meta_data = $request->get_param('meta');
 				if (is_array($meta_data)) {
 				foreach ($meta_data as $key => $value) {
+					// Status meta is derived from post_status above; the editor echoes back
+					// the value it loaded, which can be stale and would override it.
+					if ('_wphash_ab_status' === $key) {
+						continue;
+					}
 					// Handle boolean values
 					if (is_bool($value)) {
 						$value = $value ? '1' : '0';
@@ -340,6 +345,11 @@ class AnnouncementBar {
 			$meta_data = $request->get_param('meta');
 			if (is_array($meta_data)) {
 				foreach ($meta_data as $key => $value) {
+					// Status meta is derived from post_status above; the editor echoes back
+					// the value it loaded, which can be stale and would override it.
+					if ('_wphash_ab_status' === $key) {
+						continue;
+					}
 					// Handle boolean values
 					if (is_bool($value)) {
 						$value = $value ? '1' : '0';
